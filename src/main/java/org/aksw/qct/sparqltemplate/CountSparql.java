@@ -1,13 +1,7 @@
 package org.aksw.qct.sparqltemplate;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
-import org.aksw.qct.CallSpotlight;
-import org.aksw.qct.QctTemplate;
-import org.aksw.qct.WordNetSynonyms;
+import java.util.*;
+import org.aksw.qct.*;
 import org.aksw.qct.jena.CountJena;
 import org.aksw.qct.jena.Jena;
 

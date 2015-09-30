@@ -1,9 +1,6 @@
+/*
 package org.aksw.qct;
-import net.sf.extjwnl.JWNLException;
-import net.sf.extjwnl.JWNLIOException;
-import net.sf.extjwnl.data.IndexWord;
-import net.sf.extjwnl.data.POS;
-import net.sf.extjwnl.dictionary.Dictionary;
+import net.sf.extjwnl.data.Synset;
 
 
 public class TryWordNet {
@@ -27,5 +24,4 @@ public class TryWordNet {
 		
 		}
 	}
-
-
+*/

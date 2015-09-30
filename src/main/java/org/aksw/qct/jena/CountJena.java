@@ -2,11 +2,7 @@ package org.aksw.qct.jena;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.*;
 
 public class CountJena {
 
