@@ -35,7 +35,7 @@ public class XofyJena {
 		for(String temp="";count>0;count--)	{ 
 			temp=possibleMatch.get(count-1).toString();
 			//System.out.println(temp.toString());
-			ArrayList<String> aList= new ArrayList<String>(Arrays.asList(temp.split("/")));
+			ArrayList<String> aList= new ArrayList<>(Arrays.asList(temp.split("/")));
 			i=aList.size();
 			//System.out.println(aList.get(i-2).toString()+count);
 			if (aList.get(i-2).equals("ontology"))
@@ -82,7 +82,7 @@ public class XofyJena {
 		for(String temp="";count>0;count--)	{ 
 			temp=possibleMatch.get(count-1).toString();
 			//System.out.println(temp.toString());
-			ArrayList<String> aList= new ArrayList<String>(Arrays.asList(temp.split("/")));
+			ArrayList<String> aList= new ArrayList<>(Arrays.asList(temp.split("/")));
 			i=aList.size();
 			//System.out.println(aList.get(i-2).toString()+count);
 			if (aList.get(i-2).equals("ontology"))
@@ -134,7 +134,7 @@ public class XofyJena {
 		for(String temp="";count>0;count--)	{ 
 			temp=possibleMatch.get(count-1).toString();
 			//System.out.println(temp.toString());
-			ArrayList<String> aList= new ArrayList<String>(Arrays.asList(temp.split("/")));
+			ArrayList<String> aList= new ArrayList<>(Arrays.asList(temp.split("/")));
 			i=aList.size();
 			//System.out.println(aList.get(i-2).toString()+count);
 			if (aList.get(i-2).equals("ontology"))

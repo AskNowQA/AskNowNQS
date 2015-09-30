@@ -1,18 +1,13 @@
 package org.aksw.qct.jena;
 
 import java.util.ArrayList;
+import org.apache.jena.query.*;
 
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
-
-
-public class Jena {
+public class SimpleJena {
 
 	public static ArrayList<String> getDbProperty(String input){ 
 
-		ArrayList<String> ResourceResults = new ArrayList<String>();//stores all properties from dbp related to QCT's INPUT
+		ArrayList<String> ResourceResults = new ArrayList<>();//stores all properties from dbp related to QCT's INPUT
 
 		//dbpedia spotlight
 
@@ -52,7 +47,7 @@ public class Jena {
 
 	public static ArrayList<String> getDbPropertyValues(String input){ 
 
-		ArrayList<String> ResourceResults = new ArrayList<String>();//stores all properties from dbp related to QCT's INPUT
+		ArrayList<String> ResourceResults = new ArrayList<>();//stores all properties from dbp related to QCT's INPUT
 
 		//dbpedia spotlight
 

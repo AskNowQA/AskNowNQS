@@ -1,11 +1,11 @@
-package org.aksw.qct;
+package org.aksw.qct.util;
 import java.net.*;
 import java.util.HashSet;
 import java.io.*;
-public class BOAcall {
+public class Boa {
 
 	public static HashSet<String> getBoaEquivalent(String property) throws Exception{
-		HashSet<String> boaSet = new HashSet<String>();
+		HashSet<String> boaSet = new HashSet<>();
 		URL oracle = new URL("http://linkedspending.aksw.org/solr/en_boa/select?q=nlr-no-var%3A"+property+"&wt=json&indent=true");
         URLConnection yc = oracle.openConnection();
         

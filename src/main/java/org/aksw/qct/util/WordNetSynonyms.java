@@ -1,15 +1,9 @@
-package org.aksw.qct;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+package org.aksw.qct.util;
+import java.util.*;
 import java.util.stream.Collectors;
-
 import net.sf.extjwnl.JWNLException;
-import net.sf.extjwnl.data.IndexWord;
-import net.sf.extjwnl.data.POS;
-import net.sf.extjwnl.data.Synset;
+import net.sf.extjwnl.data.*;
 import net.sf.extjwnl.dictionary.Dictionary;
-
 
 /**
  *
@@ -31,7 +25,7 @@ public class WordNetSynonyms
 			if (args1.equals("")){
 				args1="source";}
 			//				
-			Set<String> SetOfSynonyms = new HashSet<String>();
+			Set<String> SetOfSynonyms = new HashSet<>();
 
 			//	WordNetDatabase database = WordNetDatabase.getFileInstance();
 			IndexWord iw = d.getIndexWord(POS.NOUN, args1);

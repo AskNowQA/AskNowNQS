@@ -1,72 +1,16 @@
 package org.aksw.qct;
 
-import java.io.File;
+import lombok.RequiredArgsConstructor;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
+@RequiredArgsConstructor
 public class QctTemplate {
-	String nlQuery ="";
-	String keyword ="";
-	String qct ="";
-	String queryid ="";
+	
+	public final String nlQuery;
+	public final String qct;
+	public final String queryid;
 	public CharSequence getDesireBrackets;
 
-	public static void main(String[] args) {
-
-		QctTemplate q1 = new QctTemplate();
-		System.out.println(q1.getAll());
-
-	}
-
-
-
-
-
-
-	QctTemplate(){
-
-		try {
-
-			File fXmlFile = new File("C:/Users/Mohnish/Dropbox/QA/asknow/src/main/java/org/aksw/qct/QctPool.xml");
-
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(fXmlFile);
-			doc.getDocumentElement().normalize();
-
-			//System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-
-			NodeList nList = doc.getElementsByTagName("Query");
-
-			//System.out.println("----------------------------");
-
-			for (int temp = 0; temp < nList.getLength(); temp++) {
-
-				Node nNode = nList.item(temp);
-
-				System.out.println("\nCurrent Element :" + nNode.getNodeName());
-
-				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-
-					Element eElement = (Element) nNode;
-
-					queryid = eElement.getAttribute("id");
-					nlQuery = eElement.getElementsByTagName("NLquery").item(0).getTextContent();
-					keyword = eElement.getElementsByTagName("Keywords").item(0).getTextContent();
-					qct = eElement.getElementsByTagName("QCT").item(0).getTextContent();
-
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 //-----------------------------------------------------------------------//
 	public String getConcepts(){
 		String temp = qct;
@@ -88,17 +32,6 @@ public class QctTemplate {
 		
 	}
 //-----------------------------------------------------------------------//
-	public String getNLQuery(){
-		return nlQuery;
-	}
-
-	public String getKeyword(){
-		return keyword;
-	}
-
-	public String getQCT(){
-		return qct;
-	}
 
 	public String getDesire(){
 		String temp;
@@ -126,7 +59,7 @@ public class QctTemplate {
 	}
 
 	public String getAll(){
-		return nlQuery + "\n" + keyword + "\n" + qct;
+		return nlQuery + "\n" + qct;
 	}
 
 	public String getAllInputs(){

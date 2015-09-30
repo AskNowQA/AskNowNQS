@@ -31,7 +31,7 @@ public class CountJena {
 		for(String temp="";count>0;count--)	{ 
 			temp=possibleMatch.get(count-1).toString();
 			//System.out.println(temp.toString());
-			ArrayList<String> aList= new ArrayList<String>(Arrays.asList(temp.split("/")));
+			ArrayList<String> aList= new ArrayList<>(Arrays.asList(temp.split("/")));
 			i=aList.size();
 			//System.out.println(aList.get(i-2).toString()+count);
 			if (aList.get(i-2).equals("ontology"))
@@ -39,26 +39,26 @@ public class CountJena {
 			else if (aList.get(i-2).equals("property"))
 				dbpProTag="dbp";
 			dbpPro=aList.get(i-1).toString();
-			 pattern1 = "SELECT DISTINCT ?num " 
-						+"WHERE {" 
-						+"res:"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num ." 
-						+"}";
+			pattern1 = "SELECT DISTINCT ?num " 
+					+"WHERE {" 
+					+"res:"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num ." 
+					+"}";
 			query1=sparqlHeader +pattern1;
 			System.out.println(query1);
-			QueryExecution e=QueryExecutionFactory.sparqlService(service1, query1);
-			ResultSet rs=e.execSelect();
-			while (rs.hasNext()) {
-						QuerySolution qs=rs.nextSolution();
-						System.out.println(qs);
-      							}
-
-
+			try(QueryExecution e=QueryExecutionFactory.sparqlService(service1, query1))
+			{
+				ResultSet rs=e.execSelect();
+				while (rs.hasNext()) {
+					QuerySolution qs=rs.nextSolution();
+					System.out.println(qs);
+				}
+			}
 		}
-		
+
 	}
 
 	public static void pattern2(ArrayList<String> possibleMatch, String dbpRes) {
-		
+
 
 		String dbpPro = null;
 		String dbpProTag = null;
@@ -78,7 +78,7 @@ public class CountJena {
 		for(String temp="";count>0;count--)	{ 
 			temp=possibleMatch.get(count-1).toString();
 			//System.out.println(temp.toString());
-			ArrayList<String> aList= new ArrayList<String>(Arrays.asList(temp.split("/")));
+			ArrayList<String> aList= new ArrayList<>(Arrays.asList(temp.split("/")));
 			i=aList.size();
 			//System.out.println(aList.get(i-2).toString()+count);
 			if (aList.get(i-2).equals("ontology"))
@@ -86,33 +86,33 @@ public class CountJena {
 			else if (aList.get(i-2).equals("property"))
 				dbpProTag="dbp";
 			dbpPro=aList.get(i-1).toString();
-			 String res = "res";
+			String res = "res";
 			pattern1 = "SELECT COUNT ( DISTINCT ?num) " 
-						+"WHERE {" 
-						+"{ ?num "+res+":"+dbpRes+" "+dbpProTag+":"+dbpPro+" .}"
-						+" UNION "
-						+"{ ?num "+dbpProTag+":"+dbpPro+" "+res+":"+dbpRes+" .}"
-						+" UNION "
-						+"{ "+res+":"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num .}"
-						+"}"; 
-			 
-			 
+					+"WHERE {" 
+					+"{ ?num "+res+":"+dbpRes+" "+dbpProTag+":"+dbpPro+" .}"
+					+" UNION "
+					+"{ ?num "+dbpProTag+":"+dbpPro+" "+res+":"+dbpRes+" .}"
+					+" UNION "
+					+"{ "+res+":"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num .}"
+					+"}"; 
+
+
 			query1=sparqlHeader +pattern1;
 			System.out.println(query1);
 			QueryExecution e=QueryExecutionFactory.sparqlService(service1, query1);
 			ResultSet rs=e.execSelect();
 			while (rs.hasNext()) {
-						QuerySolution qs=rs.nextSolution();
-						System.out.println(qs);
-      							}
+				QuerySolution qs=rs.nextSolution();
+				System.out.println(qs);
+			}
 
 
 		}
-		
-	
-		
+
+
+
 	}
 
-	
+
 
 }

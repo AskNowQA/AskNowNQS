@@ -1,3 +1,4 @@
+package org.aksw.qct.test;
 //package org.aksw.qct;
 //
 //import net.sf.extjwnl.JWNLException;

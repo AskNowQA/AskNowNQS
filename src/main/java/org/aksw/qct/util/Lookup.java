@@ -1,7 +1,7 @@
-package org.aksw.qct;
+package org.aksw.qct.util;
 import java.net.*;
 import java.io.*;
-public class CallLookup {
+public class Lookup {
 
 	public static String getDBpLookup(String argument) throws Exception{
 		URL oracle = new URL("http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&QueryString="+argument);

@@ -1,7 +1,8 @@
-package org.aksw.qct;
-import java.net.*;
+package org.aksw.qct.util;
 import java.io.*;
-public class CallSpotlight {
+import java.net.*;
+import org.aksw.qct.test.TrySpotlightLink;
+public class Spotlight {
 
 	public static String getDBpLookup(String argument1) {
 		String DBpEquivalent="";
@@ -9,7 +10,6 @@ public class CallSpotlight {
 		try
 		{   
 			URL oracle = new URL("http://spotlight.sztaki.hu:2222/rest/annotate?text="+argument);
-			System.out.println("http://spotlight.sztaki.hu:2222/rest/annotate?text="+argument);
 			//URL oracle = new URL("http://spotlight.dbpedia.org/rest/annotate?text="+argument);
 			try
 			{
@@ -36,7 +36,7 @@ public class CallSpotlight {
 								return getEntity(DBpEquivalent);
 							}
 							else
-								DBpEquivalent = CallLookup.getDBpLookup(argument);
+								DBpEquivalent = Lookup.getDBpLookup(argument);
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

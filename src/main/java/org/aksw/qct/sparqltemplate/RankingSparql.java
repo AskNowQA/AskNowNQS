@@ -1,12 +1,9 @@
 package org.aksw.qct.sparqltemplate;
 
 import java.util.ArrayList;
-
-import org.aksw.qct.CallSpotlight;
 import org.aksw.qct.QctTemplate;
-import org.aksw.qct.jena.CountJena;
-import org.aksw.qct.jena.Jena;
 import org.aksw.qct.jena.RankingJena;
+import org.aksw.qct.util.Spotlight;
 
 public class RankingSparql {
 
@@ -14,15 +11,15 @@ public class RankingSparql {
 		
 		if(q1.getDesire().contains("DataProperty (Person)")){
 			
-			dbpRes1 = CallSpotlight.getDBpLookup(cleanEntry(q1.getInput()));
+			dbpRes1 = Spotlight.getDBpLookup(cleanEntry(q1.getInput()));
 			dbpRes2= "Person";
 		}
 		else {
-			dbpRes1 = CallSpotlight.getDBpLookup(cleanEntry(q1.getInput()));
+			dbpRes1 = Spotlight.getDBpLookup(cleanEntry(q1.getInput()));
 			dbpRes2 = cleanEntry(q1.getDesire());
 					dbpRes2 = dbpRes2.substring(0, 1).toUpperCase() + dbpRes2.substring(1);
 		}
-		dbpParameter = findParameter(q1.getNLQuery()); 
+		dbpParameter = findParameter(q1.nlQuery); 
 		
 		RankingJena.pattern1(dbpRes1, dbpRes2, dbpParameter, topfirst);
 		
@@ -96,15 +93,15 @@ public class RankingSparql {
 		return temp.trim();
 	}
 
-	ArrayList<String> ResourceResults = new ArrayList<String>();
-	ArrayList<String> PossibleMatch = new ArrayList<String>();
+	ArrayList<String> ResourceResults = new ArrayList<>();
+	ArrayList<String> PossibleMatch = new ArrayList<>();
 
 	String dbpRes1;
 	String dbpRes2;
 	String dbpParameter;
 	Boolean topfirst = true;
 	
-	CallSpotlight sp1 = new CallSpotlight();
+	Spotlight sp1 = new Spotlight();
 
 
 }

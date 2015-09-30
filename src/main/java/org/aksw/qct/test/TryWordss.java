@@ -1,9 +1,6 @@
-package org.aksw.qct;
-
-import java.io.FileInputStream;
+package org.aksw.qct.test;
 
 import net.sf.extjwnl.JWNLException;
-import net.sf.extjwnl.JWNLIOException;
 import net.sf.extjwnl.data.IndexWord;
 import net.sf.extjwnl.data.POS;
 import net.sf.extjwnl.dictionary.Dictionary;

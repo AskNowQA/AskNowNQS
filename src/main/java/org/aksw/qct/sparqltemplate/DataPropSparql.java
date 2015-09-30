@@ -9,8 +9,8 @@ public class DataPropSparql {
 
 	 ArrayList<String> getDataProperty(String desire, String r2, ArrayList<String> resourceResults) {
 		// TODO Auto-generated method stub
-		ArrayList<String> PossibleMatch  = new ArrayList<String>();
-		ArrayList<String> DesireList = new ArrayList<String>();
+		ArrayList<String> PossibleMatch  = new ArrayList<>();
+		ArrayList<String> DesireList = new ArrayList<>();
 		Dictionary1 Dict = new Dictionary1();
 		DesireList = Dict.getDesire(desire, r2);
 		System.out.println("ckp2");

@@ -1,15 +1,26 @@
 package org.aksw.qct.sparqltemplate;
 
 import java.util.*;
-import org.aksw.qct.*;
+import org.aksw.qct.QctTemplate;
 import org.aksw.qct.jena.CountJena;
-import org.aksw.qct.jena.Jena;
+import org.aksw.qct.jena.SimpleJena;
+import org.aksw.qct.util.Spotlight;
+import org.aksw.qct.util.WordNetSynonyms;
 
 public class CountSparql {
 
+	ArrayList<String> ResourceResults = new ArrayList<>();
+	ArrayList<String> PossibleMatch = new ArrayList<>();
+	
+	String dbpRes;
+	String dbpResTag;
+	String dbpPro;
+	String dbpProTag;
+	Spotlight sp1 = new Spotlight();
+
 	public CountSparql(QctTemplate q1) {
-		dbpRes = CallSpotlight.getDBpLookup(q1.getInput());
-		ResourceResults = Jena.getDbProperty(dbpRes);
+		dbpRes = Spotlight.getDBpLookup(q1.getInput());
+		ResourceResults = SimpleJena.getDbProperty(dbpRes);
 		System.out.println("kjfjg   "+ResourceResults.toString());
 
 		int possibleMatchSize=0;
@@ -34,9 +45,8 @@ public class CountSparql {
 									}
 				}
 		else if (possibleMatchSize==0){
-			WordNetSynonyms instance = new WordNetSynonyms();
-			Set<String> SynonymsWord1 = new HashSet<String>();
-			SynonymsWord1 = instance.getSynonyms(q1.getDesireBrackets());
+			Set<String> SynonymsWord1 = new HashSet<>();
+			SynonymsWord1 = WordNetSynonyms.getSynonyms(q1.getDesireBrackets());
 			System.out.println(SynonymsWord1);
 			
 			String tempDesire;			// create an iterator	
@@ -52,24 +62,6 @@ public class CountSparql {
 				}
 			    CountJena.pattern2(PossibleMatch,dbpRes);
 			
-			}
-		
-		
-		
-	
-	}
-
-	ArrayList<String> ResourceResults = new ArrayList<String>();
-	ArrayList<String> PossibleMatch = new ArrayList<String>();
-	
-	String dbpRes;
-	String dbpResTag;
-	String dbpPro;
-	String dbpProTag;
-	CallSpotlight sp1 = new CallSpotlight();
-	
-			
-	
-	
-	
+			}	
+	}	
 }

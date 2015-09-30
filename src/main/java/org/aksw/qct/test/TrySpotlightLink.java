@@ -1,4 +1,4 @@
-package org.aksw.qct;
+package org.aksw.qct.test;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
