@@ -35,6 +35,7 @@ public static void main(String[] args) {
 	System.out.println(wh+ r1+ desire+ r2+ input);
 	
 	input =CallSpotlight.getDBpLookup(input);
+	System.out.println("checklookdbpedia");
 	
 	
 	System.out.println(wh+" "+r1+" "+desire+" "+r2+" "+input);

@@ -16,10 +16,10 @@ public class CountSparql {
 	public CountSparql(QctTemplate q1) {
 		dbpRes = CallSpotlight.getDBpLookup(q1.getInput());
 		ResourceResults = Jena.getDbProperty(dbpRes);
-		
+		System.out.println("kjfjg   "+ResourceResults.toString());
 
 		int possibleMatchSize=0;
-		for (String string : ResourceResults) {
+		/*for (String string : ResourceResults) {
 				if((string.toLowerCase().contains("number"))||(string.toLowerCase().contains("num"))||(string.toLowerCase().contains("total"))){
 					PossibleMatch.add(string); 
 					possibleMatchSize++;
@@ -27,10 +27,13 @@ public class CountSparql {
 					}
 	
 			}
+			*/
 		///----------------------------------
 		if (possibleMatchSize==0){
 			for (String string : ResourceResults) {
+				
 				if(string.toLowerCase().contains(q1.getDesireBrackets())){
+					System.out.println(q1.getDesireBrackets()+";;;");
 					PossibleMatch.add(string); possibleMatchSize++;
 					CountJena.pattern2(PossibleMatch,dbpRes);
 											}

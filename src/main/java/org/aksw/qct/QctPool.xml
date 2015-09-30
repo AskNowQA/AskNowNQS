@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QALD5>
-
-<Qid>1</Qid>
-<NLquery>How many employees does Google have?</NLquery>
-<Keywords> Google, employees</Keywords>
-<QCT>[WH] = How many, [R1] = , [D] = count(employees), [R2] = does have, [I] = Google]</QCT>
-
+<Query id="50">
+<NLquery>Who is the tallest basketball player?</NLquery>
+<Keywords>tallest,  basketball player</Keywords>
+<QCT>[WH] = Who, [R1] = is, [D] =  DataProperty (Person), [R2] = , [I] = the  tallest basketballplayer,</QCT>
+</Query>
 </QALD5>

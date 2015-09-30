@@ -90,12 +90,14 @@ public class CountJena {
 			else if (aList.get(i-2).equals("property"))
 				dbpProTag="dbp";
 			dbpPro=aList.get(i-1).toString();
-			 String res = null;
+			 String res = "res";
 			pattern1 = "SELECT COUNT ( DISTINCT ?num) " 
 						+"WHERE {" 
-						+"{ ? num "+res+":"+dbpRes+" "+dbpProTag+":"+dbpPro+" .}"
+						+"{ ?num "+res+":"+dbpRes+" "+dbpProTag+":"+dbpPro+" .}"
 						+" UNION "
-						+"{ ? num "+dbpProTag+":"+dbpPro+" "+res+":"+dbpRes+" .}"
+						+"{ ?num "+dbpProTag+":"+dbpPro+" "+res+":"+dbpRes+" .}"
+						+" UNION "
+						+"{ "+res+":"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num .}"
 						+"}"; 
 			 
 			 
