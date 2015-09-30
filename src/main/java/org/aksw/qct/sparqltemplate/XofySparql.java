@@ -1,14 +1,14 @@
 package org.aksw.qct.sparqltemplate;
 
 import java.util.*;
-import org.aksw.qct.QctTemplate;
+import org.aksw.qct.Template;
 import org.aksw.qct.jena.*;
 import org.aksw.qct.util.Spotlight;
 import org.aksw.qct.util.WordNetSynonyms;
 
 public class XofySparql {
 
-	public XofySparql(QctTemplate q1) {
+	public XofySparql(Template q1) {
 		dbpRes = Spotlight.getDBpLookup(q1.getInput());
 		
 		ResourceResults = SimpleJena.getDbProperty(dbpRes);

@@ -1,9 +1,6 @@
 package org.aksw.qct.jena;
 
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.*;
 
 public class JenaList {
 
@@ -13,7 +10,7 @@ public class JenaList {
 			+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 			+ "PREFIX res: <http://dbpedia.org/resource/> ";
 
-	public static void query1(String dbpRes1,String dbpRes2){//,String dbpResTag1,String dbpResTag2){
+	public static ResultSet execute(String dbpRes1,String dbpRes2){
 		String pattern1 = sparqlHeader
 				+"SELECT DISTINCT ?uri " 
 				+"WHERE {" 
@@ -27,13 +24,6 @@ public class JenaList {
 		QueryExecution e=QueryExecutionFactory.sparqlService(service1, pattern1);
 		System.out.println("cp1");
 		System.out.println(e.execSelect().toString());
-		ResultSet rs=e.execSelect();
-		System.out.println("cp2");
-		while (rs.hasNext()) {
-			System.out.println("cp\3");
-			QuerySolution qs=rs.nextSolution();
-			System.out.println(qs);
-		}
+		return e.execSelect();
 	}
 }
-

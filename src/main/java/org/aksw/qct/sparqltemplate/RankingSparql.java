@@ -1,13 +1,13 @@
 package org.aksw.qct.sparqltemplate;
 
 import java.util.ArrayList;
-import org.aksw.qct.QctTemplate;
+import org.aksw.qct.Template;
 import org.aksw.qct.jena.RankingJena;
 import org.aksw.qct.util.Spotlight;
 
 public class RankingSparql {
 
-	public RankingSparql(QctTemplate q1) {
+	public RankingSparql(Template q1) {
 		
 		if(q1.getDesire().contains("DataProperty (Person)")){
 			

@@ -10,9 +10,6 @@ public class SimpleJena {
 		ArrayList<String> ResourceResults = new ArrayList<>();//stores all properties from dbp related to QCT's INPUT
 
 		//dbpedia spotlight
-
-
-
 		String service = "http://dbpedia.org/sparql";
 		String query = "PREFIX dbo: <http://dbpedia.org/ontology/>" 
 				+"PREFIX yago: <http://dbpedia.org/class/yago/> "
@@ -86,5 +83,3 @@ public class SimpleJena {
 	
 	
 }
-
-

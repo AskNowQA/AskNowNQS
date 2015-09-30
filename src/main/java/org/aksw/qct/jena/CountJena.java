@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import org.apache.jena.query.*;
 
-public class CountJena {
+public class CountJena{
 
 	static String sparqlHeader ="PREFIX dbo: <http://dbpedia.org/ontology/>" 
 			+ "PREFIX yago: <http://dbpedia.org/class/yago/> "
@@ -12,7 +12,7 @@ public class CountJena {
 			+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 			+ "PREFIX res: <http://dbpedia.org/resource/> ";
 
-	public static void pattern1(ArrayList<String> possibleMatch, String dbpRes) {
+	public static ResultSet pattern1(ArrayList<String> possibleMatch, String dbpRes) {
 		String dbpPro = null;
 		String dbpProTag = null;
 		String pattern1 = "SELECT DISTINCT ?num" 
@@ -47,19 +47,13 @@ public class CountJena {
 			System.out.println(query1);
 			try(QueryExecution e=QueryExecutionFactory.sparqlService(service1, query1))
 			{
-				ResultSet rs=e.execSelect();
-				while (rs.hasNext()) {
-					QuerySolution qs=rs.nextSolution();
-					System.out.println(qs);
-				}
+				return e.execSelect();
 			}
 		}
-
+		throw new IllegalArgumentException("no match for a count query with pattern 1");
 	}
 
-	public static void pattern2(ArrayList<String> possibleMatch, String dbpRes) {
-
-
+	public static ResultSet pattern2(ArrayList<String> possibleMatch, String dbpRes) {
 		String dbpPro = null;
 		String dbpProTag = null;
 		String pattern1 = "SELECT COUNT ( DISTINCT ?num) " 
@@ -99,20 +93,10 @@ public class CountJena {
 
 			query1=sparqlHeader +pattern1;
 			System.out.println(query1);
-			QueryExecution e=QueryExecutionFactory.sparqlService(service1, query1);
-			ResultSet rs=e.execSelect();
-			while (rs.hasNext()) {
-				QuerySolution qs=rs.nextSolution();
-				System.out.println(qs);
-			}
-
-
+			try(QueryExecution e=QueryExecutionFactory.sparqlService(service1, query1))
+			{return e.execSelect();}
 		}
-
-
-
+		throw new IllegalArgumentException("no match for a count query with pattern 2");
 	}
-
-
 
 }

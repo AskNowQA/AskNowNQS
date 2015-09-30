@@ -20,6 +20,7 @@ public class XmlUtil
 	    }
 	    catch(Exception ex)
 	    {
+	    	ex.printStackTrace();
 	        return false;
 	    }
 	}

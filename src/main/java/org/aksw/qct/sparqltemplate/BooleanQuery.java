@@ -1,36 +1,42 @@
 package org.aksw.qct.sparqltemplate;
 
 import java.util.ArrayList;
-import org.aksw.qct.QctTemplate;
+import org.aksw.qct.Template;
 import org.aksw.qct.jena.SimpleJena;
 import org.aksw.qct.util.Spotlight;
+import org.apache.commons.lang3.NotImplementedException;
+import org.apache.jena.query.ResultSet;
 
-public class BooleanSparql {
+public class BooleanQuery implements SparqlQuery{
 
-	final String dbpRes1;
-	final String dbpRes2;
-	final String prop1;
-	final String prop2;
-	final ArrayList<String> ResourceResults1;
-	final ArrayList<String> PossibleMatch1;
-	final ArrayList<String> ResourceResults2;
-	final ArrayList<String> PossibleMatch2;
-	
-	public BooleanSparql(QctTemplate q1) {
+	private BooleanQuery() {}
+	public static final BooleanQuery INSTANCE = new BooleanQuery();
+
+	private String cleanConcept(String tempConcept) {
+		tempConcept = tempConcept.replace(" a ", ",").trim();
+		tempConcept = tempConcept.replace(", , ", ",").trim();
+		tempConcept = tempConcept.replace(",,", ",").trim();
+
+		return tempConcept;
+	}
+
+	@Override public ResultSet execute(Template t)
+	{
+		if(1==1) throw new NotImplementedException("does not conform to interface, needs to be changed");
 		ArrayList<String> ResourceResults = new ArrayList<>();
-		String tempConcept = q1.getConcepts();
+		String tempConcept = t.getConcepts();
 		tempConcept = cleanConcept(tempConcept);
 		System.out.println(tempConcept);
 		String[] parts = tempConcept.split(",");
 		System.out.println(parts[0]);
-		if(q1.getRoles().contains("than")){
-			System.out.println(q1.getRoles());
+		if(t.getRoles().contains("than")){
+			System.out.println(t.getRoles());
 		
 		}//compare boolean
 		
 		else{
 			System.out.println("is-atypeOfsubset boolean");
-			dbpRes1 = Spotlight.getDBpLookup(parts[0]);
+			String dbpRes1 = Spotlight.getDBpLookup(parts[0]);
 			System.out.println("value bahi"+dbpRes1);
 			ResourceResults = SimpleJena.getDbProperty(dbpRes1);
 			for (String string : ResourceResults) {
@@ -44,25 +50,8 @@ public class BooleanSparql {
 					System.out.println("TRUE");break;
 					}
 				}
-
-
 		}
-
+		return null;
 	}
-
-
-
-
-	private String cleanConcept(String tempConcept) {
-		tempConcept = tempConcept.replace(" a ", ",").trim();
-		tempConcept = tempConcept.replace(", , ", ",").trim();
-		tempConcept = tempConcept.replace(",,", ",").trim();
-
-		return tempConcept;
-	}
-
-
-
-
 
 }

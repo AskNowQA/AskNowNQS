@@ -1,15 +1,15 @@
 package org.aksw.qct;
 
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 @RequiredArgsConstructor
-public class QctTemplate {
+@ToString
+public class Template {
 	
 	public final String nlQuery;
 	public final String qct;
 	public final String queryid;
-	public CharSequence getDesireBrackets;
-
 	
 //-----------------------------------------------------------------------//
 	public String getConcepts(){
@@ -54,7 +54,7 @@ public class QctTemplate {
 	public String getInput(){
 		String temp;
 		temp = qct.substring(qct.indexOf("[I] =")+5);
-		temp = temp.substring(0, temp.indexOf(","));
+		temp = temp.substring(0, (temp+",").indexOf(","));
 		return temp.trim();
 	}
 

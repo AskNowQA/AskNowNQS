@@ -1,25 +1,24 @@
 package org.aksw.qct.sparqltemplate;
 
 import java.util.*;
-import org.aksw.qct.QctTemplate;
+import org.aksw.qct.Template;
 import org.aksw.qct.jena.CountJena;
 import org.aksw.qct.jena.SimpleJena;
 import org.aksw.qct.util.Spotlight;
 import org.aksw.qct.util.WordNetSynonyms;
+import org.apache.commons.lang3.NotImplementedException;
+import org.apache.jena.query.ResultSet;
 
-public class CountSparql {
-
-	ArrayList<String> ResourceResults = new ArrayList<>();
-	ArrayList<String> PossibleMatch = new ArrayList<>();
+public class CountQuery implements SparqlQuery{
 	
-	String dbpRes;
-	String dbpResTag;
-	String dbpPro;
-	String dbpProTag;
-	Spotlight sp1 = new Spotlight();
+	private CountQuery() {}
+	public static final CountQuery INSTANCE = new CountQuery();
 
-	public CountSparql(QctTemplate q1) {
-		dbpRes = Spotlight.getDBpLookup(q1.getInput());
+	@Override public ResultSet execute(Template t) {
+		ArrayList<String> ResourceResults = new ArrayList<>();
+		ArrayList<String> PossibleMatch = new ArrayList<>();
+		
+		String dbpRes = Spotlight.getDBpLookup(t.getInput());
 		ResourceResults = SimpleJena.getDbProperty(dbpRes);
 		System.out.println("kjfjg   "+ResourceResults.toString());
 
@@ -37,16 +36,16 @@ public class CountSparql {
 		if (possibleMatchSize==0){
 			for (String string : ResourceResults) {
 				
-				if(string.toLowerCase().contains(q1.getDesireBrackets())){
-					System.out.println(q1.getDesireBrackets()+";;;");
+				if(string.toLowerCase().contains(t.getDesireBrackets())){
+					System.out.println(t.getDesireBrackets()+";;;");
 					PossibleMatch.add(string); possibleMatchSize++;
-					CountJena.pattern2(PossibleMatch,dbpRes);
+					return CountJena.pattern2(PossibleMatch,dbpRes);
 											}
 									}
 				}
 		else if (possibleMatchSize==0){
 			Set<String> SynonymsWord1 = new HashSet<>();
-			SynonymsWord1 = WordNetSynonyms.getSynonyms(q1.getDesireBrackets());
+			SynonymsWord1 = WordNetSynonyms.getSynonyms(t.getDesireBrackets());
 			System.out.println(SynonymsWord1);
 			
 			String tempDesire;			// create an iterator	
@@ -60,8 +59,8 @@ public class CountSparql {
 												}
 										}
 				}
-			    CountJena.pattern2(PossibleMatch,dbpRes);
-			
-			}	
-	}	
+			    return CountJena.pattern2(PossibleMatch,dbpRes);	
+			}
+		throw new NotImplementedException("no pattern found for count query");
+	}
 }
