@@ -36,4 +36,7 @@ public class Dbpedia
 		try(QueryEngineHTTP qe = new QueryEngineHTTP(endpoint, query))
 		{return qe.execAsk();}
 	}
+	
+	
+	
 }

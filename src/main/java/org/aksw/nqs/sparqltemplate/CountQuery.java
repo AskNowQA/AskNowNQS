@@ -3,7 +3,7 @@ package org.aksw.nqs.sparqltemplate;
 import java.util.*;
 import org.aksw.nqs.Template;
 import org.aksw.nqs.jena.CountJena;
-import org.aksw.nqs.jena.SimpleJena;
+import org.aksw.nqs.jena.PropertyValue;
 import org.aksw.nqs.util.Spotlight;
 import org.aksw.nqs.util.WordNetSynonyms;
 import org.apache.commons.lang3.NotImplementedException;
@@ -19,7 +19,7 @@ public class CountQuery implements SparqlQuery{
 		ArrayList<String> PossibleMatch = new ArrayList<>();
 		
 		String dbpRes = Spotlight.getDBpLookup(t.getInput());
-		ResourceResults = SimpleJena.getDbProperty(dbpRes);
+		ResourceResults = PropertyValue.getProperties(dbpRes);
 		System.out.println("kjfjg   "+ResourceResults.toString());
 
 		int possibleMatchSize=0;

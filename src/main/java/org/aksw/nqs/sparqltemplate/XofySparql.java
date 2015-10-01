@@ -11,7 +11,7 @@ public class XofySparql {
 	public XofySparql(Template q1) {
 		dbpRes = Spotlight.getDBpLookup(q1.getInput());
 		
-		ResourceResults = SimpleJena.getDbProperty(dbpRes);
+		ResourceResults = PropertyValue.getProperties(dbpRes);
 		System.out.println(ResourceResults.toString());
 		int possibleMatchSize = 0;
 		if(q1.getDesire().contains("DataProperty")){
