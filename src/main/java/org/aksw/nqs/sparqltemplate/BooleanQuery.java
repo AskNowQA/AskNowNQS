@@ -1,9 +1,9 @@
-package org.aksw.qct.sparqltemplate;
+package org.aksw.nqs.sparqltemplate;
 
 import java.util.ArrayList;
-import org.aksw.qct.Template;
-import org.aksw.qct.jena.SimpleJena;
-import org.aksw.qct.util.Spotlight;
+import org.aksw.nqs.Template;
+import org.aksw.nqs.jena.SimpleJena;
+import org.aksw.nqs.util.Spotlight;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.jena.query.ResultSet;
 

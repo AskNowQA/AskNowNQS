@@ -2,6 +2,7 @@ package org.aksw.qct.util;
 
 import static org.junit.Assert.assertEquals;
 import java.net.MalformedURLException;
+import org.aksw.nqs.util.Spotlight;
 import org.junit.Test;
 
 public class SpotlightTest

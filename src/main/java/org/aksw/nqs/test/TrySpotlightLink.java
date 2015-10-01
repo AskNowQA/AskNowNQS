@@ -1,4 +1,4 @@
-package org.aksw.qct.test;
+package org.aksw.nqs.test;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,40 +19,40 @@ public class TrySpotlightLink {
 	
 	public static String getDbpEntity(String entity){
 		//case1 resource
-		String url;
+		String uri;
 		entity=entity.trim();
 		entity = entity.replaceAll(" ", "_");
 				
-		url = checkRes(entity.substring(0, entity.length()-2));
-		if (!url.contains("pageNotFound"))
+		uri = checkRes(entity.substring(0, entity.length()-2));
+		if (!uri.contains("pageNotFound"))
 		{
-			return url;
+			return uri;
 		}
-		url =checkOntology(entity);
-		if (!url.contains("pageNotFound"))
+		uri =checkOntology(entity);
+		if (!uri.contains("pageNotFound"))
 		{
-			return url;
+			return uri;
 		}
-		url = checkRes(entity);
-		if (!url.contains("pageNotFound"))
+		uri = checkRes(entity);
+		if (!uri.contains("pageNotFound"))
 		{
-			return url;
+			return uri;
 		}
-		url =checkOntology(entity);
-		if (!url.contains("pageNotFound"))
+		uri =checkOntology(entity);
+		if (!uri.contains("pageNotFound"))
 		{
-			return url;
+			return uri;
 		}
 		entity = entity.substring(0, 1).toUpperCase() + entity.substring(1);
-		url = checkRes(entity);
-		if (!url.contains("pageNotFound"))
+		uri = checkRes(entity);
+		if (!uri.contains("pageNotFound"))
 		{
-			return url;
+			return uri;
 		}
-		url =checkOntology(entity);
-		if (!url.contains("pageNotFound"))
+		uri =checkOntology(entity);
+		if (!uri.contains("pageNotFound"))
 		{
-			return url;
+			return uri;
 		}
 		
 		return "notFound";
@@ -60,11 +60,11 @@ public class TrySpotlightLink {
 	public static String checkRes(String entity){
 		
 		try {
-		    URL url = new URL("http://dbpedia.org/page/"+entity);
-		    URLConnection conn = url.openConnection();
+		    URL uri = new URL("http://dbpedia.org/page/"+entity);
+		    URLConnection conn = uri.openConnection();
 		   // conn.connect();
 		  
-		    URLConnection yc = url.openConnection();
+		    URLConnection yc = uri.openConnection();
 		    
 		    try(BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream())))
 			{
@@ -72,7 +72,7 @@ public class TrySpotlightLink {
 				if (temppage.contains("No further information is available. (The requested entity is unknown)"))
 					return ("pageNotFound"); 
 				else
-					return url.toString();
+					return uri.toString();
 
 			}
 		    
@@ -93,11 +93,11 @@ public class TrySpotlightLink {
 public static String checkOntology(String entity){
 		
 		try {
-		    URL url = new URL("http://dbpedia.org/ontology/"+entity);
-		    URLConnection conn = url.openConnection();
+		    URL uri = new URL("http://dbpedia.org/ontology/"+entity);
+		    URLConnection conn = uri.openConnection();
 		   // conn.connect();
 		  
-		    URLConnection yc = url.openConnection();
+		    URLConnection yc = uri.openConnection();
 		    
 		    try(BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream())))
 			{
@@ -105,7 +105,7 @@ public static String checkOntology(String entity){
 				if (temppage.contains("No further information is available. (The requested entity is unknown)"))
 					return ("pageNotFound"); 
 				else
-					return "PageFound"+url;
+					return "PageFound"+uri;
 
 			}
 		    
@@ -136,18 +136,18 @@ public static String checkOntology(String entity){
 	/*	
 		try
 		{
-			URL url = new URL("http://dbpedia.org/page/"+entity);
+			URL uri = new URL("http://dbpedia.org/page/"+entity);
 			//URL oracle = new URL("http://spotlight.dbpedia.org/rest/annotate?text="+argument);
 			try
 			{
-				URLConnection yc = url.openConnection();
+				URLConnection yc = uri.openConnection();
 				try(BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream())))
 				{
 					String temppage =in.toString();
 					if (temppage.contains("No further information is available. (The requested entity is unknown)"))
-						System.out.println("pageNotFound"+url);
+						System.out.println("pageNotFound"+uri);
 					else
-						System.out.println("PageFound"+url);
+						System.out.println("PageFound"+uri);
 
 				}
 			} catch(IOException e) {System.out.println("helo"); throw new RuntimeException(e);}

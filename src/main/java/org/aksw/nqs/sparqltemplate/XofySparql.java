@@ -1,10 +1,10 @@
-package org.aksw.qct.sparqltemplate;
+package org.aksw.nqs.sparqltemplate;
 
 import java.util.*;
-import org.aksw.qct.Template;
-import org.aksw.qct.jena.*;
-import org.aksw.qct.util.Spotlight;
-import org.aksw.qct.util.WordNetSynonyms;
+import org.aksw.nqs.Template;
+import org.aksw.nqs.jena.*;
+import org.aksw.nqs.util.Spotlight;
+import org.aksw.nqs.util.WordNetSynonyms;
 
 public class XofySparql {
 

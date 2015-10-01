@@ -1,11 +1,11 @@
-package org.aksw.qct.sparqltemplate;
+package org.aksw.nqs.sparqltemplate;
 
 import java.util.*;
-import org.aksw.qct.Template;
-import org.aksw.qct.jena.CountJena;
-import org.aksw.qct.jena.SimpleJena;
-import org.aksw.qct.util.Spotlight;
-import org.aksw.qct.util.WordNetSynonyms;
+import org.aksw.nqs.Template;
+import org.aksw.nqs.jena.CountJena;
+import org.aksw.nqs.jena.SimpleJena;
+import org.aksw.nqs.util.Spotlight;
+import org.aksw.nqs.util.WordNetSynonyms;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.jena.query.ResultSet;
 
@@ -39,7 +39,7 @@ public class CountQuery implements SparqlQuery{
 				if(string.toLowerCase().contains(t.getDesireBrackets())){
 					System.out.println(t.getDesireBrackets()+";;;");
 					PossibleMatch.add(string); possibleMatchSize++;
-					return CountJena.pattern2(PossibleMatch,dbpRes);
+					return CountJena.execute(PossibleMatch,dbpRes);
 											}
 									}
 				}

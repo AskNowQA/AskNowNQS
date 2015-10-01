@@ -1,7 +1,7 @@
-package org.aksw.qct.util;
+package org.aksw.nqs.util;
 import java.io.*;
 import java.net.*;
-import org.aksw.qct.test.TrySpotlightLink;
+import org.aksw.nqs.test.TrySpotlightLink;
 public class Spotlight {
 
 	public static String getDBpLookup(String argument1) {

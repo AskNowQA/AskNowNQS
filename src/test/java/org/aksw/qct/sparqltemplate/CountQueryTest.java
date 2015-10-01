@@ -1,7 +1,8 @@
 package org.aksw.qct.sparqltemplate;
 
-import org.aksw.qct.Parser;
-import org.aksw.qct.Template;
+import org.aksw.nqs.Parser;
+import org.aksw.nqs.Template;
+import org.aksw.nqs.sparqltemplate.CountQuery;
 import org.apache.jena.query.ResultSet;
 import org.junit.Test;
 

@@ -1,11 +1,11 @@
-package org.aksw.qct;
+package org.aksw.nqs;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 import java.io.InputStream;
 import javax.xml.parsers.DocumentBuilderFactory;
-import org.aksw.qct.util.XmlUtil;
+import org.aksw.nqs.util.XmlUtil;
 import org.w3c.dom.*;
 import lombok.SneakyThrows;
 
@@ -15,7 +15,7 @@ public class Parser
 	public static List<Template> parse()
 	{
 		// TODO: change to inputstream
-		return parse(()->Parser.class.getClassLoader().getResourceAsStream("qctpool.xml"));
+		return parse(()->Parser.class.getClassLoader().getResourceAsStream("benchmark.xml"));
 	}
 
 	@SneakyThrows
@@ -27,7 +27,7 @@ public class Parser
 		Document doc;
 		doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(in.get());
 		doc.getDocumentElement().normalize();
-		if(!XmlUtil.validateAgainstXSD(in.get(), Parser.class.getClassLoader().getResourceAsStream("qct.xsd")))
+		if(!XmlUtil.validateAgainstXSD(in.get(), Parser.class.getClassLoader().getResourceAsStream("benchmark.xsd")))
 		{throw new IllegalArgumentException("QCT template file not valid against the XSD.");}
 
 		NodeList nList = doc.getElementsByTagName("Query");

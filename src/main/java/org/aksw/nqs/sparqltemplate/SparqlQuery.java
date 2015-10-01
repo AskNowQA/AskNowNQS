@@ -1,6 +1,6 @@
-package org.aksw.qct.sparqltemplate;
+package org.aksw.nqs.sparqltemplate;
 
-import org.aksw.qct.Template;
+import org.aksw.nqs.Template;
 import org.apache.jena.query.ResultSet;
 
 public interface SparqlQuery

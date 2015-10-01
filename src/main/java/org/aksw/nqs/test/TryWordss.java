@@ -1,4 +1,4 @@
-package org.aksw.qct.test;
+package org.aksw.nqs.test;
 
 import net.sf.extjwnl.JWNLException;
 import net.sf.extjwnl.data.IndexWord;

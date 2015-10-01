@@ -1,4 +1,4 @@
-package org.aksw.qct.jena;
+package org.aksw.nqs.jena;
 
 import java.util.ArrayList;
 import java.util.Arrays;

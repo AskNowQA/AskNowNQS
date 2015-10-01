@@ -1,8 +1,7 @@
-package org.aksw.qct.sparqltemplate;
+package org.aksw.nqs.sparqltemplate;
 
 import java.util.ArrayList;
-
-import org.aksw.qct.Dictionary1;
+import org.aksw.nqs.Dictionary1;
 
 public class DataPropSparql {
 	

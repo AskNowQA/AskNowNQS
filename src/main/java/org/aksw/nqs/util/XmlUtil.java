@@ -1,4 +1,4 @@
-package org.aksw.qct.util;
+package org.aksw.nqs.util;
 
 import java.io.InputStream;
 import javax.xml.XMLConstants;

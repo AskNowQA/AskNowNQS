@@ -1,4 +1,4 @@
-package org.aksw.qct.util;
+package org.aksw.nqs.util;
 import java.net.*;
 import java.util.HashSet;
 import java.io.*;

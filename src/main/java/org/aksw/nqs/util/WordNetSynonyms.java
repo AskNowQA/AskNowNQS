@@ -1,4 +1,4 @@
-package org.aksw.qct.util;
+package org.aksw.nqs.util;
 import java.util.*;
 import java.util.stream.Collectors;
 import net.sf.extjwnl.JWNLException;

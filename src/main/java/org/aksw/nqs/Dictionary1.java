@@ -1,4 +1,4 @@
-package org.aksw.qct;
+package org.aksw.nqs;
 
 import java.util.ArrayList;
 //import java.util.Set;

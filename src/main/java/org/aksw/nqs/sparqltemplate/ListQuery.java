@@ -1,8 +1,8 @@
-package org.aksw.qct.sparqltemplate;
+package org.aksw.nqs.sparqltemplate;
 
-import org.aksw.qct.Template;
-import org.aksw.qct.jena.JenaList;
-import org.aksw.qct.util.Spotlight;
+import org.aksw.nqs.Template;
+import org.aksw.nqs.jena.JenaList;
+import org.aksw.nqs.util.Spotlight;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.jena.query.ResultSet;
 
