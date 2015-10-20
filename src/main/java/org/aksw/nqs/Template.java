@@ -6,22 +6,22 @@ import lombok.ToString;
 @RequiredArgsConstructor
 @ToString
 public class Template {
-	
+
 	public final String nlQuery;
 	public final String qct;
 	public final String queryid;
-	
-//-----------------------------------------------------------------------//
+
+	//-----------------------------------------------------------------------//
 	public String getConcepts(){
 		String temp = qct;
 
 		temp = temp.substring(qct.indexOf("[Concepts] = [")+14);//, qct.indexOf("]"));
-	
+
 		temp= temp.substring(0, temp.indexOf("]"));
 		System.out.println(temp);
-	
+
 		return temp;
-				
+
 	}
 	public String getRoles(){
 		String temp = qct;
@@ -29,9 +29,9 @@ public class Template {
 		temp= temp.substring(0, temp.indexOf("]"));
 		System.out.println(temp);
 		return temp;
-		
+
 	}
-//-----------------------------------------------------------------------//
+	//-----------------------------------------------------------------------//
 
 	public String getDesire(){
 		String temp;
@@ -67,13 +67,15 @@ public class Template {
 		if(qct.contains("[I]"))
 			return getInput();
 		else
-			{tempinput = qct.substring(qct.indexOf("[I1_1]"),qct.indexOf ("["));
+		{
+			tempinput = qct.substring(qct.indexOf("[I1_1]"),qct.indexOf ("["));
 			tempinput =tempinput +", "+ qct.substring(qct.indexOf("[I1_2]"),qct.indexOf ("["));
 			tempinput =tempinput +", "+ qct.substring(qct.indexOf("[I1_3]"),qct.indexOf ("["));
 			return tempinput;
-			}
+		}
 	}
-	public String getDesireBrackets() {
+	public String getDesireBrackets()
+	{
 		//[D] = count(languages)
 		String s1;
 		s1 = getDesire();
@@ -83,13 +85,4 @@ public class Template {
 		return s1.substring(i, j);
 	}
 
-	
-
-
-
-
-
-
-
 }
-
