@@ -1,7 +1,10 @@
 package org.aksw.nqs.util;
-import java.net.*;
 import java.util.HashSet;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+
 public class Boa {
 
 	public static HashSet<String> getBoaEquivalent(String property) throws Exception{
@@ -25,5 +28,4 @@ public class Boa {
         
 		return boaSet;
 	}
-   public static void main(String[] args) throws Exception { System.out.println(getBoaEquivalent("winner").toString());    }
 }

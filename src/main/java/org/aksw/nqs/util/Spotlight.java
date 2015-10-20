@@ -22,14 +22,14 @@ public class Spotlight {
 						if(inputLine.contains("href=")){
 							inputLine= inputLine.replace("<a href=\"", "");
 							inputLine= inputLine.substring(0, inputLine.indexOf('\"'));
-							System.out.println(inputLine+":::");
+//							System.out.println(inputLine+":::");
 							DBpEquivalent=inputLine;
 							//break;
 						}
 					}
-					System.out.println("\n value="+DBpEquivalent);
+//					System.out.println("\n value="+DBpEquivalent);
 					if (DBpEquivalent == "")
-						{System.out.println("blank");
+						{System.err.println("blank");
 						try {
 							DBpEquivalent=TrySpotlightLink.getDbpEntity(argument1);
 							if(!DBpEquivalent.contains("notFound")){
@@ -43,6 +43,7 @@ public class Spotlight {
 						}
 						
 						}
+				
 					return getEntity(DBpEquivalent);
 				}
 			} catch(IOException e) {throw new RuntimeException(e);}
@@ -52,8 +53,5 @@ public class Spotlight {
 	public static String getEntity (String uriStirng){
 			return uriStirng.substring(uriStirng.lastIndexOf('/')+1);		 
 	}
-
-	public static void main(String[] args) throws Exception { System.out.println(getDBpLookup("h"));  }
-	
 
 }

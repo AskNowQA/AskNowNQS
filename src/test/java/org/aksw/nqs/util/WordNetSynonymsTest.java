@@ -6,10 +6,9 @@ import org.junit.Test;
 
 public class WordNetSynonymsTest
 {
-
 	@Test public void test()
 	{
-		assertTrue(WordNetSynonyms.getSynonyms("study").contains(Arrays.asList("study", "work", "subject")));
+		System.out.println(WordNetSynonyms.getSynonyms("study"));
+		assertTrue(WordNetSynonyms.getSynonyms("study").containsAll(Arrays.asList("study", "work", "subject")));
 	}
-
 }

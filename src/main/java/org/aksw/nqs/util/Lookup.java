@@ -1,9 +1,14 @@
 package org.aksw.nqs.util;
-import java.net.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import lombok.SneakyThrows;
+
 public class Lookup {
 
-	public static String getDBpLookup(String argument) throws Exception{
+	@SneakyThrows
+	public static String getDBpLookup(String argument){
 		URL oracle = new URL("http://lookup.dbpedia.org/api/search/KeywordSearch?QueryClass=place&QueryString="+argument);
         URLConnection yc = oracle.openConnection();
         BufferedReader in = new BufferedReader(new InputStreamReader(
@@ -13,16 +18,11 @@ public class Lookup {
             if(inputLine.contains("<URI>")){
             	inputLine= inputLine.replace("<URI>", "");
             	inputLine= inputLine.replace("</URI>", "");
-            	System.out.println(inputLine);
-            	DBpEquivalent=inputLine;
+            	DBpEquivalent=inputLine.trim();
             	break;}
         }
         in.close();
 		return DBpEquivalent;
 	}
 	
-    public static void main(String[] args) throws Exception {
-    	
-        System.out.println(getDBpLookup("Berlin"));
-    }
 }

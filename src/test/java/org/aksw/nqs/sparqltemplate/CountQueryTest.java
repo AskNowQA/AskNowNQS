@@ -1,4 +1,4 @@
-package org.aksw.qct.sparqltemplate;
+package org.aksw.nqs.sparqltemplate;
 
 import org.aksw.nqs.Parser;
 import org.aksw.nqs.Template;
