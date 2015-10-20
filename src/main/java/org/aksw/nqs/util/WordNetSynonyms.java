@@ -1,40 +1,34 @@
 package org.aksw.nqs.util;
 import java.util.*;
 import java.util.stream.Collectors;
+import lombok.SneakyThrows;
 import net.sf.extjwnl.JWNLException;
 import net.sf.extjwnl.data.*;
 import net.sf.extjwnl.dictionary.Dictionary;
 
-/**
- *
- */
+/** Returns wordnet synonyms from a local dictionary. **/
 public class WordNetSynonyms
 {
-	public static void main(String[] args) throws JWNLException{  
-		//missions
-		System.out.println(getSynonyms("study"));
-	}
-
-	public static Set<String> getSynonyms(String args1){
+	/** Returns wordnet synonyms from a local dictionary. **/
+	@SneakyThrows(JWNLException.class)
+	public static Set<String> getSynonyms(String args1)
+	{
 		Dictionary d = null;
-		try {
-
 			d	= Dictionary.getDefaultResourceInstance();
+			if (args1.isEmpty()) {args1="source";}
 
-
-			if (args1.equals("")){
-				args1="source";}
-			//				
-			Set<String> SetOfSynonyms = new HashSet<>();
+			Set<String> synonyms = new HashSet<>();
 
 			//	WordNetDatabase database = WordNetDatabase.getFileInstance();
 			IndexWord iw = d.getIndexWord(POS.NOUN, args1);
 			List<Synset> synsets = iw.getSenses();
 
-			if (!synsets.isEmpty())	{
-				System.out.println(":::::"+synsets.toString());
-				for (Synset synset: synsets ){
-					SetOfSynonyms.addAll(synset.getWords().stream().map(w->w.getLemma()).collect(Collectors.toSet()));
+			if (!synsets.isEmpty())
+			{
+				//				System.out.println(":::::"+synsets.toString());
+				for (Synset synset: synsets )
+				{
+					synonyms.addAll(synset.getWords().stream().map(w->w.getLemma()).collect(Collectors.toSet()));
 				}
 			}
 			else
@@ -42,11 +36,7 @@ public class WordNetSynonyms
 				System.err.println("No synsets exist that contain " +
 						"the word form '" + args1 + "'");
 			}
-
-			return SetOfSynonyms;
-
-		} catch (JWNLException e) {
-			throw new RuntimeException(e);
-		}
+			return synonyms;
 	}
+	
 }
