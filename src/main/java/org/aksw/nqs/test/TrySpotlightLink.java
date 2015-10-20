@@ -16,7 +16,6 @@ public class TrySpotlightLink {
 
 	}
 	
-	
 	public static String getDbpEntity(String entity){
 		//case1 resource
 		String uri;
@@ -61,9 +60,6 @@ public class TrySpotlightLink {
 		
 		try {
 		    URL uri = new URL("http://dbpedia.org/page/"+entity);
-		    URLConnection conn = uri.openConnection();
-		   // conn.connect();
-		  
 		    URLConnection yc = uri.openConnection();
 		    
 		    try(BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream())))
@@ -73,7 +69,6 @@ public class TrySpotlightLink {
 					return ("pageNotFound"); 
 				else
 					return uri.toString();
-
 			}
 		    
 		    
@@ -84,19 +79,12 @@ public class TrySpotlightLink {
 			return ("pageNotFound");
 		}
 		return null;
-		
-		
-		
-		
 	}
 	
 public static String checkOntology(String entity){
 		
 		try {
 		    URL uri = new URL("http://dbpedia.org/ontology/"+entity);
-		    URLConnection conn = uri.openConnection();
-		   // conn.connect();
-		  
 		    URLConnection yc = uri.openConnection();
 		    
 		    try(BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream())))
@@ -106,9 +94,7 @@ public static String checkOntology(String entity){
 					return ("pageNotFound"); 
 				else
 					return "PageFound"+uri;
-
 			}
-		    
 		    
 		} catch (MalformedURLException e) {
 		    System.out.println(" the URL is not in a valid form");
@@ -117,9 +103,6 @@ public static String checkOntology(String entity){
 			return ("pageNotFound");
 		}
 		return null;
-		
-		
-		
 		
 	}
 	

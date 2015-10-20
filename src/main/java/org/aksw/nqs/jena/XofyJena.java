@@ -1,11 +1,8 @@
 package org.aksw.nqs.jena;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
@@ -70,8 +67,6 @@ public class XofyJena {
 				+"}"; 
 
 
-		int count =properties.size();
-		//String varible1="";//dbo:capital
 		String service1="http://dbpedia.org/sparql"; 
 		String query1="";
 
@@ -122,8 +117,7 @@ public class XofyJena {
 				+"}"; 
 
 
-		int count =properties.size();
-		//String varible1="";//dbo:capital
+		
 		String service1="http://dbpedia.org/sparql"; 
 		String query1="";
 

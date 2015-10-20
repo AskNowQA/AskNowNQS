@@ -5,9 +5,9 @@ import org.aksw.nqs.Template;
 import org.aksw.nqs.jena.RankingJena;
 import org.aksw.nqs.util.Spotlight;
 
-public class RankingSparql {
+public class RankingQuery {
 
-	public RankingSparql(Template q1) {
+	public RankingQuery(Template q1) {
 		
 		if(q1.getDesire().contains("DataProperty (Person)")){
 			

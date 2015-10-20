@@ -6,9 +6,9 @@ import org.aksw.nqs.jena.*;
 import org.aksw.nqs.util.Spotlight;
 import org.aksw.nqs.util.WordNetSynonyms;
 
-public class XofySparql {
+public class XofyQuery {
 
-	public XofySparql(Template q1) {
+	public XofyQuery(Template q1) {
 		Set<String> properties = new HashSet<>();
 		Set<String> possibleMatches = new HashSet<>();
 
