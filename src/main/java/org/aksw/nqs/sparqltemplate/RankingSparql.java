@@ -21,8 +21,7 @@ public class RankingSparql {
 		}
 		dbpParameter = findParameter(q1.nlQuery); 
 		
-		RankingJena.pattern1(dbpRes1, dbpRes2, dbpParameter, topfirst);
-		
+		RankingJena.execute(dbpRes1, dbpRes2, dbpParameter, true);		
 	}
 		/*
 			ResourceResults = Jena.getDbProperty(dbpRes1);

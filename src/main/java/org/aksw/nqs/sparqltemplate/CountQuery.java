@@ -9,41 +9,46 @@ import org.aksw.nqs.util.WordNetSynonyms;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.jena.query.ResultSet;
 
+/**
+ * Does Numeric and Count queries.
+ * Numeric - Already aggregated.
+ * Count - Uses SPARQL count to aggregate.
+ * 
+ * Is a singleton.
+ */
 public class CountQuery implements SparqlQuery{
 	
 	private CountQuery() {}
 	public static final CountQuery INSTANCE = new CountQuery();
 
+	/* (non-Javadoc)
+	 * @see org.aksw.nqs.sparqltemplate.SparqlQuery#execute(org.aksw.nqs.Template)
+	 */
 	@Override public ResultSet execute(Template t) {
-		ArrayList<String> ResourceResults = new ArrayList<>();
-		ArrayList<String> PossibleMatch = new ArrayList<>();
+		
+		Set<String> properties = new HashSet<>();
+		Set<String> possibleMatches = new HashSet<>();
 		
 		String dbpRes = Spotlight.getDBpLookup(t.getInput());
-		ResourceResults = PropertyValue.getProperties(dbpRes);
-		System.out.println("kjfjg   "+ResourceResults.toString());
+		properties = PropertyValue.getProperties(dbpRes);
+		System.out.println(properties);
 
 		int possibleMatchSize=0;
-		/*for (String string : ResourceResults) {
-				if((string.toLowerCase().contains("number"))||(string.toLowerCase().contains("num"))||(string.toLowerCase().contains("total"))){
-					PossibleMatch.add(string); 
-					possibleMatchSize++;
-					CountJena.pattern1(PossibleMatch,dbpRes);
-					}
-	
-			}
-			*/
-		///----------------------------------
-		if (possibleMatchSize==0){
-			for (String string : ResourceResults) {
+			
+			for (String prop : properties) {
 				
-				if(string.toLowerCase().contains(t.getDesireBrackets())){
+				if(prop.toLowerCase().contains(t.getDesireBrackets())){
 					System.out.println(t.getDesireBrackets()+";;;");
-					PossibleMatch.add(string); possibleMatchSize++;
-					return CountJena.execute(PossibleMatch,dbpRes);
+					possibleMatches.add(prop); possibleMatchSize++;
+					
+					//Property value is assumed to be number. 
+					//Full-match between properties and Desire.
+					return CountJena.execute(possibleMatches,dbpRes,true);
+					
 											}
 									}
-				}
-		else if (possibleMatchSize==0){
+				
+			if (possibleMatchSize==0){
 			Set<String> SynonymsWord1 = new HashSet<>();
 			SynonymsWord1 = WordNetSynonyms.getSynonyms(t.getDesireBrackets());
 			System.out.println(SynonymsWord1);
@@ -52,14 +57,15 @@ public class CountQuery implements SparqlQuery{
 			Iterator<String> iterator =  SynonymsWord1.iterator();
 			    while (iterator.hasNext()){
 				   	tempDesire=iterator.next();
-					for (String string : ResourceResults) {
+					for (String string : properties) {
 						
 						if(string.toLowerCase().contains(tempDesire.toLowerCase())){
-							PossibleMatch.add(string);
+							possibleMatches.add(string);
 												}
 										}
 				}
-			    return CountJena.pattern2(PossibleMatch,dbpRes);	
+			 
+			    return CountJena.execute(possibleMatches,dbpRes,true);	
 			}
 		throw new NotImplementedException("no pattern found for count query");
 	}

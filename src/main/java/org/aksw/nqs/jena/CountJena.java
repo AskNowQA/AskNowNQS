@@ -7,7 +7,13 @@ public class CountJena {
 
 	private CountJena() {} // only static methods
 
-	public static ResultSet execute(ArrayList<String> candidateUris, String dbpRes,boolean isNumber)
+	/**
+	 * @param candidateUris 
+	 * @param dbp Res KB (DBpedia) resources
+	 * @param isNumber
+	 * @return
+	 */
+	public static ResultSet execute(Set<String> candidateUris, String dbpRes,boolean isNumber)
 	{
 		for(String uri: candidateUris)
 		{
@@ -16,7 +22,7 @@ public class CountJena {
 			
 			String dbpPro =uriParts.get(size-1);
 			String tag = Dbpedia.tag(uri);
-			if(isNumber)
+			if(!isNumber)
 			{
 				return Dbpedia.select(
 			"SELECT COUNT ( DISTINCT ?num) " 

@@ -1,6 +1,8 @@
 package org.aksw.nqs.sparqltemplate;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.aksw.nqs.Template;
 import org.aksw.nqs.jena.PropertyValue;
 import org.aksw.nqs.util.Spotlight;
@@ -23,7 +25,7 @@ public class BooleanQuery implements SparqlQuery{
 	@Override public ResultSet execute(Template t)
 	{
 		if(1==1) throw new NotImplementedException("does not conform to interface, needs to be changed");
-		ArrayList<String> ResourceResults = new ArrayList<>();
+		Set<String> properties = new HashSet<>();
 		String tempConcept = t.getConcepts();
 		tempConcept = cleanConcept(tempConcept);
 		System.out.println(tempConcept);
@@ -38,15 +40,15 @@ public class BooleanQuery implements SparqlQuery{
 			System.out.println("is-atypeOfsubset boolean");
 			String dbpRes1 = Spotlight.getDBpLookup(parts[0]);
 			System.out.println("value bahi"+dbpRes1);
-			ResourceResults = PropertyValue.getProperties(dbpRes1);
-			for (String string : ResourceResults) {
-				if(string.toLowerCase().contains(parts[parts.length -1].trim())){
+			properties = PropertyValue.getProperties(dbpRes1);
+			for (String prop : properties) {
+				if(prop.toLowerCase().contains(parts[parts.length -1].trim())){
 					System.out.println("TRUE");
 					}
 				}
-			ResourceResults = PropertyValue.getDbPropertyValues(dbpRes1);
-			for (String string : ResourceResults) {
-				if(string.toLowerCase().contains(parts[1].trim().toLowerCase().replaceAll(" ", ""))){
+			properties = PropertyValue.getValues(dbpRes1);
+			for (String prop : properties) {
+				if(prop.toLowerCase().contains(parts[1].trim().toLowerCase().replaceAll(" ", ""))){
 					System.out.println("TRUE");break;
 					}
 				}

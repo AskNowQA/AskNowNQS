@@ -9,21 +9,24 @@ import org.aksw.nqs.util.WordNetSynonyms;
 public class XofySparql {
 
 	public XofySparql(Template q1) {
+		Set<String> properties = new HashSet<>();
+		Set<String> possibleMatches = new HashSet<>();
+
 		dbpRes = Spotlight.getDBpLookup(q1.getInput());
 		
-		ResourceResults = PropertyValue.getProperties(dbpRes);
-		System.out.println(ResourceResults.toString());
+		properties = PropertyValue.getProperties(dbpRes);
+		System.out.println(properties.toString());
 		int possibleMatchSize = 0;
 		if(q1.getDesire().contains("DataProperty")){
 			System.out.println(q1.getDesireBrackets()+";;;;;;");
-			for (String string : ResourceResults) {
+			for (String string : properties) {
 				if(string.toLowerCase().contains(q1.getDesireBrackets())){
-					PossibleMatch.add(string); possibleMatchSize++;System.out.println("...."+string);
+					possibleMatches.add(string); possibleMatchSize++;System.out.println("...."+string);
 					if(q1.nlQuery.contains(" of ")){
-						XofyJena.pattern3(PossibleMatch,dbpRes);//property of resourse
+						XofyJena.pattern3(possibleMatches,dbpRes);//property of resourse
 					}
 					else{						
-						XofyJena.pattern2(PossibleMatch,dbpRes);//TODO update
+						XofyJena.pattern2(possibleMatches,dbpRes);//TODO update
 					}
 				}
 			}
@@ -32,26 +35,26 @@ public class XofySparql {
 		{
 			
 			if (possibleMatchSize==0){
-				for (String string : ResourceResults) {
+				for (String string : properties) {
 					System.out.println("looking for:"+q1.getDesire());
 					//System.out.println(string +" : "+q1.getDesire());
 					if(string.toLowerCase().contains(q1.getDesire())){
-						PossibleMatch.add(string); possibleMatchSize++;System.out.println("KK"+string);
+						possibleMatches.add(string); possibleMatchSize++;System.out.println("KK"+string);
 						if(q1.nlQuery.contains(" of ")||q1.nlQuery.contains("In ")){
-							XofyJena.pattern3(PossibleMatch,dbpRes);//property of resourse
+							XofyJena.pattern3(possibleMatches,dbpRes);//property of resourse
 						}
 						else{	System.out.println("patren2Xofy");					
-							XofyJena.pattern2(PossibleMatch,dbpRes);//TODO update
+							XofyJena.pattern2(possibleMatches,dbpRes);//TODO update
 						}
 					}
 					
 					else if(string.toLowerCase().contains(q1.getRelation2())){
-						PossibleMatch.add(string); possibleMatchSize++;System.out.println("rel"+string);
+						possibleMatches.add(string); possibleMatchSize++;System.out.println("rel"+string);
 						if(q1.nlQuery.contains(" of ")||q1.nlQuery.contains("In ")){
-							XofyJena.pattern3(PossibleMatch,dbpRes);//property of resourse
+							XofyJena.pattern3(possibleMatches,dbpRes);//property of resourse
 						}
 						else{	System.out.println("patren2Xofy");					
-							XofyJena.pattern2(PossibleMatch,dbpRes);//TODO update
+							XofyJena.pattern2(possibleMatches,dbpRes);//TODO update
 						}
 					}
 					
@@ -65,10 +68,10 @@ public class XofySparql {
 			}
 			else if (possibleMatchSize==0){
 			
-				for (String string : ResourceResults) {
+				for (String string : properties) {
 					if((string.toLowerCase().contains(q1.getRelation2()))&&(!q1.getRelation2().equals("of"))){
-						PossibleMatch.add(string); possibleMatchSize++;System.out.println("lll"+string);
-						CountJena.pattern2(PossibleMatch,dbpRes);//TODO update
+						possibleMatches.add(string); possibleMatchSize++;System.out.println("lll"+string);
+						CountJena.execute(possibleMatches,dbpRes,false);//TODO update
 					}
 				}
 			}
@@ -85,23 +88,21 @@ public class XofySparql {
 				Iterator<String> iterator =  SynonymsWord1.iterator();
 				while (iterator.hasNext()){
 					tempDesire=iterator.next();
-					for (String string : ResourceResults) {
+					for (String string : properties) {
 
 						if(string.toLowerCase().contains(tempDesire.toLowerCase())){
-							PossibleMatch.add(string);
+							possibleMatches.add(string);
 						}
 					}
 				}
-				XofyJena.pattern3(PossibleMatch,dbpRes);//TODO update
+				XofyJena.pattern3(possibleMatches,dbpRes);//TODO update
 			}
 		}
 
 	}
 
 
-	ArrayList<String> ResourceResults = new ArrayList<>();
-	ArrayList<String> PossibleMatch = new ArrayList<>();
-
+	
 	String dbpRes;
 	String dbpResTag;
 	String dbpPro;
