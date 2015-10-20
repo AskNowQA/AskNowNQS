@@ -4,6 +4,7 @@ import java.util.Set;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 
+/** Provides utility methods to fetch properties and values (objects) for resources in the KB */
 public class PropertyValue {
 
 	private static Set<String> getDbp(String resource, String variable){ 
@@ -19,11 +20,18 @@ public class PropertyValue {
 		return properties;
 	}
 
-
+	/**
+	 * @param resource uri in the knowledge base
+	 * @return all properties of {@code resource} (all properties p for all triples (resource,p,o) in the kb)
+	 */
 	public static Set<String> getProperties(String resource){ 
 		return getDbp(resource, "property");
 	}
 	
+	/**
+	 * @param resource uri in the knowledge base
+	 * @return all values of {@code resource} (all values o for all triples (resource,p,o) in the kb)
+	 */
 	public static Set<String> getValues(String resource){ 
 		return getDbp(resource, "value");
 	}
