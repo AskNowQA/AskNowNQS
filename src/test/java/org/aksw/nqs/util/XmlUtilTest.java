@@ -1,6 +1,8 @@
 package org.aksw.nqs.util;
 
 import static org.junit.Assert.assertTrue;
+
+import org.aksw.asknow.util.XmlUtil;
 import org.junit.Test;
 
 public class XmlUtilTest

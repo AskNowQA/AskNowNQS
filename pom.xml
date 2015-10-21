@@ -50,7 +50,22 @@
 			<artifactId>extjwnl-data-wn31</artifactId>
 			<version>1.2</version>
 		</dependency>
-
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-corenlp</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>2.6.12</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-corenlp</artifactId>
+			<version>3.5.0</version>
+			<classifier>models</classifier>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.stanbol</groupId>
 			<artifactId>
