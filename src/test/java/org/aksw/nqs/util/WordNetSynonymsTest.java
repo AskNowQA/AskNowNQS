@@ -2,6 +2,8 @@ package org.aksw.nqs.util;
 
 import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
+
+import org.aksw.asknow.util.WordNetSynonyms;
 import org.junit.Test;
 
 public class WordNetSynonymsTest
