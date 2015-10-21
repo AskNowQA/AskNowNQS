@@ -3,26 +3,41 @@ package org.aksw.asknow.nqs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.HasWord;
 import edu.stanford.nlp.ling.TaggedWord;
+import edu.stanford.nlp.pipeline.Annotation;
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.tagger.maxent.MaxentTagger;
+import edu.stanford.nlp.util.CoreMap;
 
 public class PosTag { 
-	String sentence;
-	MaxentTagger tagger;
-
-	public PosTag(){
-		tagger = new MaxentTagger("stanford-postagger-2014-01-04/models/english-bidirectional-distsim.tagger"); 
+	
+	public PosTag(){}
+	
+	public String getTaggedSentence(String NLquery){
+		Properties props = new Properties();
+		props.setProperty("annotators","tokenize, ssplit, pos");
+		StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+		Annotation annotation = new Annotation(NLquery);
+		pipeline.annotate(annotation);
+		List<CoreMap> sentences = annotation.get(CoreAnnotations.SentencesAnnotation.class);
+		String taggedsentence = "";
+		for (CoreMap sentence : sentences) {
+			for (CoreLabel token: sentence.get(CoreAnnotations.TokensAnnotation.class)) {
+				String word = token.get(CoreAnnotations.TextAnnotation.class);
+				// this is the POS tag of the token
+				String pos = token.get(CoreAnnotations.PartOfSpeechAnnotation.class);
+				taggedsentence=taggedsentence+(word + "_" + pos+" ");
+			}
+		}
+		
+		return taggedsentence.trim();
 	}
 	
-	public String getTaggedSentence(String input){
-		return tagger.tagString(input);
-	}
-	
-	public List<TaggedWord> getTaggedWordsList(List<? extends HasWord> list){
-		return tagger.tagSentence(list);
-	}
 	
 	/*		TAGS:
 
@@ -62,7 +77,7 @@ public class PosTag {
 			WP Wh­pronoun
 			WP$ Possessive wh­pronoun
 			WRB Wh­adverb
-			
+
 //			http://stackoverflow.com/questions/1833252/java-stanford-nlp-part-of-speech-labels
 	 */
 }

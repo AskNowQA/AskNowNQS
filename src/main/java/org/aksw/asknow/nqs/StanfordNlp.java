@@ -1,4 +1,4 @@
-package org.aksw.asknow.util;
+package org.aksw.asknow.nqs;
 
 import java.util.List;
 import java.util.Properties;
@@ -6,6 +6,7 @@ import java.io.PrintStream;
 import edu.stanford.nlp.io.NullOutputStream;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
 import edu.stanford.nlp.pipeline.Annotation;
+import edu.stanford.nlp.pipeline.POSTaggerAnnotator;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TreeCoreAnnotations.TreeAnnotation;
@@ -40,6 +41,7 @@ public class StanfordNlp
 			Properties props = new Properties();
 			props.put("annotators", "tokenize, ssplit, pos, parse");
 			treeParser = new StanfordCoreNLP(props);
+			
 		}
 		//		{
 		//		Properties props = new Properties();
@@ -60,6 +62,16 @@ public class StanfordNlp
 		//		return new ParseResult(sentences.get(0).get(TreeAnnotation.class),document.get(PartOfSpeechAnnotation.class));
 	}
 
+	public static String PosTag(String sentence)
+	{
+		log.trace("parsing sentence: '"+sentence+"' as tree");
+//		new POSTaggerAnnotator().
+		Annotation document = new Annotation(sentence);
+		treeParser.annotate(document);
+		List<CoreMap> sentences = document.get(POSTaggerAnnotator.class);
+		return sentences.get(0).get(TreeAnnotation.class);
+		//		return new ParseResult(sentences.get(0).get(TreeAnnotation.class),document.get(PartOfSpeechAnnotation.class));
+	}
 	//	public static String lemmatize(String text)
 	//	{
 	//		Annotation document = lemmatizer.process(text);

@@ -40,10 +40,10 @@ public class Tester {
 		qb.buildQuery();
 		Log.d("QCT",qb.getCharacterizedString());
 		Log.d("TAGGED",qb.getTaggedString());
-		queryTest();
+	//	queryTest();
 		//sparqlTest();	
 		//encartaTest();
-		qald5Train();
+	//	qald5Train();
 		
 		 /*workbooktowrite = Workbook.createWorkbook(new File("OWL-stc/IncorrectOutputs.xls"));
 		 incorrectSheet = workbooktowrite.createSheet("Output", 1); 
@@ -110,6 +110,104 @@ public class Tester {
 		Log.d("Both correct", bothCorrect);
 	}
 		
+	private static void qald5Train() {
+		BufferedReader br, brKey;
+		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+				new FileOutputStream("qald4Train_Output"), "utf-8"))) {
+
+			br = new BufferedReader(new FileReader("qald4Train")); 
+			brKey = new BufferedReader(new FileReader("qald4trainKeywords"));
+			try {
+				String line = br.readLine();
+				String keys = brKey.readLine();
+				int i = 1;
+				while (line != null) {
+					//Log.d("Input",line);
+					qb.setQuery(line);
+					qb.buildQuery();
+					updateWhCount();
+					if(qb.isCaracterized()){
+						/*writer.write("\n\nQuery "+i+":"+line);
+						writer.write("\nKeywords: "+keys);
+						writer.write("\n"+qb.getCharacterizedString());*/
+						//writer.write("\n"+qb.getTaggedString());
+						
+						String desire = qb.getDesire();
+						String input = qb.getInputs();
+						boolean desirenotfound = true, inputnotfound=true;
+						for(String s:keys.split(",")){
+							if(desire!=null && !desire.trim().isEmpty() && (desire.toLowerCase().trim().replaceAll(" ", "").contains(s.toLowerCase().trim().replaceAll(" ", ""))
+									|| keys.toLowerCase().trim().replaceAll(" ", "").contains(desire.toLowerCase().trim().replaceAll(" ", "")))){
+								if(desirenotfound)
+									correctDesires++;
+								desirenotfound = false;
+							}
+							
+							if(input!=null && !input.trim().isEmpty() && ( input.toLowerCase().trim().replaceAll(" ", "").contains(s.toLowerCase().trim().replaceAll(" ", "")))){
+								if(inputnotfound)
+									correctInputs++;
+								inputnotfound = false;
+							}
+						}
+						boolean errorUpdated = false;
+						if(desire!=null && !desire.trim().isEmpty() && desirenotfound){
+							writer.write("\n\nQuery "+i+":"+line);
+							writer.write("\nKeywords: "+keys);
+							writer.write("\n"+qb.getCharacterizedString());
+							//writer.write("\nincorrectDesires: required:"+keys+"   evaluated:"+desire);								
+							incorrectDesires++;
+							updateErrorCount();
+							errorUpdated = true;
+						}
+						
+						if(input!=null && !input.trim().isEmpty() &&inputnotfound){
+							
+							if(!errorUpdated){
+								writer.write("\n\nQuery "+i+":"+line);
+								writer.write("\nKeywords: "+keys);
+								writer.write("\n"+qb.getCharacterizedString());
+								updateErrorCount();
+							}
+							//writer.write("\nincorrectInput: required:"+keys+"   evaluated:"+input);
+							incorrectInputs++;
+							errorUpdated = true;
+						}
+						
+						if(!desirenotfound && !inputnotfound){
+							writer.write("\n\nQuery "+i+":"+line);
+							writer.write("\nKeywords: "+keys);
+							writer.write("\n"+qb.getCharacterizedString());
+							bothCorrect++;
+						}
+					
+					} else{
+						notcharacterized++;
+						writer.write("\n\nQuery Not Characterized: "+line);
+					}
+					
+					line = br.readLine();
+					keys = brKey.readLine();
+					i++;
+					//Log.d("Input Characterized:",qb.getCharacterizedString());
+				}
+				Log.e("Input", "EOF");
+			}catch(Exception e){
+				Log.e("Reader","Exception");
+				e.printStackTrace();
+			}
+			finally {
+				br.close();
+			}
+		}catch(Exception e){
+			Log.e("Writer","Exception");
+			e.printStackTrace();
+		}
+		finally {
+			//br.close();
+		}
+		
+	}
+
 
 
 
@@ -523,103 +621,5 @@ public class Tester {
 				System.out.println(tagger.getTaggedSentence("In which country DA-IICT is located?"));*/
 		}
 		
-
-		private static void qald5Train() {
-			BufferedReader br, brKey;
-			try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream("qald4Train_Output"), "utf-8"))) {
-
-				br = new BufferedReader(new FileReader("qald4Train")); 
-				brKey = new BufferedReader(new FileReader("qald4trainKeywords"));
-				try {
-					String line = br.readLine();
-					String keys = brKey.readLine();
-					int i = 1;
-					while (line != null) {
-						//Log.d("Input",line);
-						qb.setQuery(line);
-						qb.buildQuery();
-						updateWhCount();
-						if(qb.isCaracterized()){
-							/*writer.write("\n\nQuery "+i+":"+line);
-							writer.write("\nKeywords: "+keys);
-							writer.write("\n"+qb.getCharacterizedString());*/
-							//writer.write("\n"+qb.getTaggedString());
-							
-							String desire = qb.getDesire();
-							String input = qb.getInputs();
-							boolean desirenotfound = true, inputnotfound=true;
-							for(String s:keys.split(",")){
-								if(desire!=null && !desire.trim().isEmpty() && (desire.toLowerCase().trim().replaceAll(" ", "").contains(s.toLowerCase().trim().replaceAll(" ", ""))
-										|| keys.toLowerCase().trim().replaceAll(" ", "").contains(desire.toLowerCase().trim().replaceAll(" ", "")))){
-									if(desirenotfound)
-										correctDesires++;
-									desirenotfound = false;
-								}
-								
-								if(input!=null && !input.trim().isEmpty() && ( input.toLowerCase().trim().replaceAll(" ", "").contains(s.toLowerCase().trim().replaceAll(" ", "")))){
-									if(inputnotfound)
-										correctInputs++;
-									inputnotfound = false;
-								}
-							}
-							boolean errorUpdated = false;
-							if(desire!=null && !desire.trim().isEmpty() && desirenotfound){
-								writer.write("\n\nQuery "+i+":"+line);
-								writer.write("\nKeywords: "+keys);
-								writer.write("\n"+qb.getCharacterizedString());
-								//writer.write("\nincorrectDesires: required:"+keys+"   evaluated:"+desire);								
-								incorrectDesires++;
-								updateErrorCount();
-								errorUpdated = true;
-							}
-							
-							if(input!=null && !input.trim().isEmpty() &&inputnotfound){
-								
-								if(!errorUpdated){
-									writer.write("\n\nQuery "+i+":"+line);
-									writer.write("\nKeywords: "+keys);
-									writer.write("\n"+qb.getCharacterizedString());
-									updateErrorCount();
-								}
-								//writer.write("\nincorrectInput: required:"+keys+"   evaluated:"+input);
-								incorrectInputs++;
-								errorUpdated = true;
-							}
-							
-							if(!desirenotfound && !inputnotfound){
-								writer.write("\n\nQuery "+i+":"+line);
-								writer.write("\nKeywords: "+keys);
-								writer.write("\n"+qb.getCharacterizedString());
-								bothCorrect++;
-							}
-						
-						} else{
-							notcharacterized++;
-							writer.write("\n\nQuery Not Characterized: "+line);
-						}
-						
-						line = br.readLine();
-						keys = brKey.readLine();
-						i++;
-						//Log.d("Input Characterized:",qb.getCharacterizedString());
-					}
-					Log.e("Input", "EOF");
-				}catch(Exception e){
-					Log.e("Reader","Exception");
-					e.printStackTrace();
-				}
-				finally {
-					br.close();
-				}
-			}catch(Exception e){
-				Log.e("Writer","Exception");
-				e.printStackTrace();
-			}
-			finally {
-				//br.close();
-			}
-			
-		}
-
-	}
+}
+		
