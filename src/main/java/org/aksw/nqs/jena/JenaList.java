@@ -9,7 +9,7 @@ public class JenaList {
 				+"{?uri rdf:type dbo:"+dbpRes2+" . " 
 				+"?uri ?p res:"+dbpRes1+" . "
 				+"} UNION {res:"+dbpRes1+" dbo:"+dbpRes2+" ?uri . }}"; 
-
+		System.out.println(query);	
 		return Dbpedia.select(query);
 	}
 }

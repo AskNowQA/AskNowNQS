@@ -27,13 +27,13 @@ public class Dbpedia
 	
 	public static ResultSet select(String query)
 	{
-		try(QueryEngineHTTP qe = new QueryEngineHTTP(endpoint, query))
+		QueryEngineHTTP qe = new QueryEngineHTTP(endpoint,sparqlHeader + query);
 		{return qe.execSelect();}
 	}
 
 	public static boolean ask(String query)
 	{
-		try(QueryEngineHTTP qe = new QueryEngineHTTP(endpoint, query))
+		QueryEngineHTTP qe = new QueryEngineHTTP(endpoint,sparqlHeader + query);
 		{return qe.execAsk();}
 	}
 	
