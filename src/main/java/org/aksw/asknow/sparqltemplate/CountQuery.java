@@ -1,14 +1,13 @@
 package org.aksw.asknow.sparqltemplate;
 
 import java.util.*;
-
 import org.aksw.asknow.Template;
 import org.aksw.asknow.jena.CountJena;
 import org.aksw.asknow.jena.PropertyValue;
 import org.aksw.asknow.util.Spotlight;
 import org.aksw.asknow.util.WordNetSynonyms;
 import org.apache.commons.lang3.NotImplementedException;
-import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.RDFNode;
 
 /**
  * Does Numeric and Count queries.
@@ -25,7 +24,7 @@ public class CountQuery implements SparqlQuery{
 	/* (non-Javadoc)
 	 * @see org.aksw.nqs.sparqltemplate.SparqlQuery#execute(org.aksw.nqs.Template)
 	 */
-	@Override public ResultSet execute(Template t) {
+	@Override public Set<RDFNode> execute(Template t) {
 		
 		Set<String> properties = new HashSet<>();
 		Set<String> possibleMatches = new HashSet<>();

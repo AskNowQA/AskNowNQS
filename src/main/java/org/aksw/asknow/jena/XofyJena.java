@@ -1,12 +1,7 @@
 package org.aksw.asknow.jena;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
+import java.util.*;
+import org.apache.jena.rdf.model.RDFNode;
 
 public class XofyJena {
 
@@ -15,22 +10,18 @@ public class XofyJena {
 			+ "PREFIX dbp: <http://dbpedia.org/property/> "
 			+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 			+ "PREFIX res: <http://dbpedia.org/resource/> ";
-
-	public static void pattern1(Set<String> properties, String dbpRes) {
-		String dbpPro = null;
-		String dbpProTag = null;
-		String pattern1 = "SELECT DISTINCT ?num" 
-				+"WHERE {" 
-				+"res:"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num ." 
-				+"}"; 
+	
+	// TODO: Mohnish: what is the difference between these patterns and when should each be chosen? Rename accordingly.
+	public static enum PatternType {PATTERN1,PATTERN2,PATTERN3}
+	
+	public static Set<RDFNode> pattern(Set<String> properties, String dbpRes, PatternType type) {
+		Set<RDFNode> nodes = new HashSet<>();
 		//String varible1="";//dbo:capital
-		String service1="http://dbpedia.org/sparql";
-		String query1="";
-
-		System.out.println("chekpoin: "+query1);
 		int i=0;
 		for(String p: properties)
 		{
+			String dbpPro;
+			String dbpProTag;
 			//System.out.println(temp.toString());
 			List<String> aList= Arrays.asList(p.split("/"));
 			i=aList.size();
@@ -39,119 +30,41 @@ public class XofyJena {
 				dbpProTag="dbo";
 			else if (aList.get(i-2).equals("property"))
 				dbpProTag="dbp";
+			else throw new IllegalArgumentException(aList.get(i-2)+"is neither ontology nor property");
 			dbpPro=aList.get(i-1).toString();
-			pattern1 = "SELECT DISTINCT ?num " 
+			String pattern;
+			switch(type)
+			{
+				case PATTERN1: pattern =
+					"SELECT DISTINCT ?num " 
 					+"WHERE {" 
 					+"res:"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num ." 
 					+"}";
-			query1=sparqlHeader +pattern1;
-			System.out.println(query1);
-			QueryExecution e=QueryExecutionFactory.sparqlService(service1, query1);
-			ResultSet rs=e.execSelect();
-			while (rs.hasNext()) {
-				QuerySolution qs=rs.nextSolution();
-				System.out.println(qs);
-			}
-		}
-
-	}
-
-	public static void pattern2(Set<String> properties, String dbpRes) {
-
-
-		String dbpPro = null;
-		String dbpProTag = null;
-		String pattern1 = "SELECT COUNT ( DISTINCT ?num) " 
-				+"WHERE {"
-				+"? num res:"+dbpRes+" "+dbpProTag+":"+dbpPro+" ." 
-				+"}"; 
-
-
-		String service1="http://dbpedia.org/sparql"; 
-		String query1="";
-
-		System.out.println("chekpoin: "+query1);
-		int i=0; 
-		for(String temp: properties)
-		{
-			//System.out.println(temp.toString());
-			List<String> aList= Arrays.asList(temp.split("/"));
-			i=aList.size();
-			//System.out.println(aList.get(i-2).toString()+count);
-			if (aList.get(i-2).equals("ontology"))
-				dbpProTag="dbo";
-			else if (aList.get(i-2).equals("property"))
-				dbpProTag="dbp";
-			dbpPro=aList.get(i-1).toString();
-			String res = "res";
-			pattern1 = "SELECT ?num " 
+					break;
+				case PATTERN2: pattern =
+					"SELECT ?num " 
 					+"WHERE {" 
-					+"{ ?num "+res+":"+dbpRes+" "+dbpProTag+":"+dbpPro+" .}"
+					+"{ ?num res:"+dbpRes+" "+dbpProTag+":"+dbpPro+" .}"
 					+" UNION "
-					+"{ ?num "+dbpProTag+":"+dbpPro+" "+res+":"+dbpRes+" .}"
+					+"{ ?num "+dbpProTag+":"+dbpPro+" res:"+dbpRes+" .}"
 					+"}"; 
-
-
-			query1=sparqlHeader +pattern1;
-			System.out.println(query1);
-			QueryExecution e=QueryExecutionFactory.sparqlService(service1, query1);
-			ResultSet rs=e.execSelect();
-			while (rs.hasNext()) {
-				QuerySolution qs=rs.nextSolution();
-				System.out.println(qs);
-			}
-
-
-		}
-
-
-
-	}
-
-	public static void pattern3(Set<String> properties, String dbpRes) {// value of property of resource
-		String dbpPro = null;
-		String dbpProTag = null;
-		String pattern1 = "SELECT COUNT ( DISTINCT ?num) " 
-				+"WHERE {" 
-				+"? num res:"+dbpRes+" "+dbpProTag+":"+dbpPro+" ." 
-				+"}"; 
-
-
-		
-		String service1="http://dbpedia.org/sparql"; 
-		String query1="";
-
-		System.out.println("chekpoin: "+query1);
-		int i=0; 
-		for(String p: properties)
-		{
-			//System.out.println(temp.toString());
-			List<String> aList= Arrays.asList(p.split("/"));
-			i=aList.size();
-			//System.out.println(aList.get(i-2).toString()+count);
-			if (aList.get(i-2).equals("ontology"))
-				dbpProTag="dbo";
-			else if (aList.get(i-2).equals("property"))
-				dbpProTag="dbp";
-			dbpPro=aList.get(i-1).toString();
-			String res = "res";
-			pattern1 = "SELECT ?num " 
+				break;
+				case PATTERN3: pattern =
+					"SELECT ?num " 
 					+"WHERE {" 
-					+"{ "+res+":"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num .}"
+					+"{ res:"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num .}"
 					+" UNION "
-					+"{ "+dbpProTag+":"+dbpPro+" "+res+":"+dbpRes+" ?num .}"
-					+"}"; 
-
-
-			query1=sparqlHeader +pattern1;
-			System.out.println(query1);
-			QueryExecution e=QueryExecutionFactory.sparqlService(service1, query1);
-			ResultSet rs=e.execSelect();
-			while (rs.hasNext()) {
-				QuerySolution qs=rs.nextSolution();
-				System.out.println(qs);
+					+"{ "+dbpProTag+":"+dbpPro+" res:"+dbpRes+" ?num .}"
+					+"}";
+				break;
+				default: throw new RuntimeException("should never happen");
 			}
+
+			String query=sparqlHeader +pattern;
+			System.out.println(query);
+			nodes.addAll(Dbpedia.nodeSet(Dbpedia.select(query)));
 		}
+		return nodes;
 	}
 	
 }

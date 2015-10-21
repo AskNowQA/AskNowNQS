@@ -1,9 +1,10 @@
 package org.aksw.asknow.sparqltemplate;
 
+import java.util.Set;
 import org.aksw.asknow.Template;
-import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.RDFNode;
 
 public interface SparqlQuery
 {	
-	public ResultSet execute(Template template);
+	public Set<RDFNode> execute(Template template);
 }

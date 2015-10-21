@@ -3,7 +3,8 @@ import java.io.*;
 import java.net.*;
 
 public class Spotlight {
-
+	private Spotlight() {}
+	
 	public static String getDBpLookup(String argument1) {
 		String DBpEquivalent="";
 		String argument = argument1.replaceAll(" ", "%20");

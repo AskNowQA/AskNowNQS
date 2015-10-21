@@ -1,28 +1,40 @@
 package org.aksw.asknow.sparqltemplate;
 
 import java.util.ArrayList;
-
+import java.util.Set;
 import org.aksw.asknow.Template;
 import org.aksw.asknow.jena.RankingJena;
 import org.aksw.asknow.util.Spotlight;
+import org.apache.jena.rdf.model.RDFNode;
 
-public class RankingQuery {
+public class RankingQuery implements SparqlQuery{
 
-	public RankingQuery(Template q1) {
-		
-		if(q1.getDesire().contains("DataProperty (Person)")){
+	private RankingQuery() {}
+	public static final RankingQuery INSTANCE = new RankingQuery();
+
+	ArrayList<String> ResourceResults = new ArrayList<>();
+	ArrayList<String> PossibleMatch = new ArrayList<>();
+
+	String dbpRes1;
+	String dbpRes2;
+	String dbpParameter;
+	Boolean topfirst = true;
+
+	@Override public Set<RDFNode> execute(Template t)
+	{
+		if(t.getDesire().contains("DataProperty (Person)")){
 			
-			dbpRes1 = Spotlight.getDBpLookup(cleanEntry(q1.getInput()));
+			dbpRes1 = Spotlight.getDBpLookup(cleanEntry(t.getInput()));
 			dbpRes2= "Person";
 		}
 		else {
-			dbpRes1 = Spotlight.getDBpLookup(cleanEntry(q1.getInput()));
-			dbpRes2 = cleanEntry(q1.getDesire());
+			dbpRes1 = Spotlight.getDBpLookup(cleanEntry(t.getInput()));
+			dbpRes2 = cleanEntry(t.getDesire());
 					dbpRes2 = dbpRes2.substring(0, 1).toUpperCase() + dbpRes2.substring(1);
 		}
-		dbpParameter = findParameter(q1.nlQuery); 
+		dbpParameter = findParameter(t.nlQuery); 
 		
-		RankingJena.execute(dbpRes1, dbpRes2, dbpParameter, true);		
+		return RankingJena.execute(dbpRes1, dbpRes2, dbpParameter, true);		
 	}
 		/*
 			ResourceResults = Jena.getDbProperty(dbpRes1);
@@ -92,16 +104,5 @@ public class RankingQuery {
 		System.out.println(temp.trim());
 		return temp.trim();
 	}
-
-	ArrayList<String> ResourceResults = new ArrayList<>();
-	ArrayList<String> PossibleMatch = new ArrayList<>();
-
-	String dbpRes1;
-	String dbpRes2;
-	String dbpParameter;
-	Boolean topfirst = true;
-	
-	Spotlight sp1 = new Spotlight();
-
 
 }
