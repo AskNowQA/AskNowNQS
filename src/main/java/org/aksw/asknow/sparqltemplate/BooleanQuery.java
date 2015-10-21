@@ -2,12 +2,11 @@ package org.aksw.asknow.sparqltemplate;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import org.aksw.asknow.Template;
 import org.aksw.asknow.jena.PropertyValue;
 import org.aksw.asknow.util.Spotlight;
 import org.apache.commons.lang3.NotImplementedException;
-import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.RDFNode;
 
 public class BooleanQuery implements SparqlQuery{
 
@@ -22,7 +21,7 @@ public class BooleanQuery implements SparqlQuery{
 		return tempConcept;
 	}
 
-	@Override public ResultSet execute(Template t)
+	@Override public Set<RDFNode> execute(Template t)
 	{
 		if(1==1) throw new NotImplementedException("does not conform to interface, needs to be changed");
 		Set<String> properties = new HashSet<>();

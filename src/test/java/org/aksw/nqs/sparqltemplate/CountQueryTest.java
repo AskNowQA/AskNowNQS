@@ -1,9 +1,10 @@
 package org.aksw.nqs.sparqltemplate;
 
+import java.util.Set;
 import org.aksw.asknow.Parser;
 import org.aksw.asknow.Template;
 import org.aksw.asknow.sparqltemplate.CountQuery;
-import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.RDFNode;
 import org.junit.Test;
 
 public class CountQueryTest
@@ -13,11 +14,8 @@ public class CountQueryTest
 	{
 		Template t = Parser.parse().get(43); 
 		System.out.println(t);
-		ResultSet rs = CountQuery.INSTANCE.execute(t);
-		while(rs.hasNext())
-		{
-			System.out.println(rs.next());
-		}
+		Set<RDFNode> result = CountQuery.INSTANCE.execute(t);
+		System.out.println(result);
 	}
 
 }

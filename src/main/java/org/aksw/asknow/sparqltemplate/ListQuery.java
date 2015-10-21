@@ -1,17 +1,18 @@
 package org.aksw.asknow.sparqltemplate;
 
+import java.util.Set;
 import org.aksw.asknow.Template;
 import org.aksw.asknow.jena.JenaList;
 import org.aksw.asknow.util.Spotlight;
 import org.apache.commons.lang3.NotImplementedException;
-import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.RDFNode;
 
 public class ListQuery implements SparqlQuery {
 
 	private ListQuery() {}
 	public static final ListQuery INSTANCE = new ListQuery();
 
-	@Override public ResultSet execute(Template t)
+	@Override public Set<RDFNode> execute(Template t)
 	{
 		if(t.qct.contains("[I1_1]")){
 			//complex list

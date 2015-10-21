@@ -1,7 +1,7 @@
 package org.aksw.asknow.jena;
 
 import java.util.*;
-import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.RDFNode;
 
 public class CountJena {
 
@@ -13,7 +13,8 @@ public class CountJena {
 	 * @param isNumber
 	 * @return
 	 */
-	public static ResultSet execute(Set<String> candidateUris, String dbpRes,boolean isNumber)
+	public static Set<RDFNode> execute(Set<String> candidateUris, String dbpRes,boolean isNumber)
+//	public static long execute(Set<String> candidateUris, String dbpRes,boolean isNumber)
 	{
 		for(String uri: candidateUris)
 		{
@@ -24,17 +25,21 @@ public class CountJena {
 			String tag = Dbpedia.tag(uri);
 			if(!isNumber)
 			{
-				return Dbpedia.select(
-			"SELECT COUNT ( DISTINCT ?num) " 
+				return Collections.singleton(Dbpedia.select(
+			"SELECT COUNT ( DISTINCT ?num) as ?count" 
 					+"WHERE {" 
 					+"{ ?num res:"+dbpRes+" "+tag+":"+dbpPro+" .}"
 					+" UNION "
 					+"{ ?num "+tag+":"+dbpPro+" res:"+dbpRes+" .}"
 					+" UNION "
 					+"{ res:"+dbpRes+" "+tag+":"+dbpPro+" ?num .}"
-					+"}");
+					+"}").next().getLiteral("?count"));
+				//next().getLiteral("?count").getLong();
 			}
-			return Dbpedia.select("SELECT DISTINCT ?num WHERE {res:"+dbpRes+" "+tag+":"+dbpPro+" ?num .}");
+			return Collections.singleton(Dbpedia.select(
+					"SELECT DISTINCT ?num WHERE {res:"+dbpRes+" "+tag+":"+dbpPro+" ?num .}")
+//					.next().getLiteral("?num").getLong();
+					.next().getLiteral("?num"));
 		}
 		throw new IllegalArgumentException("empty candidate uris");
 	}
