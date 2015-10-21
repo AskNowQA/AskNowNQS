@@ -1,7 +1,6 @@
 package org.aksw.nqs.util;
 import java.io.*;
 import java.net.*;
-import org.aksw.nqs.test.TrySpotlightLink;
 public class Spotlight {
 
 	public static String getDBpLookup(String argument1) {
@@ -31,7 +30,7 @@ public class Spotlight {
 					if (DBpEquivalent == "")
 						{System.err.println("blank");
 						try {
-							DBpEquivalent=TrySpotlightLink.getDbpEntity(argument1);
+							DBpEquivalent=getDbpEntity(argument1);
 							if(!DBpEquivalent.contains("notFound")){
 								return getEntity(DBpEquivalent);
 							}
@@ -53,5 +52,96 @@ public class Spotlight {
 	public static String getEntity (String uriStirng){
 			return uriStirng.substring(uriStirng.lastIndexOf('/')+1);		 
 	}
+	
+	public static String getDbpEntity(String entity){
+		//case1 resource
+		String uri;
+		entity=entity.trim();
+		entity = entity.replaceAll(" ", "_");
+				
+		uri = checkRes(entity.substring(0, entity.length()-2));
+		if (!uri.contains("pageNotFound"))
+		{
+			return uri;
+		}
+		uri =checkOntology(entity);
+		if (!uri.contains("pageNotFound"))
+		{
+			return uri;
+		}
+		uri = checkRes(entity);
+		if (!uri.contains("pageNotFound"))
+		{
+			return uri;
+		}
+		uri =checkOntology(entity);
+		if (!uri.contains("pageNotFound"))
+		{
+			return uri;
+		}
+		entity = entity.substring(0, 1).toUpperCase() + entity.substring(1);
+		uri = checkRes(entity);
+		if (!uri.contains("pageNotFound"))
+		{
+			return uri;
+		}
+		uri =checkOntology(entity);
+		if (!uri.contains("pageNotFound"))
+		{
+			return uri;
+		}
+		
+		return "notFound";
+	}
+	public static String checkRes(String entity){
+		
+		try {
+		    URL uri = new URL("http://dbpedia.org/page/"+entity);
+		    URLConnection yc = uri.openConnection();
+		    
+		    try(BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream())))
+			{
+				String temppage =in.toString();
+				if (temppage.contains("No further information is available. (The requested entity is unknown)"))
+					return ("pageNotFound"); 
+				else
+					return uri.toString();
+			}
+		    
+		    
+		} catch (MalformedURLException e) {
+		    System.out.println(" the URL is not in a valid form");
+		} catch (IOException e) {
+			//System.out.println(" the connection couldn't be established");
+			return ("pageNotFound");
+		}
+		return null;
+	}
+	
+public static String checkOntology(String entity){
+		
+		try {
+		    URL uri = new URL("http://dbpedia.org/ontology/"+entity);
+		    URLConnection yc = uri.openConnection();
+		    
+		    try(BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream())))
+			{
+				String temppage =in.toString();
+				if (temppage.contains("No further information is available. (The requested entity is unknown)"))
+					return ("pageNotFound"); 
+				else
+					return "PageFound"+uri;
+			}
+		    
+		} catch (MalformedURLException e) {
+		    System.out.println(" the URL is not in a valid form");
+		} catch (IOException e) {
+			//System.out.println(" the connection couldn't be established");
+			return ("pageNotFound");
+		}
+		return null;
+		
+	}
+
 
 }

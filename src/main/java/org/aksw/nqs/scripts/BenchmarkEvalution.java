@@ -1,8 +1,9 @@
-package org.aksw.nqs;
+package org.aksw.nqs.scripts;
 
 import java.util.List;
 import java.util.regex.Pattern;
-
+import org.aksw.nqs.Parser;
+import org.aksw.nqs.Template;
 import org.aksw.nqs.sparqltemplate.BooleanQuery;
 import org.aksw.nqs.sparqltemplate.CountQuery;
 import org.aksw.nqs.sparqltemplate.ListQuery;
