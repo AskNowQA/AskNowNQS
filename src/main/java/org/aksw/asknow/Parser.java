@@ -17,7 +17,7 @@ public class Parser
 	 * Parses the default benchmark (QALD-5 NQS)
 	 * @return List of NQS
 	 */
-	public static List<Template> parse()
+	public static List<Nqs> parse()
 	{
 		// TODO: change to inputstream
 		return parse(()->Parser.class.getClassLoader().getResourceAsStream("benchmark.xml"));
@@ -25,9 +25,9 @@ public class Parser
 
 	@SneakyThrows
 	// TODO: detailed exception handling later
-	public static List<Template> parse(Supplier<InputStream> in)
+	public static List<Nqs> parse(Supplier<InputStream> in)
 	{
-		List<Template> templates = new ArrayList<>();
+		List<Nqs> templates = new ArrayList<>();
 		Document doc;
 		doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(in.get());
 		doc.getDocumentElement().normalize();
@@ -47,7 +47,7 @@ public class Parser
 				String queryid = eElement.getAttribute("id");
 				String nlQuery = eElement.getElementsByTagName("NLquery").item(0).getTextContent();
 				String qct = eElement.getElementsByTagName("QCT").item(0).getTextContent();
-				templates.add(new Template(nlQuery,qct,queryid));
+				templates.add(new Nqs(nlQuery,qct,queryid));
 			}
 		}
 		return templates;

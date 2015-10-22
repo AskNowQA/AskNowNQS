@@ -30,8 +30,8 @@ public class NerResolver {
 	}
 
 	public List<Triple<String, Integer, Integer>> getNERTags(String inputText,boolean getAll) {	
-		pipeline.clearAnnotatorPool();
-		List<Triple<String, Integer, Integer>> entities = new ArrayList<Triple<String,Integer,Integer>>();		
+		StanfordCoreNLP.clearAnnotatorPool();
+		List<Triple<String, Integer, Integer>> entities = new ArrayList<>();		
 	    Annotation annotation = new Annotation(inputText);
 	    pipeline.annotate(annotation);
 	    entities = getNERTags(annotation,getAll);
@@ -44,18 +44,18 @@ public class NerResolver {
 	
 
 	public List<Triple<String, Integer, Integer>> getNERTags(Annotation annotation, boolean getAll) {
-		List<Triple<String, Integer, Integer>> entities = new ArrayList<Triple<String,Integer,Integer>>();		
+		List<Triple<String, Integer, Integer>> entities = new ArrayList<>();		
 		for (CoreMap sentence : annotation.get(CoreAnnotations.SentencesAnnotation.class)) {
 	        List<CoreLabel> tokens = sentence.get(CoreAnnotations.TokensAnnotation.class);
 	        for (int i = 0; i < tokens.size(); i++) {
 	            CoreLabel token = tokens.get(i);
 	            if(!getAll){
 		            if(!token.ner().equals("O")){
-		            	Triple<String, Integer, Integer> entity = new Triple<String, Integer, Integer>(token.ner(), token.beginPosition(), token.endPosition());
+		            	Triple<String, Integer, Integer> entity = new Triple<>(token.ner(), token.beginPosition(), token.endPosition());
 		               	entities.add(entity);
 		            }
 	            } else{
-	            	Triple<String, Integer, Integer> entity = new Triple<String, Integer, Integer>(token.ner(), token.beginPosition(), token.endPosition());
+	            	Triple<String, Integer, Integer> entity = new Triple<>(token.ner(), token.beginPosition(), token.endPosition());
 	               	entities.add(entity);
 	            }
 	        }
@@ -71,7 +71,7 @@ public class NerResolver {
 
 	public void close(){
 		props.clear();
-		pipeline.clearAnnotatorPool();
+		StanfordCoreNLP.clearAnnotatorPool();
 	}
 	
 }

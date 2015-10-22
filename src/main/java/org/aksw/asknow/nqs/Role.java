@@ -29,7 +29,7 @@ public class Role {
 		return token.getString();
 	}
 	
-	public String toString(){
+	@Override public String toString(){
 		return token.toStringWithoutTags();
 	}
 }

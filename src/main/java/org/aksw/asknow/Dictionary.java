@@ -3,7 +3,7 @@ package org.aksw.asknow;
 import java.util.ArrayList;
 //import java.util.Set;
 
-public class Dictionary1 {//Who developed Minecraft?//[WH] = Who, [R1] = , [D] = DataProperty (Person), [R2] = developed, [I] = Minecraft//
+public class Dictionary {//Who developed Minecraft?//[WH] = Who, [R1] = , [D] = DataProperty (Person), [R2] = developed, [I] = Minecraft//
 
 	public ArrayList<String> getDesire(String desire, String r2){
 		ArrayList<String> ListDesire  = new ArrayList<>();

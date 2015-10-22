@@ -1,6 +1,5 @@
 package org.aksw.asknow.nqs;
 import java.util.ArrayList;
-import java.util.Map;
 
 //import org.apache.commons.collections.map.LinkedMap;
 
@@ -29,9 +28,9 @@ public class CharacterizationTemplate {
 	
 	public CharacterizationTemplate(ArrayList<QueryToken> tokens) {
 		this.tokens = tokens;
-		roleTokenList = new ArrayList<Role>();
-		conceptTokenList = new ArrayList<Concept>();
-		inputMap = new ArrayList<String>();
+		roleTokenList = new ArrayList<>();
+		conceptTokenList = new ArrayList<>();
+		inputMap = new ArrayList<>();
 	}
 
 	public void createTemplate() {
@@ -372,7 +371,7 @@ public class CharacterizationTemplate {
 	}
 
 	private ArrayList<Clause> getClauseList() {
-		ArrayList<Clause> clauseList = new ArrayList<Clause>();	
+		ArrayList<Clause> clauseList = new ArrayList<>();	
 		for(int i=0;i<tokens.size();i++){
 			if(i!=whIndex && tokens.get(i).isClause()){
 				clauseList.add(new Clause(tokens.get(i),i));

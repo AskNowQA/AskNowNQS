@@ -3,9 +3,9 @@ package org.aksw.asknow.scripts;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
+import org.aksw.asknow.Nqs;
 import org.aksw.asknow.Parser;
-import org.aksw.asknow.Template;
-import org.aksw.asknow.sparqltemplate.*;
+import org.aksw.asknow.query.*;
 import org.apache.jena.rdf.model.RDFNode;
 
 public class BenchmarkEvalution {
@@ -33,8 +33,8 @@ public class BenchmarkEvalution {
 	
 	static Set<RDFNode> query(int n)
 	{
-		List<Template> templates = Parser.parse();
-		Template q1 = templates.get(n);
+		List<Nqs> templates = Parser.parse();
+		Nqs q1 = templates.get(n);
 		System.out.println(q1.getAll());
 		System.out.println(q1.getDesire());
 		

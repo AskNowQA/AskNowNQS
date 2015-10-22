@@ -18,7 +18,6 @@ import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
-import jxl.write.biff.RowsExceededException;
 
 
 public class Tester {
@@ -34,7 +33,7 @@ public class Tester {
 	static ArrayList<String> nonwhString;
 	public static void main(String[] args) throws IOException, WriteException {
 		qb = new QueryBuilder();
-		nonwhString = new ArrayList<String>();
+		nonwhString = new ArrayList<>();
 		//qb.setQuery("Who was the first president of independent India?");
 		qb.setQuery("What are some fresh water lakes in lower Himalayas?");
 		qb.buildQuery();

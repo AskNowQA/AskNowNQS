@@ -1,5 +1,4 @@
 package org.aksw.asknow.nqs;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -33,7 +32,7 @@ public class Quantifier {
 	}
 	
 	private void initialize(){
-		QuantifierSet = new HashSet<String> (Arrays.asList(QuantifierPhrases));
+		QuantifierSet = new HashSet<> (Arrays.asList(QuantifierPhrases));
 	}
 	
 	public void findQuantifiers(String input) {

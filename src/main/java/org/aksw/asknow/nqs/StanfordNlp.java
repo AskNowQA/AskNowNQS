@@ -6,7 +6,6 @@ import java.io.PrintStream;
 import edu.stanford.nlp.io.NullOutputStream;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
 import edu.stanford.nlp.pipeline.Annotation;
-import edu.stanford.nlp.pipeline.POSTaggerAnnotator;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TreeCoreAnnotations.TreeAnnotation;
@@ -64,12 +63,13 @@ public class StanfordNlp
 
 	public static String PosTag(String sentence)
 	{
+		// TODO: fix this
 		log.trace("parsing sentence: '"+sentence+"' as tree");
 //		new POSTaggerAnnotator().
 		Annotation document = new Annotation(sentence);
 		treeParser.annotate(document);
-		List<CoreMap> sentences = document.get(POSTaggerAnnotator.class);
-		return sentences.get(0).get(TreeAnnotation.class);
+		List<CoreMap> sentences = document.get(SentencesAnnotation.class);
+		return sentences.get(0).get(TreeAnnotation.class).toString();
 		//		return new ParseResult(sentences.get(0).get(TreeAnnotation.class),document.get(PartOfSpeechAnnotation.class));
 	}
 	//	public static String lemmatize(String text)

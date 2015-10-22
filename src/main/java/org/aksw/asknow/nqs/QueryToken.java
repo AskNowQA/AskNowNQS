@@ -25,7 +25,7 @@ public class QueryToken extends TaggedWord{
 		tokenString = string.trim();
 	}
 	
-	public void setTag(String tag){
+	@Override public void setTag(String tag){
 		tokenTag = tag.trim();
 	}
 	
@@ -33,7 +33,7 @@ public class QueryToken extends TaggedWord{
 		return tokenTag.equalsIgnoreCase(tag.trim());
 	}
 	
-	public String toString(){
+	@Override public String toString(){
 		return tokenString+"/"+tokenTag;
 	}
 	

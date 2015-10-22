@@ -1,9 +1,9 @@
-package org.aksw.asknow.jena;
+package org.aksw.asknow.query.sparql;
 
 import java.util.Set;
 import org.apache.jena.rdf.model.RDFNode;
 
-public class JenaList {
+public class ListSparql {
 
 	public static Set<RDFNode> execute(String dbpRes1,String dbpRes2){
 		String query = "SELECT DISTINCT ?uri WHERE {" 

@@ -11,13 +11,13 @@ public class QueryTokenizer {
 	PosTag tagger;
 	
 	public QueryTokenizer(String QuestionString){
-		tokenList = new ArrayList<QueryToken>();
+		tokenList = new ArrayList<>();
 		tagger = new PosTag();
 		createTokenList(QuestionString);
 	}
 	
 	public QueryTokenizer(){
-		tokenList = new ArrayList<QueryToken>();
+		tokenList = new ArrayList<>();
 		tagger = new PosTag();
 	}
 	

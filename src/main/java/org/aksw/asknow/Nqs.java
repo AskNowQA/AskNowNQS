@@ -5,7 +5,7 @@ import lombok.ToString;
 
 @RequiredArgsConstructor
 @ToString
-public class Template {
+public class Nqs {
 
 	public final String nlQuery;
 	public final String qct;

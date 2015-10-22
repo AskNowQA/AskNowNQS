@@ -1,4 +1,4 @@
-package org.aksw.asknow.jena;
+package org.aksw.asknow.query.sparql;
 
 import java.util.HashSet;
 import java.util.Set;

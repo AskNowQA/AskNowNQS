@@ -29,7 +29,7 @@ public class Concept {
 		return token.getString();
 	}
 	
-	public String toString(){
+	@Override public String toString(){
 		return token.toStringWithoutTags();
 	}
 }
