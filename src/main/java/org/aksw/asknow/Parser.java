@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.function.Supplier;
 import java.io.InputStream;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.aksw.asknow.util.XmlUtil;
 import org.w3c.dom.*;
 import lombok.SneakyThrows;
@@ -20,7 +19,7 @@ public class Parser
 	public static List<Nqs> parse()
 	{
 		// TODO: change to inputstream
-		return parse(()->Parser.class.getClassLoader().getResourceAsStream("benchmark.xml"));
+		return parse(()->Parser.class.getClassLoader().getResourceAsStream("qald/qald5.nqs.xml"));
 	}
 
 	@SneakyThrows
@@ -31,7 +30,7 @@ public class Parser
 		Document doc;
 		doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(in.get());
 		doc.getDocumentElement().normalize();
-		if(!XmlUtil.validateAgainstXSD(in.get(), Parser.class.getClassLoader().getResourceAsStream("benchmark.xsd")))
+		if(!XmlUtil.validateAgainstXSD(in.get(), Parser.class.getClassLoader().getResourceAsStream("nqs.xsd")))
 		{throw new IllegalArgumentException("QCT template file not valid against the XSD.");}
 
 		NodeList nList = doc.getElementsByTagName("Query");
