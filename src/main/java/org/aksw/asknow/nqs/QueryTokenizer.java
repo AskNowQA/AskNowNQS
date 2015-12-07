@@ -1,11 +1,11 @@
 package org.aksw.asknow.nqs;
 import java.util.ArrayList;
+import lombok.extern.slf4j.Slf4j;
 
-/*
- * Returns tokens of Query Sentence.
+/**Returns tokens of Query Sentence.
  * Each token has a word(s) and the tag associated with it. 
- * */
-
+ **/
+@Slf4j
 public class QueryTokenizer {
 	private ArrayList<QueryToken> tokenList;
 	PosTag tagger;
@@ -33,7 +33,7 @@ public class QueryTokenizer {
 			if(t.split("_").length==2)
 				tokenList.add(new QueryToken(t.split("_")[0],t.split("_")[1]));
 			else
-				Log.e("TAG Splitting Error", taggedSentence);
+				log.error("TAG Splitting Error", taggedSentence);
 		}
 		replaceWDT();
 	}

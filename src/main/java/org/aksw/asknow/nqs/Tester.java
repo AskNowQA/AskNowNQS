@@ -1,25 +1,13 @@
 package org.aksw.asknow.nqs;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.util.ArrayList;
-
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
+import java.io.*;
+import jxl.*;
 import jxl.read.biff.BiffException;
-import jxl.write.Label;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
-import jxl.write.WriteException;
+import jxl.write.*;
+import lombok.extern.slf4j.Slf4j;
 
-
+@Slf4j
 public class Tester {
 	private static QueryBuilder qb;
 	static int correctDesires = 0, correctInputs = 0, bothCorrect = 0;;
@@ -37,8 +25,8 @@ public class Tester {
 		//qb.setQuery("Who was the first president of independent India?");
 		qb.setQuery("What are some fresh water lakes in lower Himalayas?");
 		qb.buildQuery();
-		Log.d("QCT",qb.getCharacterizedString());
-		Log.d("TAGGED",qb.getTaggedString());
+		log.debug("QCT",qb.getCharacterizedString());
+		log.debug("TAGGED",qb.getTaggedString());
 	//	queryTest();
 		//sparqlTest();	
 		//encartaTest();
@@ -58,20 +46,20 @@ public class Tester {
 		
 		workbooktowrite.write();
 		workbooktowrite.close();*/
-		/*Log.d("Input", "In which country Sachin Tendulkar was born?");
+		/*log.debug("Input", "In which country Sachin Tendulkar was born?");
 		qb.setQuery("In which country Sachin Tendulkar was born?");
 		qb.buildQuery();
-		Log.d("QCT", qb.getCharacterizedString()); 
+		log.debug("QCT", qb.getCharacterizedString()); 
 		
-		Log.d("Input", "Where was Sachin Tendulkar born?");
+		log.debug("Input", "Where was Sachin Tendulkar born?");
 		qb.setQuery("Where was Sachin Tendulkar born?");
 		qb.buildQuery();
-		Log.d("QCT", qb.getCharacterizedString()); 
+		log.debug("QCT", qb.getCharacterizedString()); 
 		
-		Log.d("Input", "Sachin Tendulkar was born in which country?");
+		log.debug("Input", "Sachin Tendulkar was born in which country?");
 		qb.setQuery("Sachin Tendulkar was born in which country?");
 		qb.buildQuery();
-		Log.d("QCT", qb.getCharacterizedString()); */
+		log.debug("QCT", qb.getCharacterizedString()); */
 		
 		/*try (Writer writer = new BufferedWriter(new OutputStreamWriter(
 				new FileOutputStream("OWL-stc/hasThree.txt"), "utf-8"))) {
@@ -87,26 +75,26 @@ public class Tester {
 		}catch(Exception e){
 		}*/
 		
-		Log.d("How", how);
-		Log.d("What", what);
-		Log.d("Where", where);
-		Log.d("Which", which);
-		Log.d("When", when);
-		Log.d("Who", who);
-		Log.d("nonWh", nonwh);
-		Log.d("eHow", ehow);
-		Log.d("eWhat", ewhat);
-		Log.d("eWhere", ewhere);
-		Log.d("eWhich", ewhich);
-		Log.d("eWhen", ewhen);
-		Log.d("eWho", ewho);
-		Log.d("nonWhString", nonwhString.toString());
-		Log.d("notcharacterized", notcharacterized);
-		Log.d("Correct Desire", correctDesires);
-		Log.d("Incorrect Desire", incorrectDesires);		
-		Log.d("Correct Input", correctInputs);
-		Log.d("Incorrect Input", incorrectInputs);
-		Log.d("Both correct", bothCorrect);
+		log.debug("How", how);
+		log.debug("What", what);
+		log.debug("Where", where);
+		log.debug("Which", which);
+		log.debug("When", when);
+		log.debug("Who", who);
+		log.debug("nonWh", nonwh);
+		log.debug("eHow", ehow);
+		log.debug("eWhat", ewhat);
+		log.debug("eWhere", ewhere);
+		log.debug("eWhich", ewhich);
+		log.debug("eWhen", ewhen);
+		log.debug("eWho", ewho);
+		log.debug("nonWhString", nonwhString.toString());
+		log.debug("notcharacterized", notcharacterized);
+		log.debug("Correct Desire", correctDesires);
+		log.debug("Incorrect Desire", incorrectDesires);		
+		log.debug("Correct Input", correctInputs);
+		log.debug("Incorrect Input", incorrectInputs);
+		log.debug("Both correct", bothCorrect);
 	}
 		
 	private static void qald5Train() {
@@ -121,7 +109,7 @@ public class Tester {
 				String keys = brKey.readLine();
 				int i = 1;
 				while (line != null) {
-					//Log.d("Input",line);
+					//log.debug("Input",line);
 					qb.setQuery(line);
 					qb.buildQuery();
 					updateWhCount();
@@ -187,18 +175,18 @@ public class Tester {
 					line = br.readLine();
 					keys = brKey.readLine();
 					i++;
-					//Log.d("Input Characterized:",qb.getCharacterizedString());
+					//log.debug("Input Characterized:",qb.getCharacterizedString());
 				}
-				Log.e("Input", "EOF");
+				log.error("Input", "EOF");
 			}catch(Exception e){
-				Log.e("Reader","Exception");
+				log.error("Reader","Exception");
 				e.printStackTrace();
 			}
 			finally {
 				br.close();
 			}
 		}catch(Exception e){
-			Log.e("Writer","Exception");
+			log.error("Writer","Exception");
 			e.printStackTrace();
 		}
 		finally {
@@ -252,7 +240,7 @@ public class Tester {
 								desires += ", "+sheet.getRow(k)[4].getContents();
 							k++;
 						}
-						//Log.d("K","k="+k+" inputs:"+inputs+" outputs:"+desires);
+						//log.debug("K","k="+k+" inputs:"+inputs+" outputs:"+desires);
 						boolean hasThree = false;
 						if(column.length>5 && column[5].getContents()!=null && !column[5].getContents().isEmpty()){
 							insertIntoSheet(sheettowrite, j , firstCellValue, column[5].getContents(), inputs,desires);		    		     
@@ -273,7 +261,7 @@ public class Tester {
 							threeSets.add(Integer.parseInt(firstCellValue.trim()));
 						}
 						else{
-							//Log.d("Has < 3 varients", "i:"+i+"  cellvalue:"+firstCellValue);
+							//log.debug("Has < 3 varients", "i:"+i+"  cellvalue:"+firstCellValue);
 							twoSets.add(Integer.parseInt(firstCellValue.trim()));
 						}
 					}
@@ -425,7 +413,7 @@ public class Tester {
 						line = br.readLine();
 					}
 				}catch(Exception e){
-					Log.e("BufferefReaderException", e.getMessage());
+					log.error("BufferefReaderException", e.getMessage());
 				}
 				finally {
 					br.close();
@@ -434,7 +422,7 @@ public class Tester {
 				workbook.write();
 				workbook.close();
 			}catch(Exception e){
-				Log.e("BufferefWriterException", e.getMessage());
+				log.error("BufferefWriterException", e.getMessage());
 
 			}
 			finally {
@@ -453,7 +441,7 @@ public class Tester {
 					String line = br.readLine();
 					int i = 1;
 					while (line != null) {
-						//Log.d("Input",line);
+						//log.debug("Input",line);
 						qb.setQuery(line);
 						qb.buildQuery();
 						updateWhCount();
@@ -462,18 +450,18 @@ public class Tester {
 						//writer.write("\n"+qb.getTaggedString());
 						line = br.readLine();
 						i++;
-						//Log.d("Input Characterized:",qb.getCharacterizedString());
+						//log.debug("Input Characterized:",qb.getCharacterizedString());
 					}
-					Log.e("Input", "EOF");
+					log.error("Input", "EOF");
 				}catch(Exception e){
-					Log.e("Reader","Exception");
+					log.error("Reader","Exception");
 					e.printStackTrace();
 				}
 				finally {
 					br.close();
 				}
 			}catch(Exception e){
-				Log.e("Writer","Exception");
+				log.error("Writer","Exception");
 				e.printStackTrace();
 			}
 			finally {

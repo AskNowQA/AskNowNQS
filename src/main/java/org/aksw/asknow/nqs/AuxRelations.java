@@ -1,12 +1,14 @@
 package org.aksw.asknow.nqs;
 
 import java.util.ArrayList;
+import lombok.extern.slf4j.Slf4j;
 
-
+@Slf4j
+// TODO KO@MO: Are you sure auxiliary relation is the correct grammatical term for this?
+/**Replaces the Auxiliary relation into a single Query Token.  */
 public class AuxRelations {
 
-	private String queryString;
-	private ArrayList<QueryToken> tokens;
+	public final ArrayList<QueryToken> tokens;
 	
 	static String[] aux_words = { "is of several type of",
 		"is any of several types of", "is the most important kind of",
@@ -36,37 +38,24 @@ public class AuxRelations {
 		"are", "was", "were", "does", "do", "did", "will", "shall", "can",
 		"could", "would", "should", "may", "might", "must" };
 	
-	public AuxRelations(String input, ArrayList<QueryToken> tokens){
-		this.queryString = input;
-		this.tokens = tokens;
-		handleAuxRelations();
-	}
-	
-	public ArrayList<QueryToken> getTokens(){
-		return tokens;
-	}
-	
-	/*
-	 * Replaces the Aux relation into a single Query Token.
+	/**
+	 * Replaces the Auxiliary relation into a single Query Token.
 	 * Example: initial tokens: 	 "[What/WP, is/VBZ, the/DT, subcategories/NNS, of/IN, science/NN]"
-	 * 			After Aux Handeling: "[What/WP, are the subcategories of/REL1, science/NN]"
+	 * 			After Auxiliary Handling: "[What/WP, are the subcategories of/REL1, science/NN]"
 	 * */
-	private void handleAuxRelations() {
-		String auxString = "";
-		String queryFlagString = "";
-		//Log.d("AUX Handeler", queryString);
-		for(String str: aux_words){
-			if(queryString.contains(" "+str+" ")){
-				auxString =str;
-				break;
+	public AuxRelations(String input, ArrayList<QueryToken> tokens)
+	{	
+		// TODO KO@MO: This only finds one relation and then breaks, is it intended? If yes, document why, if no change please.
+		for(String str: aux_words)
+		{
+			if(input.contains(" "+str+" "))
+			{
+				log.debug("found auxiliary relation "+str+" in input \""+input+'"');
+				this.tokens = QueryModuleLibrary.mergeTokens(tokens, input,str, "REL1");
+				return;
 			}
 		}		
-		
-		if(auxString.length()>0){
-			//Log.d("Aux", auxString);
-			tokens = QueryModuleLibrary.mergeTokens(tokens, queryString,auxString, "REL1");
-		}
+		this.tokens=tokens;
 	}
-
 
 }

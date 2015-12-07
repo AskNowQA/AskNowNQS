@@ -32,7 +32,7 @@ public class QuerySyntaxHandeler {
 			tokens.add(tokens.remove(0));
 		}
 		
-		//Log.d("syn:", tokens.toString());
+		//log.debug("syn:", tokens.toString());
 		
 		for(i=0;i<tokens.size();i++)
 			if(tokens.get(i).getString().trim().equals("?"))
@@ -45,7 +45,7 @@ public class QuerySyntaxHandeler {
 	public ArrayList<QueryToken> handleApostrophe(ArrayList<QueryToken> tokens) {
 		if(tokens==null || tokens.size()==0)
 			return tokens;
-		//Log.d("in Apos", tokens.toString());
+		//log.debug("in Apos", tokens.toString());
 		for(int i=1; i<tokens.size() ; i++){
 		//String s =getApostrophe(tokens.get(0).getString());
 			if(tokens.get(i).isPOS() && tokens.get(i-1).isNounVariant()){

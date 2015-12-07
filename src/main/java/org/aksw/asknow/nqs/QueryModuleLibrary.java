@@ -56,7 +56,7 @@ public class QueryModuleLibrary {
 	public static String getStringFromTokens(ArrayList<QueryToken> tokens) {
 		String queryString = "";
 		for(QueryToken qt: tokens){
-			//Log.d("getString", qt.getString());
+			//log.debug("getString", qt.getString());
 			queryString += qt.getString() + " ";
 		}
 		

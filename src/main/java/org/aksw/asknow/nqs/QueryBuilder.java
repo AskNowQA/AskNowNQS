@@ -1,19 +1,16 @@
 package org.aksw.asknow.nqs;
+
 import java.util.ArrayList;
 
-
 public class QueryBuilder {
-	/* 
-	 * queryString: Query String to work on
-	 * tokens: ArrayList of QueryTokens containing words of queryString 
-	 * 		   and their respective POStags
-	 */
+	/**Query String to work on */
 	private String queryString;
+	/**ArrayList of QueryTokens containing words of queryString and their respective POStags */
 	private ArrayList<QueryToken> tokens;
-	private String characterizedString="";
+	private String characterizedString;
 	private QueryTokenizer tokenizer;
 	private TokenMerger tm = new TokenMerger();
-	private CharacterizationTemplate ct = null;
+	private CharacterizationTemplate ct;
 	
 	public QueryBuilder(){
 		tokenizer = new QueryTokenizer();
@@ -31,27 +28,24 @@ public class QueryBuilder {
 	}
 
 	public void buildQuery() {
-
-		/*
-		 * Get Token List. Each Token contains a word(String) and it's corresponding POS Tag(String)
-		 * */
+		 // Get Token List. Each Token contains a word(String) and it's corresponding POS Tag(String)
 		tokens = tokenizer.getTokenList();
-		//Log.d("Initial Tokens:", tokens.toString());
-		//Log.d("tokenized", tokens.toString());
+		//log.debug("Initial Tokens:", tokens.toString());
+		//log.debug("tokenized", tokens.toString());
 
 		QuerySyntaxHandeler qsh = new QuerySyntaxHandeler();
 		if(tokens.size()>0 && !tokens.get(0).isWP()){			
 			tokens = qsh.bringWPinFront(tokens);
 			queryString = QueryModuleLibrary.getStringFromTokens(tokens);
 		}
-		//Log.d("after systax", tokens.toString());
+		//log.debug("after systax", tokens.toString());
 		
 		
 		/*
 		 * Handle AuxRelations in the tokens
 		 * */
-		tokens = (new AuxRelations(queryString,tokens)).getTokens();
-		//Log.d("after aux", tokens.toString());
+		tokens = (new AuxRelations(queryString,tokens)).tokens;
+		//log.debug("after aux", tokens.toString());
 		
 		/*
 		 * Clubbing Tags
@@ -60,10 +54,10 @@ public class QueryBuilder {
 		tm.startMerger();
 		tokens = tm.getTokens();
 		
-		//Log.d("after merger", tokens.toString());
+		//log.debug("after merger", tokens.toString());
 		
 		tokens = qsh.handleApostrophe(tokens);
-		//Log.d("after apos", tokens.toString());
+		//log.debug("after apos", tokens.toString());
 		
 		/*
 		 * Fit the query into the Characterization Template

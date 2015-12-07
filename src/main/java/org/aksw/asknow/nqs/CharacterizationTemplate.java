@@ -1,9 +1,8 @@
 package org.aksw.asknow.nqs;
 import java.util.ArrayList;
+import lombok.extern.slf4j.Slf4j;
 
-//import org.apache.commons.collections.map.LinkedMap;
-
-
+@Slf4j
 public class CharacterizationTemplate {
 
 	private ArrayList<QueryToken> tokens;
@@ -36,7 +35,7 @@ public class CharacterizationTemplate {
 	public void createTemplate() {
 		
 		resetTemplate();
-		//Log.d("QCT", tokens.toString());
+		//log.debug("QCT", tokens.toString());
 		/*for(QueryToken qt:tokens)
 			if(isConcept(qt))
 				conceptCount++;
@@ -45,18 +44,18 @@ public class CharacterizationTemplate {
 		mergeConsicutiveTokens();
 		clauseList = getClauseList();
 		//System.out.print("\nConcepts:"+conceptTokenList.size()+" Roles:"+roleTokenList.size()+" Clauses:"+clauseList.size());
-		//Log.d("Concepts",conceptTokenList.toString());
-		//Log.d("Roles",roleTokenList.toString());
+		//log.debug("Concepts",conceptTokenList.toString());
+		//log.debug("Roles",roleTokenList.toString());
 		if((hasImplicitDesire() && conceptTokenList.size() == 1)
 				|| ((!hasImplicitDesire()) && conceptTokenList.size() == 2)) {
-			Log.d("QCT", "Simple Fit");
+			log.debug("QCT", "Simple Fit");
 			fitSimpleQuery();
 		}
 		else if(conceptTokenList.size()>=2){
-			Log.d("QCT", "Complex Fit");
+			log.debug("QCT", "Complex Fit");
 			fitComplexQuery();
 		} else{
-			Log.e("QCT","Neither simple nor complex: "+QueryModuleLibrary.getStringFromTokens(tokens));
+			log.error("QCT","Neither simple nor complex: "+QueryModuleLibrary.getStringFromTokens(tokens));
 			isCaracterized = false;
 		}
 	}
@@ -82,7 +81,7 @@ public class CharacterizationTemplate {
 			D = getImplicitDesire(true);	// Implicit Desire;
 			if(roleTokenList.size()>1)
 				mergeRolesIntoR2();
-			//Log.d("QCT", "has implicit desire: "+ D);
+			//log.debug("QCT", "has implicit desire: "+ D);
 		} else{
 			System.err.println("No Concept Found.");
 		}
@@ -520,7 +519,7 @@ public class CharacterizationTemplate {
 	
 	private void mergeConsicutiveTokens() {
 		
-		//Log.d("Start RoleList:", roleTokenList.toString());
+		//log.debug("Start RoleList:", roleTokenList.toString());
 		for(int i=0;i<roleTokenList.size()-1;i++){
 			if(roleTokenList.get(i).getIndex()==roleTokenList.get(i+1).getIndex()-1){
 				int start = i;
@@ -537,7 +536,7 @@ public class CharacterizationTemplate {
 				i=start;
 			}
 		}
-		//Log.d("End RoleList:", roleTokenList.toString());
+		//log.debug("End RoleList:", roleTokenList.toString());
 
 		
 		/*for(int i=0;i<conceptTokenList.size()-1;i++){

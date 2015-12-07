@@ -133,8 +133,8 @@
 //		log.setLevel(Level.ALL);
 //		Question question = questions.get(questionNumber-1);
 //		log.info("Question Number "+questionNumber+": Answering "+question.string);
-//		log.debug("correct query: "+question.query);
-//		log.debug("correct answer: "+question.answers);
+//		log.debugebug("correct query: "+question.query);
+//		log.debugebug("correct answer: "+question.answers);
 //
 //		String cubeName;
 //		if(!Config.INSTANCE.givenDataSets)
@@ -158,8 +158,8 @@
 //			e.printStackTrace();
 //			return new Performance(0, 0, true);
 //		}
-//		log.debug("found query: "+found.query);
-//		log.debug("found answer: "+found.answers);
+//		log.debugebug("found query: "+found.query);
+//		log.debugebug("found answer: "+found.answers);
 //		Performance p = Performance.performance(question.answers, found.answers);
 //		p.query = found.query;
 //		log.info(p);

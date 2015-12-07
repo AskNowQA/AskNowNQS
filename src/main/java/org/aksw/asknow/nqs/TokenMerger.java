@@ -1,11 +1,11 @@
 package org.aksw.asknow.nqs;
+
 import java.util.ArrayList;
 import java.util.List;
-
 import edu.stanford.nlp.util.Triple;
+import lombok.extern.slf4j.Slf4j;
 
-
-
+@Slf4j
 public class TokenMerger {
 	
 	private ArrayList<QueryToken> tokens;
@@ -33,16 +33,16 @@ public class TokenMerger {
 		
 		if(tokens!=null){
 			howMerger();
-			Log.d("after How Merger", tokens.toString());
+			log.debug("after How Merger", tokens.toString());
 
 			nerMerger();
-			Log.d("after NER Merger", tokens.toString());
+			log.debug("after NER Merger", tokens.toString());
 
 			qauntifierHandler();
-			Log.d("after Quantify Merger", tokens.toString());
+			log.debug("after Quantify Merger", tokens.toString());
 
 			NNmerger();
-			Log.d("after NN Merger", tokens.toString());
+			log.debug("after NN Merger", tokens.toString());
 
 		}			
 	}
@@ -87,7 +87,7 @@ public class TokenMerger {
 
 	private void qauntifierHandler() {
 		
-		//Log.d("-before", tokens.toString());
+		//log.debug("-before", tokens.toString());
 		
 		for(int i =0;i<tokens.size()-1;i++){
 			
@@ -135,7 +135,7 @@ public class TokenMerger {
 			} 
 	
 		}
-		//Log.d("-s1", tokens.toString());
+		//log.debug("-s1", tokens.toString());
 		
 		for(int i =0;i<tokens.size()-1;i++){
 			
@@ -160,7 +160,7 @@ public class TokenMerger {
 			}
 		}
 
-		//Log.d("-s2", tokens.toString());
+		//log.debug("-s2", tokens.toString());
 
 		for(int i =0;i<tokens.size()-1;i++){
 			
@@ -189,9 +189,9 @@ public class TokenMerger {
 		for(int i =0;i<tokens.size()-1;i++){
 			if(tokens.get(i).isNounVariant() || tokens.get(i).isCD() || tokens.get(i).isVBG()){
 				if(tokens.get(i+1).isNounVariant() && !tokens.get(i+1).isNNPNER() ){
-					//Log.d("Before NN NN Merger",tokens.toString());
+					//log.debug("Before NN NN Merger",tokens.toString());
 					QueryModuleLibrary.mergeTokens(tokens, i, i+2, tokens.get(i+1).getTag());
-					//Log.d("After NN NN Merger",tokens.toString());
+					//log.debug("After NN NN Merger",tokens.toString());
 				}
 			}
 		}
