@@ -5,8 +5,9 @@ import java.util.Set;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
+import lombok.extern.slf4j.Slf4j;
 
-public class Dbpedia
+@Slf4j public class Dbpedia
 {
 	private Dbpedia() {}
 	
@@ -30,12 +31,14 @@ public class Dbpedia
 	
 	public static ResultSet select(String query)
 	{
+		log.debug("select query: "+query);
 		QueryEngineHTTP qe = new QueryEngineHTTP(endpoint,sparqlHeader + query);
 		{return qe.execSelect();}
 	}
 
 	public static boolean ask(String query)
 	{
+		log.debug("ask query: "+query);
 		QueryEngineHTTP qe = new QueryEngineHTTP(endpoint,sparqlHeader + query);
 		{return qe.execAsk();}
 	}

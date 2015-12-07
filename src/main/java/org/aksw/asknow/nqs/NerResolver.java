@@ -1,18 +1,16 @@
 package org.aksw.asknow.nqs;
 
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-
+import java.util.*;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 import edu.stanford.nlp.util.Triple;
+import lombok.extern.slf4j.Slf4j;
 
-public class NerResolver {
+
+@Slf4j public class NerResolver {
 
 	Properties props;
 	StanfordCoreNLP pipeline;
@@ -38,7 +36,7 @@ public class NerResolver {
 	   /* if(entities.size()>0)
 	    	displayEntities(entities,inputText);
 	    else
-	    	System.out.println("NO NER FOUND.");*/
+	    	log.warn("NO NER FOUND.");*/
 	    return entities;
 	}
 	
@@ -65,7 +63,7 @@ public class NerResolver {
 	
 	private void displayEntities(List<Triple<String, Integer, Integer>> entities, String inputText) {
 		for(Triple<String, Integer, Integer>entry:entities){
-	    	System.out.println(entry.first+","+inputText.substring(entry.second,entry.third));
+	    	log.info(entry.first+","+inputText.substring(entry.second,entry.third));
 	    }		
 	}
 

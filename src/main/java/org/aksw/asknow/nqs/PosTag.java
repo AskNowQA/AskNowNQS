@@ -3,18 +3,20 @@ package org.aksw.asknow.nqs;
 
 import java.util.List;
 import java.util.Properties;
-
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
+import lombok.extern.slf4j.Slf4j;
 
-public class PosTag { 
+@Slf4j public class PosTag { 
 	
 	public PosTag(){}
 	
-	public String getTaggedSentence(String NLquery){
+	public String getTaggedSentence(String NLquery)
+	{
+		log.trace("tagging "+NLquery);
 		Properties props = new Properties();
 		props.setProperty("annotators","tokenize, ssplit, pos");
 		StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
@@ -30,10 +32,9 @@ public class PosTag {
 				taggedsentence=taggedsentence+(word + "_" + pos+" ");
 			}
 		}
-		
+		log.debug("tagged sentence: "+ taggedsentence);
 		return taggedsentence.trim();
 	}
-	
 	
 	/*		TAGS:
 
@@ -77,7 +78,3 @@ public class PosTag {
 //			http://stackoverflow.com/questions/1833252/java-stanford-nlp-part-of-speech-labels
 	 */
 }
-
-
-
-

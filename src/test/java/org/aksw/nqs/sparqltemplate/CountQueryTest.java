@@ -1,9 +1,9 @@
 package org.aksw.nqs.sparqltemplate;
 
 import java.util.Set;
+import org.aksw.asknow.Nqs;
 import org.aksw.asknow.Parser;
 import org.aksw.asknow.query.CountQuery;
-import org.aksw.asknow.Nqs;
 import org.apache.jena.rdf.model.RDFNode;
 import org.junit.Test;
 

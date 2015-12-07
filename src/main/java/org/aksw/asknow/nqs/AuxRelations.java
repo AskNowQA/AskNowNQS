@@ -3,10 +3,9 @@ package org.aksw.asknow.nqs;
 import java.util.ArrayList;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 // TODO KO@MO: Are you sure auxiliary relation is the correct grammatical term for this?
 /**Replaces the Auxiliary relation into a single Query Token.  */
-public class AuxRelations {
+@Slf4j public class AuxRelations {
 
 	public final ArrayList<QueryToken> tokens;
 	

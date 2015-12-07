@@ -3,9 +3,11 @@ import java.util.HashSet;
 import java.util.Set;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
+import lombok.extern.slf4j.Slf4j;
 
 /** Provides utility methods to fetch properties and values (objects) for resources in the KB */
-public class PropertyValue {
+
+@Slf4j public class PropertyValue {
 
 	private static Set<String> getDbp(String resource, String variable){ 
 		Set<String> properties = new HashSet<>();//stores all properties from dbp related to QCT's INPUT
@@ -16,7 +18,7 @@ public class PropertyValue {
 			QuerySolution sol = (QuerySolution) results.next();
 			properties.add(sol.get("?"+variable).toString());//" : "+sol.get("?value").toString());//TODO ?
 		}
-		// System.out.println(ResourceResults.toString());//print all properties
+		 log.debug(results.toString());
 		return properties;
 	}
 

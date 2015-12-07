@@ -3,8 +3,7 @@ import java.util.ArrayList;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
-public class CharacterizationTemplate {
+@Slf4j public class CharacterizationTemplate {
 
 	private ArrayList<QueryToken> tokens;
 	private ArrayList<Role> roleTokenList;
@@ -84,7 +83,7 @@ public class CharacterizationTemplate {
 				mergeRolesIntoR2();
 			//log.debug("QCT", "has implicit desire: "+ D);
 		} else{
-			System.err.println("No Concept Found.");
+			log.warn("No Concept Found.");
 		}
 		
 		
@@ -99,10 +98,6 @@ public class CharacterizationTemplate {
 		
 		characterizedString = "[WH] = " + wh + ", " + "[R1] = " + relation1 + ", [" + printQuantifier(desireQuantifier,"[DQ]")+" "+ printModifier(desire,"[DM]") +"[D] =" /*+ DQ +" "*/ +withoutModifier( desire) + 
 				"], " + "[R2] = " + relation2 + ", ["+ printQuantifier(inputQuantifier,"[IQ]")+" "+ printModifier(input,"[IM]")+ "[I] =" /*+ IQ +" "*/ + withoutModifier(input) +"]";	
-		
-		//SPARQLModule sql = new SPARQLModule();
-		//System.err.println(sql.constructSimpleSROquery(D,R2,I));
-		//characterizedString = sql.constructSimpleSROquery(D,R2,I);
 	}
 
 	
@@ -159,8 +154,7 @@ public class CharacterizationTemplate {
 
 	private void fitComplexQuery() { /*conceptTokenList>2*/
 		
-	
-		/*System.out.println();
+		/*
 		 * for(Clause token : clauseList){
 			System.out.print(token.getString()+"["+token.getIndex()+"] ");
 		}
@@ -287,10 +281,10 @@ public class CharacterizationTemplate {
 		for(String s:value.split(" ")){
 			if(s.endsWith(NOUN_MODIFIER_TAG) || Quantifier.isQuantifier(s)){
 				value = value.replace(s, "");
-				System.out.println("Quantifier Or Modifier:"+s);
+				log.trace("Quantifier Or Modifier:"+s);
 			}
 			else
-				System.out.println("Not Quantifier or Modifier:"+s);
+				log.trace("Not Quantifier or Modifier:"+s);
 		}
 		return value;
 	}
@@ -364,7 +358,7 @@ public class CharacterizationTemplate {
 				return true;
 			}
 		} else{
-			System.err.println("Error in finding Implicit Desire.");
+			log.error("Error in finding Implicit Desire.");
 			return false;
 		}
 		
@@ -385,7 +379,7 @@ public class CharacterizationTemplate {
 		Quantifier qf = new Quantifier(desire);
 		desire = qf.getNonQuantifierNoun();
 		desireQuantifier = qf.getQuantifier();
-		System.out.println("D:"+desire+"   "+"DQ:"+desireQuantifier);
+		log.trace("D:"+desire+"   "+"DQ:"+desireQuantifier);
 	}
 	
 	private void splitInputAndQuantifier() {
@@ -456,7 +450,7 @@ public class CharacterizationTemplate {
 					relation1 = tokens.get(i).getString();
 				}
 				//else if(!tokens.get(i).getString().equals("?"))
-					//System.err.println("Unknown Token Type Found. Cannot be placed in template. Token:"+tokens.get(i).getString()+" " + tokens.get(i).getTag());
+					//log.warn("Unknown Token Type Found. Cannot be placed in template. Token:"+tokens.get(i).getString()+" " + tokens.get(i).getTag());
 			}
 		}
 		else{  /*When Query doesn't starts with "WP" */

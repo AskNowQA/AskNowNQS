@@ -2,8 +2,10 @@ package org.aksw.asknow.query.sparql;
 
 import java.util.*;
 import org.apache.jena.rdf.model.RDFNode;
+import lombok.extern.slf4j.Slf4j;
 
-public class XofySparql {
+
+@Slf4j public class XofySparql {
 
 	static String sparqlHeader ="PREFIX dbo: <http://dbpedia.org/ontology/>" 
 			+ "PREFIX yago: <http://dbpedia.org/class/yago/> "
@@ -61,7 +63,7 @@ public class XofySparql {
 			}
 
 			String query=sparqlHeader +pattern;
-			System.out.println(query);
+			log.debug(query);
 			nodes.addAll(Dbpedia.nodeSet(Dbpedia.select(query)));
 		}
 		return nodes;

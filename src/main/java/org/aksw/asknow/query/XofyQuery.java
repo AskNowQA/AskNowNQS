@@ -7,9 +7,10 @@ import org.aksw.asknow.query.sparql.XofySparql.PatternType;
 import org.aksw.asknow.util.Spotlight;
 import org.aksw.asknow.util.WordNetSynonyms;
 import org.apache.jena.rdf.model.RDFNode;
+import lombok.extern.slf4j.Slf4j;
 
 /** TODO KO@Mohnish: Add Javadoc */
-public class XofyQuery implements Query {
+@Slf4j public class XofyQuery implements Query {
 
 	private XofyQuery() {}
 	public static final XofyQuery INSTANCE = new XofyQuery();
@@ -23,14 +24,14 @@ public class XofyQuery implements Query {
 		dbpRes = Spotlight.getDBpLookup(q1.getInput());
 
 		properties = PropertyValue.getProperties(dbpRes);
-		System.out.println(properties.toString());
+		log.trace("properties: "+properties);
 		int possibleMatchSize = 0;
 		Set<RDFNode> nodes = new HashSet<>();
 		if(q1.getDesire().contains("DataProperty")){
-			System.out.println(q1.getDesireBrackets()+";;;;;;");
+			log.trace(q1.getDesireBrackets()+";;;;;;");
 			for (String string : properties) {
 				if(string.toLowerCase().contains(q1.getDesireBrackets())){
-					possibleMatches.add(string); possibleMatchSize++;System.out.println("...."+string);
+					possibleMatches.add(string); possibleMatchSize++;log.trace("...."+string);
 					if(q1.nlQuery.contains(" of ")){
 						nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN1));//property of resourse
 					}
@@ -45,24 +46,24 @@ public class XofyQuery implements Query {
 
 			if (possibleMatchSize==0){
 				for (String string : properties) {
-					System.out.println("looking for:"+q1.getDesire());
-					//System.out.println(string +" : "+q1.getDesire());
+					log.trace("looking for:"+q1.getDesire());
+					//log.trace(string +" : "+q1.getDesire());
 					if(string.toLowerCase().contains(q1.getDesire())){
-						possibleMatches.add(string); possibleMatchSize++;System.out.println("KK"+string);
+						possibleMatches.add(string); possibleMatchSize++;log.trace("KK"+string);
 						if(q1.nlQuery.contains(" of ")||q1.nlQuery.contains("In ")){
 							nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN3));//property of resourse
 						}
-						else{	System.out.println("patren2Xofy");					
+						else{	log.trace("patren2Xofy");					
 						nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN2));//TODO update
 						}
 					}
 
 					else if(string.toLowerCase().contains(q1.getRelation2())){
-						possibleMatches.add(string); possibleMatchSize++;System.out.println("rel"+string);
+						possibleMatches.add(string); possibleMatchSize++;log.trace("rel"+string);
 						if(q1.nlQuery.contains(" of ")||q1.nlQuery.contains("In ")){
 							nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN3));//property of resourse
 						}
-						else{	System.out.println("patren2Xofy");					
+						else{	log.trace("patren2Xofy");					
 						nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN2));//TODO update
 						}
 					}
@@ -79,16 +80,16 @@ public class XofyQuery implements Query {
 				}
 			}
 			else if (possibleMatchSize==0){
-				System.out.println("SynonymsWord1");
+				log.trace("SynonymsWord1");
 
 
-				Set<String> SynonymsWord1 = new HashSet<>();
-				SynonymsWord1 = WordNetSynonyms.getSynonyms(q1.getDesire());
+				Set<String> synonymsWord1 = new HashSet<>();
+				synonymsWord1 = WordNetSynonyms.getSynonyms(q1.getDesire());
 
-				System.out.println(SynonymsWord1);
+				log.trace(synonymsWord1.toString());
 
 				String tempDesire;			// create an iterator	
-				Iterator<String> iterator =  SynonymsWord1.iterator();
+				Iterator<String> iterator =  synonymsWord1.iterator();
 				while (iterator.hasNext()){
 					tempDesire=iterator.next();
 					for (String string : properties) {

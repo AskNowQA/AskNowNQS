@@ -5,8 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 /**Returns tokens of Query Sentence.
  * Each token has a word(s) and the tag associated with it. 
  **/
-@Slf4j
-public class QueryTokenizer {
+
+@Slf4j public class QueryTokenizer {
 	private ArrayList<QueryToken> tokenList;
 	PosTag tagger;
 	
@@ -28,7 +28,7 @@ public class QueryTokenizer {
 	public void createTokenList(String QuestionString){
 		tokenList.clear();
 		String taggedSentence = tagger.getTaggedSentence(QuestionString);
-		System.out.println("Tagged:"+taggedSentence);
+		log.debug("Tagged:"+taggedSentence);
 		for(String t : taggedSentence.split(" ")){
 			if(t.split("_").length==2)
 				tokenList.add(new QueryToken(t.split("_")[0],t.split("_")[1]));

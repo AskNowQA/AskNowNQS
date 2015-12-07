@@ -13,11 +13,12 @@ import edu.stanford.nlp.util.CoreMap;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 /** Stanford Core NLP utility class. */
 @Log4j
 @SuppressWarnings("resource")
-public class StanfordNlp
+@Slf4j public class StanfordNlp
 {
 	static private final StanfordCoreNLP treeParser;
 	//	static private final StanfordCoreNLP lemmatizer;

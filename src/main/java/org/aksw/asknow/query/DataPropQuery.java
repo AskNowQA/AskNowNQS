@@ -2,9 +2,10 @@ package org.aksw.asknow.query;
 
 import java.util.ArrayList;
 import org.aksw.asknow.Dictionary;
+import lombok.extern.slf4j.Slf4j;
 
 /** TODO KO@Mohnish: Add Javadoc */
-public class DataPropQuery {
+@Slf4j public class DataPropQuery {
 
 
 	ArrayList<String> getDataProperty(String desire, String r2, ArrayList<String> resourceResults) {
@@ -13,9 +14,9 @@ public class DataPropQuery {
 		ArrayList<String> DesireList = new ArrayList<>();
 		Dictionary Dict = new Dictionary();
 		DesireList = Dict.getDesire(desire, r2);
-		System.out.println("ckp2");
+		log.trace("ckp2");
 		for (String DesireListMember : DesireList ){
-			System.out.println("ckp3");
+			log.trace("ckp3");
 			for (String string : resourceResults) {
 				if(string.toLowerCase().contains(DesireListMember.toLowerCase())){
 					PossibleMatch.add(string);

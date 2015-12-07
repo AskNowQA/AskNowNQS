@@ -2,7 +2,6 @@ package org.aksw.asknow.nqs;
 import java.util.Arrays;
 import java.util.HashSet;
 
-
 public class Quantifier {
 	String quantifier;
 	String nonQuantifierNoun;

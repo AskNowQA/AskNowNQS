@@ -52,8 +52,4 @@ public class Parser
 		return templates;
 	}
 
-
-	//	public static void main(String[] args){
-	//		
-
 }

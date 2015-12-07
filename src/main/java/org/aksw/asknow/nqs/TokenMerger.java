@@ -5,8 +5,8 @@ import java.util.List;
 import edu.stanford.nlp.util.Triple;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
-public class TokenMerger {
+
+@Slf4j public class TokenMerger {
 	
 	private ArrayList<QueryToken> tokens;
 	private String queryString;

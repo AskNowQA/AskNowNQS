@@ -7,8 +7,9 @@ import org.aksw.asknow.Nqs;
 import org.aksw.asknow.Parser;
 import org.aksw.asknow.query.*;
 import org.apache.jena.rdf.model.RDFNode;
+import lombok.extern.slf4j.Slf4j;
 
-public class BenchmarkEvalution {
+@Slf4j public class BenchmarkEvalution {
 
 	public static void main(String[] args)
 	{
@@ -28,7 +29,7 @@ public class BenchmarkEvalution {
 	static void evaluate(int n)
 	{
 		// TODO: add hawk autosparql commons qald5 eval code usage
-		System.out.println(query(n));
+		log.info(query(n).toString());
 	}
 	
 	static Set<RDFNode> query(int n)

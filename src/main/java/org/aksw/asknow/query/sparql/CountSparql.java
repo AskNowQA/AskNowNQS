@@ -2,9 +2,10 @@ package org.aksw.asknow.query.sparql;
 
 import java.util.*;
 import org.apache.jena.rdf.model.RDFNode;
+import lombok.extern.slf4j.Slf4j;
 
 /**  */
-public class CountSparql {
+@Slf4j public class CountSparql {
 
 	private CountSparql() {} // only static methods
 
@@ -26,15 +27,17 @@ public class CountSparql {
 			String tag = Dbpedia.tag(uri);
 			if(!isNumber)
 			{
+				String query = "SELECT COUNT ( DISTINCT ?num) as ?count" 
+						+"WHERE {" 
+						+"{ ?num res:"+dbpRes+" "+tag+":"+dbpPro+" .}"
+						+" UNION "
+						+"{ ?num "+tag+":"+dbpPro+" res:"+dbpRes+" .}"
+						+" UNION "
+						+"{ res:"+dbpRes+" "+tag+":"+dbpPro+" ?num .}"
+						+"}";
+				log.debug(query);
 				return Collections.singleton(Dbpedia.select(
-			"SELECT COUNT ( DISTINCT ?num) as ?count" 
-					+"WHERE {" 
-					+"{ ?num res:"+dbpRes+" "+tag+":"+dbpPro+" .}"
-					+" UNION "
-					+"{ ?num "+tag+":"+dbpPro+" res:"+dbpRes+" .}"
-					+" UNION "
-					+"{ res:"+dbpRes+" "+tag+":"+dbpPro+" ?num .}"
-					+"}").next().getLiteral("?count"));
+			query).next().getLiteral("?count"));
 				//next().getLiteral("?count").getLong();
 			}
 			return Collections.singleton(Dbpedia.select(

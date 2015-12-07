@@ -1,7 +1,8 @@
 package org.aksw.asknow.nqs;
 import edu.stanford.nlp.ling.TaggedWord;
+import lombok.extern.slf4j.Slf4j;
 
-public class QueryToken extends TaggedWord {
+@Slf4j public class QueryToken extends TaggedWord {
 
 	private String tokenString;
 	private String tokenTag;
@@ -42,44 +43,31 @@ public class QueryToken extends TaggedWord {
 	
 	
 	public boolean isAdjVariant(){
-		if(tokenTag.equalsIgnoreCase("JJ") || tokenTag.equalsIgnoreCase("JJR") 
-				|| tokenTag.equalsIgnoreCase("JJS"))
-			return true;
-		else
-			return false;
-	}
+		return tokenTag.equalsIgnoreCase("JJ") || tokenTag.equalsIgnoreCase("JJR") 
+				|| tokenTag.equalsIgnoreCase("JJS");
+		}
 	
 	public boolean isNounVariant(){
-		if(tokenTag.equalsIgnoreCase("NN") || tokenTag.equalsIgnoreCase("NNS") 
+		return tokenTag.equalsIgnoreCase("NN") || tokenTag.equalsIgnoreCase("NNS") 
 				|| tokenTag.equalsIgnoreCase("NNP") || tokenTag.equalsIgnoreCase("NNPS")
-				|| tokenTag.equalsIgnoreCase("NNP-NER"))
-			return true;
-		else
-			return false;
+				|| tokenTag.equalsIgnoreCase("NNP-NER");
 	}
 	
 	public static boolean isNounVariant(String value){
-		if(value.equalsIgnoreCase("NN") || value.equalsIgnoreCase("NNS") 
+		return value.equalsIgnoreCase("NN") || value.equalsIgnoreCase("NNS") 
 				|| value.equalsIgnoreCase("NNP") || value.equalsIgnoreCase("NNPS")
-				|| value.equalsIgnoreCase("NNP-NER"))
-			return true;
-		else
-			return false;
+				|| value.equalsIgnoreCase("NNP-NER");
 	}
 	
 	public static boolean isNERVariant(String value){
-		if(value.equalsIgnoreCase("NNP-NER"))
-			return true;
-		return false;
+		return value.equalsIgnoreCase("NNP-NER");
+		
 	}
 	
 	public boolean isVerbVariant(){
-		if(tokenTag.equalsIgnoreCase("VB") || tokenTag.equalsIgnoreCase("VBD") 
+		return tokenTag.equalsIgnoreCase("VB") || tokenTag.equalsIgnoreCase("VBD") 
 				|| tokenTag.equalsIgnoreCase("VBG") || tokenTag.equalsIgnoreCase("VBN")
-				|| tokenTag.equalsIgnoreCase("VBP") || tokenTag.equalsIgnoreCase("VBZ"))
-			return true;
-		else
-			return false;
+				|| tokenTag.equalsIgnoreCase("VBP") || tokenTag.equalsIgnoreCase("VBZ");
 	}
 	
 /*	public void setRoleToken(){

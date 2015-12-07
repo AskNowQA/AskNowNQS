@@ -2,10 +2,11 @@ package org.aksw.asknow;
 
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
 @RequiredArgsConstructor
 @ToString
-public class Nqs {
+@Slf4j public class Nqs {
 
 	public final String nlQuery;
 	public final String qct;
@@ -18,7 +19,7 @@ public class Nqs {
 		temp = temp.substring(qct.indexOf("[Concepts] = [")+14);//, qct.indexOf("]"));
 
 		temp= temp.substring(0, temp.indexOf("]"));
-		System.out.println(temp);
+		log.debug(temp);
 
 		return temp;
 
@@ -27,7 +28,7 @@ public class Nqs {
 		String temp = qct;
 		temp = temp.substring(qct.indexOf("[Roles] = [")+11);//, qct.indexOf("]"));
 		temp= temp.substring(0, temp.indexOf("]"));
-		System.out.println(temp);
+		log.debug(temp);
 		return temp;
 
 	}

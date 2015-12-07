@@ -1,8 +1,9 @@
 package org.aksw.asknow.nqs;
 
 import java.util.ArrayList;
+import lombok.extern.slf4j.Slf4j;
 
-public class QueryModuleLibrary
+@Slf4j public class QueryModuleLibrary
 {
 	private static String NOUN_TAG = "NN";
 	private static String NOUN_NER_TAG = "NNP-NER";
@@ -36,7 +37,7 @@ public class QueryModuleLibrary
 				if(tokens.size()>start+1)
 					tokens.remove(start+1);
 		}catch(ArrayIndexOutOfBoundsException e){
-			System.err.println("ArrayIndexOutOfBoundsException:"+tokens.toString()+" "+start+" "+end + " "+ tag);
+			throw new RuntimeException("ArrayIndexOutOfBoundsException:"+tokens.toString()+" "+start+" "+end + " "+ tag);
 		}
 		return tokens;
 	}
@@ -52,7 +53,7 @@ public class QueryModuleLibrary
 	public static String getStringFromTokens(ArrayList<QueryToken> tokens) {
 		String queryString = "";
 		for(QueryToken qt: tokens){
-			//log.debug("getString", qt.getString());
+			log.debug("getString", qt.getString());
 			queryString += qt.getString() + " ";
 		}
 		

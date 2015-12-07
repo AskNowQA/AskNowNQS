@@ -1,7 +1,6 @@
 package org.aksw.nqs.util;
 
 import static org.junit.Assert.assertTrue;
-
 import org.aksw.asknow.util.Boa;
 import org.junit.Test;
 

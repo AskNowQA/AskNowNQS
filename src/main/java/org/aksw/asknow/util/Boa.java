@@ -4,8 +4,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import lombok.extern.slf4j.Slf4j;
 
-public class Boa {
+@Slf4j public class Boa {
 
 	public static HashSet<String> getBoaEquivalent(String property) throws Exception{
 		HashSet<String> boaSet = new HashSet<>();
@@ -16,7 +17,9 @@ public class Boa {
                                 yc.getInputStream()));
         String inputLine="";
        // String temp="", type ="";
-        while ((inputLine = in.readLine()) != null) {
+        while ((inputLine = in.readLine()) != null)
+        {
+        	log.trace("input line: "+inputLine);
             if(inputLine.contains("\"uri\":")){
             	//System.out.println(inputLine);
             	inputLine= inputLine.substring(inputLine.indexOf("http"),inputLine.lastIndexOf("\""));

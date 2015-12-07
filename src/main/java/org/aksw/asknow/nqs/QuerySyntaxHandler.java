@@ -1,7 +1,6 @@
 package org.aksw.asknow.nqs;
 import java.util.ArrayList;
 
-
 public class QuerySyntaxHandler {
 
 	public ArrayList<QueryToken> bringWPinFront(ArrayList<QueryToken> tokens) {

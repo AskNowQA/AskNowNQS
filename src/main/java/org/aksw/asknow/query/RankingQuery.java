@@ -6,9 +6,10 @@ import org.aksw.asknow.Nqs;
 import org.aksw.asknow.query.sparql.RankingSparql;
 import org.aksw.asknow.util.Spotlight;
 import org.apache.jena.rdf.model.RDFNode;
+import lombok.extern.slf4j.Slf4j;
 
 /** TODO KO@Mohnish: Add Javadoc */
-public class RankingQuery implements Query{
+@Slf4j public class RankingQuery implements Query{
 
 	private RankingQuery() {}
 	public static final RankingQuery INSTANCE = new RankingQuery();
@@ -102,7 +103,7 @@ public class RankingQuery implements Query{
 		temp = temp.replace("tallest", "");
 		temp = temp.replace("shortest", "");
 		temp = temp.replace("the", "");
-		System.out.println(temp.trim());
+		log.debug("cleaned entry: "+temp.trim());
 		return temp.trim();
 	}
 

@@ -7,8 +7,8 @@ import jxl.read.biff.BiffException;
 import jxl.write.*;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
-public class Tester {
+
+@Slf4j public class Tester {
 	private static QueryBuilder qb;
 	static int correctDesires = 0, correctInputs = 0, bothCorrect = 0;;
 	static int incorrectDesires = 0, incorrectInputs, notcharacterized=0;

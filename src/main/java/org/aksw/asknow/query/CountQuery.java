@@ -8,6 +8,7 @@ import org.aksw.asknow.util.Spotlight;
 import org.aksw.asknow.util.WordNetSynonyms;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.jena.rdf.model.RDFNode;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Does Numeric and Count queries.
@@ -16,14 +17,13 @@ import org.apache.jena.rdf.model.RDFNode;
  * 
  * Is a singleton (use {@code INSTANCE}).
  */
-public class CountQuery implements Query{
+@Slf4j public class CountQuery implements Query{
 	
 	private CountQuery() {}
 	public static final CountQuery INSTANCE = new CountQuery();
 
-	/* (non-Javadoc)
-	 * @see org.aksw.nqs.sparqltemplate.SparqlQuery#execute(org.aksw.nqs.Template)
-	 */
+	/**
+	 * @see org.aksw.nqs.sparqltemplate.SparqlQuery#execute(org.aksw.nqs.Template)	 */
 	@Override public Set<RDFNode> execute(Nqs t) {
 		
 		Set<String> properties = new HashSet<>();
@@ -31,14 +31,14 @@ public class CountQuery implements Query{
 		
 		String dbpRes = Spotlight.getDBpLookup(t.getInput());
 		properties = PropertyValue.getProperties(dbpRes);
-		System.out.println(properties);
+		log.debug("properties: "+properties);
 
 		int possibleMatchSize=0;
 			
 			for (String prop : properties) {
 				
 				if(prop.toLowerCase().contains(t.getDesireBrackets())){
-					System.out.println(t.getDesireBrackets()+";;;");
+					log.trace(t.getDesireBrackets()+";;;");
 					possibleMatches.add(prop); possibleMatchSize++;
 					
 					//Property value is assumed to be number. 

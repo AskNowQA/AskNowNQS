@@ -25,7 +25,7 @@
 // * Call {@link Benchmark#evaluate(Algorithm)} to execute CubeQA and write precision and recall to the log.*/
 //@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 //@Log4j
-//public class Benchmark
+//@Slf4j public class Benchmark
 //{
 //	/**Identifier used as filename for serialization.*/
 //	public final String name;
