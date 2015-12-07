@@ -2,7 +2,7 @@ package org.aksw.asknow.nqs;
 import java.util.ArrayList;
 
 
-public class QuerySyntaxHandeler {
+public class QuerySyntaxHandler {
 
 	public ArrayList<QueryToken> bringWPinFront(ArrayList<QueryToken> tokens) {
 		
@@ -100,7 +100,6 @@ public class QuerySyntaxHandeler {
 	}
 
 	private String getApostrophe(String s) {
-		
 		if(s.endsWith("'s"))
 			s = s.substring(0,s.lastIndexOf("'"))+" is";
 		else if(s.endsWith("'ll"))
@@ -110,9 +109,7 @@ public class QuerySyntaxHandeler {
 		else if(s.endsWith("'ve"))
 			s = s.substring(0,s.lastIndexOf("'"))+" have";
 		else if(s.endsWith("'d"))
-			s = s.substring(0,s.lastIndexOf("'"))+" did";
-		
-		
+			s = s.substring(0,s.lastIndexOf("'"))+" did";		
 		return s;
 	}
 

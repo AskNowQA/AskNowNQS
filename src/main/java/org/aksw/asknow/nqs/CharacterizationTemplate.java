@@ -1,5 +1,6 @@
 package org.aksw.asknow.nqs;
 import java.util.ArrayList;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -10,19 +11,19 @@ public class CharacterizationTemplate {
 	private ArrayList<Concept> conceptTokenList;
 	private ArrayList<Clause> clauseList;
 	private ArrayList<String> inputMap;
- 	private String Wh="";  //WHAT, WHERE, WHEN, etc.
-	private String R1="";  //Relation 1
-	private String D="";   // Desire (or Intent)
-	private String R2=""; //Relation 1
-	private String I="";   //Input
-	private String IQ="";   //Input Quantifier
-	private String DQ="";   //Desire Quantifier
-	private String characterizedString="";
+	@Getter private String wh;  //WHAT, WHERE, WHEN, etc.
+	private String relation1;
+	private String relation2;
+	@Getter private String desire;   // Desire (or Intent)
+	private String input; 
+	private String inputQuantifier;
+	private String desireQuantifier;
+	@Getter private String characterizedString;
 	private int clauseIndex =0, conceptSuper, conceptSub, roleIndex = 1, index,whIndex;
 	private int sIndex = 2; //Structure Index
 	//private int conceptCount=0;
 	private String NOUN_MODIFIER_TAG = "_NM";
-	private boolean isCaracterized = true;
+	@Getter private boolean isCharacterized = true;
 	
 	
 	public CharacterizationTemplate(ArrayList<QueryToken> tokens) {
@@ -41,7 +42,7 @@ public class CharacterizationTemplate {
 				conceptCount++;
 		*/
 		fillRoleAndConceptList();
-		mergeConsicutiveTokens();
+		mergeConsecutiveTokens();
 		clauseList = getClauseList();
 		//System.out.print("\nConcepts:"+conceptTokenList.size()+" Roles:"+roleTokenList.size()+" Clauses:"+clauseList.size());
 		//log.debug("Concepts",conceptTokenList.toString());
@@ -56,7 +57,7 @@ public class CharacterizationTemplate {
 			fitComplexQuery();
 		} else{
 			log.error("QCT","Neither simple nor complex: "+QueryModuleLibrary.getStringFromTokens(tokens));
-			isCaracterized = false;
+			isCharacterized = false;
 		}
 	}
 
@@ -64,21 +65,21 @@ public class CharacterizationTemplate {
 
 	private void fitSimpleQuery() {
 		if(roleTokenList.size()>0)
-			R2 = roleTokenList.get(0).getString();
+			relation2 = roleTokenList.get(0).getString();
 		
 		if(conceptTokenList.size()>=2){
-			D = conceptTokenList.get(0).getString();
+			desire = conceptTokenList.get(0).getString();
 			splitDesireAndQuantifier();
-			I = conceptTokenList.get(1).getString();
+			input = conceptTokenList.get(1).getString();
 			splitInputAndQuantifier();
-			if(Wh.toLowerCase().startsWith("how"))
+			if(wh.toLowerCase().startsWith("how"))
 				handleHOW();
 		}
 		else if(hasImplicitDesire()){
 			
-			I = conceptTokenList.get(0).getString();
+			input = conceptTokenList.get(0).getString();
 			splitInputAndQuantifier();
-			D = getImplicitDesire(true);	// Implicit Desire;
+			desire = getImplicitDesire(true);	// Implicit Desire;
 			if(roleTokenList.size()>1)
 				mergeRolesIntoR2();
 			//log.debug("QCT", "has implicit desire: "+ D);
@@ -87,17 +88,17 @@ public class CharacterizationTemplate {
 		}
 		
 		
-		D = removeTHE(D);
-		I = removeTHE(I);
-		inputMap.add("[I="+I+"]");
+		desire = removeTHE(desire);
+		input = removeTHE(input);
+		inputMap.add("[I="+input+"]");
 		
-		if(Wh.toLowerCase().trim().startsWith("how")){
-			R2 = R1 + " " +R2;
-			R1 = "";
+		if(wh.toLowerCase().trim().startsWith("how")){
+			relation2 = relation1 + " " +relation2;
+			relation1 = "";
 		}
 		
-		characterizedString = "[WH] = " + Wh + ", " + "[R1] = " + R1 + ", [" + printQuantifier(DQ,"[DQ]")+" "+ printModifier(D,"[DM]") +"[D] =" /*+ DQ +" "*/ +withoutModifier( D) + 
-				"], " + "[R2] = " + R2 + ", ["+ printQuantifier(IQ,"[IQ]")+" "+ printModifier(I,"[IM]")+ "[I] =" /*+ IQ +" "*/ + withoutModifier(I) +"]";	
+		characterizedString = "[WH] = " + wh + ", " + "[R1] = " + relation1 + ", [" + printQuantifier(desireQuantifier,"[DQ]")+" "+ printModifier(desire,"[DM]") +"[D] =" /*+ DQ +" "*/ +withoutModifier( desire) + 
+				"], " + "[R2] = " + relation2 + ", ["+ printQuantifier(inputQuantifier,"[IQ]")+" "+ printModifier(input,"[IM]")+ "[I] =" /*+ IQ +" "*/ + withoutModifier(input) +"]";	
 		
 		//SPARQLModule sql = new SPARQLModule();
 		//System.err.println(sql.constructSimpleSROquery(D,R2,I));
@@ -135,23 +136,23 @@ public class CharacterizationTemplate {
 	}
 
 	private void mergeRolesIntoR2() {
-		R2 = "";
+		relation2 = "";
 		for(Role r:roleTokenList){
-			R2 += r.getString()+" ";
+			relation2 += r.getString()+" ";
 		}
-		R2 = R2.trim();		
+		relation2 = relation2.trim();		
 	}
 
 	private void handleHOW() {
-		if(Wh.contains(" ")){
-			String nextWord = Wh.toLowerCase().split(" ")[1];
+		if(wh.contains(" ")){
+			String nextWord = wh.toLowerCase().split(" ")[1];
 			if(nextWord.equals("many")){
-				D = "count("+D+")";
+				desire = "count("+desire+")";
 			} else if(nextWord.equals("much")){
-				D = "quantity("+D+")";
+				desire = "quantity("+desire+")";
 			} 
 		} else {
-			D = "DataProperty("+D+")";
+			desire = "DataProperty("+desire+")";
 		}
 		
 	}
@@ -178,16 +179,16 @@ public class CharacterizationTemplate {
 		int conceptIndex;
 		/*Implicit Desire*/
 		if(hasImplicitDesire()){
-			I = conceptTokenList.get(0).getString();
+			input = conceptTokenList.get(0).getString();
 			splitInputAndQuantifier();
-			D = getImplicitDesire(false);	// Implicit Desire;
+			desire = getImplicitDesire(false);	// Implicit Desire;
 			conceptIndex = 1;
 		} else{
-			D = conceptTokenList.get(0).getString();
+			desire = conceptTokenList.get(0).getString();
 			splitDesireAndQuantifier();
-			I = conceptTokenList.get(1).getString();
+			input = conceptTokenList.get(1).getString();
 			conceptIndex = 2;
-			if(Wh.toLowerCase().startsWith("how"))
+			if(wh.toLowerCase().startsWith("how"))
 				handleHOW();
 		}
 		
@@ -195,7 +196,7 @@ public class CharacterizationTemplate {
 		if(roleTokenList.size()>0){
 			if((clauseList.size()==0 && roleTokenList.get(0).getIndex() < conceptTokenList.get(conceptIndex-1).getIndex() ) 
 					|| (clauseList.size()>0 && roleTokenList.get(0).getIndex()<clauseList.get(0).getIndex())){
-				R2 = roleTokenList.get(0).getString();
+				relation2 = roleTokenList.get(0).getString();
 			} else if(roleTokenList.get(0).getIndex() > conceptTokenList.get(conceptIndex-1).getIndex() ){
 				//clauseList.add(0, new Clause(roleTokenList.get(0).getToken(),roleTokenList.get(0).getIndex()));
 				//roleTokenList.remove(0);
@@ -208,17 +209,17 @@ public class CharacterizationTemplate {
 		}
 		
 		
-		D = removeTHE(D);
-		I = removeTHE(I);
-		inputMap.add("[I="+I+"]");
+		desire = removeTHE(desire);
+		input = removeTHE(input);
+		inputMap.add("[I="+input+"]");
 
-		if(Wh.toLowerCase().trim().startsWith("how")){
-			R2 = R1 + " " +R2;
-			R1 = "";
+		if(wh.toLowerCase().trim().startsWith("how")){
+			relation2 = relation1 + " " +relation2;
+			relation1 = "";
 		}
 		
-		characterizedString = "[WH] = " + Wh + ", " + "[R1] = " + R1 + ", ["+ printQuantifier(DQ,"[DQ]")+" "+ printModifier(D,"[DM]") + "[D] =" /*+ DQ */+" "+ withoutModifier(D) + "], " 
-								+ "[R2] = " + R2 + ", ["+ printQuantifier(IQ,"[IQ]")+" "+ printModifier(I,"[IM]")+"[I1_1] =" /*+ IQ*/+" "+withoutModifier(I) +"]";
+		characterizedString = "[WH] = " + wh + ", " + "[R1] = " + relation1 + ", ["+ printQuantifier(desireQuantifier,"[DQ]")+" "+ printModifier(desire,"[DM]") + "[D] =" /*+ DQ */+" "+ withoutModifier(desire) + "], " 
+								+ "[R2] = " + relation2 + ", ["+ printQuantifier(inputQuantifier,"[IQ]")+" "+ printModifier(input,"[IM]")+"[I1_1] =" /*+ IQ*/+" "+withoutModifier(input) +"]";
 		
 		
 		
@@ -381,39 +382,39 @@ public class CharacterizationTemplate {
 	}
 
 	private void splitDesireAndQuantifier() {
-		Quantifier qf = new Quantifier(D);
-		D = qf.getNonQuantifierNoun();
-		DQ = qf.getQuantifier();
-		System.out.println("D:"+D+"   "+"DQ:"+DQ);
+		Quantifier qf = new Quantifier(desire);
+		desire = qf.getNonQuantifierNoun();
+		desireQuantifier = qf.getQuantifier();
+		System.out.println("D:"+desire+"   "+"DQ:"+desireQuantifier);
 	}
 	
 	private void splitInputAndQuantifier() {
-		Quantifier qf = new Quantifier(I);
-		I = qf.getNonQuantifierNoun();
-		IQ = qf.getQuantifier();
+		Quantifier qf = new Quantifier(input);
+		input = qf.getNonQuantifierNoun();
+		inputQuantifier = qf.getQuantifier();
 	}
 
 	private String getImplicitDesire(boolean isSimpleFit) {
 		
-		if(Wh.equalsIgnoreCase("Where")){
-			return "location("+I+")";
-		} else if(Wh.equalsIgnoreCase("When")){
-			return "time("+I+")";
-		} else if(Wh.equalsIgnoreCase("What")){
-			if(isSimpleFit && (IQ==null || IQ.isEmpty() || IQ.length()==0 || IQ.equalsIgnoreCase("the") || IQ.equalsIgnoreCase("a"))){
-				return "definition("+I+")";
+		if(wh.equalsIgnoreCase("Where")){
+			return "location("+input+")";
+		} else if(wh.equalsIgnoreCase("When")){
+			return "time("+input+")";
+		} else if(wh.equalsIgnoreCase("What")){
+			if(isSimpleFit && (inputQuantifier==null || inputQuantifier.isEmpty() || inputQuantifier.length()==0 || inputQuantifier.equalsIgnoreCase("the") || inputQuantifier.equalsIgnoreCase("a"))){
+				return "definition("+input+")";
 			} else{
-				return "typeOf("+I+")";
+				return "typeOf("+input+")";
 			}
-		} else if(Wh.equalsIgnoreCase("who") || Wh.equalsIgnoreCase("whom")){
+		} else if(wh.equalsIgnoreCase("who") || wh.equalsIgnoreCase("whom")){
 			return "DataProperty (Person)";
 		}
-		else if(Wh.toLowerCase().startsWith("how ")){
-			String nextString = Wh.split(" ")[1];
+		else if(wh.toLowerCase().startsWith("how ")){
+			String nextString = wh.split(" ")[1];
 			if(nextString.equalsIgnoreCase("many")){
-				return "count("+D+")";
+				return "count("+desire+")";
 			} else if(nextString.equalsIgnoreCase("much")){
-				return "quantity("+D+")";
+				return "quantity("+desire+")";
 			} else {
 				return "DataProperty("+nextString+")";
 			}
@@ -426,11 +427,11 @@ public class CharacterizationTemplate {
 		roleTokenList.clear();
 		conceptTokenList.clear();
 		inputMap.clear();
-		Wh="";
-		R1="";
-		D="";
-		R2="";
-		I="";
+		wh="";
+		relation1="";
+		desire="";
+		relation2="";
+		input="";
 		characterizedString="";
 		//conceptCount=0;
 	}
@@ -439,7 +440,7 @@ public class CharacterizationTemplate {
 		
 		// If query starts with "WP"
 		if(tokens.get(0).isWP()){
-			Wh = tokens.get(0).getString();
+			wh = tokens.get(0).getString();
 			whIndex = 0;
 			for(int i=1;i<tokens.size();i++){
 				if(isConcept(tokens.get(i)))
@@ -452,7 +453,7 @@ public class CharacterizationTemplate {
 				}
 				
 				else if(tokens.get(i).isREL1()){
-					R1 = tokens.get(i).getString();
+					relation1 = tokens.get(i).getString();
 				}
 				//else if(!tokens.get(i).getString().equals("?"))
 					//System.err.println("Unknown Token Type Found. Cannot be placed in template. Token:"+tokens.get(i).getString()+" " + tokens.get(i).getTag());
@@ -473,7 +474,7 @@ public class CharacterizationTemplate {
 			
 			/*If WP index is found*/
 			if(whIndex!=-1){
-				Wh = tokens.get(whIndex).getString();
+				wh = tokens.get(whIndex).getString();
 				this.whIndex = whIndex;
 				int index = whIndex+1;
 				
@@ -501,7 +502,7 @@ public class CharacterizationTemplate {
 					}
 					
 					if(tokens.get(i).isREL1()){
-						R1 = tokens.get(i).getString();
+						relation1 = tokens.get(i).getString();
 					}
 				}
 				
@@ -517,7 +518,7 @@ public class CharacterizationTemplate {
 		}
 	}
 	
-	private void mergeConsicutiveTokens() {
+	private void mergeConsecutiveTokens() {
 		
 		//log.debug("Start RoleList:", roleTokenList.toString());
 		for(int i=0;i<roleTokenList.size()-1;i++){
@@ -587,14 +588,6 @@ public class CharacterizationTemplate {
 		return result.trim();
 	}
 	
-	public String getCharacterizedString(){
-		return characterizedString;
-	}
-
-	public String getDesire() {
-		return D;
-	}
-	
 	public String getInputs(){
 		if(inputMap!=null)
 			return inputMap.toString();
@@ -602,15 +595,4 @@ public class CharacterizationTemplate {
 			return null;
 	}
 
-	public String getWH() {
-		if(Wh!=null)
-			return Wh;
-		return null;
-	}
-
-	public boolean isCaracterized() {
-		
-		return isCaracterized;
-	}
-	
 }

@@ -113,14 +113,14 @@ public class Tester {
 					qb.setQuery(line);
 					qb.buildQuery();
 					updateWhCount();
-					if(qb.isCaracterized()){
+					if(qb.getCt().isCharacterized()){
 						/*writer.write("\n\nQuery "+i+":"+line);
 						writer.write("\nKeywords: "+keys);
 						writer.write("\n"+qb.getCharacterizedString());*/
 						//writer.write("\n"+qb.getTaggedString());
 						
-						String desire = qb.getDesire();
-						String input = qb.getInputs();
+						String desire = qb.getCt().getDesire();
+						String input = qb.getCt().getInputs();
 						boolean desirenotfound = true, inputnotfound=true;
 						for(String s:keys.split(",")){
 							if(desire!=null && !desire.trim().isEmpty() && (desire.toLowerCase().trim().replaceAll(" ", "").contains(s.toLowerCase().trim().replaceAll(" ", ""))
@@ -300,17 +300,17 @@ public class Tester {
 				sheettowrite.addCell(label);
 				qb.setQuery(contents);
 				qb.buildQuery();
-				label = new Label(4, j, qb.getInputs()); 
+				label = new Label(4, j, qb.getCt().getInputs()); 
 				sheettowrite.addCell(label);
-				label = new Label(5, j, qb.getDesire()); 
+				label = new Label(5, j, qb.getCt().getDesire()); 
 				sheettowrite.addCell(label);
 				label = new Label(6, j, qb.getCharacterizedString()); 
 				sheettowrite.addCell(label);
 				updateWhCount();
 				boolean desireFound = false;
 				for(String desire : Original_desires.split(",")){
-					if(desire!=null && !desire.trim().isEmpty() && qb.getDesire()!=null){
-						if(qb.getDesire().toLowerCase().replaceAll(" ", "").contains(desire.toLowerCase().trim()))
+					if(desire!=null && !desire.trim().isEmpty() && qb.getCt().getDesire()!=null){
+						if(qb.getCt().getDesire().toLowerCase().replaceAll(" ", "").contains(desire.toLowerCase().trim()))
 							desireFound = true;
 					}
 				}
@@ -327,9 +327,9 @@ public class Tester {
 					incorrectSheet.addCell(label);
 					label = new Label(3, incorrectDesires, Original_desires); 
 					incorrectSheet.addCell(label);
-					label = new Label(4, incorrectDesires, qb.getInputs()); 
+					label = new Label(4, incorrectDesires, qb.getCt().getInputs()); 
 					incorrectSheet.addCell(label);
-					label = new Label(5, incorrectDesires, qb.getDesire()); 
+					label = new Label(5, incorrectDesires, qb.getCt().getDesire()); 
 					incorrectSheet.addCell(label);
 					label = new Label(6, incorrectDesires, qb.getCharacterizedString()); 
 					incorrectSheet.addCell(label);
@@ -342,7 +342,7 @@ public class Tester {
 		}
 
 		private static void updateWhCount() {
-			String wh = qb.getWH().toLowerCase().trim();
+			String wh = qb.getCt().getWh().toLowerCase().trim();
 			if(wh.contains("what"))
 				what++;
 			else if(wh.contains("how"))
@@ -362,7 +362,7 @@ public class Tester {
 		}
 		
 		private static void updateErrorCount() {
-			String wh = qb.getWH().toLowerCase().trim();
+			String wh = qb.getCt().getWh().toLowerCase().trim();
 			if(wh.contains("what"))
 				ewhat++;
 			else if(wh.contains("how"))
@@ -400,12 +400,12 @@ public class Tester {
 						writer.write("\n\nQuery "+i+":"+line);
 						writer.write("\n"+qb.getCharacterizedString());
 						writer.write("\n"+qb.getTaggedString());	        	
-						System.out.println(qb.getDesire());
+						System.out.println(qb.getCt().getDesire());
 						Label label = new Label(0, i-1, line); 
 						sheet.addCell(label);
-						label = new Label(1, i-1, qb.getDesire()); 
+						label = new Label(1, i-1, qb.getCt().getDesire()); 
 						sheet.addCell(label);
-						label = new Label(2, i-1, qb.getInputs()); 
+						label = new Label(2, i-1, qb.getCt().getInputs()); 
 						sheet.addCell(label);
 						label = new Label(3, i-1, qb.getCharacterizedString()); 
 						sheet.addCell(label);	    		

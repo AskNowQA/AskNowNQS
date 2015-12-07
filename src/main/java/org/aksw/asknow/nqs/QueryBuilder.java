@@ -1,16 +1,17 @@
 package org.aksw.asknow.nqs;
 
 import java.util.ArrayList;
+import lombok.Getter;
 
 public class QueryBuilder {
 	/**Query String to work on */
 	private String queryString;
 	/**ArrayList of QueryTokens containing words of queryString and their respective POStags */
 	private ArrayList<QueryToken> tokens;
-	private String characterizedString;
+	@Getter private String characterizedString;
 	private QueryTokenizer tokenizer;
-	private TokenMerger tm = new TokenMerger();
-	private CharacterizationTemplate ct;
+	private TokenMerger tm = new TokenMerger();	
+	@Getter private CharacterizationTemplate ct;
 	
 	public QueryBuilder(){
 		tokenizer = new QueryTokenizer();
@@ -33,7 +34,7 @@ public class QueryBuilder {
 		//log.debug("Initial Tokens:", tokens.toString());
 		//log.debug("tokenized", tokens.toString());
 
-		QuerySyntaxHandeler qsh = new QuerySyntaxHandeler();
+		QuerySyntaxHandler qsh = new QuerySyntaxHandler();
 		if(tokens.size()>0 && !tokens.get(0).isWP()){			
 			tokens = qsh.bringWPinFront(tokens);
 			queryString = QueryModuleLibrary.getStringFromTokens(tokens);
@@ -75,36 +76,4 @@ public class QueryBuilder {
 		tokens.clear();
 	}
 
-	public String getCharacterizedString(){
-		return characterizedString;
-	}
-	
-	public String getDesire(){
-		if(ct!=null)
-			return ct.getDesire();
-		else 
-			return null;
-	}
-
-	public String getInputs() {
-		if(ct!=null)
-			return ct.getInputs();
-		else 
-			return null;
-	}
-
-	public String getWH() {
-		
-		if(ct!=null)
-			return ct.getWH();
-		else 
-			return null;
-	}
-
-	public boolean isCaracterized() {
-		if(ct!=null)
-			return ct.isCaracterized();
-		else 
-			return false;
-	}
 }

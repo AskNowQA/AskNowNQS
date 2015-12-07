@@ -32,22 +32,13 @@ public class StanfordNlp
 
 	static
 	{
-		// disable logging
-		// TODO do this more elegantly
+		// stanford doesn't use a logging framework so we have to disable syserr
 		PrintStream err = System.err;
 		System.setErr(new PrintStream(new NullOutputStream()));
-		{
-			Properties props = new Properties();
-			props.put("annotators", "tokenize, ssplit, pos, parse");
-			treeParser = new StanfordCoreNLP(props);
-			
-		}
-		//		{
-		//		Properties props = new Properties();
-		//		props.put("annotators", "tokenize, ssplit, pos, lemma");
-		//		lemmatizer = new StanfordCoreNLP(props);
-		//		}
-		// enable logging
+		Properties props = new Properties();
+		props.put("annotators", "tokenize, ssplit, pos, parse");
+		treeParser = new StanfordCoreNLP(props);
+
 		System.setErr(err);
 	}
 
@@ -65,7 +56,7 @@ public class StanfordNlp
 	{
 		// TODO: fix this
 		log.trace("parsing sentence: '"+sentence+"' as tree");
-//		new POSTaggerAnnotator().
+		//		new POSTaggerAnnotator().
 		Annotation document = new Annotation(sentence);
 		treeParser.annotate(document);
 		List<CoreMap> sentences = document.get(SentencesAnnotation.class);

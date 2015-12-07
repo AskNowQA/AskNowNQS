@@ -1,13 +1,9 @@
 package org.aksw.asknow.nqs;
+
 import java.util.ArrayList;
 
-
-public class QueryModuleLibrary {
-
-	/*
-	 * returns the word index of "word" in "string" 
-	 * or returns -1 if word not found
-	 * */
+public class QueryModuleLibrary
+{
 	private static String NOUN_TAG = "NN";
 	private static String NOUN_NER_TAG = "NNP-NER";
 	private static String NOUN_MODIFIER_TAG = "_NM";
