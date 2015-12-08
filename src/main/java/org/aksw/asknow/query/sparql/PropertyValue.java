@@ -6,9 +6,9 @@ import org.apache.jena.query.ResultSet;
 import lombok.extern.slf4j.Slf4j;
 
 /** Provides utility methods to fetch properties and values (objects) for resources in the KB */
-
+// TODO KO@MO: javadoc and comments
 @Slf4j public class PropertyValue {
-
+	// TODO KO@MO: javadoc and comments
 	private static Set<String> getDbp(String resource, String variable){ 
 		Set<String> properties = new HashSet<>();//stores all properties from dbp related to QCT's INPUT
 		String query = "SELECT DISTINCT ?"+variable+" WHERE { "

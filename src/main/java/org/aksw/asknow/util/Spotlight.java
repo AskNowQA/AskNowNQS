@@ -4,14 +4,18 @@ import java.io.*;
 import java.net.*;
 import lombok.extern.slf4j.Slf4j;
 
+/** API for DBpedia Spotlight. Use {@link #getDBpLookup} in a static fashion.*/
 @Slf4j public class Spotlight
 {
 	private Spotlight()	{}
 
-	public static String getDBpLookup(String argument1)
+	/** Relies on a http connection to the service, which may be down.
+	 *  @param phrase
+	** @return */
+	public static String getDBpLookup(String phrase)
 	{
 		String DBpEquivalent = "";
-		String argument = argument1.replaceAll(" ","%20");
+		String argument = phrase.replaceAll(" ","%20");
 		try
 		{
 			URL oracle = new URL("http://spotlight.sztaki.hu:2222/rest/annotate?text=" + argument);
@@ -48,14 +52,14 @@ import lombok.extern.slf4j.Slf4j;
 						try
 						{
 							DBpEquivalent = getDbpEntity(
-									argument1);
+									phrase);
 							if (!DBpEquivalent.contains(
 									"notFound"))
 							{
 								return getEntity(
 										DBpEquivalent);
 							}
-							else DBpEquivalent = Lookup.getDBpLookup(
+							else DBpEquivalent = DbpediaLookup.getDBpLookup(
 									argument);
 						}
 						catch (Exception e)
@@ -191,6 +195,7 @@ import lombok.extern.slf4j.Slf4j;
 			// System.out.println(" the connection couldn't be established");
 			return ("pageNotFound");
 		}
+		// TODO KO@MO: why return null? check and comment
 		return null;
 
 	}

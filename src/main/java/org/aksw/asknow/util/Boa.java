@@ -15,8 +15,7 @@ import lombok.extern.slf4j.Slf4j;
         
         BufferedReader in = new BufferedReader(new InputStreamReader(
                                 yc.getInputStream()));
-        String inputLine="";
-       // String temp="", type ="";
+        String inputLine;
         while ((inputLine = in.readLine()) != null)
         {
         	log.trace("input line: "+inputLine);

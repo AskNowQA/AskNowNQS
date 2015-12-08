@@ -5,6 +5,7 @@ import javax.xml.XMLConstants;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.*;
 
+/** Generic XML utilities. */
 public class XmlUtil
 {
 	public static boolean validateAgainstXSD(InputStream xml, InputStream xsd)

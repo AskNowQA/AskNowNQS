@@ -4,7 +4,7 @@ import java.util.*;
 import org.apache.jena.rdf.model.RDFNode;
 import lombok.extern.slf4j.Slf4j;
 
-/**  */
+/** SPARQL numeric query, either query a number directly or count a number of instances. */
 @Slf4j public class CountSparql {
 
 	private CountSparql() {} // only static methods
@@ -12,11 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 	/**
 	 * @param candidateUris 
 	 * @param dbp Res KB (DBpedia) resources
-	 * @param isNumber
+	 * @param isNumber true if a numeric value is queried, false if an entity count is needed.
 	 * @return
 	 */
 	public static Set<RDFNode> execute(Set<String> candidateUris, String dbpRes,boolean isNumber)
-//	public static long execute(Set<String> candidateUris, String dbpRes,boolean isNumber)
+	// TODO KO@MO: why is only one uri used from the candidate uris, why the set? please change.
 	{
 		for(String uri: candidateUris)
 		{

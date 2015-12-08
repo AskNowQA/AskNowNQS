@@ -4,7 +4,7 @@ import java.util.*;
 import org.apache.jena.rdf.model.RDFNode;
 import lombok.extern.slf4j.Slf4j;
 
-
+// TODO KO@MO: javadoc and comments
 @Slf4j public class XofySparql {
 
 	static String sparqlHeader ="PREFIX dbo: <http://dbpedia.org/ontology/>" 
@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 			+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 			+ "PREFIX res: <http://dbpedia.org/resource/> ";
 	
-	// TODO: Mohnish: what is the difference between these patterns and when should each be chosen? Rename accordingly.
+	// TODO KO@MO: what is the difference between these patterns and when should each be chosen? Rename accordingly.
 	public static enum PatternType {PATTERN1,PATTERN2,PATTERN3}
 	
 	public static Set<RDFNode> pattern(Set<String> properties, String dbpRes, PatternType type) {
