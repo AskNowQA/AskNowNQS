@@ -24,7 +24,6 @@
 // * CSV can be converted to QALD by using {@link Benchmark#fromCsv(String)}  and then {@link Benchmark#saveAsQald()} or {@link Benchmark#saveAsQald(File)}.
 // * Call {@link Benchmark#evaluate(Algorithm)} to execute CubeQA and write precision and recall to the log.*/
 //@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-//@Log4j
 //@Slf4j public class Benchmark
 //{
 //	/**Identifier used as filename for serialization.*/
