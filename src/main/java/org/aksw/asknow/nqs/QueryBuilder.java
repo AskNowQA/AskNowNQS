@@ -1,53 +1,60 @@
 package org.aksw.asknow.nqs;
 
 import java.util.ArrayList;
-import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j public class QueryBuilder {
-	/**Query String to work on */
+
+public class QueryBuilder {
+	/* 
+	 * queryString: Query String to work on
+	 * tokens: ArrayList of QueryTokens containing words of queryString 
+	 * 		   and their respective POStags
+	 */
 	private String queryString;
-	/**ArrayList of QueryTokens containing words of queryString and their respective POStags */
 	private ArrayList<QueryToken> tokens;
-	@Getter private String characterizedString;
+	private String characterizedString="";
 	private QueryTokenizer tokenizer;
-	private TokenMerger tm = new TokenMerger();	
-	@Getter private CharacterizationTemplate ct;
+	private TokenMerger tm = new TokenMerger();
+	private CharacterizationTemplate ct = null;
+	private QueryNormalizer queryNormalizer = null;
 	
 	public QueryBuilder(){
 		tokenizer = new QueryTokenizer();
+		queryNormalizer = new QueryNormalizer();
 	}
 	
 	public QueryBuilder(String query){
-		queryString = query;
+		queryString = queryNormalizer.normalizeNonWhQuery(query);
 		tokenizer = new QueryTokenizer(queryString);
 		buildQuery();
 	}
 	
 	public void setQuery(String query){
-		queryString = query;
+		queryString = queryNormalizer.normalizeNonWhQuery(query);		
 		tokenizer.createTokenList(queryString);
 	}
 
 	public void buildQuery() {
-		 // Get Token List. Each Token contains a word(String) and it's corresponding POS Tag(String)
-		tokens = tokenizer.getTokenList();
-		log.debug("Initial Tokens:", tokens.toString());
-		log.debug("tokenized", tokens.toString());
 
-		QuerySyntaxHandler qsh = new QuerySyntaxHandler();
+		/*
+		 * Get Token List. Each Token contains a word(String) and it's corresponding POS Tag(String)
+		 * */
+		tokens = tokenizer.getTokenList();
+		//Log.d("Initial Tokens:", tokens.toString());
+		//Log.d("tokenized", tokens.toString());
+
+		QuerySyntaxHandeler qsh = new QuerySyntaxHandeler();
 		if(tokens.size()>0 && !tokens.get(0).isWP()){			
 			tokens = qsh.bringWPinFront(tokens);
 			queryString = QueryModuleLibrary.getStringFromTokens(tokens);
 		}
-		log.debug("after systax", tokens.toString());
+		//Log.d("after systax", tokens.toString());
 		
 		
 		/*
 		 * Handle AuxRelations in the tokens
 		 * */
-		tokens = (new AuxRelations(queryString,tokens)).tokens;
-		log.debug("after aux", tokens.toString());
+		tokens = (new AuxRelations(queryString,tokens)).getTokens();
+		//Log.d("after aux", tokens.toString());
 		
 		/*
 		 * Clubbing Tags
@@ -56,10 +63,10 @@ import lombok.extern.slf4j.Slf4j;
 		tm.startMerger();
 		tokens = tm.getTokens();
 		
-		log.debug("after merger", tokens.toString());
+		//Log.d("after merger", tokens.toString());
 		
 		tokens = qsh.handleApostrophe(tokens);
-		log.debug("after apos", tokens.toString());
+		//Log.d("after apos", tokens.toString());
 		
 		/*
 		 * Fit the query into the Characterization Template
@@ -77,4 +84,36 @@ import lombok.extern.slf4j.Slf4j;
 		tokens.clear();
 	}
 
+	public String getCharacterizedString(){
+		return characterizedString;
+	}
+	
+	public String getDesire(){
+		if(ct!=null)
+			return ct.getDesire();
+		else 
+			return null;
+	}
+
+	public String getInputs() {
+		if(ct!=null)
+			return ct.getInputs();
+		else 
+			return null;
+	}
+
+	public String getWH() {
+		
+		if(ct!=null)
+			return ct.getWH();
+		else 
+			return null;
+	}
+
+	public boolean isCaracterized() {
+		if(ct!=null)
+			return ct.isCaracterized();
+		else 
+			return false;
+	}
 }

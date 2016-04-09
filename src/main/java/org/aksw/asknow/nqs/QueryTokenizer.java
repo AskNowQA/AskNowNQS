@@ -1,23 +1,25 @@
 package org.aksw.asknow.nqs;
+
 import java.util.ArrayList;
-import lombok.extern.slf4j.Slf4j;
 
-/**Returns tokens of Query Sentence.
+/*
+ * Returns tokens of Query Sentence.
  * Each token has a word(s) and the tag associated with it. 
- **/
+ * */
 
-@Slf4j public class QueryTokenizer {
+public class QueryTokenizer {
 	private ArrayList<QueryToken> tokenList;
 	PosTag tagger;
+	//private String[] booleanQueriesTokens = {"is","are","did","does","do","has","have"};
 	
 	public QueryTokenizer(String QuestionString){
-		tokenList = new ArrayList<>();
+		tokenList = new ArrayList<QueryToken>();
 		tagger = new PosTag();
 		createTokenList(QuestionString);
 	}
 	
 	public QueryTokenizer(){
-		tokenList = new ArrayList<>();
+		tokenList = new ArrayList<QueryToken>();
 		tagger = new PosTag();
 	}
 	
@@ -28,16 +30,30 @@ import lombok.extern.slf4j.Slf4j;
 	public void createTokenList(String QuestionString){
 		tokenList.clear();
 		String taggedSentence = tagger.getTaggedSentence(QuestionString);
-		log.debug("Tagged:"+taggedSentence);
+		System.out.println("Tagged:"+taggedSentence);
 		for(String t : taggedSentence.split(" ")){
 			if(t.split("_").length==2)
 				tokenList.add(new QueryToken(t.split("_")[0],t.split("_")[1]));
 			else
-				log.error("TAG Splitting Error", taggedSentence);
+				Log.e("TAG Splitting Error", taggedSentence);
 		}
+		BooleanHandeler(QuestionString);
 		replaceWDT();
 	}
 	
+	/* Set Is/Are type questions as WH-Queries
+	 * 
+	 * */
+	private void BooleanHandeler(String questionString) {
+		for(String string : QueryModuleLibrary.booleanQueriesTokens){
+			if(questionString.toLowerCase().startsWith(string+" ")){
+				tokenList.get(0).setTag("WP");
+				break;
+			}
+		}
+		
+	}
+
 	/*
 	 * replaces WDT with WP
 	 * */

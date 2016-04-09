@@ -1,8 +1,9 @@
 package org.aksw.asknow.nqs;
-import edu.stanford.nlp.ling.TaggedWord;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j public class QueryToken extends TaggedWord {
+import edu.stanford.nlp.ling.TaggedWord;
+
+
+public class QueryToken extends TaggedWord{
 
 	private String tokenString;
 	private String tokenTag;
@@ -25,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 		tokenString = string.trim();
 	}
 	
-	@Override public void setTag(String tag){
+	public void setTag(String tag){
 		tokenTag = tag.trim();
 	}
 	
@@ -33,7 +34,7 @@ import lombok.extern.slf4j.Slf4j;
 		return tokenTag.equalsIgnoreCase(tag.trim());
 	}
 	
-	@Override public String toString(){
+	public String toString(){
 		return tokenString+"/"+tokenTag;
 	}
 	
@@ -43,31 +44,44 @@ import lombok.extern.slf4j.Slf4j;
 	
 	
 	public boolean isAdjVariant(){
-		return tokenTag.equalsIgnoreCase("JJ") || tokenTag.equalsIgnoreCase("JJR") 
-				|| tokenTag.equalsIgnoreCase("JJS");
-		}
+		if(tokenTag.equalsIgnoreCase("JJ") || tokenTag.equalsIgnoreCase("JJR") 
+				|| tokenTag.equalsIgnoreCase("JJS"))
+			return true;
+		else
+			return false;
+	}
 	
 	public boolean isNounVariant(){
-		return tokenTag.equalsIgnoreCase("NN") || tokenTag.equalsIgnoreCase("NNS") 
+		if(tokenTag.equalsIgnoreCase("NN") || tokenTag.equalsIgnoreCase("NNS") 
 				|| tokenTag.equalsIgnoreCase("NNP") || tokenTag.equalsIgnoreCase("NNPS")
-				|| tokenTag.equalsIgnoreCase("NNP-NER");
+				|| tokenTag.equalsIgnoreCase("NNP-NER"))
+			return true;
+		else
+			return false;
 	}
 	
 	public static boolean isNounVariant(String value){
-		return value.equalsIgnoreCase("NN") || value.equalsIgnoreCase("NNS") 
+		if(value.equalsIgnoreCase("NN") || value.equalsIgnoreCase("NNS") 
 				|| value.equalsIgnoreCase("NNP") || value.equalsIgnoreCase("NNPS")
-				|| value.equalsIgnoreCase("NNP-NER");
+				|| value.equalsIgnoreCase("NNP-NER"))
+			return true;
+		else
+			return false;
 	}
 	
 	public static boolean isNERVariant(String value){
-		return value.equalsIgnoreCase("NNP-NER");
-		
+		if(value.equalsIgnoreCase("NNP-NER"))
+			return true;
+		return false;
 	}
 	
 	public boolean isVerbVariant(){
-		return tokenTag.equalsIgnoreCase("VB") || tokenTag.equalsIgnoreCase("VBD") 
+		if(tokenTag.equalsIgnoreCase("VB") || tokenTag.equalsIgnoreCase("VBD") 
 				|| tokenTag.equalsIgnoreCase("VBG") || tokenTag.equalsIgnoreCase("VBN")
-				|| tokenTag.equalsIgnoreCase("VBP") || tokenTag.equalsIgnoreCase("VBZ");
+				|| tokenTag.equalsIgnoreCase("VBP") || tokenTag.equalsIgnoreCase("VBZ"))
+			return true;
+		else
+			return false;
 	}
 	
 /*	public void setRoleToken(){
@@ -94,111 +108,160 @@ import lombok.extern.slf4j.Slf4j;
 		return isConcept;
 	}*/
 	
-	public boolean isNN()
-	{
-		return tokenTag.equalsIgnoreCase("NN");
+	public boolean isNN(){
+		if(tokenTag.equalsIgnoreCase("NN"))
+			return true;
+		else
+			return false;
 	}
 	
-	public boolean isNNP()
-	{
-		return tokenTag.equalsIgnoreCase("NNP") || tokenTag.equalsIgnoreCase("NNP-NER");
+	public boolean isNNP(){
+		if(tokenTag.equalsIgnoreCase("NNP") || tokenTag.equalsIgnoreCase("NNP-NER"))
+			return true;
+		else
+			return false;
 	}
 	
-	public boolean isNNS()
-	{
-		return tokenTag.equalsIgnoreCase("NNS");
+	public boolean isNNS(){
+		if(tokenTag.equalsIgnoreCase("NNS"))
+			return true;
+		else
+			return false;
 	}
 	
 	public boolean isNNPS(){
-		return tokenTag.equalsIgnoreCase("NNPS");
+		if(tokenTag.equalsIgnoreCase("NNPS"))
+			return true;
+		else
+			return false;
 	}
 	
 	public boolean isRB(){
-		return tokenTag.equalsIgnoreCase("RB");
+		if(tokenTag.equalsIgnoreCase("RB"))
+			return true;
+		else
+			return false;
 	}
 	
-	public boolean isDT()
-	{
-		return tokenTag.equalsIgnoreCase("DT");
+	public boolean isDT(){
+		if(tokenTag.equalsIgnoreCase("DT"))
+			return true;
+		else
+			return false;
 	}
 	
-	public boolean isJJ()
-	{
-		return tokenTag.equalsIgnoreCase("JJ");
+	public boolean isJJ(){
+		if(tokenTag.equalsIgnoreCase("JJ"))
+			return true;
+		else
+			return false;
 	}
 	
-	public boolean isVBN()
-	{
-		return tokenTag.equalsIgnoreCase("VBN");
+	public boolean isVBN(){
+		if(tokenTag.equalsIgnoreCase("VBN"))
+			return true;
+		else
+			return false;
 	}
 	
 	public boolean isVBG(){
-		return tokenTag.equalsIgnoreCase("VBG");
+		if(tokenTag.equalsIgnoreCase("VBG"))
+			return true;
+		else
+			return false;
 	}
 	
-	public boolean isCD()
-	{
-		return tokenTag.equalsIgnoreCase("CD");
+	public boolean isCD(){
+		if(tokenTag.equalsIgnoreCase("CD"))
+			return true;
+		else
+			return false;
 	}
 	
-	public boolean isIN()
-	{
-		return tokenTag.equalsIgnoreCase("IN");
+	public boolean isIN(){
+		if(tokenTag.equalsIgnoreCase("IN"))
+			return true;
+		else
+			return false;
 	}
 	
 	public boolean isTO(){
-		return tokenTag.equalsIgnoreCase("TO");
+		if(tokenTag.equalsIgnoreCase("TO"))
+			return true;
+		else
+			return false;
 	}
 	
-	public boolean isWP()
-	{
-		return tokenTag.equalsIgnoreCase("WP");
+	public boolean isWP(){
+		if(tokenTag.equalsIgnoreCase("WP"))
+			return true;
+		else
+			return false;
 	}
 	
 	public boolean isREL1(){
-		return tokenTag.equalsIgnoreCase("REL1");
+		if(tokenTag.equalsIgnoreCase("REL1"))
+			return true;
+		else
+			return false;
 	}
 	
 	public boolean isRoleTagged(){
-		return tokenTag.equalsIgnoreCase("ROLE");
+		if(tokenTag.equalsIgnoreCase("ROLE"))
+			return true;
+		else
+			return false;
 	}
 	
 	public boolean isPRP(){
-		return tokenTag.equalsIgnoreCase("PRP") || tokenTag.equalsIgnoreCase("PRP$");
+		if(tokenTag.equalsIgnoreCase("PRP") || tokenTag.equalsIgnoreCase("PRP$"))
+			return true;
+		else
+			return false;
 	}
 
 	public boolean isClause() {
 		if(tokenString.equalsIgnoreCase("who") || tokenString.equalsIgnoreCase("which") ||
 				tokenString.equalsIgnoreCase("when") ||tokenString.equalsIgnoreCase("where") ||
 				tokenString.equalsIgnoreCase("whose") ||tokenString.equalsIgnoreCase("whom") ||
-				tokenString.equalsIgnoreCase("what"))
+				tokenString.equalsIgnoreCase("what") || tokenString.equalsIgnoreCase("that"))
 			return true;
 		else
 			return false;
 	}
 
-	public boolean isPOS()
-	{
-		return tokenTag.equalsIgnoreCase("POS");
+	public boolean isPOS() {
+		if(tokenTag.equalsIgnoreCase("POS"))
+			return true;
+		else
+			return false;
 	}
 	
-	public boolean isCC()
-	{
-		return tokenTag.equalsIgnoreCase("CC");
+	public boolean isCC() {
+		if(tokenTag.equalsIgnoreCase("CC"))
+			return true;
+		else
+			return false;
 	}
 
-	public boolean isVBD()
-	{
-		return tokenTag.equalsIgnoreCase("VBD");
+	public boolean isVBD() {
+		if(tokenTag.equalsIgnoreCase("VBD"))
+			return true;
+		else
+			return false;
 	}
 
-	public boolean isVBDGN()
-	{
-		return this.isVBD() || this.isVBG() || this.isVBN();
+	public boolean isVBDGN() {
+		if(this.isVBD() || this.isVBG() || this.isVBN())
+			return true;
+		else
+			return false;
 	}
 
-	public boolean isNNPNER()
-	{
-		return tokenTag.equalsIgnoreCase("NNP-NER");	
+	public boolean isNNPNER() {
+		if(tokenTag.equalsIgnoreCase("NNP-NER"))
+			return true;
+		else
+			return false;
 	}
 }

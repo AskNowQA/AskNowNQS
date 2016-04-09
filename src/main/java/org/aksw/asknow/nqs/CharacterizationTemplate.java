@@ -1,62 +1,70 @@
 package org.aksw.asknow.nqs;
+
+
 import java.util.ArrayList;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j public class CharacterizationTemplate {
+
+//import org.apache.commons.collections.map.LinkedMap;
+
+
+public class CharacterizationTemplate {
 
 	private ArrayList<QueryToken> tokens;
 	private ArrayList<Role> roleTokenList;
 	private ArrayList<Concept> conceptTokenList;
 	private ArrayList<Clause> clauseList;
 	private ArrayList<String> inputMap;
-	@Getter private String wh;  //WHAT, WHERE, WHEN, etc.
-	private String relation1;
-	private String relation2;
-	@Getter private String desire;   // Desire (or Intent)
-	private String input; 
-	private String inputQuantifier;
-	private String desireQuantifier;
-	@Getter private String characterizedString;
+ 	private String Wh="";  //WHAT, WHERE, WHEN, etc.
+	private String R1="";  //Relation 1
+	private String D="";   // Desire (or Intent)
+	private String R2=""; //Relation 1
+	private String I="";   //Input
+	private String IQ="";   //Input Quantifier
+	private String DQ="";   //Desire Quantifier
+	private String characterizedString="";
 	private int clauseIndex =0, conceptSuper, conceptSub, roleIndex = 1, index,whIndex;
 	private int sIndex = 2; //Structure Index
 	//private int conceptCount=0;
 	private String NOUN_MODIFIER_TAG = "_NM";
-	@Getter private boolean isCharacterized = true;
+	private boolean isCaracterized = true;
 	
 	
 	public CharacterizationTemplate(ArrayList<QueryToken> tokens) {
 		this.tokens = tokens;
-		roleTokenList = new ArrayList<>();
-		conceptTokenList = new ArrayList<>();
-		inputMap = new ArrayList<>();
+		roleTokenList = new ArrayList<Role>();
+		conceptTokenList = new ArrayList<Concept>();
+		inputMap = new ArrayList<String>();
 	}
 
 	public void createTemplate() {
 		
 		resetTemplate();
-		//log.debug("QCT", tokens.toString());
+		//Log.d("QCT", tokens.toString());
 		/*for(QueryToken qt:tokens)
 			if(isConcept(qt))
 				conceptCount++;
 		*/
 		fillRoleAndConceptList();
-		mergeConsecutiveTokens();
+		mergeConsicutiveTokens();
 		clauseList = getClauseList();
 		//System.out.print("\nConcepts:"+conceptTokenList.size()+" Roles:"+roleTokenList.size()+" Clauses:"+clauseList.size());
-		//log.debug("Concepts",conceptTokenList.toString());
-		//log.debug("Roles",roleTokenList.toString());
+		//Log.d("Concepts",conceptTokenList.toString());
+		//Log.d("Roles",roleTokenList.toString());
+		//System.out.println("hasImplicitDesire:"+hasImplicitDesire()+"   conceptlist size"+conceptTokenList.size());
+		//System.out.println("concepts:"+conceptTokenList.toString() +"\nroles:"+roleTokenList.toString()+"\ncluase"+clauseList.toString());
 		if((hasImplicitDesire() && conceptTokenList.size() == 1)
-				|| ((!hasImplicitDesire()) && conceptTokenList.size() == 2)) {
-			log.debug("QCT", "Simple Fit");
+				|| ((!hasImplicitDesire()) && conceptTokenList.size() == 2 && roleTokenList.size()<2)) {
+			Log.d("QCT", "Simple Fit");
 			fitSimpleQuery();
 		}
 		else if(conceptTokenList.size()>=2){
-			log.debug("QCT", "Complex Fit");
+			Log.d("QCT", "Complex Fit");
 			fitComplexQuery();
 		} else{
-			log.error("QCT","Neither simple nor complex: "+QueryModuleLibrary.getStringFromTokens(tokens));
-			isCharacterized = false;
+			Log.e("QCT","Neither simple nor complex: "+QueryModuleLibrary.getStringFromTokens(tokens));
+			isCaracterized = false;
 		}
 	}
 
@@ -64,47 +72,55 @@ import lombok.extern.slf4j.Slf4j;
 
 	private void fitSimpleQuery() {
 		if(roleTokenList.size()>0)
-			relation2 = roleTokenList.get(0).getString();
+			R2 = roleTokenList.get(0).getString();
 		
 		if(conceptTokenList.size()>=2){
-			desire = conceptTokenList.get(0).getString();
+			D = conceptTokenList.get(0).getString();
 			splitDesireAndQuantifier();
-			input = conceptTokenList.get(1).getString();
+			I = conceptTokenList.get(1).getString();
 			splitInputAndQuantifier();
-			if(wh.toLowerCase().startsWith("how"))
+			if(Wh.toLowerCase().startsWith("how"))
 				handleHOW();
 		}
 		else if(hasImplicitDesire()){
 			
-			input = conceptTokenList.get(0).getString();
+			I = conceptTokenList.get(0).getString();
 			splitInputAndQuantifier();
-			desire = getImplicitDesire(true);	// Implicit Desire;
+			D = getImplicitDesire(true);	// Implicit Desire;
 			if(roleTokenList.size()>1)
 				mergeRolesIntoR2();
-			//log.debug("QCT", "has implicit desire: "+ D);
+			//Log.d("QCT", "has implicit desire: "+ D);
 		} else{
-			log.warn("No Concept Found.");
+			System.err.println("No Concept Found.");
 		}
 		
 		
-		desire = removeTHE(desire);
-		input = removeTHE(input);
-		inputMap.add("[I="+input+"]");
+		D = removeTHE(D);
+		I = removeTHE(I);
+		inputMap.add("[I="+I+"]");
 		
-		if(wh.toLowerCase().trim().startsWith("how")){
-			relation2 = relation1 + " " +relation2;
-			relation1 = "";
+		if(Wh.toLowerCase().trim().startsWith("how")){
+			R2 = R1 + " " +R2;
+			R1 = "";
 		}
 		
-		characterizedString = "[WH] = " + wh + ", " + "[R1] = " + relation1 + ", [" + printQuantifier(desireQuantifier,"[DQ]")+" "+ printModifier(desire,"[DM]") +"[D] =" /*+ DQ +" "*/ +withoutModifier( desire) + 
-				"], " + "[R2] = " + relation2 + ", ["+ printQuantifier(inputQuantifier,"[IQ]")+" "+ printModifier(input,"[IM]")+ "[I] =" /*+ IQ +" "*/ + withoutModifier(input) +"]";	
+		/*characterizedString = "[WH] = " + Wh + ", " + "[R1] = " + R1 + ", [" + printQuantifier(DQ,"[DQ]")+" "+ printModifier(D,"[DM]") +"[D] =" + DQ +" " +withoutModifier( D) + 
+				"], " + "[R2] = " + R2 + ", ["+ printQuantifier(IQ,"[IQ]")+" "+ printModifier(I,"[IM]")+ "[I] =" + IQ +" " + withoutModifier(I) +"]";*/
+		
+		characterizedString = "[WH] = " + Wh + ", " + "[R1] = " + R1 + ", [D] = "+DQ+" "+ D+ ", [R2] = " + R2 + ", [I] = "+ IQ + " " + I;	
+		
+		//SPARQLModule sql = new SPARQLModule();
+		//System.err.println(sql.constructSimpleSROquery(D,R2,I));
+		//characterizedString = sql.constructSimpleSROquery(D,R2,I);
 	}
 
 	
 	private String withoutModifier(String value) {
-		for(String s:value.split(" ")){
-			if(s.endsWith(NOUN_MODIFIER_TAG))
-				value = value.replace(s, "");
+		if(value != null){
+			for(String s:value.split(" ")){
+				if(s.endsWith(NOUN_MODIFIER_TAG))
+					value = value.replace(s, "");
+			}
 		}
 		return value;
 	}
@@ -119,10 +135,12 @@ import lombok.extern.slf4j.Slf4j;
 	private String printModifier(String value, String templateLable) {
 		String modifierString = "";
 		boolean hasModifier = false;
-		for(String s : value.split(" ")){
-			if(s.endsWith(NOUN_MODIFIER_TAG)){
-				hasModifier = true;
-				modifierString += s.substring(0, s.length() - NOUN_MODIFIER_TAG.length())+" ";
+		if(value!=null){
+			for(String s : value.split(" ")){
+				if(s.endsWith(NOUN_MODIFIER_TAG)){
+					hasModifier = true;
+					modifierString += s.substring(0, s.length() - NOUN_MODIFIER_TAG.length())+" ";
+				}
 			}
 		}
 		if(hasModifier)
@@ -131,30 +149,31 @@ import lombok.extern.slf4j.Slf4j;
 	}
 
 	private void mergeRolesIntoR2() {
-		relation2 = "";
+		R2 = "";
 		for(Role r:roleTokenList){
-			relation2 += r.getString()+" ";
+			R2 += r.getString()+" ";
 		}
-		relation2 = relation2.trim();		
+		R2 = R2.trim();		
 	}
 
 	private void handleHOW() {
-		if(wh.contains(" ")){
-			String nextWord = wh.toLowerCase().split(" ")[1];
+		if(Wh.contains(" ")){
+			String nextWord = Wh.toLowerCase().split(" ")[1];
 			if(nextWord.equals("many")){
-				desire = "count("+desire+")";
+				D = "count("+D+")";
 			} else if(nextWord.equals("much")){
-				desire = "quantity("+desire+")";
+				D = "quantity("+D+")";
 			} 
 		} else {
-			desire = "DataProperty("+desire+")";
+			D = "DataProperty("+D+")";
 		}
 		
 	}
 
 	private void fitComplexQuery() { /*conceptTokenList>2*/
 		
-		/*
+	
+		/*System.out.println();
 		 * for(Clause token : clauseList){
 			System.out.print(token.getString()+"["+token.getIndex()+"] ");
 		}
@@ -173,16 +192,16 @@ import lombok.extern.slf4j.Slf4j;
 		int conceptIndex;
 		/*Implicit Desire*/
 		if(hasImplicitDesire()){
-			input = conceptTokenList.get(0).getString();
+			I = conceptTokenList.get(0).getString();
 			splitInputAndQuantifier();
-			desire = getImplicitDesire(false);	// Implicit Desire;
+			D = getImplicitDesire(false);	// Implicit Desire;
 			conceptIndex = 1;
 		} else{
-			desire = conceptTokenList.get(0).getString();
+			D = conceptTokenList.get(0).getString();
 			splitDesireAndQuantifier();
-			input = conceptTokenList.get(1).getString();
+			I = conceptTokenList.get(1).getString();
 			conceptIndex = 2;
-			if(wh.toLowerCase().startsWith("how"))
+			if(Wh.toLowerCase().startsWith("how"))
 				handleHOW();
 		}
 		
@@ -190,7 +209,7 @@ import lombok.extern.slf4j.Slf4j;
 		if(roleTokenList.size()>0){
 			if((clauseList.size()==0 && roleTokenList.get(0).getIndex() < conceptTokenList.get(conceptIndex-1).getIndex() ) 
 					|| (clauseList.size()>0 && roleTokenList.get(0).getIndex()<clauseList.get(0).getIndex())){
-				relation2 = roleTokenList.get(0).getString();
+				R2 = roleTokenList.get(0).getString();
 			} else if(roleTokenList.get(0).getIndex() > conceptTokenList.get(conceptIndex-1).getIndex() ){
 				//clauseList.add(0, new Clause(roleTokenList.get(0).getToken(),roleTokenList.get(0).getIndex()));
 				//roleTokenList.remove(0);
@@ -203,26 +222,29 @@ import lombok.extern.slf4j.Slf4j;
 		}
 		
 		
-		desire = removeTHE(desire);
-		input = removeTHE(input);
-		inputMap.add("[I="+input+"]");
+		D = removeTHE(D);
+		I = removeTHE(I);
+		inputMap.add("[I="+I+"]");
 
-		if(wh.toLowerCase().trim().startsWith("how")){
-			relation2 = relation1 + " " +relation2;
-			relation1 = "";
+		if(Wh.toLowerCase().trim().startsWith("how")){
+			R2 = R1 + " " +R2;
+			R1 = "";
 		}
 		
-		characterizedString = "[WH] = " + wh + ", " + "[R1] = " + relation1 + ", ["+ printQuantifier(desireQuantifier,"[DQ]")+" "+ printModifier(desire,"[DM]") + "[D] =" /*+ DQ */+" "+ withoutModifier(desire) + "], " 
-								+ "[R2] = " + relation2 + ", ["+ printQuantifier(inputQuantifier,"[IQ]")+" "+ printModifier(input,"[IM]")+"[I1_1] =" /*+ IQ*/+" "+withoutModifier(input) +"]";
+		/*characterizedString = "[WH] = " + Wh + ", " + "[R1] = " + R1 + ", ["+ printQuantifier(DQ,"[DQ]")+" "+ printModifier(D,"[DM]") + "[D] =" + DQ +" "+ withoutModifier(D) + "], " 
+								+ "[R2] = " + R2 + ", ["+ printQuantifier(IQ,"[IQ]")+" "+ printModifier(I,"[IM]")+"[I1_1] =" + IQ+" "+withoutModifier(I) +"]";*/
 		
+		characterizedString = "[WH] = " + Wh + ", " + "[R1] = " + R1 + ", [D] = "+DQ+" "+D+", "+ "[R2] = " + R2 + ", [I1_1] = "+IQ + " " +I;
 		
+	
 		
 		// CC before first clause
 /*		while(conceptTokenList.size()>conceptIndex && 
 				(clauseList.size()==0 || conceptTokenList.get(conceptIndex).getIndex() < clauseList.get(0).getIndex()))*/
 		while(conceptNext(conceptIndex)){
 			String tempInput = removeTHE(conceptTokenList.get(conceptIndex).getString());
-			characterizedString +=" [CC] ["+extractAndPrintQuantifier(tempInput,"[IQ]")+" "+ printModifier(tempInput,"[IM]")+" [I1_"+(conceptIndex+1)+"] = "+withoutModifierAndQuantifier(tempInput)+"]";
+			//characterizedString +=" [CC] ["+extractAndPrintQuantifier(tempInput,"[IQ]")+" "+ printModifier(tempInput,"[IM]")+" [I1_"+(conceptIndex+1)+"] = "+withoutModifierAndQuantifier(tempInput)+"]";
+			characterizedString +=" [CC] "+" [I1_"+(conceptIndex+1)+"] = "+extractAndPrintQuantifier(tempInput,"[IQ]")+" "+tempInput;
 			inputMap.add(",[I1_"+(conceptIndex+1)+"="+ tempInput+"]");
 
 			conceptIndex++;
@@ -265,7 +287,8 @@ import lombok.extern.slf4j.Slf4j;
 					first = false;
 				
 				String tempInput = removeTHE(conceptTokenList.get(conceptIndex).getString());
-				characterizedString +=" ["+extractAndPrintQuantifier(tempInput,"[IQ]")+" "+printModifier(tempInput,"[IM]")+" [I"+sIndex+"_"+(conceptSub)+"] = "+withoutModifierAndQuantifier(tempInput)+"]";
+				//characterizedString +=" ["+extractAndPrintQuantifier(tempInput,"[IQ]")+" "+printModifier(tempInput,"[IM]")+" [I"+sIndex+"_"+(conceptSub)+"] = "+withoutModifierAndQuantifier(tempInput)+"]";
+				characterizedString += " [I"+sIndex+"_"+(conceptSub)+"] = "+extractAndPrintQuantifier(tempInput,"[IQ]")+" "+tempInput;
 				inputMap.add("[I"+sIndex+"_"+(conceptSub)+"="+tempInput+"]");
 
 				conceptSub++;
@@ -281,10 +304,10 @@ import lombok.extern.slf4j.Slf4j;
 		for(String s:value.split(" ")){
 			if(s.endsWith(NOUN_MODIFIER_TAG) || Quantifier.isQuantifier(s)){
 				value = value.replace(s, "");
-				log.trace("Quantifier Or Modifier:"+s);
+				//System.out.println("Quantifier Or Modifier:"+s);
 			}
-			else
-				log.trace("Not Quantifier or Modifier:"+s);
+			//else
+				//System.out.println("Not Quantifier or Modifier:"+s);
 		}
 		return value;
 	}
@@ -299,7 +322,8 @@ import lombok.extern.slf4j.Slf4j;
 			}
 		}
 		if(hasQuantifier)
-			quantifierString = templateLable + " = "+ quantifierString;
+			quantifierString = quantifierString;
+			//quantifierString = templateLable + " = "+ quantifierString;
 		return quantifierString;
 	}
 
@@ -358,14 +382,14 @@ import lombok.extern.slf4j.Slf4j;
 				return true;
 			}
 		} else{
-			log.error("Error in finding Implicit Desire.");
+			System.err.println("Error in finding Implicit Desire.");
 			return false;
 		}
 		
 	}
 
 	private ArrayList<Clause> getClauseList() {
-		ArrayList<Clause> clauseList = new ArrayList<>();	
+		ArrayList<Clause> clauseList = new ArrayList<Clause>();	
 		for(int i=0;i<tokens.size();i++){
 			if(i!=whIndex && tokens.get(i).isClause()){
 				clauseList.add(new Clause(tokens.get(i),i));
@@ -376,39 +400,39 @@ import lombok.extern.slf4j.Slf4j;
 	}
 
 	private void splitDesireAndQuantifier() {
-		Quantifier qf = new Quantifier(desire);
-		desire = qf.getNonQuantifierNoun();
-		desireQuantifier = qf.getQuantifier();
-		log.trace("D:"+desire+"   "+"DQ:"+desireQuantifier);
+		Quantifier qf = new Quantifier(D);
+		D = qf.getNonQuantifierNoun();
+		DQ = qf.getQuantifier();
+		//System.out.println("D:"+D+"   "+"DQ:"+DQ);
 	}
 	
 	private void splitInputAndQuantifier() {
-		Quantifier qf = new Quantifier(input);
-		input = qf.getNonQuantifierNoun();
-		inputQuantifier = qf.getQuantifier();
+		Quantifier qf = new Quantifier(I);
+		I = qf.getNonQuantifierNoun();
+		IQ = qf.getQuantifier();
 	}
 
 	private String getImplicitDesire(boolean isSimpleFit) {
 		
-		if(wh.equalsIgnoreCase("Where")){
-			return "location("+input+")";
-		} else if(wh.equalsIgnoreCase("When")){
-			return "time("+input+")";
-		} else if(wh.equalsIgnoreCase("What")){
-			if(isSimpleFit && (inputQuantifier==null || inputQuantifier.isEmpty() || inputQuantifier.length()==0 || inputQuantifier.equalsIgnoreCase("the") || inputQuantifier.equalsIgnoreCase("a"))){
-				return "definition("+input+")";
+		if(Wh.equalsIgnoreCase("Where")){
+			return "location("+I+")";
+		} else if(Wh.equalsIgnoreCase("When")){
+			return "time("+I+")";
+		} else if(Wh.equalsIgnoreCase("What")){
+			if(isSimpleFit && (IQ==null || IQ.isEmpty() || IQ.length()==0 || IQ.equalsIgnoreCase("the") || IQ.equalsIgnoreCase("a"))){
+				return "definition("+I+")";
 			} else{
-				return "typeOf("+input+")";
+				return "typeOf("+I+")";
 			}
-		} else if(wh.equalsIgnoreCase("who") || wh.equalsIgnoreCase("whom")){
+		} else if(Wh.equalsIgnoreCase("who") || Wh.equalsIgnoreCase("whom")){
 			return "DataProperty (Person)";
 		}
-		else if(wh.toLowerCase().startsWith("how ")){
-			String nextString = wh.split(" ")[1];
+		else if(Wh.toLowerCase().startsWith("how ")){
+			String nextString = Wh.split(" ")[1];
 			if(nextString.equalsIgnoreCase("many")){
-				return "count("+desire+")";
+				return "count("+D+")";
 			} else if(nextString.equalsIgnoreCase("much")){
-				return "quantity("+desire+")";
+				return "quantity("+D+")";
 			} else {
 				return "DataProperty("+nextString+")";
 			}
@@ -421,11 +445,11 @@ import lombok.extern.slf4j.Slf4j;
 		roleTokenList.clear();
 		conceptTokenList.clear();
 		inputMap.clear();
-		wh="";
-		relation1="";
-		desire="";
-		relation2="";
-		input="";
+		Wh="";
+		R1="";
+		D="";
+		R2="";
+		I="";
 		characterizedString="";
 		//conceptCount=0;
 	}
@@ -434,7 +458,7 @@ import lombok.extern.slf4j.Slf4j;
 		
 		// If query starts with "WP"
 		if(tokens.get(0).isWP()){
-			wh = tokens.get(0).getString();
+			Wh = tokens.get(0).getString();
 			whIndex = 0;
 			for(int i=1;i<tokens.size();i++){
 				if(isConcept(tokens.get(i)))
@@ -447,10 +471,10 @@ import lombok.extern.slf4j.Slf4j;
 				}
 				
 				else if(tokens.get(i).isREL1()){
-					relation1 = tokens.get(i).getString();
+					R1 = tokens.get(i).getString();
 				}
 				//else if(!tokens.get(i).getString().equals("?"))
-					//log.warn("Unknown Token Type Found. Cannot be placed in template. Token:"+tokens.get(i).getString()+" " + tokens.get(i).getTag());
+					//System.err.println("Unknown Token Type Found. Cannot be placed in template. Token:"+tokens.get(i).getString()+" " + tokens.get(i).getTag());
 			}
 		}
 		else{  /*When Query doesn't starts with "WP" */
@@ -468,7 +492,7 @@ import lombok.extern.slf4j.Slf4j;
 			
 			/*If WP index is found*/
 			if(whIndex!=-1){
-				wh = tokens.get(whIndex).getString();
+				Wh = tokens.get(whIndex).getString();
 				this.whIndex = whIndex;
 				int index = whIndex+1;
 				
@@ -496,7 +520,7 @@ import lombok.extern.slf4j.Slf4j;
 					}
 					
 					if(tokens.get(i).isREL1()){
-						relation1 = tokens.get(i).getString();
+						R1 = tokens.get(i).getString();
 					}
 				}
 				
@@ -512,9 +536,9 @@ import lombok.extern.slf4j.Slf4j;
 		}
 	}
 	
-	private void mergeConsecutiveTokens() {
+	private void mergeConsicutiveTokens() {
 		
-		//log.debug("Start RoleList:", roleTokenList.toString());
+		//Log.d("Start RoleList:", roleTokenList.toString());
 		for(int i=0;i<roleTokenList.size()-1;i++){
 			if(roleTokenList.get(i).getIndex()==roleTokenList.get(i+1).getIndex()-1){
 				int start = i;
@@ -531,7 +555,7 @@ import lombok.extern.slf4j.Slf4j;
 				i=start;
 			}
 		}
-		//log.debug("End RoleList:", roleTokenList.toString());
+		//Log.d("End RoleList:", roleTokenList.toString());
 
 		
 		/*for(int i=0;i<conceptTokenList.size()-1;i++){
@@ -582,6 +606,25 @@ import lombok.extern.slf4j.Slf4j;
 		return result.trim();
 	}
 	
+	public String getCharacterizedString(){
+		if(isBooleanQuery()){
+			return "[Concepts] = "+conceptTokenList.toString() +", [Roles] = "+roleTokenList.toString();
+		}
+		return characterizedString;
+	}
+
+	private boolean isBooleanQuery() {
+		for(String string : QueryModuleLibrary.booleanQueriesTokens){
+			if(Wh.toLowerCase().equals(string))
+				return true;
+		}
+		return false;
+	}
+
+	public String getDesire() {
+		return D;
+	}
+	
 	public String getInputs(){
 		if(inputMap!=null)
 			return inputMap.toString();
@@ -589,4 +632,22 @@ import lombok.extern.slf4j.Slf4j;
 			return null;
 	}
 
+	public String getWH() {
+		if(Wh!=null)
+			return Wh;
+		return null;
+	}
+
+	public boolean isCaracterized() {
+		
+		return isCaracterized;
+	}
+	
+	public ArrayList<Concept> getConceptTokenList(){
+		return conceptTokenList;
+	}
+	
+	public ArrayList<Role> getRoleTokenList(){
+		return roleTokenList;
+	}
 }

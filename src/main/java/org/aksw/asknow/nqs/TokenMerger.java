@@ -2,26 +2,27 @@ package org.aksw.asknow.nqs;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import edu.stanford.nlp.util.Triple;
-import lombok.extern.slf4j.Slf4j;
 
 
-@Slf4j public class TokenMerger {
+
+public class TokenMerger {
 	
 	private ArrayList<QueryToken> tokens;
 	private String queryString;
-	private NerResolver ner;
+	private ner_resolver ner;
 	
 	public TokenMerger(ArrayList<QueryToken> tokens,String queryString){
 		this.tokens = tokens;
 		this.queryString = queryString;
-		ner = new NerResolver();
+		ner = new ner_resolver();
 		startMerger();
 	}
 	
 	public TokenMerger(){
 		tokens = null;
-		ner = new NerResolver();
+		ner = new ner_resolver();
 	}
 	
 	public void setTokens(ArrayList<QueryToken> tokens, String queryString){
@@ -33,16 +34,16 @@ import lombok.extern.slf4j.Slf4j;
 		
 		if(tokens!=null){
 			howMerger();
-			log.debug("after How Merger", tokens.toString());
+			//Log.d("after How Merger", tokens.toString());
 
 			nerMerger();
-			log.debug("after NER Merger", tokens.toString());
+			//Log.d("after NER Merger", tokens.toString());
 
 			qauntifierHandler();
-			log.debug("after Quantify Merger", tokens.toString());
+			//Log.d("after Quantify Merger", tokens.toString());
 
 			NNmerger();
-			log.debug("after NN Merger", tokens.toString());
+			//Log.d("after NN Merger", tokens.toString());
 
 		}			
 	}
@@ -65,6 +66,7 @@ import lombok.extern.slf4j.Slf4j;
 		String tag;
 		if(tokens.size()==nerTags.size()){
 			int i=0;
+			
 			while(i<nerTags.size()){
 				if(!nerTags.get(i).first.equals("O")){
 					start = i;
@@ -87,7 +89,7 @@ import lombok.extern.slf4j.Slf4j;
 
 	private void qauntifierHandler() {
 		
-		//log.debug("-before", tokens.toString());
+		//Log.d("-before", tokens.toString());
 		
 		for(int i =0;i<tokens.size()-1;i++){
 			
@@ -135,7 +137,7 @@ import lombok.extern.slf4j.Slf4j;
 			} 
 	
 		}
-		//log.debug("-s1", tokens.toString());
+		//Log.d("-s1", tokens.toString());
 		
 		for(int i =0;i<tokens.size()-1;i++){
 			
@@ -160,7 +162,7 @@ import lombok.extern.slf4j.Slf4j;
 			}
 		}
 
-		//log.debug("-s2", tokens.toString());
+		//Log.d("-s2", tokens.toString());
 
 		for(int i =0;i<tokens.size()-1;i++){
 			
@@ -189,9 +191,9 @@ import lombok.extern.slf4j.Slf4j;
 		for(int i =0;i<tokens.size()-1;i++){
 			if(tokens.get(i).isNounVariant() || tokens.get(i).isCD() || tokens.get(i).isVBG()){
 				if(tokens.get(i+1).isNounVariant() && !tokens.get(i+1).isNNPNER() ){
-					//log.debug("Before NN NN Merger",tokens.toString());
+					//Log.d("Before NN NN Merger",tokens.toString());
 					QueryModuleLibrary.mergeTokens(tokens, i, i+2, tokens.get(i+1).getTag());
-					//log.debug("After NN NN Merger",tokens.toString());
+					//Log.d("After NN NN Merger",tokens.toString());
 				}
 			}
 		}

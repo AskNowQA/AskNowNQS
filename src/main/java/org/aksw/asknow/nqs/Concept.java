@@ -1,5 +1,6 @@
 package org.aksw.asknow.nqs;
 
+
 public class Concept {
 	private QueryToken token;
 	private int index; //Token index in the sentence
@@ -29,7 +30,7 @@ public class Concept {
 		return token.getString();
 	}
 	
-	@Override public String toString(){
+	public String toString(){
 		return token.toStringWithoutTags();
 	}
 }
