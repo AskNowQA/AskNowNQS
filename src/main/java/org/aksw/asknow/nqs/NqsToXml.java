@@ -38,7 +38,7 @@ public class NqsToXml {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		qb = new QueryBuilder();
-		readQALDfile("");
+		readQALDfile();
 		//System.out.println(getNQS("Who was the first president of independent India?"));
 	}
 	//read text QALDxml
@@ -55,7 +55,7 @@ public class NqsToXml {
 		return nqs;
 	}
 	
-	static void readQALDfile(String uri) {
+	static void readQALDfile() {
 
 
 		DocumentBuilderFactory qaldFactory = DocumentBuilderFactory.newInstance();
@@ -69,22 +69,22 @@ public class NqsToXml {
 			Element mainRootElement = doc.createElementNS("http://github.com/AKSW/AskNow", "NQSforQALD");
 			doc.appendChild(mainRootElement);
 
-			Object obj = parser.parse(new FileReader("/Users/mohnish/Documents/workspace/qctcopy/src/main/resources/QALD6-train"));
+			Object obj = parser.parse(new FileReader("/Users/mohnish/git2/AskNow/src/main/resources/qald6test"));
 
 			JSONObject jsonObject = (JSONObject) obj;
 			//JSONArray questions = (JSONArray) jsonObject.get("questions");
 
-			String output = null;
+			//String output = null;
 
 			JSONArray quald = (JSONArray) jsonObject.get("questions");
 			Iterator<JSONObject> questions = quald.iterator();
 			while (questions.hasNext()) {
 				JSONObject quesObj = questions.next();
-				String ids =(String) quesObj.get("id");
-				int idi = Integer.parseInt(ids);
-				if (idi<=300){
-					continue;
-				}
+				Object ids = quesObj.get("id");
+				//int idi = Integer.parseInt(ids);
+				//if (idi<=300){
+				//	continue;
+				//}
 				String ques = null;
 				//ystem.out.println(id );
 				JSONArray alllang = (JSONArray) quesObj.get("question");
@@ -104,7 +104,7 @@ public class NqsToXml {
 
 
 				//= output+"\n <Ques id>"+ids+"\t"+ques +"\t"+getNQS(ques);
-				mainRootElement.appendChild(getNQSxml(doc, ids , ques, getNQS(ques),nertags.toString()));
+				mainRootElement.appendChild(getNQSxml(doc, ids.toString() , ques, getNQS(ques),nertags.toString()));
 
 
 
@@ -116,7 +116,7 @@ public class NqsToXml {
 				transformer.setOutputProperty(OutputKeys.INDENT, "yes"); 
 				DOMSource source = new DOMSource(doc);
 				StreamResult result = new StreamResult(new 
-						File("/Users/mohnish/Documents/workspace/qctcopy/src/main/resources/qald-nqs.xml"));
+						File("/Users/mohnish/git2/AskNow/src/main/resources/qald6test-nqs.xml"));
 				//StreamResult console = new StreamResult(System.out);
 				transformer.transform(source, result);
 				//out.println( console);
