@@ -19,10 +19,10 @@ public class SparqlFeatureParser {
 	
 
 		try (Scanner scanner = new Scanner(new File(fileName))) {
-			File file = new File("/Users/mohnish/git2/AskNow/src/main/java/org/aksw/asknow/ml/outputfile");
+			File file = new File("/Users/mohnish/git2/AskNow/src/main/java/org/aksw/asknow/ml/SparqlClusterOutput");
 			BufferedWriter bw = null;
 			bw = new BufferedWriter(new FileWriter(file));
-			bw.write("id \t feature1 \t feature2 \t feature3");
+			bw.write("id \t question \t feature1(KeyWord) \t feature2(#triples) \t feature3(#varibale)");
 			while (scanner.hasNext()){
 				System.out.println(scanner.nextLine());
 				dataRow = scanner.nextLine();
@@ -30,14 +30,14 @@ public class SparqlFeatureParser {
 				id=dataArray[0];
 				ques = dataArray[1];
 				squery = dataArray[2];
-				System.out.println(id +"\t"+ ques +"\t"+ squery);
+				//System.out.println(id +"\t"+ ques +"\t"+ squery);
 				//break;
 				feature1 = SparqlFeature.getFeature1(squery);
 				feature2 = SparqlFeature.getFeature2(squery);
 				feature3 = SparqlFeature.getFeature3(squery);
 				//System.out.println(feature3);
-				System.out.println(id +"\t"+ feature1 +"\t"+ feature2);
-				bw.write("\n"+id +"\t"+ feature1 +"\t"+ feature2+"\t"+ feature3);
+				System.out.println(id +"\t"+ ques +"\t"+ feature1 +"\t"+ feature2+"\t"+ feature3);
+				bw.write("\n"+id +"\t"+ ques +"\t"+ feature1 +"\t"+ feature2+"\t"+ feature3);
 			}
 			bw.close();
 		} catch (IOException e) {

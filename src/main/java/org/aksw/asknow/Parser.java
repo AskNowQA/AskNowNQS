@@ -17,7 +17,7 @@ public class Parser
 	 * @return The list of NQS from QALD-5.*/
 	public static List<Nqs> parse()
 	{
-		return parse(()->Parser.class.getClassLoader().getResourceAsStream("qald/qald5.nqs.xml"));
+		return parse(()->Parser.class.getClassLoader().getResourceAsStream("qald6test-nqs.xml"));
 	}
 
 	/** @param in supplies a NQS-modified QALD XML format benchmark. Needs to supply a fresh stream each time.
@@ -29,11 +29,11 @@ public class Parser
 		List<Nqs> templates = new ArrayList<>();
 		Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(in.get());
 		doc.getDocumentElement().normalize();
-		if(!XmlUtil.validateAgainstXSD(in.get(), Parser.class.getClassLoader().getResourceAsStream("nqs.xsd")))
-		{throw new IllegalArgumentException("QCT template file not valid against the XSD.");}
+		//if(!XmlUtil.validateAgainstXSD(in.get(), Parser.class.getClassLoader().getResourceAsStream("nqs.xsd")))
+		//{throw new IllegalArgumentException("QCT template file not valid against the XSD.");}
 
-		NodeList nList = doc.getElementsByTagName("Query");
-
+		NodeList nList = doc.getElementsByTagName("QALDquestions");
+		System.out.println(nList.getLength());
 		for (int i = 0; i < nList.getLength(); i++)
 		{
 			Node nNode = nList.item(i);
@@ -42,9 +42,9 @@ public class Parser
 			{
 				Element eElement = (Element) nNode;
 
-				String queryId = eElement.getAttribute("id");
-				String nlQuery = eElement.getElementsByTagName("NLquery").item(0).getTextContent();
-				String qct = eElement.getElementsByTagName("QCT").item(0).getTextContent();
+				String queryId = eElement.getAttribute("QALDquestions id");
+				String nlQuery = eElement.getElementsByTagName("Ques").item(0).getTextContent();
+				String qct = eElement.getElementsByTagName("NQS").item(0).getTextContent();
 				templates.add(new Nqs(nlQuery,qct,queryId));
 			}
 		}

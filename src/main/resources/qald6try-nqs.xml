@@ -1,0 +1,2599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NQSforQALD xmlns="http://github.com/AKSW/AskNow">
+<QALDquestions id="1">
+<Ques>Give me all cosmonauts.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] =  cosmonauts</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="10">
+<Ques>In which country does the Ganges start?</Ques>
+<NQS>[WH] = which, [R1] = does, [D] =  country, [R2] = start In, [I] = the  Ganges</NQS>
+<NER>[O, O, O, O, LOCATION, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="100">
+<Ques>When is the movie Worst Case Scenario going to be in cinemas in the Netherlands?</Ques>
+<NQS>[WH] = When, [R1] = is, [D] = the  movie Worst Case, [R2] = , [I1_1] =  Scenario [CC]  [I1_3] =  going,
+[CL2] = null,  [R3]= to be in, [I2_1] =  cinemas,
+[CL3] = null,  [R4]= in, [I3_1] =  Netherlands</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 10, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	12	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="101">
+<Ques>Which German cities have more than 250000 inhabitants?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  German cities, [R2] = have more than, [I] =  250000 inhabitants</NQS>
+<NER>[O, MISC, O, O, O, O, NUMBER, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="102">
+<Ques>Who was John F. Kennedy's vice president?</Ques>
+<NQS>[WH] = Who, [R1] = was, [D] =  vice president, [R2] = of, [I] =  John F. Kennedy</NQS>
+<NER>[O, O, PERSON, PERSON, PERSON, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="103">
+<Ques>Who is the mayor of Tel Aviv?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  mayor, [R2] = of, [I] =  Tel Aviv</NQS>
+<NER>[O, O, O, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="104">
+<Ques>How many students does the Free University in Amsterdam have?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(students), [R2] = does , [I1_1] =  Free University,
+[CL2] = null,  [R3]= in, [I2_1] =  Amsterdam,
+[CL3] = null,  [R4]= have,</NQS>
+<NER>[O, O, O, O, O, ORGANIZATION, ORGANIZATION, O, LOCATION, O, O]</NER>
+<SPARQLFeature>[4, 9, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	10	null	true	false	false	true	true	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="105">
+<Ques>What is the second highest mountain on Earth?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  second highest mountain, [R2] = on, [I] =  Earth</NQS>
+<NER>[O, O, O, ORDINAL, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	true	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="106">
+<Ques>Give me all professional skateboarders from Sweden.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  professional skateboarders,
+[CL2] = null,  [R3]= from, [I2_1] =  Sweden</NQS>
+<NER>[O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="107">
+<Ques>When was Alberta admitted as province?</Ques>
+<NQS>[WH] = When, [R1] = was, [D] =  Alberta, [R2] = admitted as, [I] =  province</NQS>
+<NER>[O, O, LOCATION, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="108">
+<Ques>To which countries does the Himalayan mountain system extend?</Ques>
+<NQS>[WH] = which, [R1] = does, [D] =  countries, [R2] = , [I1_1] =  Himalayan mountain [CC]  [I1_3] =  system,
+[CL2] = null,  [R3]= extend To,</NQS>
+<NER>[O, O, O, O, MISC, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	8	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="109">
+<Ques>Give me a list of all bandleaders that play trumpet.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  all bandleaders,
+[CL2] = that, [R3]= play, [I2_1] =  trumpet</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="11">
+<Ques>Which countries have more than ten caves?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  countries, [R2] = have more than, [I] =  ten caves</NQS>
+<NER>[O, O, O, O, O, NUMBER, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="110">
+<Ques>What is the total amount of men and women serving in the FDNY?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  total amount, [R2] = of, [I1_1] =  men [CC]  [I1_3] =  women [CC]  [I1_4] =  serving,
+[CL2] = null,  [R3]= in, [I2_1] =  FDNY</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 9, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	10	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="200">
+<Ques>Who produces Orangina?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  DataProperty (Person), [R2] = produces, [I] =  Orangina</NQS>
+<NER>[O, O, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="111">
+<Ques>Who is the Formula 1 race driver with the most races?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  Formula, [R2] = , [I1_1] =  1 race [CC]  [I1_3] =  driver,
+[CL2] = null,  [R3]= with, [I2_1] =  races</NQS>
+<NER>[O, O, O, O, NUMBER, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 9, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	9	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="112">
+<Ques>Give me all world heritage sites designated within the past two years.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  world heritage [CC]  [I1_3] =  sites,
+[CL2] = null,  [R3]= designated within, [I2_1] =  past two years</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, DURATION, DURATION, DURATION, DURATION, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	9	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="113">
+<Ques>Who is the youngest player in the Premier League?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  youngest player, [R2] = in, [I] = the  Premier League</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	true	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="114">
+<Ques>Give me all members of Prodigy.</Ques>
+<NQS>[WH] = What, [R1] = members of, [D] =  list, [R2] = is, [I1_1] =  Prodigy,
+[CL2] = null,  [R3]= of,</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	7	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="115">
+<Ques>What is the longest river?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  definition( longest river), [R2] = , [I] = the  longest river</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	true	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="116">
+<Ques>Does Breaking Bad have more episodes than Game of Thrones?</Ques>
+<NQS>[Concepts] = [Breaking, Bad, more episodes, Game, Thrones], [Roles] = [have, than, of]</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="117">
+<Ques>Give me all cars that are produced in Germany.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  cars,
+[CL2] = that, [R3]= are produced in, [I2_1] =  Germany</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="118">
+<Ques>What were the main discoveries of the Mars rover Curiosity?</Ques>
+<NQS>[WH] = What, [R1] = were, [D] = the  main discoveries, [R2] = of, [I1_1] =  Mars rover [CC]  [I1_3] =  Curiosity</NQS>
+<NER>[O, O, O, O, O, O, O, MISC, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	6	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="119">
+<Ques>Give me all people that were born in Vienna and died in Berlin.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  people,
+[CL2] = that, [R3]= were born in, [I2_1] =  Vienna,
+[CL3] = null,  [R4]= died in, [I3_1] =  Berlin</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, LOCATION, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 9, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	11	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="12">
+<Ques>Is proinsulin a protein?</Ques>
+<NQS>[Concepts] = [proinsulin a protein], [Roles] = []</NQS>
+<NER>[O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 3, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="120">
+<Ques>How tall is Michael Jordan?</Ques>
+<NQS>[WH] = How, [R1] = , [D] =  DataProperty(tall), [R2] = is , [I] =  Michael Jordan</NQS>
+<NER>[O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	How	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="121">
+<Ques>What is the capital of Canada?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  capital, [R2] = of, [I] =  Canada</NQS>
+<NER>[O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="122">
+<Ques>Who is the governor of Wyoming?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  governor, [R2] = of, [I] =  Wyoming</NQS>
+<NER>[O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="123">
+<Ques>Do Prince Harry and Prince William have the same parents?</Ques>
+<NQS>[Concepts] = [Prince, Harry, Prince, William, the same parents], [Roles] = [have]</NQS>
+<NER>[O, O, PERSON, O, O, PERSON, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="124">
+<Ques>Who was the father of Queen Elizabeth II?</Ques>
+<NQS>[WH] = Who, [R1] = was, [D] = the  far, [R2] = of, [I1_1] =  Queen [CC]  [I1_3] =  Elizabeth II</NQS>
+<NER>[O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	6	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="125">
+<Ques>Which U.S. state has been admitted latest?</Ques>
+<NQS>[WH] = Which, [R1] = has been, [D] =  U.S. state, [R2] = admitted, [I] =  latest</NQS>
+<NER>[O, LOCATION, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="126">
+<Ques>How many languages are spoken in Turkmenistan?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(languages), [R2] = are spoken in, [I] =  Turkmenistan</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="127">
+<Ques>Butch Otter is the governor of which U.S. state?</Ques>
+<NQS>[WH] = which, [R1] = is, [D] =  U.S. state, [R2] = , [I1_1] =  Butch Otter [CC]  [I1_3] =  governor,
+[CL2] = null,  [R3]= of,</NQS>
+<NER>[O, LOCATION, O, PERSON, PERSON, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	8	null	true	false	true	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="128">
+<Ques>Give me all movies directed by Francis Ford Coppola.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  movies,
+[CL2] = null,  [R3]= directed by, [I2_1] =  Francis Ford Coppola</NQS>
+<NER>[O, O, O, O, O, O, O, PERSON, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="129">
+<Ques>Give me all actors starring in movies directed by William Shatner.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  actors [CC]  [I1_3] =  starring,
+[CL2] = null,  [R3]= in, [I2_1] =  movies,
+[CL3] = null,  [R4]= directed by, [I3_1] =  William Shatner</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 10, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	12	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="13">
+<Ques>Are tree frogs a type of amphibian?</Ques>
+<NQS>[Concepts] = [tree frogs, a type, amphibian], [Roles] = [of]</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 3, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="130">
+<Ques>What is the birth name of Angela Merkel?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  birth name, [R2] = of, [I] = a Angel Merkel</NQS>
+<NER>[O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="131">
+<Ques>Give me all Methodist politicians.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] =  Methodist politicians</NQS>
+<NER>[O, O, O, O, MISC, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="132">
+<Ques>How often did Jane Fonda marry?</Ques>
+<NQS>[WH] = How, [R1] = , [D] = often DataProperty(), [R2] = did marry, [I] =  Jane Fonda</NQS>
+<NER>[O, O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	How	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="133">
+<Ques>Give me all Australian nonprofit organizations.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] =  Australian nonprofit organizations</NQS>
+<NER>[O, O, O, O, MISC, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="134">
+<Ques>In which military conflicts did Lawrence of Arabia participate?</Ques>
+<NQS>[WH] = which, [R1] = did, [D] =  military conflicts, [R2] = , [I1_1] =  Lawrence,
+[CL2] = null,  [R3]= of, [I2_1] =  Arabia,
+[CL3] = null,  [R4]= participate In,</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	10	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="135">
+<Ques>Who developed Minecraft?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  DataProperty (Person), [R2] = developed, [I] =  Minecraft</NQS>
+<NER>[O, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="136">
+<Ques>What is the melting point of copper?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  melting point, [R2] = of, [I] =  copper</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="137">
+<Ques>Give me all sister cities of Brno.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  sister cities,
+[CL2] = null,  [R3]= of, [I2_1] =  Brno</NQS>
+<NER>[O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="138">
+<Ques>How many inhabitants does Maribor have?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(inhabitants), [R2] = does have, [I] =  Maribor</NQS>
+<NER>[O, O, O, O, LOCATION, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="139">
+<Ques>Give me all companies in Munich.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  companies,
+[CL2] = null,  [R3]= in, [I2_1] =  Munich</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="14">
+<Ques>How tall is Amazon Eve?</Ques>
+<NQS>[WH] = How, [R1] = , [D] =  DataProperty(tall), [R2] = is , [I] =  Amazon Eve</NQS>
+<NER>[O, O, O, LOCATION, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	How	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="140">
+<Ques>List all games by GMT.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  games,
+[CL2] = null,  [R3]= by, [I2_1] =  GMT</NQS>
+<NER>[O, O, O, O, O, O, MISC, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="141">
+<Ques>Who founded Intel?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  DataProperty (Person), [R2] = founded, [I] =  Intel</NQS>
+<NER>[O, O, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="142">
+<Ques>Who is the husband of Amanda Palmer?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  husband, [R2] = of, [I] = a Amnd Plmer</NQS>
+<NER>[O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="143">
+<Ques>Give me all breeds of the German Shepherd dog.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  breeds,
+[CL2] = null,  [R3]= of, [I2_1] =  German Shepherd dog</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="144">
+<Ques>Which cities does the Weser flow through?</Ques>
+<NQS>[WH] = Which, [R1] = does, [D] =  cities, [R2] = through, [I] = the  Weser flow</NQS>
+<NER>[O, O, O, O, PERSON, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="145">
+<Ques>Which countries are connected by the Rhine?</Ques>
+<NQS>[WH] = Which, [R1] = are, [D] =  countries, [R2] = connected by, [I] = the  Rhine</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="146">
+<Ques>Which professional surfers were born in Australia?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  professional surfers, [R2] = born in, [I] =  Australia</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="147">
+<Ques>What is the average temperature on Hawaii?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  average temperature, [R2] = on, [I] =  Hawaii</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="148">
+<Ques>In which UK city are the headquarters of the MI6?</Ques>
+<NQS>[WH] = which, [R1] = are, [D] =  UK city, [R2] = , [I1_1] =  headquarters,
+[CL2] = null,  [R3]= of, [I2_1] =  MI6,
+[CL3] = null,  [R4]= In,</NQS>
+<NER>[O, LOCATION, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	10	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="149">
+<Ques>Which weapons did Heckler &amp; Koch develop?</Ques>
+<NQS>[WH] = Which, [R1] = did, [D] =  weapons, [R2] = develop, [I] =  Heckler &amp; Koch</NQS>
+<NER>[O, O, O, ORGANIZATION, ORGANIZATION, ORGANIZATION, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="15">
+<Ques>Who created Goofy?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  DataProperty (Person), [R2] = created, [I] =  Goofy</NQS>
+<NER>[O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="151">
+<Ques>Give me all islands that belong to Japan.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  islands,
+[CL2] = that, [R3]= belong to, [I2_1] =  Japan</NQS>
+<NER>[O, O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="152">
+<Ques>Who invented the zipper?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  DataProperty (Person), [R2] = invented, [I] = the  zipper</NQS>
+<NER>[O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="153">
+<Ques>What is the ruling party in Lisbon?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  ruling party, [R2] = in, [I] =  Lisbon</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="154">
+<Ques>What are the nicknames of San Francisco?</Ques>
+<NQS>[WH] = What, [R1] = are, [D] = the  nicknames, [R2] = of, [I] =  San Francisco</NQS>
+<NER>[O, O, O, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="155">
+<Ques>Which Greek goddesses dwelt on Mount Olympus?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  Greek goddesses, [R2] = dwelt on, [I] =  Mount Olympus</NQS>
+<NER>[O, MISC, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="156">
+<Ques>When were the Hells Angels founded?</Ques>
+<NQS>[WH] = When, [R1] = were, [D] =  time( Hells Angels), [R2] = founded, [I] = the  Hells Angels</NQS>
+<NER>[O, O, O, ORGANIZATION, ORGANIZATION, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="157">
+<Ques>Give me all Apollo 14 astronauts.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  Apollo [CC]  [I1_3] =  14 astronauts</NQS>
+<NER>[O, O, O, O, O, NUMBER, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	6	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="158">
+<Ques>What is the time zone of Salt Lake City?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  time zone, [R2] = of, [I] =  Salt Lake City</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="159">
+<Ques>Which U.S. states are in the same time zone as Utah?</Ques>
+<NQS>[WH] = Which, [R1] = are, [D] =  U.S. states, [R2] = in, [I1_1] =  same time zone,
+[CL2] = null,  [R3]= as, [I2_1] =  Utah</NQS>
+<NER>[O, LOCATION, O, O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="16">
+<Ques>Give me the capitals of all countries in Africa.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  capitals,
+[CL2] = null,  [R3]= of, [I2_1] = all  all countries,
+[CL3] = null,  [R4]= in, [I3_1] =  Africa</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 9, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	11	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="160">
+<Ques>Give me a list of all lakes in Denmark.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  all lakes,
+[CL2] = null,  [R3]= in, [I2_1] =  Denmark</NQS>
+<NER>[O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="161">
+<Ques>How many missions does the Soyuz programme have?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(missions), [R2] = does have, [I] = the  Soyuz programme</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="162">
+<Ques>Did Socrates influence Aristotle?</Ques>
+<NQS>[Concepts] = [Socrates, Aristotle], [Roles] = [influence]</NQS>
+<NER>[O, PERSON, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="163">
+<Ques>Give me all Danish movies.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] =  Danish movies</NQS>
+<NER>[O, O, O, O, MISC, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="164">
+<Ques>Give me all launch pads operated by NASA.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  launch pads,
+[CL2] = null,  [R3]= operated by, [I2_1] =  NASA</NQS>
+<NER>[O, O, O, O, O, O, O, O, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="165">
+<Ques>Which instruments does Cat Stevens play?</Ques>
+<NQS>[WH] = Which, [R1] = does, [D] =  instruments, [R2] = , [I1_1] =  Cat [CC]  [I1_3] =  Stevens,
+[CL2] = null,  [R3]= play,</NQS>
+<NER>[O, O, O, O, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="166">
+<Ques>Which ships were called after Benjamin Franklin?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  ships, [R2] = called after, [I] =  Benjamin Franklin</NQS>
+<NER>[O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="167">
+<Ques>Who are the parents of the wife of Juan Carlos I?</Ques>
+<NQS>[WH] = Who, [R1] = are, [D] = the  parents, [R2] = of, [I1_1] =  wife,
+[CL2] = null,  [R3]= of, [I2_1] =  Juan Carlos,
+[CL3] = null,  [R4]= I,</NQS>
+<NER>[O, O, O, O, O, O, O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	10	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="168">
+<Ques>How many employees does Google have?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(employees), [R2] = does have, [I] =  Google</NQS>
+<NER>[O, O, O, O, ORGANIZATION, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="169">
+<Ques>Did Tesla win a nobel prize in physics?</Ques>
+<NQS>[Concepts] = [Tesla, a nobel prize, physics], [Roles] = [win, in]</NQS>
+<NER>[O, PERSON, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 3, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="17">
+<Ques>Give me all cities in New Jersey with more than 100000 inhabitants.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  cities,
+[CL2] = null,  [R3]= in, [I2_1] =  New Jersey,
+[CL3] = null,  [R4]= with, [I3_1] =  more,
+[CL4] = null,  [R5]= than, [I4_1] =  100000 inhabitants</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, LOCATION, O, O, O, NUMBER, O, O]</NER>
+<SPARQLFeature>[4, 11, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	14	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="170">
+<Ques>Is Rita Wilson the wife of Tom Hanks?</Ques>
+<NQS>[Concepts] = [Rita Wilson the wife, Tom Hanks], [Roles] = [of]</NQS>
+<NER>[O, PERSON, PERSON, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="171">
+<Ques>When was the Statue of Liberty built?</Ques>
+<NQS>[WH] = When, [R1] = was, [D] = the  Statue, [R2] = of, [I1_1] =  Liberty,
+[CL2] = null,  [R3]= built,</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	7	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="172">
+<Ques>Where is Fort Knox located?</Ques>
+<NQS>[WH] = Where, [R1] = is, [D] =  Fort Knox, [R2] = , [I] =  located</NQS>
+<NER>[O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Where	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="173">
+<Ques>How many children did Benjamin Franklin have?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(children), [R2] = did have, [I] =  Benjamin Franklin</NQS>
+<NER>[O, O, O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="174">
+<Ques>When did Michael Jackson die?</Ques>
+<NQS>[WH] = When, [R1] = did, [D] =  time(Michael Jackson), [R2] = die, [I] =  Michael Jackson</NQS>
+<NER>[O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="175">
+<Ques>Which Chess players died in the same place they were born in?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  Chess players, [R2] = died in, [I1_1] =  same place,
+[CL2] = null,  [R3]= they,,
+[CL3] = null,  [R4]= born in,</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	9	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="176">
+<Ques>List the children of Margaret Thatcher.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  children,
+[CL2] = null,  [R3]= of, [I2_1] =  Margaret Thatcher</NQS>
+<NER>[O, O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="177">
+<Ques>Who was called Frank The Tank?</Ques>
+<NQS>[WH] = Who, [R1] = was, [D] = the Frank The, [R2] = called, [I] =  Tank</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="178">
+<Ques>Was Margaret Thatcher a chemist?</Ques>
+<NQS>[Concepts] = [Margaret Thatcher a chemist], [Roles] = []</NQS>
+<NER>[O, PERSON, PERSON, O, O, O]</NER>
+<SPARQLFeature>[4, 3, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="179">
+<Ques>Was Marc Chagall a jew?</Ques>
+<NQS>[Concepts] = [Marc Chagall a jew], [Roles] = []</NQS>
+<NER>[O, PERSON, PERSON, O, O, O]</NER>
+<SPARQLFeature>[4, 3, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="18">
+<Ques>Which museum exhibits The Scream by Munch?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  museum, [R2] = exhibits, [I1_1] =  The Scream,
+[CL2] = null,  [R3]= by, [I2_1] =  Munch</NQS>
+<NER>[O, O, O, O, O, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="180">
+<Ques>Give me all books by William Goldman with more than 300 pages.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  books,
+[CL2] = null,  [R3]= by, [I2_1] =  William Goldman,
+[CL3] = null,  [R4]= with, [I3_1] =  more,
+[CL4] = null,  [R5]= than, [I4_1] =  300 pages</NQS>
+<NER>[O, O, O, O, O, O, PERSON, PERSON, O, O, O, NUMBER, O, O]</NER>
+<SPARQLFeature>[4, 11, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	14	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="181">
+<Ques>Which books by Kerouac were published by Viking Press?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  books, [R2] = by, [I1_1] =  Kerouac,
+[CL2] = null,  [R3]= published by, [I2_1] =  Viking Press</NQS>
+<NER>[O, O, O, PERSON, O, O, O, ORGANIZATION, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	true	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="182">
+<Ques>Give me a list of all American inventions.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] = all  American inventions</NQS>
+<NER>[O, O, O, O, O, MISC, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="183">
+<Ques>How high is the Mount Everest?</Ques>
+<NQS>[WH] = How, [R1] = , [D] =  DataProperty(high), [R2] = is , [I] = the  Mount Everest</NQS>
+<NER>[O, O, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	How	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="184">
+<Ques>Who created Batman?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  DataProperty (Person), [R2] = created, [I] =  Batman</NQS>
+<NER>[O, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="185">
+<Ques>How many people live in the capital of Australia?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(people), [R2] =  live in, [I1_1] =  capital,
+[CL2] = null,  [R3]= of, [I2_1] =  Australia</NQS>
+<NER>[O, O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="186">
+<Ques>What is the largest city in Australia?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  largest city, [R2] = in, [I] =  Australia</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	true	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="187">
+<Ques>Who composed the music for Harold and Maude?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] = the  music, [R2] = composed, [I1_1] =  Harold,
+[CL2] = null,  [R3]= for, [I2_1] =  Maude</NQS>
+<NER>[O, O, O, O, O, PERSON, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="188">
+<Ques>Which films starring Clint Eastwood did he direct himself?</Ques>
+<NQS>[WH] = Which, [R1] = did, [D] =  films, [R2] = , [I1_1] =  starring [CC]  [I1_3] =  Clint Eastwood,
+[CL2] = null,  [R3]= he direct himself,</NQS>
+<NER>[O, O, O, PERSON, PERSON, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="189">
+<Ques>In which city was the former Dutch queen Juliana buried?</Ques>
+<NQS>[WH] = which, [R1] = was, [D] =  city, [R2] = , [I1_1] =  former Dutch queen [CC]  [I1_3] =  Juliana,
+[CL2] = null,  [R3]= buried In,</NQS>
+<NER>[O, O, O, O, O, LOCATION, O, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	8	null	true	false	true	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="190">
+<Ques>Where is the residence of the prime minister of Spain?</Ques>
+<NQS>[WH] = Where, [R1] = is, [D] = the  residence, [R2] = of, [I1_1] =  prime minister,
+[CL2] = null,  [R3]= of, [I2_1] =  Spain</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Where	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="191">
+<Ques>Which U.S. state has the abbreviation MN?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  U.S. state, [R2] = has, [I] = the  abbreviation MN</NQS>
+<NER>[O, LOCATION, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="192">
+<Ques>Show me all songs from Bruce Springsteen released between 1980 and 1990.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  all songs,
+[CL2] = null,  [R3]= from, [I2_1] =  Bruce Springsteen,
+[CL3] = null,  [R4]= released between, [I3_1] =  1980 and 1990</NQS>
+<NER>[O, O, O, O, O, O, O, PERSON, PERSON, O, O, DATE, DATE, DATE, O]</NER>
+<SPARQLFeature>[4, 9, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	11	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="193">
+<Ques>Which movies did Kurosawa direct?</Ques>
+<NQS>[WH] = Which, [R1] = did, [D] =  movies, [R2] = direct, [I] =  Kurosawa</NQS>
+<NER>[O, O, O, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="194">
+<Ques>What is the founding year of the brewery that produces Pilsner Urquell?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  founding, [R2] = of, [I1_1] =  year [CC]  [I1_3] =  brewery,
+[CL2] = that, [R3]= produces, [I2_1] =  Pilsner Urquell</NQS>
+<NER>[O, O, O, O, DURATION, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	9	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="195">
+<Ques>Who wrote the lyrics for the Polish national anthem?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] = the  lyrics, [R2] = wrote, [I1_1] =  Polish national anthem,
+[CL2] = null,  [R3]= for,</NQS>
+<NER>[O, O, O, O, O, O, MISC, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	7	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="196">
+<Ques>Give me all B-sides of the Ramones.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  B-sides,
+[CL2] = null,  [R3]= of, [I2_1] =  Ramones</NQS>
+<NER>[O, O, O, O, O, O, O, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="197">
+<Ques>Who painted The Storm on the Sea of Galilee?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] = the The Storm, [R2] = painted, [I1_1] =  Sea,
+[CL2] = null,  [R3]= on,,
+[CL3] = null,  [R4]= of, [I3_1] =  Galilee</NQS>
+<NER>[O, O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	10	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="198">
+<Ques>Which country does the creator of Miffy come from?</Ques>
+<NQS>[WH] = Which, [R1] = does, [D] =  country, [R2] = , [I1_1] =  creator,
+[CL2] = null,  [R3]= of, [I2_1] =  Miffy,
+[CL3] = null,  [R4]= come from,</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	10	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="199">
+<Ques>For which label did Elvis record his first album?</Ques>
+<NQS>[WH] = which, [R1] = did, [D] =  label, [R2] = , [I1_1] =  Elvis,
+[CL2] = null,  [R3]= record his, [I2_1] =  first album,
+[CL3] = null,  [R4]= For,</NQS>
+<NER>[O, O, O, PERSON, O, O, ORDINAL, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	10	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="2">
+<Ques>Give me the birthdays of all actors of the television show Charmed.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  birthdays,
+[CL2] = null,  [R3]= of, [I2_1] = all  all actors,
+[CL3] = null,  [R4]= of, [I3_1] =  television show [CC]  [I3_2] =  Charmed</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 10, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	12	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="21">
+<Ques>Which states border Illinois?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  states, [R2] = border, [I] =  Illinois</NQS>
+<NER>[O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="22">
+<Ques>In which country is the Limerick Lake?</Ques>
+<NQS>[WH] = which, [R1] = is, [D] =  country, [R2] = In, [I] = the  Limerick Lake</NQS>
+<NER>[O, O, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="23">
+<Ques>Which television shows were created by John Cleese?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  television shows, [R2] = created by, [I] =  John Cleese</NQS>
+<NER>[O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="24">
+<Ques>Which mountain is the highest after the Annapurna?</Ques>
+<NQS>[WH] = Which, [R1] = is, [D] =  mountain, [R2] = , [I1_1] =  highest,
+[CL2] = null,  [R3]= after, [I2_1] =  Annapurna</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	true	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="25">
+<Ques>In which films directed by Garry Marshall was Julia Roberts starring?</Ques>
+<NQS>[WH] = which, [R1] = was, [D] =  films, [R2] = directed by, [I1_1] =  Garry Marshall [CC]  [I1_3] =  Julia Roberts [CC]  [I1_4] =  starring,
+[CL2] = null,  [R3]= In,</NQS>
+<NER>[O, O, O, O, PERSON, PERSON, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	9	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="26">
+<Ques>Which bridges are of the same type as the Manhattan Bridge?</Ques>
+<NQS>[WH] = Which, [R1] = are, [D] =  bridges, [R2] = of, [I1_1] =  same type,
+[CL2] = null,  [R3]= as, [I2_1] =  Manhattan Bridge</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="27">
+<Ques>Was U.S. president Jackson involved in a war?</Ques>
+<NQS>[Concepts] = [U.S. president, Jackson, a war], [Roles] = [involved in]</NQS>
+<NER>[O, LOCATION, O, PERSON, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 3, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="28">
+<Ques>Give me all communist countries.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] =  communist countries</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="29">
+<Ques>Which awards did Douglas Hofstadter win?</Ques>
+<NQS>[WH] = Which, [R1] = did, [D] =  awards, [R2] = win, [I] =  Douglas Hofstadter</NQS>
+<NER>[O, O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="3">
+<Ques>Who is the daughter of Robert Kennedy married to?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  daughter, [R2] = of, [I1_1] =  Robert Kennedy,
+[CL2] = null,  [R3]= married to,</NQS>
+<NER>[O, O, O, O, O, PERSON, PERSON, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	7	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="30">
+<Ques>Which U.S. state has the highest population density?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  U.S. state, [R2] = has, [I] = the  highest population density</NQS>
+<NER>[O, LOCATION, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	true	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="31">
+<Ques>What is the currency of the Czech Republic?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  currency, [R2] = of, [I] = the  Czech Republic</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="32">
+<Ques>Which countries adopted the Euro?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  countries, [R2] = adopted, [I] = the  Euro</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="33">
+<Ques>What is the area code of Berlin?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  area code, [R2] = of, [I] =  Berlin</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="34">
+<Ques>Which countries have more than two official languages?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  countries, [R2] = have more than, [I] =  two official languages</NQS>
+<NER>[O, O, O, O, O, NUMBER, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="35">
+<Ques>Who is the owner of Rolls-Royce?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  owner, [R2] = of, [I] =  Rolls-Royce</NQS>
+<NER>[O, O, O, O, O, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="36">
+<Ques>Through which countries does the Yenisei river flow?</Ques>
+<NQS>[WH] = which, [R1] = does, [D] =  countries, [R2] = , [I1_1] =  Yenisei river [CC]  [I1_3] =  flow,
+[CL2] = null,  [R3]= Through,</NQS>
+<NER>[O, O, O, O, LOCATION, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="37">
+<Ques>When did Latvia join the EU?</Ques>
+<NQS>[WH] = When, [R1] = did, [D] =  Latvia, [R2] = join, [I] = the  EU</NQS>
+<NER>[O, O, LOCATION, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="38">
+<Ques>Which politicians were married to a German?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  politicians, [R2] = married to, [I] = a  Germn</NQS>
+<NER>[O, O, O, O, O, O, MISC, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="39">
+<Ques>When was the Battle of Gettysburg?</Ques>
+<NQS>[WH] = When, [R1] = was, [D] = the  Battle, [R2] = of, [I] =  Gettysburg</NQS>
+<NER>[O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="4">
+<Ques>Which river does the Brooklyn Bridge cross?</Ques>
+<NQS>[WH] = Which, [R1] = does, [D] =  river, [R2] = cross, [I] = the  Brooklyn Bridge</NQS>
+<NER>[O, O, O, O, LOCATION, LOCATION, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="40">
+<Ques>What is the highest mountain in Australia?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  highest mountain, [R2] = in, [I] =  Australia</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	true	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="41">
+<Ques>Give me all soccer clubs in Spain.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  soccer clubs,
+[CL2] = null,  [R3]= in, [I2_1] =  Spain</NQS>
+<NER>[O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="42">
+<Ques>What is the official language of Suriname?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  official language, [R2] = of, [I] =  Suriname</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="43">
+<Ques>Who is the mayor of Tel Aviv?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  mayor, [R2] = of, [I] =  Tel Aviv</NQS>
+<NER>[O, O, O, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="44">
+<Ques>Who designed the Brooklyn Bridge?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  DataProperty (Person), [R2] = designed, [I] = the  Brooklyn Bridge</NQS>
+<NER>[O, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="45">
+<Ques>Which telecommunications organizations are located in Belgium?</Ques>
+<NQS>[WH] = Which, [R1] = are, [D] =  telecommunications organizations, [R2] = , [I1_1] =  located,
+[CL2] = null,  [R3]= in, [I2_1] =  Belgium</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="46">
+<Ques>Is Frank Herbert still alive?</Ques>
+<NQS>[Concepts] = [Frank Herbert, still alive], [Roles] = []</NQS>
+<NER>[O, PERSON, PERSON, O, O, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="47">
+<Ques>What is the highest place of the Urals?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  highest place, [R2] = of, [I] = the  Urals</NQS>
+<NER>[O, O, O, O, O, O, O, MISC, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	true	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="48">
+<Ques>Who is the editor of Forbes?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  editor, [R2] = of, [I] =  Forbes</NQS>
+<NER>[O, O, O, O, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="49">
+<Ques>Give me all companies in the advertising industry.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  companies,
+[CL2] = null,  [R3]= in, [I2_1] =  advertising industry</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="5">
+<Ques>How many countries are there in Europe?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(countries), [R2] = are in, [I] =  Europe</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="50">
+<Ques>What did Bruce Carver die from?</Ques>
+<NQS>[WH] = What, [R1] = did, [D] =  definition(Bruce Carver), [R2] = die from, [I] =  Bruce Carver</NQS>
+<NER>[O, O, PERSON, PERSON, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="51">
+<Ques>Give me all libraries established earlier than 1400.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  libraries,
+[CL2] = null,  [R3]= established earlier than, [I2_1] =  1400</NQS>
+<NER>[O, O, O, O, O, O, O, O, DATE, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="52">
+<Ques>Which presidents were born in 1945?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  presidents, [R2] = born in, [I] =  1945</NQS>
+<NER>[O, O, O, O, O, DATE, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="53">
+<Ques>Give me all federal chancellors of Germany.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  federal chancellors,
+[CL2] = null,  [R3]= of, [I2_1] =  Germany</NQS>
+<NER>[O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="54">
+<Ques>Who was the wife of U.S. president Lincoln?</Ques>
+<NQS>[WH] = Who, [R1] = was, [D] = the  wife, [R2] = of, [I1_1] =  U.S. president [CC]  [I1_3] =  Lincoln</NQS>
+<NER>[O, O, O, O, O, LOCATION, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	6	null	true	false	true	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="55">
+<Ques>Who developed the video game World of Warcraft?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] = the  video game, [R2] = developed, [I1_1] =  World,
+[CL2] = null,  [R3]= of, [I2_1] =  Warcraft</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	8	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="56">
+<Ques>What is the official website of Tom Cruise?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  official website, [R2] = of, [I] =  Tom Cruise</NQS>
+<NER>[O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="57">
+<Ques>List all episodes of the first season of the HBO television series The Sopranos.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  episodes,
+[CL2] = null,  [R3]= of, [I2_1] =  first season,
+[CL3] = null,  [R4]= of, [I3_1] =  HBO television [CC]  [I3_2] = The  series The Sopranos</NQS>
+<NER>[O, O, O, O, O, O, O, ORDINAL, O, O, O, ORGANIZATION, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 10, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	12	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="58">
+<Ques>Who produced the most films?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  DataProperty (Person), [R2] = produced, [I] =  films</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="59">
+<Ques>Give me all people with first name Jimmy.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  people,
+[CL2] = null,  [R3]= with, [I2_1] =  first name [CC]  [I2_2] =  Jimmy</NQS>
+<NER>[O, O, O, O, O, O, ORDINAL, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	9	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="6">
+<Ques>In which city did John F. Kennedy die?</Ques>
+<NQS>[WH] = which, [R1] = did, [D] =  city, [R2] = die In, [I] =  John F. Kennedy</NQS>
+<NER>[O, O, O, PERSON, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="60">
+<Ques>Is there a video game called Battle Chess?</Ques>
+<NQS>[Concepts] = [a video game, Battle Chess], [Roles] = [called]</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="61">
+<Ques>Which mountains are higher than the Nanga Parbat?</Ques>
+<NQS>[WH] = Which, [R1] = are, [D] =  mountains, [R2] = , [I1_1] =  higher,
+[CL2] = null,  [R3]= than, [I2_1] =  Nanga Parbat</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="62">
+<Ques>Who created Wikipedia?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  DataProperty (Person), [R2] = created, [I] =  Wikipedia</NQS>
+<NER>[O, O, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="63">
+<Ques>Give me all actors starring in Last Action Hero.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  actors [CC]  [I1_3] =  starring,
+[CL2] = null,  [R3]= in, [I2_1] =  Last Action Hero</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	9	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="64">
+<Ques>Which software has been developed by organizations founded in California?</Ques>
+<NQS>[WH] = Which, [R1] = has been, [D] =  software, [R2] = developed by, [I1_1] =  organizations,
+[CL2] = null,  [R3]= founded in, [I2_1] =  California</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="65">
+<Ques>Which companies work in the aerospace industry as well as in medicine?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  companies, [R2] = work in, [I1_1] =  aerospace industry [CC]  [I1_3] =  as well as in medicine</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	6	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="66">
+<Ques>Is Christian Bale starring in Velvet Goldmine?</Ques>
+<NQS>[Concepts] = [Christian Bale, starring, Velvet Goldmine], [Roles] = [in]</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="67">
+<Ques>Give me the websites of companies with more than 500000 employees.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  websites,
+[CL2] = null,  [R3]= of, [I2_1] =  companies,
+[CL3] = null,  [R4]= with, [I3_1] =  more,
+[CL4] = null,  [R5]= than, [I4_1] =  500000 employees</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, O, NUMBER, O, O]</NER>
+<SPARQLFeature>[4, 11, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	14	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="68">
+<Ques>Which actors were born in Germany?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  actors, [R2] = born in, [I] =  Germany</NQS>
+<NER>[O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="69">
+<Ques>Which caves have more than 3 entrances?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  caves, [R2] = have more than, [I] =  3 entrances</NQS>
+<NER>[O, O, O, O, O, NUMBER, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="7">
+<Ques>Was the wife of president Lincoln called Mary?</Ques>
+<NQS>[Concepts] = [the wife, president, Lincoln, Mary], [Roles] = [of, called]</NQS>
+<NER>[O, O, O, O, O, PERSON, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="70">
+<Ques>Give me all films produced by Hal Roach.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  films,
+[CL2] = null,  [R3]= produced by, [I2_1] =  Hal Roach</NQS>
+<NER>[O, O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="71">
+<Ques>Give me all video games published by Mean Hamster Software.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  video games,
+[CL2] = null,  [R3]= published by, [I2_1] =  Mean Hamster [CC]  [I2_2] =  Software</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	9	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="72">
+<Ques>Which languages are spoken in Estonia?</Ques>
+<NQS>[WH] = Which, [R1] = are, [D] =  languages, [R2] = spoken in, [I] =  Estonia</NQS>
+<NER>[O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="73">
+<Ques>How many Aldi stores are there?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(), [R2] = are , [I] =  Aldi stores</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="74">
+<Ques>Which capitals in Europe were host cities of the summer olympic games?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  capitals, [R2] = in, [I1_1] =  Europe [CC]  [I1_3] =  host cities,
+[CL2] = null,  [R3]= of, [I2_1] =  summer olympic games</NQS>
+<NER>[O, O, O, LOCATION, O, O, O, O, O, DATE, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	9	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="75">
+<Ques>Who was the 16th president of the United States?</Ques>
+<NQS>[WH] = Who, [R1] = was, [D] = the  16th president, [R2] = of, [I] = the  United States</NQS>
+<NER>[O, O, O, ORDINAL, O, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="76">
+<Ques>How many films did Hal Roach produce?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(films), [R2] = did produce, [I] =  Hal Roach</NQS>
+<NER>[O, O, O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="77">
+<Ques>Which music albums contain the song Last Christmas?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  music albums, [R2] = contain, [I1_1] =  song [CC]  [I1_3] =  Last Christmas</NQS>
+<NER>[O, O, O, O, O, O, DATE, DATE, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	6	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="78">
+<Ques>Give me all books written by Danielle Steel.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  books,
+[CL2] = null,  [R3]= written by, [I2_1] =  Danielle Steel</NQS>
+<NER>[O, O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="79">
+<Ques>Which airports are located in California, USA?</Ques>
+<NQS>[WH] = Which, [R1] = are, [D] =  airports, [R2] = , [I1_1] =  located,
+[CL2] = null,  [R3]= in, [I2_1] =  California [CC]  [I2_2] =  USA</NQS>
+<NER>[O, O, O, O, O, LOCATION, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	9	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="8">
+<Ques>Which states of Germany are governed by the Social Democratic Party?</Ques>
+<NQS>[WH] = Which, [R1] = are, [D] =  states, [R2] = of, [I1_1] =  Germany,
+[CL2] = null,  [R3]= governed by, [I2_1] =  Social Democratic Party</NQS>
+<NER>[O, O, O, LOCATION, O, O, O, O, ORGANIZATION, ORGANIZATION, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	false	true	true	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="80">
+<Ques>Give me all Canadian Grunge record labels.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  Canadian Grunge record [CC]  [I1_3] =  labels</NQS>
+<NER>[O, O, O, O, MISC, MISC, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	6	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="81">
+<Ques>Which country has the most official languages?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  country, [R2] = has, [I] =  official languages</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="82">
+<Ques>In which programming language is GIMP written?</Ques>
+<NQS>[WH] = which, [R1] = is, [D] =  programming language, [R2] = written In, [I] =  GIMP</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="83">
+<Ques>Who produced films starring Natalie Portman?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  films, [R2] = produced, [I1_1] =  starring [CC]  [I1_3] =  Natalie Portman</NQS>
+<NER>[O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	6	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="84">
+<Ques>Give me all movies with Tom Cruise.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  movies,
+[CL2] = null,  [R3]= with, [I2_1] =  Tom Cruise</NQS>
+<NER>[O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="85">
+<Ques>In which films did Julia Roberts as well as Richard Gere play?</Ques>
+<NQS>[WH] = which, [R1] = did, [D] =  films, [R2] = , [I1_1] =  Julia Roberts [CC]  [I1_3] =  as well as Richard Gere,
+[CL2] = null,  [R3]= play In,</NQS>
+<NER>[O, O, O, PERSON, PERSON, O, O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="86">
+<Ques>Give me all female given names.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] =  female given names</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="87">
+<Ques>Who wrote the book The Pillars of the Earth?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] = the  book The Pillars, [R2] = wrote, [I1_1] =  Earth,
+[CL2] = null,  [R3]= of,</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	7	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="88">
+<Ques>How many films did Leonardo DiCaprio star in?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(films), [R2] = did , [I1_1] =  Leonardo DiCaprio [CC]  [I1_3] =  star,
+[CL2] = null,  [R3]= in,</NQS>
+<NER>[O, O, O, O, PERSON, PERSON, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="89">
+<Ques>Give me all soccer clubs in the Premier League.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  soccer clubs,
+[CL2] = null,  [R3]= in, [I2_1] =  Premier League</NQS>
+<NER>[O, O, O, O, O, O, O, O, ORGANIZATION, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="9">
+<Ques>In which U.S. state is Mount McKinley located?</Ques>
+<NQS>[WH] = which, [R1] = is, [D] =  U.S. state, [R2] = , [I1_1] =  Mount McKinley [CC]  [I1_3] =  located,
+[CL2] = null,  [R3]= In,</NQS>
+<NER>[O, LOCATION, O, O, LOCATION, LOCATION, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="90">
+<Ques>When was Jack Wolfskin founded?</Ques>
+<NQS>[WH] = When, [R1] = was, [D] =  time(Jack Wolfskin), [R2] = founded, [I] =  Jack Wolfskin</NQS>
+<NER>[O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="91">
+<Ques>Which organizations were founded in 1930?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  organizations, [R2] = founded in, [I] =  1930</NQS>
+<NER>[O, O, O, O, O, DATE, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="92">
+<Ques>What is the highest mountain?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  definition( highest mountain), [R2] = , [I] = the  highest mountain</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	true	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="93">
+<Ques>Was Natalie Portman born in the United States?</Ques>
+<NQS>[Concepts] = [Natalie Portman, the United States], [Roles] = [born in]</NQS>
+<NER>[O, PERSON, PERSON, O, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="94">
+<Ques>Which budget did the first movie of Zdenek Sverak have?</Ques>
+<NQS>[WH] = Which, [R1] = did, [D] =  budget, [R2] = , [I1_1] =  first movie,
+[CL2] = null,  [R3]= of, [I2_1] =  Zdenek Sverak,
+[CL3] = null,  [R4]= have,</NQS>
+<NER>[O, O, O, O, ORDINAL, O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	10	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="95">
+<Ques>How many big fires struck Paris during the Middle Ages?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(big fires), [R2] =  struck, [I1_1] =  Paris,
+[CL2] = null,  [R3]= during, [I2_1] =  Middle Ages</NQS>
+<NER>[O, O, O, O, O, LOCATION, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="96">
+<Ques>Is Pamela Anderson a vegan?</Ques>
+<NQS>[Concepts] = [Pamela Anderson a vegan], [Roles] = []</NQS>
+<NER>[O, PERSON, PERSON, O, O, O]</NER>
+<SPARQLFeature>[4, 3, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="97">
+<Ques>How often was Michael Jordan divorced?</Ques>
+<NQS>[WH] = How, [R1] = , [D] = often DataProperty(), [R2] = was divorced, [I] =  Michael Jordan</NQS>
+<NER>[O, O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	How	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="98">
+<Ques>What is the most beautiful painting?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  definition(beautiful painting), [R2] = , [I] =  beautiful painting</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="99">
+<Ques>Give me all animal species that live in the Amazon rainforest.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  animal species,
+[CL2] = that, [R3]= live in, [I2_1] =  Amazon rainforest</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, LOCATION, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="231">
+<Ques>How many inhabitants does the largest city in Canada have?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(inhabitants), [R2] = does , [I1_1] =  largest city,
+[CL2] = null,  [R3]= in, [I2_1] =  Canada,
+[CL3] = null,  [R4]= have,</NQS>
+<NER>[O, O, O, O, O, O, O, O, LOCATION, O, O]</NER>
+<SPARQLFeature>[4, 9, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	10	null	true	true	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="249">
+<Ques>In which studio did the Beatles record their first album?</Ques>
+<NQS>[WH] = which, [R1] = did, [D] =  studio, [R2] = , [I1_1] =  Beatles,
+[CL2] = null,  [R3]= record their, [I2_1] =  first album,
+[CL3] = null,  [R4]= In,</NQS>
+<NER>[O, O, O, O, O, O, O, ORDINAL, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	10	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="234">
+<Ques>Who was the first to climb Mount Everest?</Ques>
+<NQS>[WH] = Who, [R1] = was, [D] = the  first, [R2] = to climb, [I] =  Mount Everest</NQS>
+<NER>[O, O, O, ORDINAL, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="204">
+<Ques>How many programming languages are there?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(), [R2] = are , [I] =  programming languages</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="242">
+<Ques>What is the official color of the University of Oxford?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  official color, [R2] = of, [I] = the  University of Oxford</NQS>
+<NER>[O, O, O, O, O, O, O, ORGANIZATION, ORGANIZATION, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="250">
+<Ques>How many gold medals did Michael Phelps win at the 2008 Olympics?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(gold medals), [R2] = did , [I1_1] =  Michael Phelps,
+[CL2] = null,  [R3]= win at, [I2_1] =  2008 Olympics</NQS>
+<NER>[O, O, O, O, O, PERSON, PERSON, O, O, O, DATE, MISC, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	8	null	true	false	true	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="235">
+<Ques>To which artistic movement did the painter of The Three Dancers belong?</Ques>
+<NQS>[WH] = which, [R1] = did, [D] =  artistic movement, [R2] = , [I1_1] =  painter,
+[CL2] = null,  [R3]= of, [I2_1] =  Three Dancers,
+[CL3] = null,  [R4]= belong To,</NQS>
+<NER>[O, O, O, O, O, O, O, O, NUMBER, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	10	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="211">
+<Ques>Give me all animals that are extinct.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  animals,
+[CL2] = that, [R3]= are, [I2_1] =  extinct</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="223">
+<Ques>Does Abraham Lincoln's death place have a website?</Ques>
+<NQS>[Concepts] = [death place, Abraham Lincoln, a website], [Roles] = [of, have]</NQS>
+<NER>[O, PERSON, PERSON, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 3, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="244">
+<Ques>How deep is Lake Chiemsee?</Ques>
+<NQS>[WH] = How, [R1] = , [D] =  DataProperty(deep), [R2] = is , [I] =  Lake Chiemsee</NQS>
+<NER>[O, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	How	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="240">
+<Ques>Give me the grandchildren of Elvis Presley.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  grandchildren,
+[CL2] = null,  [R3]= of, [I2_1] =  Elvis Presley</NQS>
+<NER>[O, O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="210">
+<Ques>Who is the youngest Darts player?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] =  DataProperty (Person), [R2] = , [I] = the  youngest Darts player</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	true	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="221">
+<Ques>Where was Bach born?</Ques>
+<NQS>[WH] = Where, [R1] = was, [D] =  location(Bach), [R2] = born, [I] =  Bach</NQS>
+<NER>[O, O, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Where	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="232">
+<Ques>In which countries can you pay using the West African CFA franc?</Ques>
+<NQS>[WH] = which, [R1] = can, [D] =  countries, [R2] = you pay, [I1_1] =  using [CC]  [I1_3] =  West African CFA [CC]  [I1_4] =  franc,
+[CL2] = null,  [R3]= In,</NQS>
+<NER>[O, O, O, O, O, O, O, MISC, MISC, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	9	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="225">
+<Ques>What are the top-10 action role-playing video games according to IGN?</Ques>
+<NQS>[WH] = What, [R1] = are, [D] = the  top-10 action role-playing video, [R2] = , [I1_1] =  games [CC]  [I1_3] =  according,
+[CL2] = null,  [R3]= to, [I2_1] =  IGN</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	9	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="214">
+<Ques>What is the most frequent cause of death?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  frequent cause, [R2] = of, [I] =  death</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="207">
+<Ques>Does the Isar flow into a lake?</Ques>
+<NQS>[Concepts] = [the Isar flow, a lake], [Roles] = [into]</NQS>
+<NER>[O, O, LOCATION, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 3, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="218">
+<Ques>Give me all films produced by Steven Spielberg with a budget of at least $80 million.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  films,
+[CL2] = null,  [R3]= produced by, [I2_1] =  Steven Spielberg,
+[CL3] = null,  [R4]= with, [I3_1] = a  a budget,
+[CL4] = null,  [R5]= of at, [I4_1] = least  least $ 80 million</NQS>
+<NER>[O, O, O, O, O, O, O, PERSON, PERSON, O, O, O, O, O, O, MONEY, MONEY, MONEY, O]</NER>
+<SPARQLFeature>[4, 13, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	14	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="241">
+<Ques>Give me all writers that won the Nobel Prize in literature.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  writers,
+[CL2] = that, [R3]= won, [I2_1] =  Nobel Prize,
+[CL3] = null,  [R4]= in, [I3_1] =  literature</NQS>
+<NER>[O, O, O, O, O, O, O, O, MISC, MISC, O, O, O]</NER>
+<SPARQLFeature>[4, 9, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	11	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="201">
+<Ques>Give me all taikonauts.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] =  taikonauts</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="212">
+<Ques>How many pages does War and Peace have?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(pages), [R2] = does , [I1_1] =  War [CC]  [I1_3] =  Peace,
+[CL2] = null,  [R3]= have,</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	8	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="217">
+<Ques>What is the bridge with the longest span?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  bridge, [R2] = with, [I] = the  longest span</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	true	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="247">
+<Ques>Give me all actors called Baldwin.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  actors,
+[CL2] = null,  [R3]= called, [I2_1] =  Baldwin</NQS>
+<NER>[O, O, O, O, O, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="216">
+<Ques>Who is the tallest player of the Atlanta Falcons?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  tallest player, [R2] = of, [I] = the  Atlanta Falcons</NQS>
+<NER>[O, O, O, O, O, O, O, ORGANIZATION, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	true	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="208">
+<Ques>Which rivers flow into a German lake?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  rivers, [R2] = flow into, [I] = a  Germn lke</NQS>
+<NER>[O, O, O, O, O, MISC, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="238">
+<Ques>How many James Bond movies are there?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(James Bond), [R2] = are , [I] =  movies</NQS>
+<NER>[O, O, PERSON, PERSON, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="246">
+<Ques>Which rockets were launched from Baikonur?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  rockets, [R2] = launched from, [I] =  Baikonur</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="236">
+<Ques>Which pope succeeded John Paul II?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  pope, [R2] = succeeded, [I] =  John Paul II</NQS>
+<NER>[O, O, O, PERSON, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="205">
+<Ques>Give me all Dutch parties.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] =  Dutch parties</NQS>
+<NER>[O, O, O, O, MISC, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="230">
+<Ques>When is Halloween?</Ques>
+<NQS>[WH] = When, [R1] = is, [D] =  time(Halloween), [R2] = , [I] =  Halloween</NQS>
+<NER>[O, O, DATE, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="243">
+<Ques>Give me all Swedish oceanographers.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] =  Swedish oceanographers</NQS>
+<NER>[O, O, O, O, MISC, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="226">
+<Ques>Give me all actors who were born in Berlin.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  actors,
+[CL2] = who, [R3]= were born in, [I2_1] =  Berlin</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="237">
+<Ques>What was the last movie with Alec Guinness?</Ques>
+<NQS>[WH] = What, [R1] = was, [D] = the  last movie, [R2] = with, [I] =  Alec Guinness</NQS>
+<NER>[O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="203">
+<Ques>Which poet wrote the most books?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  poet, [R2] = wrote, [I] =  books</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="202">
+<Ques>How many languages are spoken in Colombia?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(languages), [R2] = are spoken in, [I] =  Colombia</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="248">
+<Ques>What does ICRO stand for?</Ques>
+<NQS>[WH] = What, [R1] = does, [D] =  definition(ICRO), [R2] = stand for, [I] =  ICRO</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="228">
+<Ques>What was Brazil's lowest rank in the FIFA World Ranking?</Ques>
+<NQS>[WH] = What, [R1] = was, [D] =  lowest rank, [R2] = of, [I1_1] =  Brazil,
+[CL2] = null,  [R3]= in, [I2_1] =  FIFA World [CC]  [I2_2] =  Ranking</NQS>
+<NER>[O, O, LOCATION, O, O, O, O, O, ORGANIZATION, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	9	null	true	true	false	true	true	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="233">
+<Ques>Give me the capitals of all countries that the Himalayas run through.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  capitals,
+[CL2] = null,  [R3]= of, [I2_1] = all  all countries,
+[CL3] = that, [R4]= that, [I3_1] =  Himalayas,
+[CL4] = null,  [R5]= run through,</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 10, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	13	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="239">
+<Ques>Which actor played Chewbacca?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  actor, [R2] = played, [I] =  Chewbacca</NQS>
+<NER>[O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="213">
+<Ques>Which ingredients do I need for carrot cake?</Ques>
+<NQS>[WH] = Which, [R1] = do, [D] =  ingredients, [R2] = I need for, [I] =  carrot cake</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="219">
+<Ques>Is Cola a beverage?</Ques>
+<NQS>[Concepts] = [Cola a beverage], [Roles] = []</NQS>
+<NER>[O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 3, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="215">
+<Ques>Who has Tom Cruise been married to?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  DataProperty (Person), [R2] = has been married to, [I] =  Tom Cruise</NQS>
+<NER>[O, O, PERSON, PERSON, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="222">
+<Ques>Which of Tim Burton's films had the highest budget?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] = the films had  highest budget, [R2] = of, [I1_1] =  Tim Burton,
+[CL2] = null,  [R3]= of,</NQS>
+<NER>[O, O, PERSON, PERSON, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	7	null	true	true	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="209">
+<Ques>How heavy is Jupiter's lightest moon?</Ques>
+<NQS>[WH] = How, [R1] = , [D] =  DataProperty(heavy), [R2] = is , [I1_1] =  lightest moon,
+[CL2] = null,  [R3]= of, [I2_1] =  Jupiter</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	How	8	null	true	true	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="220">
+<Ques>Which actor was casted in the most movies?</Ques>
+<NQS>[WH] = Which, [R1] = was, [D] =  actor, [R2] = casted in, [I] =  movies</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="245">
+<Ques>Is James Bond married?</Ques>
+<NQS>[Concepts] = [James Bond], [Roles] = [married]</NQS>
+<NER>[O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="229">
+<Ques>Give me all Australian metalcore bands.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  Australian metalcore [CC]  [I1_3] =  bands</NQS>
+<NER>[O, O, O, O, MISC, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	6	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="227">
+<Ques>Give me all actors who were born in Paris after 1950.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  actors,
+[CL2] = who, [R3]= were born in, [I2_1] =  Paris,
+[CL3] = null,  [R4]= after, [I3_1] =  1950</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, LOCATION, O, DATE, O]</NER>
+<SPARQLFeature>[4, 9, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	11	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="206">
+<Ques>When was Olof Palme shot?</Ques>
+<NQS>[WH] = When, [R1] = was, [D] =  time(Olof Palme shot), [R2] = , [I] =  Olof Palme shot</NQS>
+<NER>[O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="224">
+<Ques>Who are the four youngest MVP basketball players?</Ques>
+<NQS>[WH] = Who, [R1] = are, [D] =  four youngest MVP, [R2] = , [I] =  basketball players</NQS>
+<NER>[O, O, O, NUMBER, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	true	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="251">
+<Ques>Which companies have more than 1 million employees?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  companies, [R2] = have more than, [I] =  1 million employees</NQS>
+<NER>[O, O, O, O, O, NUMBER, NUMBER, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="252">
+<Ques>Give all swimmers that were born in Moscow.</Ques>
+<NQS>[WH] = that, [R1] = were, [D] =  Moscow, [R2] = born in, [I1_1] =  all swimmers,
+[CL2] = null,  [R3]= Give,</NQS>
+<NER>[O, O, O, O, LOCATION, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	that	7	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="253">
+<Ques>Who was called Rodzilla?</Ques>
+<NQS>[WH] = Who, [R1] = was, [D] =  DataProperty (Person), [R2] = called, [I] =  Rodzilla</NQS>
+<NER>[O, O, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="254">
+<Ques>Show me the book that Muhammad Ali wrote.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  book,
+[CL2] = that, [R3]= wrote, [I2_1] =  Muhammad Ali</NQS>
+<NER>[O, O, O, O, O, O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="255">
+<Ques>How many museums does Paris have?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(museums), [R2] = does have, [I] =  Paris</NQS>
+<NER>[O, O, O, O, LOCATION, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="256">
+<Ques>Which city has the most inhabitants?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  city, [R2] = has, [I] =  inhabitants</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="257">
+<Ques>Which city has the least inhabitants?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  city, [R2] = has, [I] = the  least inhabitants</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="258">
+<Ques>Give me all the TV shows with Neil Patrick Harris.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  TV,
+[CL2] = null,  [R3]= shows with, [I2_1] =  Neil Patrick Harris</NQS>
+<NER>[O, O, O, O, O, O, O, O, PERSON, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="259">
+<Ques>Who wrote The Hunger Games?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  DataProperty (Person), [R2] = wrote, [I] = the The Hunger Games</NQS>
+<NER>[O, O, O, MISC, MISC, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="260">
+<Ques>Show a list of soccer clubs that play in the Bundesliga.</Ques>
+<NQS>[WH] = that, [R1] = , [D] = the  Bundesliga, [R2] = play in, [I1_1] =  Show a list,
+[CL2] = null,  [R3]= of, [I2_1] =  soccer clubs</NQS>
+<NER>[O, O, O, O, MISC, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	that	8	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="261">
+<Ques>What country is Mount Everest in?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  country, [R2] = in, [I] =  Mount Everest</NQS>
+<NER>[O, O, O, LOCATION, LOCATION, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="262">
+<Ques>Who is the founder of Penguin Books?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  founder, [R2] = of, [I] =  Penguin Books</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="263">
+<Ques>Which programming languages influenced Javascript?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  programming languages, [R2] = influenced, [I] =  Javascript</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="264">
+<Ques>Did Che Guevara have children?</Ques>
+<NQS>[Concepts] = [Che Guevara, children], [Roles] = [have]</NQS>
+<NER>[O, PERSON, PERSON, O, O, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="265">
+<Ques>List all the musicals with music by Leonard Bernstein.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  musicals,
+[CL2] = null,  [R3]= with, [I2_1] =  music,
+[CL3] = null,  [R4]= by, [I3_1] =  Leonard Bernstein</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 9, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	11	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="266">
+<Ques>Show me all the breweries in Australia.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  breweries,
+[CL2] = null,  [R3]= in, [I2_1] =  Australia</NQS>
+<NER>[O, O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="267">
+<Ques>When was the Titanic completed?</Ques>
+<NQS>[WH] = When, [R1] = was, [D] =  time( Titanic), [R2] = completed, [I] = the  Titanic</NQS>
+<NER>[O, O, O, MISC, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="268">
+<Ques>How much did Pulp Fiction cost?</Ques>
+<NQS>[WH] = How much, [R1] = , [D] =  quantity(), [R2] = did cost, [I] =  Pulp Fiction</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	How much	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="269">
+<Ques>How many airlines are there?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(), [R2] = are , [I] =  airlines</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="270">
+<Ques>Who played Agent Smith in Matrix?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  Agent Smith, [R2] = played, [I1_1] =  Matrix,
+[CL2] = null,  [R3]= in,</NQS>
+<NER>[O, O, PERSON, PERSON, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	7	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="271">
+<Ques>How much carbs does peanut butter have?</Ques>
+<NQS>[WH] = How much, [R1] = , [D] =  quantity(carbs), [R2] = does have, [I] =  peanut butter</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	How much	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="272">
+<Ques>Which book has the most pages?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  book, [R2] = has, [I] =  pages</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="273">
+<Ques>Which bridges cross the Seine?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  bridges, [R2] = cross, [I] = the  Seine</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="274">
+<Ques>Who is the mayor of the capital of French Polynesia?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  mayor, [R2] = of, [I1_1] =  capital,
+[CL2] = null,  [R3]= of, [I2_1] =  French Polynesia</NQS>
+<NER>[O, O, O, O, O, O, O, O, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="275">
+<Ques>When did Dracula's creator die?</Ques>
+<NQS>[WH] = When, [R1] = did, [D] =  creator, [R2] = of, [I1_1] =  Dracula,
+[CL2] = null,  [R3]= die,</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	7	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="276">
+<Ques>What is the location of the Houses of Parliament?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  location, [R2] = of, [I1_1] =  Houses,
+[CL2] = null,  [R3]= of, [I2_1] =  Parliament</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	8	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="277">
+<Ques>Show me all English Gothic buildings in Kent.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  all English Gothic buildings,
+[CL2] = null,  [R3]= in, [I2_1] =  Kent</NQS>
+<NER>[O, O, O, O, O, MISC, MISC, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="278">
+<Ques>Who was the pope that founded the Vatican Television?</Ques>
+<NQS>[WH] = Who, [R1] = was, [D] =  DataProperty (Person), [R2] = , [I1_1] = the  pope,
+[CL2] = that, [R3]= founded, [I2_1] =  Vatican Television</NQS>
+<NER>[O, O, O, O, O, O, O, ORGANIZATION, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	8	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="279">
+<Ques>What airlines are part of the SkyTeam alliance?</Ques>
+<NQS>[WH] = What, [R1] = are, [D] =  airlines, [R2] = , [I1_1] =  part,
+[CL2] = null,  [R3]= of, [I2_1] =  SkyTeam alliance</NQS>
+<NER>[O, O, O, O, O, O, MISC, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	8	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="280">
+<Ques>What is the total population of Melbourne, Florida?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  total population, [R2] = of, [I1_1] =  Melbourne [CC]  [I1_3] =  Florida</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	6	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="281">
+<Ques>Which airports does Yeti Airlines serve?</Ques>
+<NQS>[WH] = Which, [R1] = does, [D] =  airports, [R2] = serve, [I] =  Yeti Airlines</NQS>
+<NER>[O, O, O, ORGANIZATION, ORGANIZATION, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="282">
+<Ques>In which year was Rachel Stevens born?</Ques>
+<NQS>[WH] = which, [R1] = was, [D] =  year, [R2] = born In, [I] =  Rachel Stevens</NQS>
+<NER>[O, DURATION, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="283">
+<Ques>Where was JFK assassinated?</Ques>
+<NQS>[WH] = Where, [R1] = was, [D] =  location(JFK), [R2] = assassinated, [I] =  JFK</NQS>
+<NER>[O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Where	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="284">
+<Ques>How many politicians graduated from Columbia University?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(politicians), [R2] =  graduated from, [I] =  Columbia University</NQS>
+<NER>[O, O, O, O, O, ORGANIZATION, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="285">
+<Ques>Which scientist is known for the Manhattan Project and the Nobel Peace Prize?</Ques>
+<NQS>[WH] = Which, [R1] = is, [D] =  scientist, [R2] = known for, [I1_1] =  Manhattan Project [CC]  [I1_3] =  Nobel Peace Prize</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O, O, O, MISC, MISC, MISC, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	6	null	true	false	false	true	true	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="286">
+<Ques>What is the highest volcano in Africa?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  highest volcano, [R2] = in, [I] =  Africa</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	true	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="287">
+<Ques>Which beer originated in Ireland?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  beer, [R2] = originated in, [I] =  Ireland</NQS>
+<NER>[O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="288">
+<Ques>What are the specialities of the UNC Health Care?</Ques>
+<NQS>[WH] = What, [R1] = are, [D] = the  specialities, [R2] = of, [I] = the  UNC Health Care</NQS>
+<NER>[O, O, O, O, O, O, ORGANIZATION, ORGANIZATION, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="289">
+<Ques>Who is the owner of Facebook?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  owner, [R2] = of, [I] =  Facebook</NQS>
+<NER>[O, O, O, O, O, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="290">
+<Ques>From which region is the Melon de Bourgogne?</Ques>
+<NQS>[WH] = which, [R1] = is, [D] =  region, [R2] = , [I1_1] =  Melon,
+[CL2] = null,  [R3]= de, [I2_1] =  Bourgogne,
+[CL3] = null,  [R4]= From,</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	10	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="291">
+<Ques>Who was influenced by Socrates?</Ques>
+<NQS>[WH] = Who, [R1] = was, [D] =  DataProperty (Person), [R2] = influenced by, [I] =  Socrates</NQS>
+<NER>[O, O, O, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="292">
+<Ques>Who was president of Pakistan in 1978?</Ques>
+<NQS>[WH] = Who, [R1] = was, [D] =  president, [R2] = of, [I1_1] =  Pakistan,
+[CL2] = null,  [R3]= in, [I2_1] =  1978</NQS>
+<NER>[O, O, O, O, LOCATION, O, DATE, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="293">
+<Ques>Give me English actors starring in Lovesick.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  English actors [CC]  [I1_3] =  starring,
+[CL2] = null,  [R3]= in, [I2_1] =  Lovesick</NQS>
+<NER>[O, O, O, O, MISC, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	9	null	true	false	false	true	true	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="294">
+<Ques>Give me all types of eating disorders.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  types,
+[CL2] = null,  [R3]= of, [I2_1] =  eating disorders</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="295">
+<Ques>Who was married to president Chirac?</Ques>
+<NQS>[WH] = Who, [R1] = was, [D] =  president, [R2] = married to, [I] =  Chirac</NQS>
+<NER>[O, O, O, O, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="296">
+<Ques>What is the largest metropolitan area in Washington state?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  largest metropolitan area, [R2] = in, [I] =  Washington state</NQS>
+<NER>[O, O, O, O, O, O, O, LOCATION, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	true	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="297">
+<Ques>Where in France is sparkling wine produced?</Ques>
+<NQS>[WH] = Where, [R1] = is, [D] =  France, [R2] = in, [I1_1] =  sparkling wine,
+[CL2] = null,  [R3]= produced,</NQS>
+<NER>[O, O, LOCATION, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Where	7	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="298">
+<Ques>Where did Hillel Slovak die?</Ques>
+<NQS>[WH] = Where, [R1] = did, [D] =  location(Hillel Slovak), [R2] = die, [I] =  Hillel Slovak</NQS>
+<NER>[O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Where	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="299">
+<Ques>What is the timezone in San Pedro de Atacama?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  timezone, [R2] = in, [I] = a Sn Pedro de Atcm</NQS>
+<NER>[O, O, O, O, O, LOCATION, LOCATION, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="300">
+<Ques>In which city does the Chile Route 68 end?</Ques>
+<NQS>[WH] = which, [R1] = does, [D] =  city, [R2] = , [I1_1] =  Chile Route [CC]  [I1_3] =  68,
+[CL2] = null,  [R3]= end In,</NQS>
+<NER>[O, O, O, O, LOCATION, O, NUMBER, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="301">
+<Ques>Give me all ESA astronauts.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] =  ESA astronauts</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="302">
+<Ques>Give me all Swedish holidays.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] =  Swedish holidays</NQS>
+<NER>[O, O, O, O, MISC, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="303">
+<Ques>Who is the youngest Pulitzer Prize winner?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] =  DataProperty (Person), [R2] = , [I] = the  youngest Pulitzer Prize winner</NQS>
+<NER>[O, O, O, O, MISC, MISC, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	true	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="304">
+<Ques>Which animals are critically endangered?</Ques>
+<NQS>[WH] = Which, [R1] = are, [D] =  animals, [R2] = endangered, [I] =  critically</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="305">
+<Ques>Which soccer players were born on Malta?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  soccer players, [R2] = born on, [I] =  Malta</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="306">
+<Ques>Did Arnold Schwarzenegger attend a university?</Ques>
+<NQS>[Concepts] = [Arnold Schwarzenegger, a university], [Roles] = [attend]</NQS>
+<NER>[O, PERSON, PERSON, O, O, O, O]</NER>
+<SPARQLFeature>[4, 3, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="307">
+<Ques>Which programming languages were influenced by Perl?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  programming languages, [R2] = influenced by, [I] =  Perl</NQS>
+<NER>[O, O, O, O, O, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="308">
+<Ques>Is Barack Obama a democrat?</Ques>
+<NQS>[Concepts] = [Barack Obama a democrat], [Roles] = []</NQS>
+<NER>[O, PERSON, PERSON, O, O, O]</NER>
+<SPARQLFeature>[4, 3, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="309">
+<Ques>How many children does Eddie Murphy have?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(children), [R2] = does have, [I] =  Eddie Murphy</NQS>
+<NER>[O, O, O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="310">
+<Ques>Who is the oldest child of Meryl Streep?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  oldest child, [R2] = of, [I] =  Meryl Streep</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	true	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="311">
+<Ques>Who killed John Lennon?</Ques>
+<NQS>[WH] = Who, [R1] = , [D] =  DataProperty (Person), [R2] = killed, [I] =  John Lennon</NQS>
+<NER>[O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="313">
+<Ques>Which frequent flyer program has the most airlines?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  frequent flyer program, [R2] = has, [I] =  airlines</NQS>
+<NER>[O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="312">
+<Ques>In which city is Air China headquartered?</Ques>
+<NQS>[WH] = which, [R1] = is, [D] =  city, [R2] = headquartered In, [I] =  Air China</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="314">
+<Ques>Which artists were born on the same date as Rachel Stevens?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  artists, [R2] = born on, [I1_1] =  same date,
+[CL2] = null,  [R3]= as, [I2_1] =  Rachel Stevens</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="315">
+<Ques>How many scientists graduated from an Ivy League university?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(scientists), [R2] =  graduated from, [I1_1] =  an Ivy League [CC]  [I1_3] =  university</NQS>
+<NER>[O, O, O, O, O, O, ORGANIZATION, ORGANIZATION, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	6	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="316">
+<Ques>Which types of grapes grow in Oregon?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  types, [R2] = of, [I1_1] =  grapes,
+[CL2] = null,  [R3]= grow in, [I2_1] =  Oregon</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="317">
+<Ques>Who is starring in Spanish movies produced by Benicio del Toro?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] =  starring, [R2] = in, [I1_1] =  Spanish movies,
+[CL2] = null,  [R3]= produced by, [I2_1] =  Benicio del Toro</NQS>
+<NER>[O, O, O, O, MISC, O, O, O, PERSON, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	8	null	true	false	true	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="318">
+<Ques>Who is the manager of Real Madrid?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  manager, [R2] = of, [I] =  Real Madrid</NQS>
+<NER>[O, O, O, O, O, ORGANIZATION, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="319">
+<Ques>Give me the currency of China.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  currency,
+[CL2] = null,  [R3]= of, [I2_1] =  China</NQS>
+<NER>[O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="320">
+<Ques>Which movies starring Mickey Rourke were directed by Guy Ritchie?</Ques>
+<NQS>[WH] = Which, [R1] = were, [D] =  movies, [R2] = , [I1_1] =  starring [CC]  [I1_3] =  Mickey Rourke,
+[CL2] = null,  [R3]= directed by, [I2_1] =  Guy Ritchie</NQS>
+<NER>[O, O, O, PERSON, PERSON, O, O, O, PERSON, PERSON, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	9	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="321">
+<Ques>Is Darth Vader Luke’s father?</Ques>
+<NQS>[Concepts] = [father, Darth Vader Luke], [Roles] = [of]</NQS>
+<NER>[O, PERSON, PERSON, PERSON, O, O, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="322">
+<Ques>How many companies were founded by the founder of Facebook?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(companies), [R2] = were founded by, [I1_1] =  founder,
+[CL2] = null,  [R3]= of, [I2_1] =  Facebook</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	8	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="323">
+<Ques>How many companies were founded in the same year as Google?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(companies), [R2] = were founded in, [I1_1] =  same year,
+[CL2] = null,  [R3]= as, [I2_1] =  Google</NQS>
+<NER>[O, O, O, O, O, O, DATE, DATE, DATE, O, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	8	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="324">
+<Ques>Which subsidiary of TUI Travel serves both Glasgow and Dublin?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  subsidiary, [R2] = of, [I1_1] =  TUI Travel,
+[CL2] = null,  [R3]= serves, [I2_1] = both  both Glasgow [CC]  [I2_2] =  Dublin</NQS>
+<NER>[O, O, O, ORGANIZATION, ORGANIZATION, O, O, LOCATION, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	9	null	true	false	false	true	true	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="325">
+<Ques>How many airlines are members of the Star Alliance?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(airlines), [R2] = members of are, [I] = the  Star Alliance</NQS>
+<NER>[O, O, O, O, O, O, O, ORGANIZATION, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="326">
+<Ques>Give me all spacecrafts that flew to Mars.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  spacecrafts,
+[CL2] = that, [R3]= flew to, [I2_1] =  Mars</NQS>
+<NER>[O, O, O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="327">
+<Ques>Which musician wrote the most books?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  musician, [R2] = wrote, [I] =  books</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="328">
+<Ques>Show me everyone who was born on Halloween.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  everyone,
+[CL2] = who, [R3]= was born on, [I2_1] =  Halloween</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, DATE, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="329">
+<Ques>Give me all Swiss non-profit organizations.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I] =  Swiss non-profit organizations</NQS>
+<NER>[O, O, O, O, MISC, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="330">
+<Ques>In which country is Mecca located?</Ques>
+<NQS>[WH] = which, [R1] = is, [D] =  country, [R2] = located In, [I] =  Mecca</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="331">
+<Ques>What is the net income of Apple?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  net income, [R2] = of, [I] =  Apple</NQS>
+<NER>[O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="332">
+<Ques>What does the abbreviation FIFA stand for?</Ques>
+<NQS>[WH] = What, [R1] = does, [D] = the  abbreviation, [R2] = stand for, [I] =  FIFA</NQS>
+<NER>[O, O, O, O, ORGANIZATION, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	false	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="333">
+<Ques>When did the Ming dynasty dissolve?</Ques>
+<NQS>[WH] = When, [R1] = did, [D] =  time( Ming dynasty), [R2] = dissolve, [I] = the  Ming dynasty</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	When	5	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="334">
+<Ques>Which museum in New York has the most visitors?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  museum, [R2] = in, [I1_1] =  New York,
+[CL2] = null,  [R3]= has, [I2_1] =  visitors</NQS>
+<NER>[O, O, O, LOCATION, LOCATION, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="335">
+<Ques>Is Lake Baikal bigger than the Great Bear Lake?</Ques>
+<NQS>[Concepts] = [Lake Baikal, bigger, the Great Bear Lake], [Roles] = [than]</NQS>
+<NER>[O, LOCATION, LOCATION, O, O, O, LOCATION, LOCATION, LOCATION, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="336">
+<Ques>Desserts from which country contain fish?</Ques>
+<NQS>[WH] = which, [R1] = , [D] =  country, [R2] = contain, [I1_1] =  fish Desserts,
+[CL2] = null,  [R3]= from,</NQS>
+<NER>[O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	7	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="337">
+<Ques>What is the highest mountain in Italy?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  highest mountain, [R2] = in, [I] =  Italy</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	5	null	true	true	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="338">
+<Ques>Where did the architect of the Eiffel Tower study?</Ques>
+<NQS>[WH] = Where, [R1] = did, [D] = the  architect, [R2] = of, [I1_1] =  Eiffel Tower,
+[CL2] = null,  [R3]= study,</NQS>
+<NER>[O, O, O, O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Where	7	null	true	false	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="339">
+<Ques>Which Greek parties are pro-European?</Ques>
+<NQS>[WH] = Which, [R1] = are, [D] =  Greek parties, [R2] = , [I] =  pro-European</NQS>
+<NER>[O, MISC, O, O, MISC, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	5	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="340">
+<Ques>What is the height difference between Mount Everest and K2?</Ques>
+<NQS>[WH] = What, [R1] = is, [D] = the  height difference, [R2] = between, [I1_1] =  Mount Everest [CC]  [I1_3] =  K2</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, LOCATION, O, O, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	What	6	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="341">
+<Ques>Who is the mayor of Rotterdam?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  mayor, [R2] = of, [I] =  Rotterdam</NQS>
+<NER>[O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="342">
+<Ques>In which city were the parents of Che Guevara born?</Ques>
+<NQS>[WH] = which, [R1] = were, [D] =  city, [R2] = , [I1_1] =  parents,
+[CL2] = null,  [R3]= of, [I2_1] =  Che Guevara,
+[CL3] = null,  [R4]= born In,</NQS>
+<NER>[O, O, O, O, O, O, PERSON, PERSON, O, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	which	10	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="343">
+<Ques>How high is the lighthouse in Colombo?</Ques>
+<NQS>[WH] = How, [R1] = , [D] =  DataProperty(high), [R2] = is , [I1_1] =  lighthouse,
+[CL2] = null,  [R3]= in, [I2_1] =  Colombo</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 8, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	How	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="344">
+<Ques>Are Taiko a kind of Japanese musical instruments?</Ques>
+<NQS>[Concepts] = [Taiko, Japanese musical instruments], [Roles] = []</NQS>
+<NER>[O, O, O, O, O, MISC, O, O, O]</NER>
+<SPARQLFeature>[4, 2, 0]</SPARQLFeature>
+<NLQueryFeature>BOOLEAN	null	ASK	2	null	true	false	false	false	false	false	true</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="345">
+<Ques>How many ethnic groups live in Slovenia?</Ques>
+<NQS>[WH] = How many, [R1] = , [D] =  count(ethnic groups), [R2] =  live in, [I] =  Slovenia</NQS>
+<NER>[O, O, O, O, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>NUMBER	null	How many	5	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="346">
+<Ques>List the seven kings of Rome.</Ques>
+<NQS>[WH] = What, [R1] = is, [D] =  list, [R2] = of, [I1_1] =  seven kings,
+[CL2] = null,  [R3]= of, [I2_1] =  Rome</NQS>
+<NER>[O, O, O, O, O, NUMBER, O, O, LOCATION, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>LIST	null	COMMAND	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="347">
+<Ques>Who were the parents of Queen Victoria?</Ques>
+<NQS>[WH] = Who, [R1] = were, [D] = the  parents, [R2] = of, [I1_1] =  Queen [CC]  [I1_3] =  Victoria</NQS>
+<NER>[O, O, O, O, O, O, PERSON, O]</NER>
+<SPARQLFeature>[4, 6, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	6	null	true	false	true	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="348">
+<Ques>Who is the heaviest player of the Chicago Bulls?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] = the  heaviest player, [R2] = of, [I] = the  Chicago Bulls</NQS>
+<NER>[O, O, O, O, O, O, O, ORGANIZATION, ORGANIZATION, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	true	false	false	false	true	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="349">
+<Ques>Which volcanos in Japan erupted since 2000?</Ques>
+<NQS>[WH] = Which, [R1] = , [D] =  volcanos, [R2] = in, [I1_1] =  Japan,
+[CL2] = null,  [R3]= erupted since, [I2_1] =  2000</NQS>
+<NER>[O, O, O, LOCATION, O, O, DATE, O]</NER>
+<SPARQLFeature>[4, 7, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Which	8	null	true	false	false	true	true	false	false</NLQueryFeature>
+</QALDquestions>
+<QALDquestions id="350">
+<Ques>Who is the tallest basketball player?</Ques>
+<NQS>[WH] = Who, [R1] = is, [D] =  DataProperty (Person), [R2] = , [I] = the  tallest basketball player</NQS>
+<NER>[O, O, O, O, O, O, O]</NER>
+<SPARQLFeature>[4, 5, 0]</SPARQLFeature>
+<NLQueryFeature>RESOURCE	null	Who	5	null	true	true	false	false	false	false	false</NLQueryFeature>
+</QALDquestions>
+</NQSforQALD>

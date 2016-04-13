@@ -1,4 +1,4 @@
-package org.aksw.asknow.nqs;
+package org.aksw.asknow.ml;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -27,12 +27,15 @@ import java.util.Iterator;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.aksw.asknow.nqs.QueryBuilder;
+import org.aksw.asknow.nqs.ner_resolver;
+import org.aksw.mlqa.feature.Nqs;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class NqsToXml {
+public class AllFeatureParser {
 	private static QueryBuilder qb;
 	static ArrayList<String> nertags = new ArrayList<String>();
 	public static void main(String[] args) {
@@ -46,6 +49,7 @@ public class NqsToXml {
 	//write NQS-QALD.xml
 	//feature: Question Type    Answer Resource Type    Wh-type    #Token    Limit (includes order by and offset) 
 	//			Comparative    Superlative    Person    Location    Organization    Misc
+	
 	static String getNQS(String ques){
 		//qb = new QueryBuilder();
 		qb.setQuery(ques);
@@ -69,31 +73,37 @@ public class NqsToXml {
 			Element mainRootElement = doc.createElementNS("http://github.com/AKSW/AskNow", "NQSforQALD");
 			doc.appendChild(mainRootElement);
 
-			Object obj = parser.parse(new FileReader("/Users/mohnish/git2/AskNow/src/main/resources/qald6test.json"));
+			Object obj = parser.parse(new FileReader("/Users/mohnish/git2/AskNow/src/main/resources/qald6training.json"));
 
 			JSONObject jsonObject = (JSONObject) obj;
 			//JSONArray questions = (JSONArray) jsonObject.get("questions");
 
 			//String output = null;
-
+			int counter =0;
 			JSONArray quald = (JSONArray) jsonObject.get("questions");
-			Iterator<JSONObject> questions = quald.iterator();
+			Iterator<JSONObject> questions = quald.iterator();String sparql;
 			while (questions.hasNext()) {
+				counter++;
 				JSONObject quesObj = questions.next();
 				Object ids = quesObj.get("id");
-				//int idi = Integer.parseInt(ids);
-				//if (idi<=300){
-				//	continue;
-				//}
+				if(ids.toString().contains("150")||counter== 102||counter == 114)
+					{continue;
+					}
+					
 				String ques = null;
-				//ystem.out.println(id );
+				
+				System.out.println("Id = "+ids.toString() +":: Counter = "+counter );
+				
 				JSONArray alllang = (JSONArray) quesObj.get("question");
 				Iterator<JSONObject> onelang = alllang.iterator();
 				while (onelang.hasNext()) {
 					JSONObject engques = onelang.next();
 					ques = (String) engques.get("string");
+					
 					break;
 				}
+				JSONObject query = (JSONObject) quesObj.get("query");
+				sparql = (String) query.get("sparql");
 
 				//output=output+"\n"+id+"\t"+ques +"\t"+getNQS(ques);
 				/*<Query id="1">
@@ -104,7 +114,11 @@ public class NqsToXml {
 
 
 				//= output+"\n <Ques id>"+ids+"\t"+ques +"\t"+getNQS(ques);
-				mainRootElement.appendChild(getNQSxml(doc, ids.toString() , ques, getNQS(ques),nertags.toString()));
+				NqsInstance n1 = new NqsInstance(ques,getNQS(ques),ids.toString(),nertags.toString());
+				
+				String nqs = getNQS(ques);
+				mainRootElement.appendChild(getNQSxml(doc, ids.toString() , ques, nqs,nertags.toString(),
+						SparqlFeature.getAllFeature(nqs),NLqueryFeature.feature(n1)));
 
 
 
@@ -116,7 +130,7 @@ public class NqsToXml {
 				transformer.setOutputProperty(OutputKeys.INDENT, "yes"); 
 				DOMSource source = new DOMSource(doc);
 				StreamResult result = new StreamResult(new 
-						File("/Users/mohnish/git2/AskNow/src/main/resources/qald6test-nqs.xml"));
+						File("/Users/mohnish/git2/AskNow/src/main/resources/qald6try-nqs.xml"));
 				//StreamResult console = new StreamResult(System.out);
 				transformer.transform(source, result);
 				//out.println( console);
@@ -146,13 +160,14 @@ public class NqsToXml {
 	}
 
 
-	private static Node getNQSxml(Document doc, String id, String ques, String nqs,String ner) {
+	private static Node getNQSxml(Document doc, String id, String ques, String nqs,String ner,String sparqlfeature,String nlqueryfeature) {
 		Element nqsxml = doc.createElement("QALDquestions");
 		nqsxml.setAttribute("id", id);
 		nqsxml.appendChild(getNQSxmlElements(doc, nqsxml, "Ques", ques));
 		nqsxml.appendChild(getNQSxmlElements(doc, nqsxml, "NQS", nqs));
 		nqsxml.appendChild(getNQSxmlElements(doc, nqsxml, "NER", ner));
-
+		nqsxml.appendChild(getNQSxmlElements(doc, nqsxml, "SPARQLFeature", sparqlfeature));
+		nqsxml.appendChild(getNQSxmlElements(doc, nqsxml, "NLQueryFeature", nlqueryfeature));
 		return nqsxml;
 	}
 

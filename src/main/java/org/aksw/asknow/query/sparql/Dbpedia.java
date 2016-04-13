@@ -28,7 +28,8 @@ import lombok.extern.slf4j.Slf4j;
 			+ "PREFIX dbp: <http://dbpedia.org/property/> " + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 			+ "PREFIX res: <http://dbpedia.org/resource/> ";
 
-	private static final String endpoint = "http://live.dbpedia.org/sparql";
+	//private static final String endpoint = "http://live.dbpedia.org/sparql";
+	private static final String endpoint = "http://dbpedia.org/sparql";
 
 	public static ResultSet select(String query)
 	{

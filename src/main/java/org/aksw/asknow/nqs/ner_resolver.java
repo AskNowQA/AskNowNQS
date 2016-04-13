@@ -16,7 +16,7 @@ public class ner_resolver {
 
 	Properties props;
 	StanfordCoreNLP pipeline;
-	static ArrayList<String> nertag = new ArrayList<String>();
+	public static ArrayList<String> nertag = new ArrayList<String>();
 
 	public ner_resolver(Properties props,StanfordCoreNLP pipeline){
 		this.props = props;

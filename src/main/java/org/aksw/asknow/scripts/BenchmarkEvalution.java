@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 	{
 		for(int i=0;i<1;i++)
 		{
-			evaluate(i);
+			evaluate(12);
 		}
 	}	
 
