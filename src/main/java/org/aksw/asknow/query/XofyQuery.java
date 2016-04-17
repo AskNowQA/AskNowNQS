@@ -4,6 +4,7 @@ import java.util.*;
 import org.aksw.asknow.Nqs;
 import org.aksw.asknow.query.sparql.*;
 import org.aksw.asknow.query.sparql.XofySparql.PatternType;
+import org.aksw.asknow.util.EntityAnnotateQald;
 import org.aksw.asknow.util.Spotlight;
 import org.aksw.asknow.util.WordNetSynonyms;
 import org.apache.jena.rdf.model.RDFNode;
@@ -22,8 +23,11 @@ import lombok.extern.slf4j.Slf4j;
 		String dbpRes;
 	
 		dbpRes = Spotlight.getDBpLookup(q1.getInput());
-
+		//dbpRes = EntityAnnotateQald.annotation("The "+q1.getInput());
+		//dbpRes="<http://dbpedia.org/resource/The_Big_Bang_Theory>";
+		//dbpRes="<"+dbpRes+">";
 		properties = PropertyValue.getProperties(dbpRes);
+		
 		log.trace("properties: "+properties);
 		int possibleMatchSize = 0;
 		Set<RDFNode> nodes = new HashSet<>();
@@ -34,36 +38,41 @@ import lombok.extern.slf4j.Slf4j;
 					possibleMatches.add(string); possibleMatchSize++;log.trace("...."+string);
 					if(q1.nlQuery.contains(" of ")){
 						nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN1));//property of resourse
+						System.out.println("property of resourse");
 					}
 					else{						
 						nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN2));//TODO update
+						System.out.println("property not-of resourse");
 					}
 				}
 			}
 		}
 		else
-		{
+		{ 
 
 			if (possibleMatchSize==0){
+				
 				for (String string : properties) {
-					log.trace("looking for:"+q1.getDesire());
+					System.out.println("looking for:"+q1.getDesire() +q1.getRelation2() + string.toLowerCase());
 					//log.trace(string +" : "+q1.getDesire());
-					if(string.toLowerCase().contains(q1.getDesire())){
-						possibleMatches.add(string); possibleMatchSize++;log.trace("KK"+string);
+							if(string.toLowerCase().contains(q1.getDesire().replace("the ", "").trim())){
+								possibleMatches.add(string); possibleMatchSize++;System.out.println("KK"+string);
+									if(q1.nlQuery.contains(" of ")||q1.nlQuery.contains("In ")){
+										nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN3));//property of resourse
+										}
+									else{	System.out.println("patren2Xofy");					
+										nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN2));//TODO update
+										}
+									}
+							
+							else if((string.toLowerCase().contains(q1.getRelation2())&&!(q1.getRelation2().trim().equals("of")))){
+						possibleMatches.add(string); possibleMatchSize++;System.out.println("rel"+string);
 						if(q1.nlQuery.contains(" of ")||q1.nlQuery.contains("In ")){
+							System.out.println("match case 5");
 							nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN3));//property of resourse
+							break;
 						}
-						else{	log.trace("patren2Xofy");					
-						nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN2));//TODO update
-						}
-					}
-
-					else if(string.toLowerCase().contains(q1.getRelation2())){
-						possibleMatches.add(string); possibleMatchSize++;log.trace("rel"+string);
-						if(q1.nlQuery.contains(" of ")||q1.nlQuery.contains("In ")){
-							nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN3));//property of resourse
-						}
-						else{	log.trace("patren2Xofy");					
+						else{	System.out.println("patren2Xofy");					
 						nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN2));//TODO update
 						}
 					}

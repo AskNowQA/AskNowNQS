@@ -40,23 +40,23 @@ import lombok.extern.slf4j.Slf4j;
 				case PATTERN1: pattern =
 					"SELECT DISTINCT ?num " 
 					+"WHERE {" 
-					+"res:"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num ." 
+					+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num ." 
 					+"}";
 					break;
 				case PATTERN2: pattern =
 					"SELECT ?num " 
 					+"WHERE {" 
-					+"{ ?num res:"+dbpRes+" "+dbpProTag+":"+dbpPro+" .}"
+					+"{ ?num "+dbpRes+" "+dbpProTag+":"+dbpPro+" .}"
 					+" UNION "
-					+"{ ?num "+dbpProTag+":"+dbpPro+" res:"+dbpRes+" .}"
+					+"{ ?num "+dbpProTag+":"+dbpPro + dbpRes+" .}"
 					+"}"; 
 				break;
 				case PATTERN3: pattern =
 					"SELECT ?num " 
 					+"WHERE {" 
-					+"{ res:"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num .}"
+					+"{"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num .}"
 					+" UNION "
-					+"{ "+dbpProTag+":"+dbpPro+" res:"+dbpRes+" ?num .}"
+					+"{ "+dbpProTag+":"+dbpPro+" "+dbpRes+" ?num .}"
 					+"}";
 				break;
 				default: throw new RuntimeException("should never happen");

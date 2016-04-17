@@ -12,7 +12,7 @@ public class QueryModuleLibrary {
 	private static String NOUN_TAG = "NN";
 	private static String NOUN_NER_TAG = "NNP-NER";
 	private static String NOUN_MODIFIER_TAG = "_NM";
-	public static String[] booleanQueriesTokens = {"is","are","did","does","do","has","have","was","Is"};
+	public static String[] booleanQueriesTokens = {"is","are","did","does","do","has","have","was","Is","Can"};
 
 	
 	public static int wordIndex(String string, String word) {

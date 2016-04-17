@@ -7,7 +7,7 @@ import org.apache.jena.query.ResultSetFactory;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import lombok.extern.slf4j.Slf4j;
-
+//import com.hp.hpl.jena.query.*;
 @Slf4j public class Dbpedia
 {
 	private Dbpedia() {}
@@ -28,25 +28,34 @@ import lombok.extern.slf4j.Slf4j;
 			+ "PREFIX dbp: <http://dbpedia.org/property/> " + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 			+ "PREFIX res: <http://dbpedia.org/resource/> ";
 
-	//private static final String endpoint = "http://live.dbpedia.org/sparql";
-	private static final String endpoint = "http://dbpedia.org/sparql";
+	private static final String endpoint = "http://live.dbpedia.org/sparql";
+	//private static final String endpoint = "http://dbpedia.org/sparql";
 
-	public static ResultSet select(String query)
-	{
-		log.debug("select query: "+query);
-		try(QueryEngineHTTP qe = new QueryEngineHTTP(endpoint,sparqlHeader + query))
-		{return ResultSetFactory.copyResults(qe.execSelect());}
+	public static ResultSet select(String querystring)
+	{System.out.println(endpoint + querystring);
+		log.debug("select query: "+querystring);
+		try(QueryEngineHTTP qe = new QueryEngineHTTP(endpoint,querystring))
+		{System.out.println(qe.toString());
+		return ResultSetFactory.copyResults(qe.execSelect());}
+	//Query query = QueryFactory.create(querystring); //s2 = the query above
+    //QueryExecution qExe = QueryExecutionFactory.sparqlService( "http://live.dbpedia.org/sparql", query );
+    //ResultSet results = qExe.execSelect();
+    //ResultSetFormatter.out(System.out, results, query) ;
+   // return ResultSetFactory.copyResults(qExe.execSelect()) ;
 	}
 
-	public static boolean ask(String query)
-	{
+	/*public static boolean ask(String query)
+	{System.out.printf(endpoint,sparqlHeader + query);
 		log.debug("ask query: "+query);
 		try(QueryEngineHTTP qe = new QueryEngineHTTP(endpoint,sparqlHeader + query))
-		{return qe.execAsk();}
+		{
+			return qe.execAsk();}
 	}
+	*/
 
 	/** @param rs needs to be zero (one value) or one-dimensional */
-	public static Set<RDFNode> nodeSet(ResultSet rs)
+	
+	 public static Set<RDFNode> nodeSet(ResultSet rs)
 	{
 		String var = rs.getResultVars().get(0);
 		Set<RDFNode> nodes = new HashSet<>();
@@ -56,5 +65,6 @@ import lombok.extern.slf4j.Slf4j;
 		}
 		return nodes;
 	}
+	 
 
 }

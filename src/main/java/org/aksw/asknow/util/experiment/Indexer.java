@@ -34,7 +34,7 @@ import org.apache.lucene.store.FSDirectory;
 public class Indexer {
 	static String indexPath = "index";
 	
-	public static void index() throws IOException {
+	public void index() throws IOException {
 		Directory dir = null;
 		IndexWriter writer = null;
 		try {
@@ -97,7 +97,7 @@ public class Indexer {
 	
 	
 	
-	public static Map<Integer,String> search(String field, String value) throws IOException, ParseException {
+	public Map<Integer,String> search(String field, String value) throws IOException, ParseException {
 		/*
 		 * 1. build an index reader and index searcher
 		 */

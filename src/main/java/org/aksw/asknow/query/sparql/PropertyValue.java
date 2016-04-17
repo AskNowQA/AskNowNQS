@@ -4,7 +4,7 @@ import java.util.Set;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import lombok.extern.slf4j.Slf4j;
-
+//import com.hp.hpl.jena.query.*;
 /** Provides utility methods to fetch properties and values (objects) for resources in the KB */
 // TODO KO@MO: javadoc and comments
 @Slf4j public class PropertyValue {
@@ -12,13 +12,16 @@ import lombok.extern.slf4j.Slf4j;
 	private static Set<String> getDbp(String resource, String variable){ 
 		Set<String> properties = new HashSet<>();//stores all properties from dbp related to QCT's INPUT
 		String query = "SELECT DISTINCT ?"+variable+" WHERE { "
-				+"res:"+resource+ " ?property ?value.} ";
+				+resource+ " ?property ?value.} ";
+		System.out.println("ok: "+query);
+		//Dbpedia.select(query);
 		ResultSet results = Dbpedia.select(query);
 		while (results.hasNext()) {
 			QuerySolution sol = (QuerySolution) results.next();
 			properties.add(sol.get("?"+variable).toString());//" : "+sol.get("?value").toString());//TODO ?
 		}
 		 log.debug(results.toString());
+		System.out.println(properties.toString());
 		return properties;
 	}
 

@@ -2,16 +2,18 @@ package org.aksw.asknow.util;
 
 import java.io.*;
 import java.net.*;
-import lombok.extern.slf4j.Slf4j;
+import java.util.regex.Matcher;
+//import lombok.extern.slf4j.Slf4j;
+import java.util.regex.Pattern;
 
 /** API for DBpedia Spotlight. Use {@link #getDBpLookup} in a static fashion.*/
-@Slf4j public class Spotlight
+public class Spotlight
 {
 	private Spotlight()	{}
 
 	/** Relies on a http connection to the service, which may be down.
 	 *  @param phrase
-	** @return */
+	 ** @return */
 	public static String getDBpLookup(String phrase)
 	{
 		String DBpEquivalent = "";
@@ -20,71 +22,39 @@ import lombok.extern.slf4j.Slf4j;
 		{
 			URL oracle = new URL("http://spotlight.sztaki.hu:2222/rest/annotate?text=" + argument);
 			// URL oracle = new URL("http://spotlight.dbpedia.org/rest/annotate?text="+argument);
+		//	System.out.println(oracle);
 			try
 			{
 				URLConnection yc = oracle.openConnection();
 				try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream())))
 				{
-					log.trace(in.readLine());
+					//log.trace(in.readLine());
+					int startindex =0,index=0;
 					String inputLine;
 					while ((inputLine = in.readLine()) != null)
-					{
-						if (inputLine.contains(
-								"href="))
-						{
-							inputLine = inputLine.replace(
-									"<a href=\"",
-									"");
-							inputLine = inputLine.substring(
-									0,
-									inputLine.indexOf(
-											'\"'));
-							// System.out.println(inputLine+":::");
-							DBpEquivalent = inputLine;
-							// break;
+					{   
+						Pattern p = Pattern.compile("href=\"([^\"]*)\"");
+						Matcher m = p.matcher(inputLine);
+						while (m.find()) {
+							DBpEquivalent=DBpEquivalent+" <"+m.group(1)+"> ";
+							
+
 						}
 					}
-					// System.out.println("\n value="+DBpEquivalent);
-					if (DBpEquivalent == "")
-					{
-						System.err.println(
-								"blank");
-						try
-						{
-							DBpEquivalent = getDbpEntity(
-									phrase);
-							if (!DBpEquivalent.contains(
-									"notFound"))
-							{
-								return getEntity(
-										DBpEquivalent);
-							}
-							else DBpEquivalent = DbpediaLookup.getDBpLookup(
-									argument);
-						}
-						catch (Exception e)
-						{
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-
-					}
-
-					return getEntity(
-							DBpEquivalent);
+				}
+				catch(Exception e){
+					
 				}
 			}
-			catch (IOException e)
-			{
-				throw new RuntimeException(e);
+			catch(Exception e){
+				
 			}
 		}
-		catch (MalformedURLException e)
-		{
-			throw new IllegalArgumentException(argument, e);
+		catch(Exception e){
+			
 		}
+		return DBpEquivalent;	
 	}
-
 	public static String getEntity(String uri)
 	{
 		return uri.substring(
@@ -97,41 +67,27 @@ import lombok.extern.slf4j.Slf4j;
 		// case1 resource
 		String uri;
 		entity = entity.trim();
-		entity = entity.replaceAll(
-				" ",
-				"_");
+		entity = entity.replaceAll(" ",	"_");
 
-		uri = checkRes(
-				entity.substring(
-						0,
-						entity.length() - 2));
-		if (!uri.contains(
-				"pageNotFound")) { return uri; }
-		uri = checkOntology(
-				entity);
-		if (!uri.contains(
-				"pageNotFound")) { return uri; }
-		uri = checkRes(
-				entity);
-		if (!uri.contains(
-				"pageNotFound")) { return uri; }
-		uri = checkOntology(
-				entity);
-		if (!uri.contains(
-				"pageNotFound")) { return uri; }
-		entity = entity.substring(
-				0,
-				1).toUpperCase()
-				+ entity.substring(
-						1);
-		uri = checkRes(
-				entity);
-		if (!uri.contains(
-				"pageNotFound")) { return uri; }
-		uri = checkOntology(
-				entity);
-		if (!uri.contains(
-				"pageNotFound")) { return uri; }
+		uri = checkRes(entity.substring(0,entity.length() - 2));
+		if (!uri.contains("pageNotFound")) {
+			return uri; }
+		uri = checkOntology(entity);
+		if (!uri.contains("pageNotFound")) { 
+			return uri; }
+		uri = checkRes(entity);
+		if (!uri.contains("pageNotFound")) { 
+			return uri; }
+		uri = checkOntology(entity);
+		if (!uri.contains("pageNotFound")) {
+			return uri; }
+		entity = entity.substring(0,1).toUpperCase()+ entity.substring(1);
+		uri = checkRes(entity);
+		if (!uri.contains("pageNotFound")) { 
+			return uri; }
+		uri = checkOntology(entity);
+		if (!uri.contains("pageNotFound")) { 
+			return uri; }
 
 		return "notFound";
 	}

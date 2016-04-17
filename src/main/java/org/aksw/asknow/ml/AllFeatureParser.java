@@ -73,7 +73,7 @@ public class AllFeatureParser {
 			Element mainRootElement = doc.createElementNS("http://github.com/AKSW/AskNow", "NQSforQALD");
 			doc.appendChild(mainRootElement);
 
-			Object obj = parser.parse(new FileReader("/Users/mohnish/git2/AskNow/src/main/resources/qald6training.json"));
+			Object obj = parser.parse(new FileReader("/Users/mohnish/git2/AskNow/src/main/resources/qald6test.json"));
 
 			JSONObject jsonObject = (JSONObject) obj;
 			//JSONArray questions = (JSONArray) jsonObject.get("questions");
@@ -86,7 +86,7 @@ public class AllFeatureParser {
 				counter++;
 				JSONObject quesObj = questions.next();
 				Object ids = quesObj.get("id");
-				if(ids.toString().contains("150")||counter== 102||counter == 114)
+				if(ids.toString().contains("150")||counter== 102||counter == 114||counter==70)
 					{continue;
 					}
 					
@@ -103,7 +103,7 @@ public class AllFeatureParser {
 					break;
 				}
 				JSONObject query = (JSONObject) quesObj.get("query");
-				sparql = (String) query.get("sparql");
+				//sparql = (String) query.get("sparql");
 
 				//output=output+"\n"+id+"\t"+ques +"\t"+getNQS(ques);
 				/*<Query id="1">
@@ -117,10 +117,13 @@ public class AllFeatureParser {
 				NqsInstance n1 = new NqsInstance(ques,getNQS(ques),ids.toString(),nertags.toString());
 				
 				String nqs = getNQS(ques);
+				//when Sparql is available : Training Data
+				//mainRootElement.appendChild(getNQSxml(doc, ids.toString() , ques, nqs,nertags.toString(),
+				//		SparqlFeature.getAllFeature(nqs),NLqueryFeature.feature(n1)));
+				
+				//when Sparql is unavailable : Testing Data 
 				mainRootElement.appendChild(getNQSxml(doc, ids.toString() , ques, nqs,nertags.toString(),
-						SparqlFeature.getAllFeature(nqs),NLqueryFeature.feature(n1)));
-
-
+						"testdata",NLqueryFeature.feature(n1)));
 
 			}
 			//System.out.println(output);
@@ -130,7 +133,7 @@ public class AllFeatureParser {
 				transformer.setOutputProperty(OutputKeys.INDENT, "yes"); 
 				DOMSource source = new DOMSource(doc);
 				StreamResult result = new StreamResult(new 
-						File("/Users/mohnish/git2/AskNow/src/main/resources/qald6try-nqs.xml"));
+						File("/Users/mohnish/git2/AskNow/src/main/resources/qald6testdata-nqs.xml"));
 				//StreamResult console = new StreamResult(System.out);
 				transformer.transform(source, result);
 				//out.println( console);

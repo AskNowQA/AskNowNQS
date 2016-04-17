@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 	public final String nlQuery;
 	public final String qct;
 	public final String queryid;
-
+	
 	//-----------------------------------------------------------------------//
 	public String getConcepts(){
 		String temp = qct;

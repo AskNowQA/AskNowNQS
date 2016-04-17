@@ -34,19 +34,20 @@ import lombok.extern.slf4j.Slf4j;
 		log.debug("properties: "+properties);
 
 		int possibleMatchSize=0;
-			
+			System.out.println(t.getRelation2().replaceAll("did","").trim());
 			for (String prop : properties) {
 				
 				if(prop.toLowerCase().contains(t.getDesireBrackets())){
-					log.trace(t.getDesireBrackets()+";;;");
+					System.out.println(t.getDesireBrackets()+";;;");
 					possibleMatches.add(prop); possibleMatchSize++;
 					
 					//Property value is assumed to be number. 
 					//Full-match between properties and Desire.
 					return CountSparql.execute(possibleMatches,dbpRes,true);
 					
-											}
-									}
+						}
+				
+				}
 				
 			if (possibleMatchSize==0){
 			Set<String> SynonymsWord1 = new HashSet<>();
