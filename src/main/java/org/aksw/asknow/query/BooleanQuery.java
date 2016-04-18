@@ -27,7 +27,7 @@ public class BooleanQuery implements Query{
 
 	@Override public Set<RDFNode> execute(Nqs t)
 	{
-		if(1==1) throw new NotImplementedException("TODO: Ko@Mohnish check if this is correct first");
+		//if(1==1) throw new NotImplementedException("TODO: Ko@Mohnish check if this is correct first");
 		Set<String> properties = new HashSet<>();
 		String tempConcept = t.getConcepts();
 		tempConcept = cleanConcept(tempConcept);
@@ -56,6 +56,7 @@ public class BooleanQuery implements Query{
 					}
 				}
 		}
+		System.out.println("ans is False");
 		return FALSE;
 	}
 

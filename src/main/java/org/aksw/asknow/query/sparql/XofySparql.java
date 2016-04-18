@@ -19,44 +19,34 @@ import lombok.extern.slf4j.Slf4j;
 	public static Set<RDFNode> pattern(Set<String> properties, String dbpRes, PatternType type) {
 		Set<RDFNode> nodes = new HashSet<>();
 		//String varible1="";//dbo:capital
-		int i=0;
+	
 		for(String p: properties)
-		{
-			String dbpPro;
-			String dbpProTag;
-			//System.out.println(temp.toString());
-			List<String> aList= Arrays.asList(p.split("/"));
-			i=aList.size();
-			//System.out.println(aList.get(i-2).toString()+count);
-			if (aList.get(i-2).equals("ontology"))
-				dbpProTag="dbo";
-			else if (aList.get(i-2).equals("property"))
-				dbpProTag="dbp";
-			else throw new IllegalArgumentException(aList.get(i-2)+"is neither ontology nor property");
-			dbpPro=aList.get(i-1).toString();
+		{	
 			String pattern;
 			switch(type)
 			{
 				case PATTERN1: pattern =
 					"SELECT DISTINCT ?num " 
 					+"WHERE {" 
-					+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num ." 
+					+dbpRes+" "+ p +" ?num ." 
 					+"}";
 					break;
 				case PATTERN2: pattern =
 					"SELECT ?num " 
 					+"WHERE {" 
-					+"{ ?num "+dbpRes+" "+dbpProTag+":"+dbpPro+" .}"
+					+"{ ?num "+dbpRes+" "+ p+" .}"
 					+" UNION "
-					+"{ ?num "+dbpProTag+":"+dbpPro + dbpRes+" .}"
+					+"{ ?num "+ p + dbpRes+" .}"
+					+" UNION {"
+					+ dbpRes+" "+ p +" ?num  .}"
 					+"}"; 
 				break;
 				case PATTERN3: pattern =
 					"SELECT ?num " 
 					+"WHERE {" 
-					+"{"+dbpRes+" "+dbpProTag+":"+dbpPro+" ?num .}"
+					+"{"+dbpRes+" "+ p +" ?num .}"
 					+" UNION "
-					+"{ "+dbpProTag+":"+dbpPro+" "+dbpRes+" ?num .}"
+					+"{ "+ p +" "+dbpRes+" ?num .}"
 					+"}";
 				break;
 				default: throw new RuntimeException("should never happen");

@@ -8,10 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 	// TODO KO@MO: javadoc and comments
 	public static Set<RDFNode> execute(String dbpRes1,String dbpRes2){
 		String query = "SELECT DISTINCT ?uri WHERE {" 
-				+"{?uri rdf:type dbo:"+dbpRes2+" . " 
-				+"?uri ?p res:"+dbpRes1+" . "
-				+"} UNION {res:"+dbpRes1+" dbo:"+dbpRes2+" ?uri . }}"; 
-		log.debug(query);	
+				+"{?uri rdf:type "+dbpRes2+" . " 
+				+"?uri ?p "+dbpRes1+" . "
+				+"} UNION {"+dbpRes1+" "+dbpRes2+" ?uri . }}"; 
+		log.debug(query);
+		System.out.println(query);
 		return Dbpedia.nodeSet(Dbpedia.select(query));
 	}
 }

@@ -87,7 +87,7 @@ public class Fox {
 						annotation = annotation + " ;; "+ r;
 						//System.out.println("\t\turi: " + r);
 					}
-					annotation = annotation +"\n";	
+					//annotation = annotation +"\n";	
 				}
 			}
 		} catch (ParseException | IOException e) {

@@ -4,6 +4,7 @@ import java.util.*;
 import org.aksw.asknow.Nqs;
 import org.aksw.asknow.query.sparql.CountSparql;
 import org.aksw.asknow.query.sparql.PropertyValue;
+import org.aksw.asknow.util.EntityAnnotate;
 import org.aksw.asknow.util.Spotlight;
 import org.aksw.asknow.util.WordNetSynonyms;
 import org.apache.commons.lang3.NotImplementedException;
@@ -30,6 +31,13 @@ import lombok.extern.slf4j.Slf4j;
 		Set<String> possibleMatches = new HashSet<>();
 		
 		String dbpRes = Spotlight.getDBpLookup(t.getInput());
+		if (dbpRes==""){
+			dbpRes = EntityAnnotate.annotation(t.nlQuery);
+		}
+		if (dbpRes==""){
+			System.out.println("Could not annotate the Entity");
+			return null;
+		}
 		properties = PropertyValue.getProperties(dbpRes);
 		log.debug("properties: "+properties);
 
@@ -38,8 +46,8 @@ import lombok.extern.slf4j.Slf4j;
 			for (String prop : properties) {
 				
 				if(prop.toLowerCase().contains(t.getDesireBrackets())){
-					System.out.println(t.getDesireBrackets()+";;;");
-					possibleMatches.add(prop); possibleMatchSize++;
+					System.out.println(t.getDesireBrackets()+";;;"+prop);
+					possibleMatches.add("<"+prop+">"); possibleMatchSize++;
 					
 					//Property value is assumed to be number. 
 					//Full-match between properties and Desire.
@@ -52,7 +60,7 @@ import lombok.extern.slf4j.Slf4j;
 			if (possibleMatchSize==0){
 			Set<String> SynonymsWord1 = new HashSet<>();
 			SynonymsWord1 = WordNetSynonyms.getSynonyms(t.getDesireBrackets());
-			System.out.println(SynonymsWord1);
+			System.out.println("Synonums are "+SynonymsWord1);
 			
 			String tempDesire;			// create an iterator	
 			Iterator<String> iterator =  SynonymsWord1.iterator();

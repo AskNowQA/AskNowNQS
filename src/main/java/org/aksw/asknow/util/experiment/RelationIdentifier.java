@@ -24,7 +24,7 @@ public class RelationIdentifier {
          
          
          try {
-			Map<Integer,String> relations=ind.search("pattern", "movies did direct");
+			Map<Integer,String> relations=ind.search("pattern", "wrote");
 			System.out.println(relations);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

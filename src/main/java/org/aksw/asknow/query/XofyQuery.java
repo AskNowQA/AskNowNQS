@@ -4,7 +4,8 @@ import java.util.*;
 import org.aksw.asknow.Nqs;
 import org.aksw.asknow.query.sparql.*;
 import org.aksw.asknow.query.sparql.XofySparql.PatternType;
-import org.aksw.asknow.util.EntityAnnotateQald;
+import org.aksw.asknow.util.EntityAnnotate;
+import org.aksw.asknow.util.FuzzyMatch;
 import org.aksw.asknow.util.Spotlight;
 import org.aksw.asknow.util.WordNetSynonyms;
 import org.apache.jena.rdf.model.RDFNode;
@@ -23,6 +24,14 @@ import lombok.extern.slf4j.Slf4j;
 		String dbpRes;
 	
 		dbpRes = Spotlight.getDBpLookup(q1.getInput());
+		
+		if (dbpRes==""){
+			dbpRes = EntityAnnotate.annotation(q1.nlQuery);
+		}
+		if (dbpRes==""){
+			System.out.println("Could not annotate the Entity");
+			return null;
+		}
 		//dbpRes = EntityAnnotateQald.annotation("The "+q1.getInput());
 		//dbpRes="<http://dbpedia.org/resource/The_Big_Bang_Theory>";
 		//dbpRes="<"+dbpRes+">";
@@ -34,6 +43,7 @@ import lombok.extern.slf4j.Slf4j;
 		if(q1.getDesire().contains("DataProperty")){
 			log.trace(q1.getDesireBrackets()+";;;;;;");
 			for (String string : properties) {
+				
 				if(string.toLowerCase().contains(q1.getDesireBrackets())){
 					possibleMatches.add(string); possibleMatchSize++;log.trace("...."+string);
 					if(q1.nlQuery.contains(" of ")){
@@ -46,6 +56,9 @@ import lombok.extern.slf4j.Slf4j;
 					}
 				}
 			}
+			possibleMatches.add(FuzzyMatch.getmatch(q1.getRelation2(), properties));
+		 return	XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN1);
+			
 		}
 		else
 		{ 
@@ -53,10 +66,10 @@ import lombok.extern.slf4j.Slf4j;
 			if (possibleMatchSize==0){
 				
 				for (String string : properties) {
-					System.out.println("looking for:"+q1.getDesire() +q1.getRelation2() + string.toLowerCase());
+					System.out.println("looking for:"+q1.getDesire().replace("the ", "").trim() +q1.getRelation2() + string.toLowerCase());
 					//log.trace(string +" : "+q1.getDesire());
-							if(string.toLowerCase().contains(q1.getDesire().replace("the ", "").trim())){
-								possibleMatches.add(string); possibleMatchSize++;System.out.println("KK"+string);
+							if(string.toLowerCase().contains(q1.getDesire().replace("the ", "").replaceAll(" ", ""))){
+								possibleMatches.add("<"+string+">"); possibleMatchSize++;System.out.println("KK"+string);
 									if(q1.nlQuery.contains(" of ")||q1.nlQuery.contains("In ")){
 										nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN3));//property of resourse
 										}
@@ -111,6 +124,8 @@ import lombok.extern.slf4j.Slf4j;
 				nodes.addAll(XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN3));//TODO update
 			}
 		}
+		 possibleMatches.add(FuzzyMatch.getmatchfrom(q1.getRelation2(),q1.getDesire(), properties));
+		 //return	XofySparql.pattern(possibleMatches,dbpRes,PatternType.PATTERN1);
 		return nodes;
 	}	
 }

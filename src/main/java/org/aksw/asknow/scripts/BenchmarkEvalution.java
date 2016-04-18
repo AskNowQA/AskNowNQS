@@ -13,12 +13,12 @@ import lombok.extern.slf4j.Slf4j;
 
 	public static void main(String[] args)
 	{
-		for(int i=14;i<20;i++)
+		for(int i=99;i<100;i++)
 		{	System.out.println("id: "+(i+1));
 			evaluate(i);
 			
 		}
-	}	
+	}
 
 	//	/** @param rs a one dimensional result set
 	//	 * @return a string representation of the result set.*/

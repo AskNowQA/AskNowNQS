@@ -18,22 +18,17 @@ import lombok.extern.slf4j.Slf4j;
 	public static Set<RDFNode> execute(Set<String> candidateUris, String dbpRes,boolean isNumber)
 	// TODO KO@MO: why is only one uri used from the candidate uris, why the set? please change.
 	{
-		for(String uri: candidateUris)
+		for(String p: candidateUris)
 		{
-			List<String> uriParts= Arrays.asList(uri.split("/"));
-			int size=uriParts.size();
-			
-			String dbpPro =uriParts.get(size-1);
-			String tag = Dbpedia.tag(uri);
 			if(!isNumber)
 			{
 				String query = "SELECT COUNT ( DISTINCT ?num) as ?count" 
 						+"WHERE {" 
-						+"{ ?num res:"+dbpRes+" "+tag+":"+dbpPro+" .}"
+						+"{ ?num "+dbpRes+" "+ p+" .}"
 						+" UNION "
-						+"{ ?num "+tag+":"+dbpPro+" res:"+dbpRes+" .}"
+						+"{ ?num "+ p +" res:"+dbpRes+" .}"
 						+" UNION "
-						+"{ res:"+dbpRes+" "+tag+":"+dbpPro+" ?num .}"
+						+"{ res:"+dbpRes+" "+ p +" ?num .}"
 						+"}";
 				log.debug(query);
 				return Collections.singleton(Dbpedia.select(
@@ -41,7 +36,7 @@ import lombok.extern.slf4j.Slf4j;
 				//next().getLiteral("?count").getLong();
 			}
 			return Collections.singleton(Dbpedia.select(
-					"SELECT DISTINCT ?num WHERE {res:"+dbpRes+" "+tag+":"+dbpPro+" ?num .}")
+					"SELECT DISTINCT ?num WHERE {"+dbpRes+" "+ p +" ?num .}")
 //					.next().getLiteral("?num").getLong();
 					.next().getLiteral("?num"));
 		}

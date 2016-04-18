@@ -36,7 +36,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class EntityAnnotateQald {
+public class EntityAnnotate {
 	public static void main(String args[]) {
 	//	System.out.println(Fox.annotate("Katie Holmes got divorced from Tom Cruise in Germany "));
 		//System.out.println("Result is "+Spotlight.getDBpLookup("Katie Holmes got divorced from Tom Cruise in Germany ")+" :");
@@ -49,7 +49,9 @@ public class EntityAnnotateQald {
 	public static String annotation(String entity){
 		
 		String uri="";
-		uri = Fox.annotate(entity);
+		uri =Spotlight.getDBpLookup(entity);
+		if (uri == "")
+			uri = Fox.annotate(entity);
 		return uri;
 		
 	}
