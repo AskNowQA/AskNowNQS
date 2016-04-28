@@ -8,3 +8,4 @@ At the same time, it is sufficiently adaptive to query paraphrasing.
 ## Setup Instructions
 AskNow uses [Project Lombok](http://projectlombok.org/), which removes much boilerplate from Java. If you use Eclipse you need to download and execute lombok.jar (doubleclick it, or run java -jar lombok.jar). Follow instructions.
 
+## Run Instructions
