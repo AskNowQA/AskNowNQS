@@ -1,5 +1,7 @@
 package org.aksw.asknow;
 
+import java.util.Set;
+
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +13,9 @@ import lombok.extern.slf4j.Slf4j;
 	public final String nlQuery;
 	public final String qct;
 	public final String queryid;
+	public Set<String> Resource;
+	public Set<String> Predicate;
+	public final String sparqlcluster;
 	
 	//-----------------------------------------------------------------------//
 	public String getConcepts(){

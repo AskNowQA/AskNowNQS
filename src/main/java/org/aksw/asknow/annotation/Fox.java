@@ -1,4 +1,4 @@
-package org.aksw.asknow.util;
+package org.aksw.asknow.annotation;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -14,8 +14,10 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -43,10 +45,13 @@ public class Fox {
 	private String inputType = "text";
 
 	public static void main(String args[]) {
-		Fox fox = new Fox();
+	/*
+	  Fox fox = new Fox();
+	 
 
-		//String sentence = "what is the capital of India.";
-		String sentence = "Which actors play in The Big Bang Theory";
+		
+		String sentence = "what is the capital of India.";
+		//String sentence = "Which actors play in The Big Bang Theory";
 		Map<String, List<Entity>> list;
 		try {
 			list = fox.getEntities(sentence);
@@ -66,25 +71,28 @@ public class Fox {
 		} catch (ParseException | IOException e) {
 			e.printStackTrace();
 		}
+		
+		*/
+		System.out.println(annotate("what is the capital of India and Germany."));
 	}
 	
-	public static String annotate(String sentence) {
+	public static Set<String>annotate(String sentence) {
 		Fox fox = new Fox();
 		Map<String, List<Entity>> list;
-		String annotation="";
+		Set<String>  annotation = new HashSet<String>();
 		try {
 			
 			list = fox.getEntities(sentence);
 			for (String key : list.keySet()) {
 				//System.out.println(key);
 				for (Entity entity : list.get(key)) {
-					annotation = annotation + entity.label;
+					//annotation = annotation + entity.label;
 					//System.out.println("\t" + entity.label + " ->" + entity.type);
 					//for (String r : entity.posTypesAndCategories) {
 					//	System.out.println("\t\tpos: " + r);
 					//}
 					for (String r : entity.uris) {
-						annotation = annotation + " ;; "+ r;
+						annotation.add("<"+r+">");
 						//System.out.println("\t\turi: " + r);
 					}
 					//annotation = annotation +"\n";	
@@ -197,6 +205,36 @@ public class Fox {
 			log.debug("\t" + Joiner.on("\n").join(tmp.get("en")));
 		}
 		return tmp;
+	}
+
+	public static String annotate1(String in) {
+
+		Fox fox = new Fox();
+		Map<String, List<Entity>> list;
+		String  annotation = new String();
+		try {
+			
+			list = fox.getEntities(in);
+			for (String key : list.keySet()) {
+				//System.out.println(key);
+				for (Entity entity : list.get(key)) {
+					//annotation = annotation + entity.label;
+					//System.out.println("\t" + entity.label + " ->" + entity.type);
+					//for (String r : entity.posTypesAndCategories) {
+					//	System.out.println("\t\tpos: " + r);
+					//}
+					for (String r : entity.uris) {
+						annotation="<"+r+">";
+						//System.out.println("\t\turi: " + r);
+					}
+					//annotation = annotation +"\n";	
+				}
+			}
+		} catch (ParseException | IOException e) {
+			e.printStackTrace();
+		}
+		return annotation;
+	
 	}
 
 }

@@ -15,6 +15,12 @@ public class NLqueryFeature {
 		return questionType(n) +"\t"+ answerType (n)+"\t"+ whType (n)+"\t"+ tokenCount(n)+"\t"+ QuestionType () +"\t"+ isComparative()+"\t"
 				+ isSuperlative(n)+"\t"+ isPerson(n) +"\t"+ isLocation(n) +"\t"+ isLocation( n)+"\t" + isOrganization( n)+"\t" +isMisc( n);
 	}
+	public static String feature1(NqsInstance n) {
+		// TODO Auto-generated method stub
+		return questionType(n) +", "+ whType (n)+", "+ tokenCount(n)+", "+ isSuperlative(n)+", "+ isPerson(n) +", "+ 
+				isLocation(n) +", "+ isLocation( n)+", " + isOrganization( n)+", " +isMisc( n);
+		
+	}
 	
 	static String questionType (NqsInstance n){
 		//Boolean List Number Resource
@@ -46,7 +52,7 @@ public class NLqueryFeature {
 		if (n.getDesire().contains("list"))
 			return "COMMAND";
 		else 
-			return n.getWh();	
+			return n.getWh().toLowerCase();	
 	}
 	
 	static int tokenCount (NqsInstance n){
@@ -97,4 +103,6 @@ public class NLqueryFeature {
 			else
 			return false;
 	}
+
+	
 }

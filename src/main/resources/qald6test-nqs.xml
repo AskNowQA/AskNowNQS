@@ -2,7 +2,7 @@
 <NQSforQALD xmlns="http://github.com/AKSW/AskNow">
 <QALDquestions id="1">
 <Ques>Who was the doctoral supervisor of Albert Einstein?</Ques>
-<NQS>[WH] = Who, [R1] = was, [D] = the  doctoral supervisor, [R2] = of, [I] =  Albert Einstein</NQS>
+<NQS>[WH] = Who, [R1] = was, [D] = the doctoral supervisor, [R2] = of, [I] =  Albert Einstein</NQS>
 <NER>[O, O, O, O, O, O, PERSON, PERSON, O]</NER>
 </QALDquestions>
 <QALDquestions id="2">

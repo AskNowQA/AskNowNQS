@@ -28,14 +28,14 @@ import lombok.extern.slf4j.Slf4j;
 			+ "PREFIX dbp: <http://dbpedia.org/property/> " + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 			+ "PREFIX res: <http://dbpedia.org/resource/> ";
 
-	private static final String endpoint = "http://live.dbpedia.org/sparql";
-	//private static final String endpoint = "http://dbpedia.org/sparql";
+	//private static final String endpoint = "http://live.dbpedia.org/sparql";
+	private static final String endpoint = "http://dbpedia.org/sparql";
 
 	public static ResultSet select(String querystring)
 	{System.out.println(endpoint + querystring);
 		log.debug("select query: "+querystring);
 		try(QueryEngineHTTP qe = new QueryEngineHTTP(endpoint,querystring))
-		{System.out.println(qe.toString());
+		{//System.out.println(qe.toString());
 		return ResultSetFactory.copyResults(qe.execSelect());}
 	//Query query = QueryFactory.create(querystring); //s2 = the query above
     //QueryExecution qExe = QueryExecutionFactory.sparqlService( "http://live.dbpedia.org/sparql", query );

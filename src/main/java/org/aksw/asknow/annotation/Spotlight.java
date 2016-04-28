@@ -1,7 +1,9 @@
-package org.aksw.asknow.util;
+package org.aksw.asknow.annotation;
 
 import java.io.*;
 import java.net.*;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Matcher;
 //import lombok.extern.slf4j.Slf4j;
 import java.util.regex.Pattern;
@@ -14,9 +16,9 @@ public class Spotlight
 	/** Relies on a http connection to the service, which may be down.
 	 *  @param phrase
 	 ** @return */
-	public static String getDBpLookup(String phrase)
+	public static Set<String> getDBpLookup(String phrase)
 	{
-		String DBpEquivalent = "";
+		Set<String> DBpEquivalent= new HashSet<String>(); ;
 		String argument = phrase.replaceAll(" ","%20");
 		try
 		{
@@ -36,9 +38,8 @@ public class Spotlight
 						Pattern p = Pattern.compile("href=\"([^\"]*)\"");
 						Matcher m = p.matcher(inputLine);
 						while (m.find()) {
-							DBpEquivalent=DBpEquivalent+" <"+m.group(1)+"> ";
+							DBpEquivalent.add("<"+m.group(1)+">");
 							
-
 						}
 					}
 				}
@@ -154,6 +155,49 @@ public class Spotlight
 		// TODO KO@MO: why return null? check and comment
 		return null;
 
+	}
+
+	public static String getDBpLookup1(String phrase) {
+
+		String DBpEquivalent= new  String();
+		String argument = phrase.replaceAll(" ","%20");
+		try
+		{
+			URL oracle = new URL("http://spotlight.sztaki.hu:2222/rest/annotate?text=" + argument);
+			// URL oracle = new URL("http://spotlight.dbpedia.org/rest/annotate?text="+argument);
+		//	System.out.println(oracle);
+			try
+			{
+				URLConnection yc = oracle.openConnection();
+				try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream())))
+				{
+					//log.trace(in.readLine());
+					int startindex =0,index=0;
+					String inputLine;
+					while ((inputLine = in.readLine()) != null)
+					{   
+						Pattern p = Pattern.compile("href=\"([^\"]*)\"");
+						Matcher m = p.matcher(inputLine);
+						//while (m.find()) {
+							DBpEquivalent="<"+m.group(1)+">";
+							
+						//}
+					}
+				}
+				catch(Exception e){
+					
+				}
+			}
+			catch(Exception e){
+				
+			}
+		}
+		catch(Exception e){
+			
+		}
+		return DBpEquivalent;	
+	
+		
 	}
 
 }

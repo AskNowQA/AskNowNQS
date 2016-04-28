@@ -1,5 +1,7 @@
 package org.aksw.asknow.query.sparql;
+
 import java.util.HashSet;
+
 import java.util.Set;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
@@ -13,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 		Set<String> properties = new HashSet<>();//stores all properties from dbp related to QCT's INPUT
 		String query = "SELECT DISTINCT ?"+variable+" WHERE { "
 				+resource+ " ?property ?value.} ";
-		System.out.println("ok: "+query);
+		//System.out.println("ok: "+query);
 		//Dbpedia.select(query);
 		ResultSet results = Dbpedia.select(query);
 		while (results.hasNext()) {
@@ -21,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 			properties.add(sol.get("?"+variable).toString());//" : "+sol.get("?value").toString());//TODO ?
 		}
 		 log.debug(results.toString());
-		System.out.println(properties.toString());
+		//System.out.println(properties.toString());
 		return properties;
 	}
 
@@ -39,6 +41,21 @@ import lombok.extern.slf4j.Slf4j;
 	 */
 	public static Set<String> getValues(String resource){ 
 		return getDbp(resource, "value");
+	}
+	
+	public static Set<String> getPropertiesLabel(String resource){ 
+		Set<String> prop_label = new HashSet<>();;//stores all Label of properties from dbp related to QCT's INPUT
+		String query = "SELECT DISTINCT ?label  WHERE { "
+				+resource+ " ?property ?value. ?property rdfs:label ?label. filter langMatches(lang(?label),\"en\")  } ";
+		
+		ResultSet results = Dbpedia.select(query);
+		System.out.println(results.toString());
+		while (results.hasNext()) {
+			QuerySolution sol = (QuerySolution) results.next();
+			prop_label.add(sol.get("?label").toString());
+		}
+		return prop_label;
+		
 	}
 
 }

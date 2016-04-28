@@ -2,10 +2,10 @@ package org.aksw.asknow.query;
 
 import java.util.*;
 import org.aksw.asknow.Nqs;
+import org.aksw.asknow.annotation.Spotlight;
 import org.aksw.asknow.query.sparql.CountSparql;
 import org.aksw.asknow.query.sparql.PropertyValue;
 import org.aksw.asknow.util.EntityAnnotate;
-import org.aksw.asknow.util.Spotlight;
 import org.aksw.asknow.util.WordNetSynonyms;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.jena.rdf.model.RDFNode;
@@ -25,28 +25,36 @@ import lombok.extern.slf4j.Slf4j;
 
 	/**
 	 * @see org.aksw.nqs.sparqltemplate.SparqlQuery#execute(org.aksw.nqs.Template)	 */
-	@Override public Set<RDFNode> execute(Nqs t) {
+	@Override public Set<RDFNode> execute(Nqs nqs) {
+		
 		
 		Set<String> properties = new HashSet<>();
 		Set<String> possibleMatches = new HashSet<>();
-		
-		String dbpRes = Spotlight.getDBpLookup(t.getInput());
-		if (dbpRes==""){
-			dbpRes = EntityAnnotate.annotation(t.nlQuery);
+		String dbpRes="";
+		for(String s: nqs.Resource){
+			dbpRes =s;
+			break;
 		}
+		/*
+		String dbpRes = Spotlight.getDBpLookup(nqs.getInput());
+		if (dbpRes==""){
+			dbpRes = EntityAnnotate.annotation(nqs.nlQuery);
+		}
+		*/
 		if (dbpRes==""){
 			System.out.println("Could not annotate the Entity");
 			return null;
 		}
+		
 		properties = PropertyValue.getProperties(dbpRes);
 		log.debug("properties: "+properties);
 
 		int possibleMatchSize=0;
-			System.out.println(t.getRelation2().replaceAll("did","").trim());
+			System.out.println(nqs.getRelation2().replaceAll("did","").trim());
 			for (String prop : properties) {
 				
-				if(prop.toLowerCase().contains(t.getDesireBrackets())){
-					System.out.println(t.getDesireBrackets()+";;;"+prop);
+				if(prop.toLowerCase().contains(nqs.getDesireBrackets())){
+					System.out.println(nqs.getDesireBrackets()+";;;"+prop);
 					possibleMatches.add("<"+prop+">"); possibleMatchSize++;
 					
 					//Property value is assumed to be number. 
@@ -59,7 +67,7 @@ import lombok.extern.slf4j.Slf4j;
 				
 			if (possibleMatchSize==0){
 			Set<String> SynonymsWord1 = new HashSet<>();
-			SynonymsWord1 = WordNetSynonyms.getSynonyms(t.getDesireBrackets());
+			SynonymsWord1 = WordNetSynonyms.getSynonyms(nqs.getDesireBrackets());
 			System.out.println("Synonums are "+SynonymsWord1);
 			
 			String tempDesire;			// create an iterator	

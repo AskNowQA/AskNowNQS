@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import org.aksw.asknow.Nqs;
 import org.aksw.asknow.Parser;
+import org.aksw.asknow.annotation.QueryAnnotaion;
 import org.aksw.asknow.query.*;
 import org.apache.jena.rdf.model.RDFNode;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 	public static void main(String[] args)
 	{
-		for(int i=99;i<100;i++)
+		for(int i=0;i<100;i++)
 		{	System.out.println("id: "+(i+1));
 			evaluate(i);
 			
@@ -37,9 +38,9 @@ import lombok.extern.slf4j.Slf4j;
 	{
 		List<Nqs> templates = Parser.parse();
 		Nqs q1 = templates.get(n);
-		System.out.println(q1.getAll());
-		System.out.println(q1.getDesire());
-
+		//System.out.println(q1.getAll());
+		//System.out.println(q1.getDesire());
+		QueryAnnotaion.annotate(q1);
 		Pattern superlativeWordList = Pattern.compile("highest|lowest|deepest|fastest|longest|largest|youngest|oldest|heaviest|lightest|tallest|shortest");
 
 		if (q1.qct.contains("] =  list")){
@@ -70,8 +71,9 @@ import lombok.extern.slf4j.Slf4j;
 		}
 
 		else
-			System.out.println("Its a XofY query");
+		{	System.out.println("Its a XofY query");
 		return XofyQuery.INSTANCE.execute(q1);
+		}
 	}
 
 }

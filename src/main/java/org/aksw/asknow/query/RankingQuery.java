@@ -3,8 +3,8 @@ package org.aksw.asknow.query;
 import java.util.ArrayList;
 import java.util.Set;
 import org.aksw.asknow.Nqs;
+import org.aksw.asknow.annotation.Spotlight;
 import org.aksw.asknow.query.sparql.RankingSparql;
-import org.aksw.asknow.util.Spotlight;
 import org.apache.jena.rdf.model.RDFNode;
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,19 +22,24 @@ import lombok.extern.slf4j.Slf4j;
 	String dbpParameter;
 	Boolean topfirst = true;
 
-	@Override public Set<RDFNode> execute(Nqs t)
+	@Override public Set<RDFNode> execute(Nqs nqs)
 	{
-		if(t.getDesire().contains("DataProperty (Person)")){
+		
+		for(String s: nqs.Resource){
+			dbpRes1 =s;
+			break;
+		}
+		if(nqs.getDesire().contains("DataProperty (Person)")){
 			
-			dbpRes1 = Spotlight.getDBpLookup(cleanEntry(t.getInput()));
+			//dbpRes1 = Spotlight.getDBpLookup(cleanEntry(nqs.getInput()));
 			dbpRes2= "Person";
 		}
 		else {
-			dbpRes1 = Spotlight.getDBpLookup(cleanEntry(t.getInput()));
-			dbpRes2 = cleanEntry(t.getDesire());
+			//dbpRes1 = Spotlight.getDBpLookup(cleanEntry(nqs.getInput()));
+			dbpRes2 = cleanEntry(nqs.getDesire());
 					dbpRes2 = dbpRes2.substring(0, 1).toUpperCase() + dbpRes2.substring(1);
 		}
-		dbpParameter = findParameter(t.nlQuery); 
+		dbpParameter = findParameter(nqs.nlQuery); 
 		
 		return RankingSparql.execute(dbpRes1, dbpRes2, dbpParameter, true);		
 	}

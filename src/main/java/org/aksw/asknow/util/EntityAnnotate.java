@@ -31,6 +31,8 @@ import java.util.Iterator;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.aksw.asknow.annotation.Fox;
+import org.aksw.asknow.annotation.Spotlight;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -49,9 +51,9 @@ public class EntityAnnotate {
 	public static String annotation(String entity){
 		
 		String uri="";
-		uri =Spotlight.getDBpLookup(entity);
+		uri =Spotlight.getDBpLookup1(entity);
 		if (uri == "")
-			uri = Fox.annotate(entity);
+			uri = Fox.annotate1(entity);
 		return uri;
 		
 	}
@@ -97,9 +99,9 @@ public class EntityAnnotate {
 					break;
 				}
 					
-				anno = Fox.annotate(ques);
+				anno = Fox.annotate1(ques);
 				if (anno==""){
-					anno =Spotlight.getDBpLookup(ques);
+					anno =Spotlight.getDBpLookup1(ques);
 				}
 				//mainRootElement.appendChild(getNQSxml(doc, ids.toString() , ques, getNQS(ques),nertags.toString()));
 				if (anno!="")

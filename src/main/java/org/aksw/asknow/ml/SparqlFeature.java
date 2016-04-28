@@ -18,12 +18,15 @@ public class SparqlFeature {
 	//feature1: Input: SPARQL query 
 	//			Output: query type based on keyword{COUNT=1, ORDER=2, ASK=3, NONE=4}
 	static int getFeature1(String squery){
+		System.out.println("query:"+squery);
 		if (squery.contains("COUNT"))
 			return 1;
 		else if (squery.contains("ORDER"))
 			return 2;
 		else if (squery.contains("ASK"))
 			return 3;
+		else if (squery.contains("USER need"))
+			return 5;
 		else
 			return 4;
 	}
