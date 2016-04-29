@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 	public static void main(String[] args)
 	{
-		for(int i=0;i<100;i++)
+		for(int i=0;i<50;i++)
 		{	System.out.println("id: "+(i+1));
 			evaluate(i);
 			
