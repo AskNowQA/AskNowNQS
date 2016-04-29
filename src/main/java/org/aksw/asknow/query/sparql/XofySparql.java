@@ -21,7 +21,8 @@ import lombok.extern.slf4j.Slf4j;
 		//String varible1="";//dbo:capital
 	
 		for(String p: properties)
-		{	
+		{	if (!p.contains("<"))
+					p = "<"+p+">";
 			String pattern;
 			switch(type)
 			{

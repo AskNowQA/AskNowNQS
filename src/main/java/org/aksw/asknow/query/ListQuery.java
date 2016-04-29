@@ -18,44 +18,50 @@ import lombok.extern.slf4j.Slf4j;
 	private ListQuery() {}
 	public static final ListQuery INSTANCE = new ListQuery();
 
-	@Override public Set<RDFNode> execute(Nqs t)
+	@Override public Set<RDFNode> execute(Nqs nqs)
 	{
 	Set<String> properties = new HashSet<>();
-	String dbpRes1;
+	String dbpRes;
 	String dbpRes2;
-		if(t.qct.contains("[I1_1]")){
+		if(nqs.qct.contains("[I1_1]")){
 			System.out.println("complex list");
 			//throw new NotImplementedException("complex list");
 		
-				dbpRes1 = EntityAnnotate.annotation(t.nlQuery);
-		
-			if (dbpRes1=="")
+				dbpRes = EntityAnnotate.annotation(nqs.nlQuery);
+				//String dbpRes="";
+				for(String s: nqs.Resource){
+					dbpRes =s;
+					break;
+				}
+				
+			if (dbpRes=="")
 				{System.out.println("Could not annotate the Entity");
 				return null;
 				}
 			else 
-				System.out.println(dbpRes1);
-				String temp = t.qct.substring(t.qct.indexOf("[I1_1] = ")+9);
+				{System.out.println("er1"+dbpRes);}
+			
+				String temp = nqs.qct.substring(nqs.qct.indexOf("[I1_1] = ")+9);
 			    dbpRes2= temp.substring(0,temp.indexOf(","));
-			    System.out.println(dbpRes2);
-			    properties = PropertyValue.getProperties(dbpRes1);
+			    System.out.println("er2"+dbpRes2);
+			    properties = PropertyValue.getProperties(dbpRes);
 			    dbpRes2 = FuzzyMatch.getmatch(dbpRes2,properties);
-			    System.out.println(dbpRes2);
-			    return ListSparql.execute(dbpRes1, dbpRes2);
+			    System.out.println("er3"+dbpRes2);
+			    return ListSparql.execute(dbpRes, dbpRes2);
 			//return null;
 		}
 		else{
 			//simple list\
-			String tempInput = t.getInput();
+			String tempInput = nqs.getInput();
 			log.debug(tempInput);
 			String[] parts = tempInput.split(" ", 2);
-			dbpRes1 = parts[0];
+			dbpRes = parts[0];
 			dbpRes2 = parts[1];
-			log.debug(dbpRes1 +":"+dbpRes2);
-			dbpRes1 = Spotlight.getDBpLookup1(dbpRes1.substring(0, 1).toUpperCase() + dbpRes1.substring(1));
+			log.debug(dbpRes +":"+dbpRes2);
+			dbpRes = Spotlight.getDBpLookup1(dbpRes.substring(0, 1).toUpperCase() + dbpRes.substring(1));
 			dbpRes2 = Spotlight.getDBpLookup1(dbpRes2);
-			log.debug(dbpRes1 +":"+dbpRes2);
-			return ListSparql.execute(dbpRes1, dbpRes2);
+			log.debug(dbpRes +":"+dbpRes2);
+			return ListSparql.execute(dbpRes, dbpRes2);
 		}	
 	}
 }

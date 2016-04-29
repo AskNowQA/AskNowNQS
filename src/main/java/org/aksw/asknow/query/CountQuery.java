@@ -69,20 +69,20 @@ import lombok.extern.slf4j.Slf4j;
 			Set<String> SynonymsWord1 = new HashSet<>();
 			SynonymsWord1 = WordNetSynonyms.getSynonyms(nqs.getDesireBrackets());
 			System.out.println("Synonums are "+SynonymsWord1);
-			
-			String tempDesire;			// create an iterator	
-			Iterator<String> iterator =  SynonymsWord1.iterator();
-			    while (iterator.hasNext()){
-				   	tempDesire=iterator.next();
-					for (String string : properties) {
-						
-						if(string.toLowerCase().contains(tempDesire.toLowerCase())){
-							possibleMatches.add(string);
-												}
-										}
+			if(SynonymsWord1 != null ){
+				String tempDesire;			// create an iterator	
+				Iterator<String> iterator =  SynonymsWord1.iterator();
+			    	while (iterator.hasNext()){
+			    		tempDesire=iterator.next();
+			    		for (String string : properties) {
+			    			if(string.toLowerCase().contains(tempDesire.toLowerCase())){
+			    				possibleMatches.add(string);
+			    			}
+			    		}
 				}
-			 
-			    return CountSparql.execute(possibleMatches,dbpRes,true);	
+			    	 return CountSparql.execute(possibleMatches,dbpRes,true);
+			}
+			    return null;	
 			}
 		throw new NotImplementedException("no pattern found for count query");
 	}

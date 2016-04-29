@@ -17,7 +17,7 @@ public class Parser
 	 * @return The list of NQS from QALD-5.*/
 	public static List<Nqs> parse()
 	{
-		return parse(()->Parser.class.getClassLoader().getResourceAsStream("qald/qald_6_output.xml"));
+		return parse(()->Parser.class.getClassLoader().getResourceAsStream("qald/qald5.nqs.xml"));
 	}
 
 	/** @param in supplies a NQS-modified QALD XML format benchmark. Needs to supply a fresh stream each time.
@@ -29,10 +29,10 @@ public class Parser
 		List<Nqs> templates = new ArrayList<>();
 		Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(in.get());
 		doc.getDocumentElement().normalize();
-		//if(!XmlUtil.validateAgainstXSD(in.get(), Parser.class.getClassLoader().getResourceAsStream("nqs.xsd")))
-		//{throw new IllegalArgumentException("QCT template file not valid against the XSD.");}
+		if(!XmlUtil.validateAgainstXSD(in.get(), Parser.class.getClassLoader().getResourceAsStream("nqs.xsd")))
+		{throw new IllegalArgumentException("QCT template file not valid against the XSD.");}
 
-		NodeList nList = doc.getElementsByTagName("question");
+		NodeList nList = doc.getElementsByTagName("Query");
 		System.out.println(nList.getLength());
 		for (int i = 0; i < nList.getLength(); i++)
 		{
@@ -40,12 +40,13 @@ public class Parser
 
 			if (nNode.getNodeType() == Node.ELEMENT_NODE)
 			{
+				
 				Element eElement = (Element) nNode;
 
-				String queryId = eElement.getAttribute("questionsid");
-				String nlQuery = eElement.getElementsByTagName("ques").item(0).getTextContent();
-				String qct = eElement.getElementsByTagName("nqs").item(0).getTextContent();
-				String sparqlcluster = eElement.getElementsByTagName("cluster_id").item(0).getTextContent();
+				String queryId = eElement.getAttribute("Query id");
+				String nlQuery = eElement.getElementsByTagName("NLquery").item(0).getTextContent();
+				String qct = eElement.getElementsByTagName("QCT").item(0).getTextContent();
+				String sparqlcluster = null;
 				templates.add(new Nqs(nlQuery,qct,queryId,sparqlcluster));
 			}
 		}

@@ -32,9 +32,9 @@ import lombok.extern.slf4j.Slf4j;
 	private static final String endpoint = "http://dbpedia.org/sparql";
 
 	public static ResultSet select(String querystring)
-	{System.out.println(endpoint + querystring);
+	{System.out.println(endpoint +sparqlHeader+querystring);
 		log.debug("select query: "+querystring);
-		try(QueryEngineHTTP qe = new QueryEngineHTTP(endpoint,querystring))
+		try(QueryEngineHTTP qe = new QueryEngineHTTP(endpoint,sparqlHeader+querystring))
 		{//System.out.println(qe.toString());
 		return ResultSetFactory.copyResults(qe.execSelect());}
 	//Query query = QueryFactory.create(querystring); //s2 = the query above

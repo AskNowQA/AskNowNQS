@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 	public static void main(String[] args)
 	{
-		for(int i=0;i<50;i++)
+		for(int i=48;i<49;i++)
 		{	System.out.println("id: "+(i+1));
 			evaluate(i);
 			
@@ -31,7 +31,12 @@ import lombok.extern.slf4j.Slf4j;
 	static void evaluate(int n)
 	{
 		// TODO: add hawk autosparql commons qald5 eval code usage
-		log.info(query(n).toString());
+		
+		try {
+			log.info(query(n).toString());
+		} catch(NullPointerException e) {
+		    log.info("NO OUTPUT");   
+		}
 	}
 
 	static Set<RDFNode> query(int n)
@@ -41,6 +46,8 @@ import lombok.extern.slf4j.Slf4j;
 		//System.out.println(q1.getAll());
 		//System.out.println(q1.getDesire());
 		QueryAnnotaion.annotate(q1);
+		//if resource.size == 0 then return null
+		//else here
 		Pattern superlativeWordList = Pattern.compile("highest|lowest|deepest|fastest|longest|largest|youngest|oldest|heaviest|lightest|tallest|shortest");
 
 		if (q1.qct.contains("] =  list")){

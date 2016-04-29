@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 	{
 		String query = "SELECT DISTINCT ?uri WHERE {"
 				+ "  { ?uri rdf:type dbo:Person . } UNION { ?uri rdf:type dbo:" + dbpRes2+" . }"
-				+ "   ?uri dbo:" + parameter + " ?num. " + "?uri ?p res:" + dbpRes1 + " } "
+				+ "   ?uri dbo:" + parameter + " ?num. " + "?uri ?p " + dbpRes1 + " } "
 				+" ORDER BY "+(topfirst?"DESC":"ASC")+"(?num) OFFSET 0 LIMIT 1";
 		log.info(query);
 		return Dbpedia.nodeSet(Dbpedia.select(query));
