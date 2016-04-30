@@ -51,7 +51,7 @@ public class EntityAnnotate {
 	public static String annotation(String entity){
 		
 		String uri="";
-		uri =Spotlight.getDBpLookup1(entity);
+		uri =Spotlight.getDBpLookup1n(entity);
 		if (uri == "")
 			uri = Fox.annotate1(entity);
 		return uri;
@@ -101,7 +101,7 @@ public class EntityAnnotate {
 					
 				anno = Fox.annotate1(ques);
 				if (anno==""){
-					anno =Spotlight.getDBpLookup1(ques);
+					anno =Spotlight.getDBpLookup1n(ques);
 				}
 				//mainRootElement.appendChild(getNQSxml(doc, ids.toString() , ques, getNQS(ques),nertags.toString()));
 				if (anno!="")

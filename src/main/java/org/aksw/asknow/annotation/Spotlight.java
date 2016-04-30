@@ -56,6 +56,7 @@ public class Spotlight
 		}
 		return DBpEquivalent;	
 	}
+	
 	public static String getEntity(String uri)
 	{
 		return uri.substring(
@@ -130,6 +131,7 @@ public class Spotlight
 		try
 		{
 			URL uri = new URL("http://dbpedia.org/ontology/" + entity);
+		
 			URLConnection yc = uri.openConnection();
 
 			try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream())))
@@ -138,7 +140,8 @@ public class Spotlight
 				if (temppage.contains(
 						"No further information is available. (The requested entity is unknown)"))
 					return ("pageNotFound");
-				else return "PageFound" + uri;
+				else 
+					return "<"+uri+">";
 			}
 
 		}
@@ -157,7 +160,7 @@ public class Spotlight
 
 	}
 
-	public static String getDBpLookup1(String phrase) {
+	public static String getDBpLookup1n(String phrase) {
 
 		String DBpEquivalent= new  String();
 		String argument = phrase.replaceAll(" ","%20");
@@ -172,16 +175,16 @@ public class Spotlight
 				try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream())))
 				{
 					//log.trace(in.readLine());
-					int startindex =0,index=0;
+					
 					String inputLine;
 					while ((inputLine = in.readLine()) != null)
-					{   
+					{   System.out.println(inputLine);
 						Pattern p = Pattern.compile("href=\"([^\"]*)\"");
 						Matcher m = p.matcher(inputLine);
-						//while (m.find()) {
+						while (m.find()) {
 							DBpEquivalent="<"+m.group(1)+">";
 							
-						//}
+						}
 					}
 				}
 				catch(Exception e){
@@ -195,6 +198,16 @@ public class Spotlight
 		catch(Exception e){
 			
 		}
+		if (DBpEquivalent.isEmpty()){
+		
+			DBpEquivalent=checkOntology(phrase);
+			if (DBpEquivalent=="pageNotFound"){
+				DBpEquivalent=checkOntology(phrase.substring(0, phrase.length()-1));
+			}
+				
+			}
+		
+		
 		return DBpEquivalent;	
 	
 		

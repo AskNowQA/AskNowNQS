@@ -14,10 +14,10 @@ import lombok.extern.slf4j.Slf4j;
 
 	public static void main(String[] args)
 	{
-		for(int i=48;i<49;i++)
+		for(int i=0;i<49;i++)
 		{	System.out.println("id: "+(i+1));
-			evaluate(i);
-			
+		evaluate(i);
+
 		}
 	}
 
@@ -31,11 +31,11 @@ import lombok.extern.slf4j.Slf4j;
 	static void evaluate(int n)
 	{
 		// TODO: add hawk autosparql commons qald5 eval code usage
-		
+
 		try {
 			log.info(query(n).toString());
 		} catch(NullPointerException e) {
-		    log.info("NO OUTPUT");   
+			log.info("NO OUTPUT");   
 		}
 	}
 
@@ -43,43 +43,45 @@ import lombok.extern.slf4j.Slf4j;
 	{
 		List<Nqs> templates = Parser.parse();
 		Nqs q1 = templates.get(n);
-		//System.out.println(q1.getAll());
+		System.out.println(q1.qct);
 		//System.out.println(q1.getDesire());
 		QueryAnnotaion.annotate(q1);
-		//if resource.size == 0 then return null
-		//else here
-		Pattern superlativeWordList = Pattern.compile("highest|lowest|deepest|fastest|longest|largest|youngest|oldest|heaviest|lightest|tallest|shortest");
+		if (q1.Resource.size() ==1){
+			Pattern superlativeWordList = Pattern.compile("highest|lowest|deepest|fastest|longest|largest|youngest|oldest|heaviest|lightest|tallest|shortest");
 
-		if (q1.qct.contains("] =  list")){
-			System.out.println("Its a list/give query");
-			return ListQuery.INSTANCE.execute(q1); 
-		}
+			if (q1.qct.contains("] =  list")){
+				System.out.println("Its a list/give query");
+				return ListQuery.INSTANCE.execute(q1); 
+			}
 
-		else if (q1.qct.contains("[Concepts] = [")){
-			System.out.println("Its a Boolean query");
-			return BooleanQuery.INSTANCE.execute(q1) ;
+			else if (q1.qct.contains("[Concepts] = [")){
+				System.out.println("Its a Boolean query");
+				return BooleanQuery.INSTANCE.execute(q1) ;
 
-		}
+			}
 
-		else if (q1.nlQuery.toLowerCase().contains("how many")){
-			System.out.println("Its a count query");
-			return CountQuery.INSTANCE.execute(q1);
-		}
+			else if (q1.nlQuery.toLowerCase().contains("how many")){
+				System.out.println("Its a count query");
+				return CountQuery.INSTANCE.execute(q1);
+			}
 
 
-		else if (superlativeWordList.matcher(q1.nlQuery).find()){
-			System.out.println("Its a Ranking query");
-			return RankingQuery.INSTANCE.execute(q1);
+			else if (superlativeWordList.matcher(q1.nlQuery).find()){
+				System.out.println("Its a Ranking query");
+				return RankingQuery.INSTANCE.execute(q1);
 
-		}
-		else if (q1.getDesire().contains("DataProperty")){
-			System.out.println("Its a XofR1Y query");
+			}
+			else if (q1.getDesire().contains("DataProperty")){
+				System.out.println("Its a XofR1Y query");
+				return XofyQuery.INSTANCE.execute(q1);
+			}
+
+			else
+			{	System.out.println("Its a XofY query");
 			return XofyQuery.INSTANCE.execute(q1);
-		}
-
-		else
-		{	System.out.println("Its a XofY query");
-		return XofyQuery.INSTANCE.execute(q1);
+			}
+		}else{
+			return null;
 		}
 	}
 

@@ -43,23 +43,24 @@ import lombok.extern.slf4j.Slf4j;
 			
 				String temp = nqs.qct.substring(nqs.qct.indexOf("[I1_1] = ")+9);
 			    dbpRes2= temp.substring(0,temp.indexOf(","));
-			    System.out.println("er2"+dbpRes2);
+			
 			    properties = PropertyValue.getProperties(dbpRes);
 			    dbpRes2 = FuzzyMatch.getmatch(dbpRes2,properties);
-			    System.out.println("er3"+dbpRes2);
+			  
 			    return ListSparql.execute(dbpRes, dbpRes2);
 			//return null;
 		}
 		else{
 			//simple list\
 			String tempInput = nqs.getInput();
-			log.debug(tempInput);
+			System.out.println("tempinput:"+tempInput);
 			String[] parts = tempInput.split(" ", 2);
 			dbpRes = parts[0];
 			dbpRes2 = parts[1];
-			log.debug(dbpRes +":"+dbpRes2);
-			dbpRes = Spotlight.getDBpLookup1(dbpRes.substring(0, 1).toUpperCase() + dbpRes.substring(1));
-			dbpRes2 = Spotlight.getDBpLookup1(dbpRes2);
+		
+			dbpRes = Spotlight.getDBpLookup1n(dbpRes.substring(0, 1).toUpperCase() + dbpRes.substring(1));
+			dbpRes2 = Spotlight.getDBpLookup1n(dbpRes2.substring(0, 1).toUpperCase() + dbpRes2.substring(1));
+		
 			log.debug(dbpRes +":"+dbpRes2);
 			return ListSparql.execute(dbpRes, dbpRes2);
 		}	
