@@ -1,16 +1,16 @@
 package test;
+import tokenAnnotation.tokenAnnotation;
 import java.util.ArrayList;
 
 import nlp.nlpInit;
 import nlp.nlp;
 import init.initializer;
-
-
+import tokenAnnotation.token;
 
 public class test_initializer {
 
 	public static void main(String[] args) {
-		//This acts like a orchestrator for the whole pipeline
+		//This will act like a orchestrator for the whole pipeline
 		/*
 		 * There is a initializer class which creates an object og nlpInit. 
 		 * One of the method of nlpInit initializes pipeline.
@@ -21,10 +21,13 @@ public class test_initializer {
 		//Intializing the initializer 
 		initializer init = new initializer();
 		nlp nlp_pipeline = new nlp();
-		String question = "Who is the president of United States Of America? " ; 
-		ArrayList<String> posTags = new ArrayList<String>();
-		posTags = nlp_pipeline.getNERTags(nlp_pipeline.getAnnotatedToken(question));
-		System.out.println(posTags);
+		tokenAnnotation tokenizer = new tokenAnnotation();
+		
+		String question = "Who is the president of United States Of America? " ;
+		
+		ArrayList<token> tokens = new ArrayList<token>();
+		tokens = tokenizer.getWordTokenArrayList(question);
+		System.out.println(tokens);
 	}
 
 }
