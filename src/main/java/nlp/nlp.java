@@ -1,9 +1,13 @@
 package nlp;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import edu.stanford.nlp.dcoref.CorefChain;
 import edu.stanford.nlp.dcoref.CorefCoreAnnotations.CorefChainAnnotation;
+import edu.stanford.nlp.ling.CoreAnnotations.LemmaAnnotation;
+import edu.stanford.nlp.ling.CoreAnnotations.MentionsAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.NamedEntityTagAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.PartOfSpeechAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
@@ -61,7 +65,7 @@ public class nlp {
 		return posTags;
 	}
 	
-	public ArrayList getToken(Annotation document){
+	public ArrayList getTokens(Annotation document){
 		
 		/*		returns an arraylist of tokens for the given sentence/document
 		 * 		Input is an annotated document , annotated from stanford core nlp toolkit. 
@@ -78,6 +82,40 @@ public class nlp {
 				}  
 				return tokens;
 			}
+	public ArrayList getNERTags(Annotation document){
+		/*		returns an array list of NER tags for the given sentence/document
+		 * 		Input is an annotated document , annotated from stanford core nlp toolkit. 
+			*/	
+				ArrayList<String> NERTags = new ArrayList<String>();
+				List<CoreMap> sentences = document.get(SentencesAnnotation.class);
+				for(CoreMap sentence: sentences) {
+					  // traversing the words in the current sentence
+					  // a CoreLabel is a CoreMap with additional token-specific methods
+					  for (CoreLabel token: sentence.get(TokensAnnotation.class)) {
+						 //generates NER labels
+						  NERTags.add(token.get(NamedEntityTagAnnotation.class));
+					  }
+				}  
+				return NERTags;
+	}
+	
+	public ArrayList getLemmas(Annotation document){
+		/*		returns an array list of NER tags for the given sentence/document
+		 * 		Input is an annotated document , annotated from stanford core nlp toolkit. 
+			*/	
+				ArrayList<String> Lemmas = new ArrayList<String>();
+				List<CoreMap> sentences = document.get(SentencesAnnotation.class);
+				for(CoreMap sentence: sentences) {
+					  // traversing the words in the current sentence
+					  // a CoreLabel is a CoreMap with additional token-specific methods
+					  for (CoreLabel token: sentence.get(TokensAnnotation.class)) {
+						 //generates NER labels
+						  Lemmas.add(token.get(LemmaAnnotation.class));
+					  }
+				}  
+				return Lemmas;
+	}
+	
 	//TODO: Implement all other functionality
 	
 }

@@ -21,9 +21,9 @@ public class test_initializer {
 		//Intializing the initializer 
 		initializer init = new initializer();
 		nlp nlp_pipeline = new nlp();
-		String question = "Who is the president of barack Obama? " ; 
+		String question = "Who is the president of United States Of America? " ; 
 		ArrayList<String> posTags = new ArrayList<String>();
-		posTags = nlp_pipeline.getPosTags(nlp_pipeline.getAnnotatedToken(question));
+		posTags = nlp_pipeline.getNERTags(nlp_pipeline.getAnnotatedToken(question));
 		System.out.println(posTags);
 	}
 

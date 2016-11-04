@@ -23,7 +23,7 @@ public class nlpInit {
 		//TODO: implement parser.model part also. 
 				pipeline = new StanfordCoreNLP(
 				PropertiesUtils.asProperties(
-							"annotators", "tokenize,ssplit,pos,lemma,parse,natlog",
+							"annotators", "tokenize,ssplit,pos,lemma,parse,natlog,ner,entitymentions",
 							"ssplit.isOneSentence", "true",
 							"tokenize.language", "en"));
 				return;
