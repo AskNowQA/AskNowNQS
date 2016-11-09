@@ -1,6 +1,5 @@
 package nlp;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -47,7 +46,7 @@ public class nlp {
 		return document;
 	}
 	
-	public ArrayList getPosTags(Annotation document){
+	public ArrayList<String> getPosTags(Annotation document){
 		
 /*		returns an arraylist of postags for the given sentence/document
  * 		Input is an annotated document , annotated from stanford core nlp toolkit. 
@@ -65,7 +64,7 @@ public class nlp {
 		return posTags;
 	}
 	
-	public ArrayList getTokens(Annotation document){
+	public ArrayList<String> getTokens(Annotation document){
 		
 		/*		returns an arraylist of tokens for the given sentence/document
 		 * 		Input is an annotated document , annotated from stanford core nlp toolkit. 
@@ -82,7 +81,7 @@ public class nlp {
 				}  
 				return tokens;
 			}
-	public ArrayList getNERTags(Annotation document){
+	public ArrayList<String> getNERTags(Annotation document){
 		/*		returns an array list of NER tags for the given sentence/document
 		 * 		Input is an annotated document , annotated from stanford core nlp toolkit. 
 			*/	
@@ -99,7 +98,7 @@ public class nlp {
 				return NERTags;
 	}
 	
-	public ArrayList getLemmas(Annotation document){
+	public ArrayList<String> getLemmas(Annotation document){
 		/*		returns an array list of NER tags for the given sentence/document
 		 * 		Input is an annotated document , annotated from stanford core nlp toolkit. 
 			*/	
