@@ -10,7 +10,7 @@ public class orch {
 		// TODO Auto-generated method stub
 		//intialize the initializer
 		initializer init = new initializer();
-		String question = "Who is the president of United States Of America ?";
+		String question = "Which of Tim Burton's films had the highest budget";
 		quesOrch question_orch = new quesOrch();
 		System.out.println(question_orch.questionOrchestrator(question));
 

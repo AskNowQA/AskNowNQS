@@ -82,4 +82,4 @@ def resolve():
 	return str(resolve_apostrophes(question))
 
 
-run(host='localhost', port=9000, debug=True)
+run(host='0.0.0.0', port=9000, debug=True)
