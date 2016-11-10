@@ -45,7 +45,7 @@ public class questionAnnotation {
 	
 	
 	public String getpreProcessingQuestion() {
-		return annotatedOriginalQuestion;
+		return preProcessingQuestion;
 	}
 
 
