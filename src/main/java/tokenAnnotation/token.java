@@ -9,6 +9,8 @@ public class token {
 	private static String nerTag = null;
 	private static String lemma = null;
 	private static Integer index = null;
+	private static Boolean isPartOfPhrase = null;
+	private static String phraseID = null; 		//TODO: Use ENUM later here.
 	
 	public token(Integer index, String value, String posTag, String nerTag, String lemma){
 		this.index = index;
@@ -16,6 +18,7 @@ public class token {
 		this.posTag = posTag;
 		this.nerTag = nerTag;
 		this.lemma = lemma;
+		this.isPartOfPhrase = false;
 	}
 
 	public static String getValue() {
@@ -44,6 +47,10 @@ public class token {
 
 	public static Integer getIndex() {
 		return index;
+	}
+	
+	public static Boolean isPartOfPhrase(){
+		return isPartOfPhrase;
 	}
 	
 	//TODO: implement all getters and setters for the above attributes

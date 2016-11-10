@@ -13,7 +13,7 @@ public class quesOrch {
 	 * word annotation and other such aspects
 	 * */
 	
-	public String questionOrchestrator(String question)
+	public questionAnnotation questionOrchestrator(String question)
 	{
 		//TODO:Discuss, if it needs to be moved to another class
 		
@@ -22,18 +22,12 @@ public class quesOrch {
 		preProcessing pre = new preProcessing();
 		String processedQuestion = pre.preProcessingOrchestrator(question);
 		ques.setpreProcessingQuestion(processedQuestion);
-		
 		//word based annotation
 		tokenAnnotationOrch tokenAnnotation = new tokenAnnotationOrch();
 		ArrayList<token> tokenList = tokenAnnotation.getWordTokenArrayList(processedQuestion);
 		ques.settokenlist(tokenList);
-		return processedQuestion;
+		return ques;
 		
-		
-		//store whatever comes from the pre-processing pipeline
-		//send it to word annotation 
-		//store it in apporpirate form 
-		//return something. i.e whatever is needed. 
 	}
 	
 }

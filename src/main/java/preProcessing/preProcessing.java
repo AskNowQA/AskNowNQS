@@ -18,6 +18,8 @@ public class preProcessing {
 			e.printStackTrace();
 			return null;
 		}
+		
+		//TODO: Add other pre-processing rules here.
 	}
 	
 	public String resolveApostrophe (String question) throws Exception{
