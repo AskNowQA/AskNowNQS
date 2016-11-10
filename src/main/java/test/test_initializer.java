@@ -1,5 +1,5 @@
 package test;
-import tokenAnnotation.tokenAnnotation;
+import tokenAnnotation.tokenAnnotationOrch;
 import java.util.ArrayList;
 
 import nlp.nlpInit;
@@ -21,7 +21,7 @@ public class test_initializer {
 		//Intializing the initializer 
 		initializer init = new initializer();
 		nlp nlp_pipeline = new nlp();
-		tokenAnnotation tokenizer = new tokenAnnotation();
+		tokenAnnotationOrch tokenizer = new tokenAnnotationOrch();
 		
 		String question = "Who is the president of United States Of America? " ;
 		

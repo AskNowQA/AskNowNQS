@@ -1,7 +1,10 @@
 package question;
 
+import java.util.ArrayList;
+
 import preProcessing.preProcessing;
 import nlp.nlp;
+import tokenAnnotation.token;
 
 public class questionAnnotation {
 	
@@ -15,7 +18,7 @@ public class questionAnnotation {
 	private String originalQuestion = null;
 	private String annotatedOriginalQuestion = null;
 	private String preProcessingQuestion = null;
-	
+	private ArrayList<token> tokenlist = null;
 	public questionAnnotation(String question){
 		originalQuestion = question;
 	}
@@ -48,6 +51,16 @@ public class questionAnnotation {
 
 	public void setpreProcessingQuestion(String preProcessingQuestion) {
 		this.preProcessingQuestion = preProcessingQuestion;
+	}
+	
+	
+	public ArrayList<token> gettokenlist() {
+		return tokenlist;
+	}
+
+
+	public void settokenlist(ArrayList<token> tokenlist) {
+		this.tokenlist = tokenlist;
 	}
 	
 }
