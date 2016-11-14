@@ -2,15 +2,15 @@ package tokenAnnotation;
 
 public class token {
 	//TODO: extend to other functionality
-	private static String value = null;
-	private static String posTag = null;
-	private static String nerStart = null;
-	private static String nerEnd = null;
-	private static String nerTag = null;
-	private static String lemma = null;
-	private static Integer index = null;
-	private static Boolean isPartOfPhrase = null;
-	private static String phraseID = null; 		//TODO: Use ENUM later here.
+	private  String value = null;
+	private  String posTag = null;
+	private  String nerStart = null;
+	private  String nerEnd = null;
+	private  String nerTag = null;
+	private  String lemma = null;
+	private  Integer index = null;
+	private  Boolean isPartOfPhrase = null;
+	private  String phraseID = null; 		//TODO: Use ENUM later here.
 	
 	public token(Integer index, String value, String posTag, String nerTag, String lemma){
 		this.index = index;
@@ -21,37 +21,40 @@ public class token {
 		this.isPartOfPhrase = false;
 	}
 
-	public static String getValue() {
-		return value;
+	public  String getValue() {
+		return this.value;
 	}
 
-	public static String getPosTag() {
+	public  String getPosTag() {
 		return posTag;
 	}
 
-	public static String getNerStart() {
+	public  String getNerStart() {
 		return nerStart;
 	}
 
-	public static String getNerEnd() {
+	public  String getNerEnd() {
 		return nerEnd;
 	}
 
-	public static String getNerTag() {
+	public  String getNerTag() {
 		return nerTag;
 	}
 
-	public static String getLemma() {
+	public  String getLemma() {
 		return lemma;
 	}
 
-	public static Integer getIndex() {
+	public  Integer getIndex() {
 		return index;
 	}
 	
-	public static Boolean isPartOfPhrase(){
+	public  Boolean isPartOfPhrase(){
 		return isPartOfPhrase;
 	}
 	
+	public  void setIsPartOfPhrase(Boolean value){
+		isPartOfPhrase = value;
+	}
 	//TODO: implement all getters and setters for the above attributes
 }

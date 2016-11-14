@@ -13,6 +13,8 @@ public class phrase {
 	private ArrayList<token> phraseToken = new ArrayList<token>();
 	private String posTag = null;
 	private String uri = null;
+
+	
 	public String getUri() {
 		return uri;
 	}

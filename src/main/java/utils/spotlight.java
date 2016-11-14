@@ -9,8 +9,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /** API for DBpedia Spotlight. Use {@link #getDBpLookup} in a static fashion.*/
 public class spotlight
@@ -47,7 +47,8 @@ public class spotlight
 					jo.put("contextualScore",child_link.attr("contextualScore"));
 					jo.put("finalScore",child_link.attr("finalScore"));
 				}
-				json_array.put(jo);
+//				json_array.put(jo);
+				json_array.add(jo);
 			}
 			DBpEquivalent = json_array;
 		}

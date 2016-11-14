@@ -75,10 +75,12 @@ public class nlp {
 					  // traversing the words in the current sentence
 					  // a CoreLabel is a CoreMap with additional token-specific methods
 					  for (CoreLabel token: sentence.get(TokensAnnotation.class)) {
-						 //generates Pos tsd
+						 //generates token
+						 
 						  tokens.add(token.get(TextAnnotation.class));
 					  }
 				}  
+			
 				return tokens;
 			}
 	public ArrayList<String> getNERTags(Annotation document){
