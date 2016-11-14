@@ -3,6 +3,7 @@ package orchestrator;
 import phrase.phraseOrch;
 import question.quesOrch;
 import question.questionAnnotation;
+import tokenAnnotation.token;
 import init.initializer;
 
 public class orch {
@@ -15,8 +16,10 @@ public class orch {
 		quesOrch question_orch = new quesOrch();
 		//Now pass it to phrase merger module
 		phraseOrch phrase = new phraseOrch();
+		questionAnnotation ques_annotation = question_orch.questionOrchestrator(question);
 		
-		phrase.phraseMergerOrchestrator(question_orch.questionOrchestrator(question));
+		
+		phrase.phraseMergerOrchestrator(ques_annotation);
 		
 //		System.out.println(question_orch.questionOrchestrator(question));
 
