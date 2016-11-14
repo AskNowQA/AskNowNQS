@@ -12,7 +12,7 @@ public class orch {
 		// TODO Auto-generated method stub
 		//intialize the initializer
 		initializer init = new initializer();
-		String question = "Which of Tim Burton's films had the highest budget and Apple ?";
+		String question = "Which of Tim Burton's films had the highest budget and Apple and United States of America?";
 		quesOrch question_orch = new quesOrch();
 		//Now pass it to phrase merger module
 		phraseOrch phrase = new phraseOrch();
