@@ -24,9 +24,9 @@ public class phraseOrch {
 	
 	public void phraseMergerOrchestrator(questionAnnotation questionAnnotation){
 		
-//		spotLightMerger(questionAnnotation);
 		nerMerger(questionAnnotation);
-		System.out.println("emm some one there ?");
+		spotLightMerger(questionAnnotation);
+		NNMerger(questionAnnotation);
 		printMetaPhrase();
 	}
 	
@@ -36,7 +36,6 @@ public class phraseOrch {
 		
 		
 		for (int i=0 ; i< questionAnnotation.gettokenlist().size();i++){
-			System.out.println(questionAnnotation.gettokenlist().get(i).getNerTag());
 			
 			if(nerTags.matcher(questionAnnotation.gettokenlist().get(i).getNerTag()).find() && !questionAnnotation.gettokenlist().get(i).isPartOfPhrase()){
 				ArrayList<token> phrase_token = new ArrayList<token>();
@@ -67,11 +66,11 @@ public class phraseOrch {
 				
 				
 				
-				System.out.println(questionAnnotation.gettokenlist());
+
 				for (String label : labelList){
 //					//splitting token by white space
 //					String[] splited = label.split("\\s+");
-					System.out.println("label is " + label);
+
 					
 					
 					ArrayList<token> phrase_token = new ArrayList<token>();
@@ -79,18 +78,56 @@ public class phraseOrch {
 					phrase ph = new phrase();
 					
 					for (token word : tokenlist){
-						if (label.contains(word.getValue())){
+						if (label.contains(word.getValue()) && !word.isPartOfPhrase()){
 							phrase_token.add(word);
 							word.setIsPartOfPhrase(true);
 						}
 					}
-					ph.setPhraseToken(phrase_token);
+					if (!phrase_token.isEmpty()) {
+						ph.setPhraseToken(phrase_token);
+						
+						ph.setPosTag("SP"); //spotlight token annotation --> SP
+						metaPhrase.add(ph);
+					}
 					
-					ph.setPosTag("SP"); //spotlight token annotation --> SP
-					metaPhrase.add(ph);
 				}
 	}
 	
+	public void NNMerger(questionAnnotation questionAnnotation){
+		// NN, NN(,p,s,ps) -> NN(,p,s,ps)
+				// VBG, NN(,p,s,ps) -> NN(,p,s,ps)
+		// CD, NN(,p,s,ps) -> NN(,p,s,ps)
+		Pattern nounTags = Pattern.compile("NN|NNS|NNP|NNPS");
+		Pattern mergerTags = Pattern.compile("NN|VBG|CD");
+		
+		for (int i=0 ; i< questionAnnotation.gettokenlist().size();i++){
+
+			
+			if(mergerTags.matcher(questionAnnotation.gettokenlist().get(i).getPosTag()).find() && !questionAnnotation.gettokenlist().get(i).isPartOfPhrase()){
+				ArrayList<token> phrase_token = new ArrayList<token>();
+				phrase_token.add(questionAnnotation.gettokenlist().get(i));
+				questionAnnotation.gettokenlist().get(i).setIsPartOfPhrase(true);
+				while(nounTags.matcher(questionAnnotation.gettokenlist().get(i+1).getPosTag()).find()){
+					if (questionAnnotation.gettokenlist().get(i+1).isPartOfPhrase() == false){
+						phrase_token.add(questionAnnotation.gettokenlist().get(i+1));
+						questionAnnotation.gettokenlist().get(i+1).setIsPartOfPhrase(true);
+						i = i + 1;
+					}
+				}
+				phrase ph = new phrase();
+				ph.setPhraseToken(phrase_token);
+				ph.setPosTag("NN");
+				metaPhrase.add(ph);
+			}
+		}
+		
+		
+	}
+	
+	
+	public void quantifierHandler(){
+		
+	}
 	
 	
 	public ArrayList<String> spotlightAnnotation(String question)
@@ -117,9 +154,11 @@ public class phraseOrch {
 	
 	public void printMetaPhrase(){
 		for(phrase ph : metaPhrase){
+			System.out.println("");
 			System.out.println("phrase are:");
+			System.out.println(ph.getPosTag());
 			for (token tk : ph.getPhraseToken()){
-				System.out.println(tk.getValue());
+				System.out.print(tk.getValue()+ " ");
 			}
 		}
 	}
