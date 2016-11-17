@@ -43,11 +43,13 @@ public class conceptBenchmark {
 		questionList.add("Who was the father of Queen Elizabeth II?");
 
 		for(String question: readLinesUsingFileReader()){
+			System.out.println("");
 			System.out.println(question);
 			quesOrch question_orch = new quesOrch();
 			//Now pass it to phrase merger module
 			phraseOrch phrase = new phraseOrch();
 			questionAnnotation ques_annotation = question_orch.questionOrchestrator(question);
+			System.out.println(ques_annotation.getpreProcessingQuestion());
 			
 			
 			ArrayList<phrase> metaPhrase = phrase.startPhraseMerger(ques_annotation);
