@@ -22,7 +22,7 @@ public class phraseOrch {
 	private ArrayList<phrase> metaPhrase= new ArrayList<phrase>();
 	
 	
-	public void phraseMergerOrchestrator(questionAnnotation questionAnnotation){
+	public ArrayList<phrase> startPhraseMerger(questionAnnotation questionAnnotation){
 		
 		spotLightMerger(questionAnnotation);
 		nerMerger(questionAnnotation);
@@ -30,7 +30,8 @@ public class phraseOrch {
 		addRemainingPhrase(questionAnnotation);
 		metaPhrase = AllignMetaPhrase(questionAnnotation, metaPhrase);
 //		printMetaPhrase();
-		conceptFormer(questionAnnotation);
+//		conceptFormer(questionAnnotation);
+		return metaPhrase;
 	}
 	
 	public void nerMerger(questionAnnotation questionAnnotation) {
