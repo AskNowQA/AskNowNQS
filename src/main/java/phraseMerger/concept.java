@@ -19,7 +19,7 @@ public class concept {
 		ArrayList<phrase> concept = new ArrayList<phrase>();
 		Pattern NounPhrase = Pattern.compile("NN|NER|SP|NNS") ;
 //		TODO: Complete the patterns list
-		Pattern AdjList = Pattern.compile("JJ|JJS|ADJ|RBS|SP");
+		Pattern AdjList = Pattern.compile("JJ|JJS|ADJ|RBS|SP|JJR");
 		ArrayList<ArrayList<phrase>> conceptList = new ArrayList<ArrayList<phrase>>();
 		
 		
@@ -50,17 +50,11 @@ public class concept {
 			if (NounPhrase.matcher(metaPhrase.get(i).getPosTag()).find()){
 				
 				
-				if(!metaPhrase.get(i).getIsPartOf()){
-				
-					
-					
+				if(!metaPhrase.get(i).getIsPartOf()){						
 					ArrayList<phrase> phList = new ArrayList<phrase>();
 					phList.add(metaPhrase.get(i));
 					metaPhrase.get(i).setIsPartOf(true);
-					conceptList.add(phList);
-				
-				
-				
+					conceptList.add(phList);				
 				}
 			}
 		}

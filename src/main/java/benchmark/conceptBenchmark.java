@@ -44,7 +44,7 @@ public class conceptBenchmark {
 
 		for(String question: readLinesUsingFileReader()){
 			System.out.println("");
-			System.out.println(question);
+//			System.out.println(question);
 			quesOrch question_orch = new quesOrch();
 			//Now pass it to phrase merger module
 			phraseOrch phrase = new phraseOrch();
@@ -54,8 +54,8 @@ public class conceptBenchmark {
 			
 			ArrayList<phrase> metaPhrase = phrase.startPhraseMerger(ques_annotation);
 			phraseMergerOrch phraseMergerOrchestrator = new phraseMergerOrch();
-			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhaseMergerOrch(ques_annotation, metaPhrase);
-			phraseMergerOrchestrator.printConceptList(conceptList);
+			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, metaPhrase);
+//			phraseMergerOrchestrator.printConceptList(conceptList);
 		}
 			        
 	       

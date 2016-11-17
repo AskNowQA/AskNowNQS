@@ -31,8 +31,8 @@ public class orch {
 			
 			ArrayList<phrase> metaPhrase = phrase.startPhraseMerger(ques_annotation);
 			phraseMergerOrch phraseMergerOrchestrator = new phraseMergerOrch();
-			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhaseMergerOrch(ques_annotation, metaPhrase);
-			phraseMergerOrchestrator.printConceptList(conceptList);
+			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, metaPhrase);
+//			phraseMergerOrchestrator.printConceptList(conceptList);
 		}
 		
 		
