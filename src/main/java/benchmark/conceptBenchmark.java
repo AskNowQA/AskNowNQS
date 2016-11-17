@@ -19,7 +19,10 @@ import java.nio.file.Files;
 
 
 
+
+import phrase.phrase;
 import phrase.phraseOrch;
+import phraseMerger.phraseMergerOrch;
 import question.quesOrch;
 import question.questionAnnotation;
 
@@ -40,16 +43,17 @@ public class conceptBenchmark {
 		questionList.add("Who was the father of Queen Elizabeth II?");
 
 		for(String question: readLinesUsingFileReader()){
-			System.out.println("");
 			System.out.println(question);
 			quesOrch question_orch = new quesOrch();
 			//Now pass it to phrase merger module
 			phraseOrch phrase = new phraseOrch();
 			questionAnnotation ques_annotation = question_orch.questionOrchestrator(question);
-
-
-			phrase.phraseMergerOrchestrator(ques_annotation);
-			System.out.println("");
+			
+			
+			ArrayList<phrase> metaPhrase = phrase.startPhraseMerger(ques_annotation);
+			phraseMergerOrch phraseMergerOrchestrator = new phraseMergerOrch();
+			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhaseMergerOrch(ques_annotation, metaPhrase);
+			phraseMergerOrchestrator.printConceptList(conceptList);
 		}
 			        
 	       
