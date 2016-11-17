@@ -12,7 +12,8 @@ public class preProcessing {
 	public String preProcessingOrchestrator(String question){
 		//TODO:Add more logics and control here
 		try {
-			return resolveApostrophe(question);
+			String resolveApostropheQuestion =  resolveApostrophe(question);
+			return normalizeNonWh(resolveApostropheQuestion);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -30,5 +31,18 @@ public class preProcessing {
 		String processedQuestion = requester.sendPostRequest(config.getPythonMicroserviceUrl(), urlParameters);
 		return processedQuestion;
 		
+	}
+	
+	public String normalizeNonWh(String question){
+		question = question.replaceAll("(?)Give me a list of", "What is list of");
+		question = question.replaceAll("(?)Give me all", "What is list of");
+		question = question.replaceAll("(?)Give me", "What is list of");
+		question = question.replaceAll("(?)List all", "What is list of");
+		question = question.replaceAll("(?)List", "What is list of");
+		question = question.replaceAll("(?)Show me", "What is list of");
+		
+//	Using regex to circumvent the lowercase problem 
+		
+		return question;
 	}
 }
