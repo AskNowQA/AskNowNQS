@@ -13,7 +13,7 @@ public class phrase {
 	private ArrayList<token> phraseToken = new ArrayList<token>();
 	private String posTag = null;
 	private String uri = null;
-
+	private Boolean isPartOf = false;
 	
 	public String getUri() {
 		return uri;
@@ -37,6 +37,14 @@ public class phrase {
 	
 	public void setPosTag(String posTag) {
 		this.posTag = posTag;
+	}
+	
+	public void setIsPartOf(Boolean value){
+		this.isPartOf = value;
+	}
+	
+	public Boolean getIsPartOf(){
+		return isPartOf;
 	}
 	
 	

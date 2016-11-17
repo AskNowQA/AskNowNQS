@@ -24,10 +24,13 @@ public class phraseOrch {
 	
 	public void phraseMergerOrchestrator(questionAnnotation questionAnnotation){
 		
-		nerMerger(questionAnnotation);
 		spotLightMerger(questionAnnotation);
+		nerMerger(questionAnnotation);
 		NNMerger(questionAnnotation);
-		printMetaPhrase();
+		addRemainingPhrase(questionAnnotation);
+		metaPhrase = AllignMetaPhrase(questionAnnotation, metaPhrase);
+//		printMetaPhrase();
+		conceptFormer(questionAnnotation);
 	}
 	
 	public void nerMerger(questionAnnotation questionAnnotation) {
@@ -126,9 +129,92 @@ public class phraseOrch {
 	
 	
 	public void quantifierHandler(){
-		
+		//TODO: Add appropriate rules.
+	}
+	public void addRemainingPhrase(questionAnnotation questionAnnotation){
+		for (token word: questionAnnotation.gettokenlist()){
+			if (!word.isPartOfPhrase()){
+				phrase ph = new phrase();
+				ArrayList<token> temp = new ArrayList<token>();
+				temp.add(word);
+				ph.setPhraseToken(temp);
+				ph.setPosTag(word.getPosTag());
+				word.setIsPartOfPhrase(true);
+				metaPhrase.add(ph);
+			}
+		}
 	}
 	
+	
+	public void conceptFormer(questionAnnotation questionAnnotation){
+		/*
+		 * JJ
+		 * JJS
+		 * JJ
+		 * CD - NN,SP,NER -->One concept
+		 * */
+		ArrayList<phrase> concept = new ArrayList<phrase>();
+		Pattern NounPhrase = Pattern.compile("NN|NER|SP|NNS") ;
+//		TODO: Complete the patterns list
+		Pattern AdjList = Pattern.compile("JJ|JJS|ADJ|RBS|SP");
+		ArrayList<ArrayList<phrase>> conceptList = new ArrayList<ArrayList<phrase>>();
+		
+		
+		for (int i=0; i<metaPhrase.size();i++){
+			if (AdjList.matcher(metaPhrase.get(i).getPosTag()).find() && !metaPhrase.get(i).getIsPartOf()){
+				
+				
+				ArrayList<phrase> phList = new ArrayList<phrase>();
+				phList.add(metaPhrase.get(i));
+				metaPhrase.get(i).setIsPartOf(true);
+				
+				while(AdjList.matcher(metaPhrase.get(i+1).getPosTag()).find() || NounPhrase.matcher(metaPhrase.get(i+1).getPosTag()).find() ){
+					
+					if (!metaPhrase.get(i+1).getIsPartOf()) {
+						phList.add(metaPhrase.get(i+1));
+						metaPhrase.get(i+1).setIsPartOf(true);
+						i = i+1;
+					}
+					else{
+						break;
+					}
+				}
+				conceptList.add(phList);
+			}
+		}
+		
+		for (int i=0; i<metaPhrase.size();i++){
+			if (NounPhrase.matcher(metaPhrase.get(i).getPosTag()).find()){
+				
+				
+				if(!metaPhrase.get(i).getIsPartOf()){
+				
+					
+					
+					ArrayList<phrase> phList = new ArrayList<phrase>();
+					phList.add(metaPhrase.get(i));
+					metaPhrase.get(i).setIsPartOf(true);
+					conceptList.add(phList);
+				
+				
+				
+				}
+			}
+		}
+		
+		
+		for(int i=0; i<conceptList.size(); i++){
+			System.out.print("**");
+			for(phrase ph: conceptList.get(i)){
+				
+				for (token tk: ph.getPhraseToken()){
+					System.out.print(tk.getValue() + " ");
+				}
+			}
+		}
+		
+		
+	}
 	
 	public ArrayList<String> spotlightAnnotation(String question)
 	{
@@ -155,11 +241,40 @@ public class phraseOrch {
 	public void printMetaPhrase(){
 		for(phrase ph : metaPhrase){
 			System.out.println("");
-			System.out.println("phrase are:");
-			System.out.println(ph.getPosTag());
 			for (token tk : ph.getPhraseToken()){
-				System.out.print(tk.getValue()+ " ");
+				System.out.print(tk.getPosTag()+ " "+tk.getValue() + " ");
 			}
 		}
+	}
+	
+	public ArrayList<phrase> AllignMetaPhrase(questionAnnotation questionAnnotation,ArrayList<phrase> metaPhrases ){
+		/*
+		 * This method returns the arraylist in the smae order as that of token list
+		 * TODO: Check for logical and syntactical error.
+		 * 
+		 * */
+		 ArrayList<phrase> AllignMetaPhrase= new ArrayList<phrase>();
+		 ArrayList<phrase> tempPhrase= new ArrayList<phrase>();
+		 for (phrase ph: metaPhrases){
+			 tempPhrase.add(ph);
+		 }
+		 for(token word : questionAnnotation.gettokenlist()){
+			//find the token in the list 
+			//find the appropriate phrase for that token 
+			//push that phrase into the array
+			for (phrase ph: metaPhrases){
+				for (token tk: ph.getPhraseToken()){
+					if (tk.getValue() == word.getValue()){
+						if (tempPhrase.contains(ph)){
+							AllignMetaPhrase.add(ph);
+							tempPhrase.remove(ph);
+							break;
+						}
+					}
+				}
+			}
+			
+		}
+		 return AllignMetaPhrase;
 	}
 }
