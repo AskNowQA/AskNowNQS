@@ -28,7 +28,6 @@ public class preProcessing {
 		configuration config = new configuration();
 		String urlParameters = "question=" + question;
 		String processedQuestion = requester.sendPostRequest(config.getPythonMicroserviceUrl(), urlParameters);
-		System.out.println("*****" + processedQuestion);
 		return processedQuestion;
 		
 	}

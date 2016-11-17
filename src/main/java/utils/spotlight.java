@@ -22,7 +22,6 @@ public class spotlight
 	 ** @return */
 	public static JSONArray getDBpLookup(String phrase)
 	{
-		System.out.println("phrase is " + phrase);
 		JSONArray DBpEquivalent= new JSONArray(); 
 		String argument = phrase.replaceAll(" ","%20");
 		try
