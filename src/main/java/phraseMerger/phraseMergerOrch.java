@@ -18,15 +18,28 @@ public class phraseMergerOrch {
 
 	
 	
-	public ArrayList<ArrayList<phrase>> startPhaseMergerOrch(questionAnnotation questionAnnotation, ArrayList<phrase> metaPhrase){
+	public ArrayList<ArrayList<phrase>> startPhraseMergerOrch(questionAnnotation questionAnnotation, ArrayList<phrase> metaPhrase){
 		//The actual logic throught which everything is orchestrated. 
 		concept concept = new concept();
+		wh wh = new wh();
+		relation rel = new relation();
 		ArrayList<ArrayList<phrase>> conceptList = concept.conceptFormer(questionAnnotation, metaPhrase);
-		return conceptList;
+		ArrayList<ArrayList<phrase>> whList = wh.whFormer(questionAnnotation, metaPhrase);
+		ArrayList<ArrayList<phrase>> relList = rel.relFormer(questionAnnotation, metaPhrase);
+		System.out.println("the wh type is ");
+		printConceptList(whList);
+//		System.out.println("");
+		System.out.println("the concept type is ");
+//		System.out.println("");
+		printConceptList(conceptList);
+//		System.out.println("");
+		System.out.println("the rel type is ");
+//		System.out.println("");
+		printConceptList(relList);
+		return whList;
 	}
 	
 	public void printConceptList(ArrayList<ArrayList<phrase>> conceptList){
-		System.out.println("");
 		for(int i=0; i<conceptList.size(); i++){
 			System.out.print("**");
 			for(phrase ph: conceptList.get(i)){
@@ -36,5 +49,6 @@ public class phraseMergerOrch {
 				}
 			}
 		}
+		System.out.println("");
 	}
 }
