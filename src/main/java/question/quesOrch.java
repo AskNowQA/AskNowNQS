@@ -19,9 +19,12 @@ public class quesOrch {
 		
 		//question preprocessing
 		questionAnnotation ques = new questionAnnotation(question);
+		
+		
 		preProcessing pre = new preProcessing();
 		String processedQuestion = pre.preProcessingOrchestrator(question);
 		ques.setpreProcessingQuestion(processedQuestion);
+		
 		
 		//word based annotation
 		tokenAnnotationOrch tokenAnnotation = new tokenAnnotationOrch();

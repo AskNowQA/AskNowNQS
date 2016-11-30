@@ -15,6 +15,7 @@ public class phrase {
 	private String uri = null;
 	private Boolean isPartOf = false;
 	
+	
 	public String getUri() {
 		return uri;
 	}

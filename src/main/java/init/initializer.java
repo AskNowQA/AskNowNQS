@@ -27,7 +27,7 @@ public class initializer {
 //		}
 		//initializing NLP library 
 		nlpInit nlp_init = new nlpInit();
-		nlp_init.NlP_init(); //does the final initialization
+		nlp_init.NLP_init(); //does the final initialization
 		
 	}
 	

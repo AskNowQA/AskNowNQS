@@ -19,6 +19,7 @@ public class phraseMergerOrch {
 	
 	
 	public ArrayList<ArrayList<phrase>> startPhraseMergerOrch(questionAnnotation questionAnnotation, ArrayList<phrase> metaPhrase){
+		//TODO: Rename each class concept, relation .. to conceptOrch...
 		//The actual logic throught which everything is orchestrated. 
 		concept concept = new concept();
 		wh wh = new wh();
