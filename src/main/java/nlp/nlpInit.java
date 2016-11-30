@@ -16,8 +16,8 @@ public class nlpInit {
 	//stanford pipeline object which gets passed around in the whole pipeline
 	static private StanfordCoreNLP pipeline = null;
 	
-
-	public void NlP_init(){
+	//Not a constructor , but just a function.
+	public void NLP_init(){
 		//This function initializes the nlp pipieline.
 		//Did not initialize the parser.model pipeline model 
 		//TODO: implement parser.model part also. 

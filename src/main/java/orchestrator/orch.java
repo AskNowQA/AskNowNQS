@@ -2,6 +2,7 @@ package orchestrator;
 
 import java.util.ArrayList;
 
+import annotation.AnnotationOrch;
 import phrase.phrase;
 import phrase.phraseOrch;
 import phraseMerger.phraseMergerOrch;
@@ -29,9 +30,15 @@ public class orch {
 			questionAnnotation ques_annotation = question_orch.questionOrchestrator(question);
 			
 			
-			ArrayList<phrase> metaPhrase = phrase.startPhraseMerger(ques_annotation);
+			ArrayList<phrase> phraseList = phrase.startPhraseMerger(ques_annotation);
 			phraseMergerOrch phraseMergerOrchestrator = new phraseMergerOrch();
-			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, metaPhrase);
+			AnnotationOrch annotation = new AnnotationOrch();
+			
+			annotation.startAnnotationOrch(phraseList);
+			
+			
+			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, phraseList);
+			
 //			phraseMergerOrchestrator.printConceptList(conceptList);
 		}
 		

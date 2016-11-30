@@ -15,6 +15,7 @@ public class questionAnnotation {
 	 * */
 	
 	//TODO:add more meta data
+	//TODO: add annotatedPreProcessingQuestion information. 
 	private String originalQuestion = null;
 	private String annotatedOriginalQuestion = null;
 	private String preProcessingQuestion = null;

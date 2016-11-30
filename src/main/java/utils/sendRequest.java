@@ -19,9 +19,11 @@ public class sendRequest {
 	public String sendPostRequest(String microservice_url,String microservice_url_Parameters) throws Exception{
 		String url = microservice_url;
 		URL obj = new URL(url);
+		System.out.println("Blahh!!");
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-
-		//add reuqest header
+		con.setConnectTimeout(5000);		//timeout in 5 seconds
+		con.setReadTimeout(5000); // Read timeout set to 5 seconds
+		//add request header
 		con.setRequestMethod("POST");
 		con.setRequestProperty("User-Agent", USER_AGENT);
 		con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
@@ -37,7 +39,7 @@ public class sendRequest {
 		wr.close();
 
 		int responseCode = con.getResponseCode();
-
+		System.out.println("response code is " + responseCode);
 		BufferedReader in = new BufferedReader(
 				new InputStreamReader(con.getInputStream()));
 		String inputLine;

@@ -12,7 +12,8 @@ public class preProcessing {
 	public String preProcessingOrchestrator(String question){
 		//TODO:Add more logics and control here
 		try {
-			String resolveApostropheQuestion =  resolveApostrophe(question);
+//			String resolveApostropheQuestion =  resolveApostrophe(question);
+			String resolveApostropheQuestion = question;
 			return normalizeNonWh(resolveApostropheQuestion);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -34,6 +35,7 @@ public class preProcessing {
 	}
 	
 	public String normalizeNonWh(String question){
+		//resolving nonWH queries to WH queries. 
 		question = question.replaceAll("(?)Give me a list of", "What is list of");
 		question = question.replaceAll("(?)Give me all", "What is list of");
 		question = question.replaceAll("(?)Give me", "What is list of");

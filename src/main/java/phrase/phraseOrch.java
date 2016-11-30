@@ -19,7 +19,7 @@ public class phraseOrch {
 	 * This class contains rules to merge tokens into phrases and also access definers for phrases. 
 	 * 
 	 * */
-	private ArrayList<phrase> metaPhrase= new ArrayList<phrase>();
+	private ArrayList<phrase> phraseList= new ArrayList<phrase>();
 	
 	
 	public ArrayList<phrase> startPhraseMerger(questionAnnotation questionAnnotation){
@@ -28,10 +28,10 @@ public class phraseOrch {
 		nerMerger(questionAnnotation);
 		NNMerger(questionAnnotation);
 		addRemainingPhrase(questionAnnotation);
-		metaPhrase = AllignMetaPhrase(questionAnnotation, metaPhrase);
+		phraseList = AllignMetaPhrase(questionAnnotation, phraseList);
 //		printMetaPhrase();
 //		conceptFormer(questionAnnotation);
-		return metaPhrase;
+		return phraseList;
 	}
 	
 	public void nerMerger(questionAnnotation questionAnnotation) {
@@ -55,11 +55,10 @@ public class phraseOrch {
 				phrase ph = new phrase();
 				ph.setPhraseToken(phrase_token);
 				ph.setPosTag("NER");
-				metaPhrase.add(ph);
+				phraseList.add(ph);
 			}
 		}
 	}
-	
 	
 	public void spotLightMerger(questionAnnotation questionAnnotation){
 		//pass it through DbPedia spotlight
@@ -91,7 +90,7 @@ public class phraseOrch {
 						ph.setPhraseToken(phrase_token);
 						
 						ph.setPosTag("SP"); //spotlight token annotation --> SP
-						metaPhrase.add(ph);
+						phraseList.add(ph);
 					}
 					
 				}
@@ -121,7 +120,7 @@ public class phraseOrch {
 				phrase ph = new phrase();
 				ph.setPhraseToken(phrase_token);
 				ph.setPosTag("NN");
-				metaPhrase.add(ph);
+				phraseList.add(ph);
 			}
 		}
 		
@@ -141,7 +140,7 @@ public class phraseOrch {
 				ph.setPhraseToken(temp);
 				ph.setPosTag(word.getPosTag());
 				word.setIsPartOfPhrase(true);
-				metaPhrase.add(ph);
+				phraseList.add(ph);
 			}
 		}
 	}
@@ -161,19 +160,19 @@ public class phraseOrch {
 		ArrayList<ArrayList<phrase>> conceptList = new ArrayList<ArrayList<phrase>>();
 		
 		
-		for (int i=0; i<metaPhrase.size();i++){
-			if (AdjList.matcher(metaPhrase.get(i).getPosTag()).find() && !metaPhrase.get(i).getIsPartOf()){
+		for (int i=0; i<phraseList.size();i++){
+			if (AdjList.matcher(phraseList.get(i).getPosTag()).find() && !phraseList.get(i).getIsPartOf()){
 				
 				
 				ArrayList<phrase> phList = new ArrayList<phrase>();
-				phList.add(metaPhrase.get(i));
-				metaPhrase.get(i).setIsPartOf(true);
+				phList.add(phraseList.get(i));
+				phraseList.get(i).setIsPartOf(true);
 				
-				while(AdjList.matcher(metaPhrase.get(i+1).getPosTag()).find() || NounPhrase.matcher(metaPhrase.get(i+1).getPosTag()).find() ){
+				while(AdjList.matcher(phraseList.get(i+1).getPosTag()).find() || NounPhrase.matcher(phraseList.get(i+1).getPosTag()).find() ){
 					
-					if (!metaPhrase.get(i+1).getIsPartOf()) {
-						phList.add(metaPhrase.get(i+1));
-						metaPhrase.get(i+1).setIsPartOf(true);
+					if (!phraseList.get(i+1).getIsPartOf()) {
+						phList.add(phraseList.get(i+1));
+						phraseList.get(i+1).setIsPartOf(true);
 						i = i+1;
 					}
 					else{
@@ -184,17 +183,17 @@ public class phraseOrch {
 			}
 		}
 		
-		for (int i=0; i<metaPhrase.size();i++){
-			if (NounPhrase.matcher(metaPhrase.get(i).getPosTag()).find()){
+		for (int i=0; i<phraseList.size();i++){
+			if (NounPhrase.matcher(phraseList.get(i).getPosTag()).find()){
 				
 				
-				if(!metaPhrase.get(i).getIsPartOf()){
+				if(!phraseList.get(i).getIsPartOf()){
 				
 					
 					
 					ArrayList<phrase> phList = new ArrayList<phrase>();
-					phList.add(metaPhrase.get(i));
-					metaPhrase.get(i).setIsPartOf(true);
+					phList.add(phraseList.get(i));
+					phraseList.get(i).setIsPartOf(true);
 					conceptList.add(phList);
 				
 				
@@ -240,7 +239,7 @@ public class phraseOrch {
 	}
 	
 	public void printMetaPhrase(){
-		for(phrase ph : metaPhrase){
+		for(phrase ph : phraseList){
 			System.out.println("");
 			for (token tk : ph.getPhraseToken()){
 				System.out.print(tk.getPosTag()+ " "+tk.getValue() + " ");
