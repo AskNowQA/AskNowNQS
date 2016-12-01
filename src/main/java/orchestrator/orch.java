@@ -8,7 +8,7 @@ import phrase.phraseOrch;
 import phraseMerger.phraseMergerOrch;
 import question.quesOrch;
 import question.questionAnnotation;
-import tokenAnnotation.token;
+import token.token;
 import init.initializer;
 
 public class orch {
@@ -34,7 +34,7 @@ public class orch {
 			phraseMergerOrch phraseMergerOrchestrator = new phraseMergerOrch();
 			AnnotationOrch annotation = new AnnotationOrch();
 			
-			annotation.startAnnotationOrch(phraseList);
+			annotation.startAnnotationOrch(phraseList,ques_annotation);
 			
 			
 			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, phraseList);

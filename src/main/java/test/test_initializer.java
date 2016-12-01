@@ -1,11 +1,12 @@
 package test;
-import tokenAnnotation.tokenAnnotationOrch;
+import token.token;
+import token.tokenAnnotationOrch;
+
 import java.util.ArrayList;
 
 import nlp.nlpInit;
 import nlp.nlp;
 import init.initializer;
-import tokenAnnotation.token;
 
 public class test_initializer {
 

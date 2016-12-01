@@ -3,8 +3,8 @@ package question;
 import java.util.ArrayList;
 
 import preProcessing.preProcessing;
-import tokenAnnotation.token;
-import tokenAnnotation.tokenAnnotationOrch;
+import token.token;
+import token.tokenAnnotationOrch;
 
 public class quesOrch {
 	
