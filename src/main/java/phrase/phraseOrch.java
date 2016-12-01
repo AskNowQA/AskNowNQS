@@ -10,7 +10,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import question.questionAnnotation;
-import tokenAnnotation.token;
+import token.token;
 import utils.spotlight;
 
 public class phraseOrch {

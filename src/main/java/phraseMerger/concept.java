@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 import phrase.phrase;
 import question.questionAnnotation;
-import tokenAnnotation.token;
+import token.token;
 
 public class concept {
 

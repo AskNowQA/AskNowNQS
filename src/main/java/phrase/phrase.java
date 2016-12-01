@@ -2,7 +2,7 @@ package phrase;
 
 import java.util.ArrayList;
 
-import tokenAnnotation.token;
+import token.token;
 
 public class phrase {
 /*

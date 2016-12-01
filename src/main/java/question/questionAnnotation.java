@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import preProcessing.preProcessing;
 import nlp.nlp;
-import tokenAnnotation.token;
+import token.token;
 
 public class questionAnnotation {
 	
