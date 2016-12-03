@@ -1,7 +1,9 @@
 package init;
+import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import utils.wordNet;
 import nlp.nlpInit;
 
 public class initializer {
@@ -28,6 +30,14 @@ public class initializer {
 		//initializing NLP library 
 		nlpInit nlp_init = new nlpInit();
 		nlp_init.NLP_init(); //does the final initialization
+		//loading wordnet into the RAM
+		File wnDir = new File("src/main/resources/dict");
+		try {
+			wordNet.testRAMDictionary(wnDir);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	

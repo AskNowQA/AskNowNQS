@@ -36,12 +36,7 @@ public class OneHopRelationQuery {
 			catch (Exception e){
 				break;
 			}
-		}
-		for (int i = 0; i < listOfPair.size(); i++){
-			String p[] = listOfPair.get(i);
-			System.out.println(p[0]+"::"+p[1]);
-		}
-		
+		}	
 		return listOfPair;
 }
 }

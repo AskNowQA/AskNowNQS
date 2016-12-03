@@ -24,6 +24,12 @@ public class AnnotationOrch {
 			//for each phrase in the list pass it through the spotlight and check for its annotation.
 		
 		entityAnnotation.Annotation(phraseList);
+		try {
+			relationAnnotation.relAnnotation(phraseList, ques_annotation);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 			
 		
