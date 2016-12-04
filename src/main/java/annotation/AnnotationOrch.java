@@ -19,19 +19,20 @@ public class AnnotationOrch {
 	 * 
 	 * */
 	
-	public void startAnnotationOrch(ArrayList<phrase> phraseList, questionAnnotation ques_annotation){
+	public ArrayList<ArrayList<String[]>> startAnnotationOrch(ArrayList<phrase> phraseList, questionAnnotation ques_annotation){
 			//call spotlight annotation. 
 			//for each phrase in the list pass it through the spotlight and check for its annotation.
 		
+		ArrayList<ArrayList<String[]>> finalRelList = new ArrayList<ArrayList<String[]>>();
 		entityAnnotation.Annotation(phraseList);
 		try {
-			relationAnnotation.relAnnotation(phraseList, ques_annotation);
+			finalRelList = relationAnnotation.relAnnotation(phraseList, ques_annotation);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-			
-		
+		return finalRelList;
 	}
 }
