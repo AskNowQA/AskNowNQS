@@ -17,15 +17,17 @@ public class relationAnnotation {
 	 * Handels relation annotation. 
 	 * */
 	
-	public static void relAnnotation(ArrayList<phrase> phraseList, questionAnnotation ques_annotation) throws Exception{
+	public static ArrayList<ArrayList<String[]>> relAnnotation(ArrayList<phrase> phraseList, questionAnnotation ques_annotation) throws Exception{
 		System.out.println("at relation annotation");
 		String[] stopWord = {"Who","What","Who"};
+		int counter = 5;
+		ArrayList<ArrayList<String[]>> finalRelList = new ArrayList<ArrayList<String[]>>(); 
 		for (phrase ph : phraseList){
 			if (ph.getUri() != null){
 				//Retrives list of relation coming in and going out of the annotated entity 
 				ArrayList<String[]> listOfPair	= OneHopRelationQuery.getPredicateList(ph.getUri());
 				
-				ArrayList<String[]> listOfPairCopy = new ArrayList<String[]>() ;
+				ArrayList<String[]> listOfPairCopy = new ArrayList<String[]>();
 				
 				for(String[] lp : listOfPair){
 					listOfPairCopy.add(new String[] {lp[0],lp[1]});
@@ -71,10 +73,25 @@ public class relationAnnotation {
 		            }
 		        });
 				
-				for(String[] lp : listOfPairScore){
-					System.out.println( lp[1]+ " :: " + lp[2] + " :: " + lp[3]);
-				}				
-			}
+//				for(String[] lp : listOfPairScore){
+//					System.out.println( lp[1]+ " :: " + lp[2] + " :: " + lp[3]);
+//				}
+				Collections.reverse(listOfPairScore);
+				
+				ArrayList<String[]> sublistOfPairScore = new ArrayList<String[]>();
+				
+				
+//				sublistOfPairScore = (ArrayList<String[]>) listOfPairScore.subList(0, Math.min(counter,listOfPairScore.size()));
+				for(int i = 0 ; i<counter; i++){
+					if (i >= listOfPairScore.size()){
+						break;
+					}
+					
+					sublistOfPairScore.add(listOfPairScore.get(i));
+				}
+				finalRelList.add(sublistOfPairScore);
+			}	
 		}
+		return finalRelList;
 	}
 }

@@ -34,12 +34,19 @@ public class orch {
 			phraseMergerOrch phraseMergerOrchestrator = new phraseMergerOrch();
 			AnnotationOrch annotation = new AnnotationOrch();
 			
-			annotation.startAnnotationOrch(phraseList,ques_annotation);
+			ArrayList<ArrayList<String[]>> relAnnotation = annotation.startAnnotationOrch(phraseList,ques_annotation);
 			
 			
 			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, phraseList);
 			
 //			phraseMergerOrchestrator.printConceptList(conceptList);
+			
+			for (ArrayList<String[]> relList : relAnnotation){
+				for (String[] rel : relList){
+					System.out.println(rel[0] + " :" + rel[1] + " :" + rel[2] + " :" + rel[3] + " :");
+				}
+			}
+			
 		}
 		
 		
