@@ -8,13 +8,26 @@ import utils.queryExecutor;
 import com.hp.hpl.jena.query.ResultSetFormatter;
 
 public class OneHopRelationQuery {
-	public static ArrayList<String[]> getPredicateList(String dbr){
+	public static ArrayList<ArrayList<String[]>> getPredicateList(String dbr){
 		String sparql = "select distinct ?rel ?label where { {"
 				+ dbr+" ?rel ?x} UNION { ?y ?rel " + dbr +" }"
 				+ "?rel <http://www.w3.org/2000/01/rdf-schema#label> ?label."
 				+ "filter(langMatches(lang(?label),\"EN\")) }";
 		
-		System.out.println(sparql);
+		
+		
+		String sparql_incoming = "";
+		String sparql_outgoing = "";
+		ArrayList<String[]> incomingPropertyList = executeOneHop(sparql_incoming);
+		ArrayList<String[]> outgoingPropertyList = executeOneHop(sparql_incoming);
+		ArrayList<ArrayList<String[]>> allPropertyList = new ArrayList<ArrayList<String[]>>();
+		allPropertyList.add(incomingPropertyList);
+		allPropertyList.add(outgoingPropertyList);
+		return allPropertyList;
+	}
+	
+	
+	public static ArrayList<String[]> executeOneHop(String sparql){
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		
 		ResultSetFormatter.outputAsJSON(outputStream, queryExecutor.query(sparql));
@@ -38,5 +51,7 @@ public class OneHopRelationQuery {
 			}
 		}	
 		return listOfPair;
-}
+	}
+
+
 }
