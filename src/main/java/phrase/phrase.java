@@ -14,8 +14,55 @@ public class phrase {
 	private String posTag = null;
 	private String uri = null;
 	private Boolean isPartOf = false;
+	private ArrayList<String []> incomingProperty = new ArrayList<String []>();
+	private ArrayList<String []> outgoingProperty = new ArrayList<String []>();
+	private ArrayList<String []> expandIncomingProperty = new ArrayList<String []>();
+	private ArrayList<String []> expandOutgoingProperty = new ArrayList<String []>();
+	private ArrayList<token> RelToken = new ArrayList<token>();
 	
 	
+	
+	public ArrayList<String[]> getIncomingProperty() {
+		return incomingProperty;
+	}
+
+	
+	public void setIncomingProperty(ArrayList<String[]> incomingProperty) {
+		this.incomingProperty = incomingProperty;
+	}
+
+	public ArrayList<String[]> getOutgoingProperty() {
+		return outgoingProperty;
+	}
+
+	public void setOutgoingProperty(ArrayList<String[]> outgoingProperty) {
+		this.outgoingProperty = outgoingProperty;
+	}
+
+	public ArrayList<String[]> getExpandIncomingProperty() {
+		return expandIncomingProperty;
+	}
+
+	public void setExpandIncomingProperty(ArrayList<String[]> expandIncomingProperty) {
+		this.expandIncomingProperty = expandIncomingProperty;
+	}
+
+	public ArrayList<String[]> getExpandOutgoingProperty() {
+		return expandOutgoingProperty;
+	}
+
+	public void setExpandOutgoingProperty(ArrayList<String[]> expandOutgoingProperty) {
+		this.expandOutgoingProperty = expandOutgoingProperty;
+	}
+
+	public ArrayList<token> getRelToken() {
+		return RelToken;
+	}
+
+	public void setRelToken(ArrayList<token> relToken) {
+		RelToken = relToken;
+	}
+
 	public String getUri() {
 		return uri;
 	}

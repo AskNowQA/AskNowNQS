@@ -25,22 +25,36 @@ public class relationAnnotation {
 		for (phrase ph : phraseList){
 			if (ph.getUri() != null){
 				//Retrives list of relation coming in and going out of the annotated entity 
-				ArrayList<String[]> listOfPair	= OneHopRelationQuery.getPredicateList(ph.getUri());
+				ArrayList<ArrayList<String[]>> listOfPair	= OneHopRelationQuery.getPredicateList(ph.getUri());
+				ph.setIncomingProperty(listOfPair.get(0));
+				ph.setOutgoingProperty(listOfPair.get(1));
 				
-				ArrayList<String[]> listOfPairCopy = new ArrayList<String[]>();
-				
-				for(String[] lp : listOfPair){
-					listOfPairCopy.add(new String[] {lp[0],lp[1]});
-//					System.out.println("lp0 is " + lp[0] + "lp1 is " + lp[1]);
-				}
-				
+
 				//Expand this list using wordnet 
-				for (String[] lp : listOfPairCopy){
+				
+				
+				ArrayList<String[]> expandIncomingProperty = new ArrayList<String[]>();
+				ArrayList<String[]> expandOutgoingProperty = new ArrayList<String[]>();
+				
+				for (String[] lp : ph.getIncomingProperty()){
 					//send each of the property label to WordNet.
 					for(String word : wordNet.getSynonyms(lp[1])){
-						listOfPair.add(new String[] {lp[0],word});
+						expandIncomingProperty.add(new String[] {lp[0],word});
 					}
+					expandIncomingProperty.add(lp);
 				}
+				
+				
+				for (String[] lp : ph.getOutgoingProperty()){
+					//send each of the property label to WordNet.
+					for(String word : wordNet.getSynonyms(lp[1])){
+						expandOutgoingProperty.add(new String[] {lp[0],word});
+					}
+					expandOutgoingProperty.add(lp);
+				}
+				
+				ph.setExpandIncomingProperty(expandIncomingProperty);
+				ph.setExpandOutgoingProperty(expandOutgoingProperty);
 				
 				ArrayList<String[]> listOfPairScore = new ArrayList<String[]>();
 				

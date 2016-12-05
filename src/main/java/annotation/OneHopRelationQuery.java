@@ -10,10 +10,14 @@ import com.hp.hpl.jena.query.ResultSetFormatter;
 public class OneHopRelationQuery {
 	public static ArrayList<ArrayList<String[]>> getPredicateList(String dbr){
 		String sparql = "select distinct ?rel ?label where { {"
-				+ dbr+" ?rel ?x} UNION { ?y ?rel " + dbr +" }"
+				+ dbr+" ?rel ?x"
 				+ "?rel <http://www.w3.org/2000/01/rdf-schema#label> ?label."
 				+ "filter(langMatches(lang(?label),\"EN\")) }";
 		
+		String sparqlout = "select distinct ?rel ?label where { {"
+				+ "?x ?rel" + dbr 
+				+ "?rel <http://www.w3.org/2000/01/rdf-schema#label> ?label."
+				+ "filter(langMatches(lang(?label),\"EN\")) }";
 		
 		
 		String sparql_incoming = "";
