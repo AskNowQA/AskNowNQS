@@ -17,11 +17,11 @@ public class relationAnnotation {
 	 * Handels relation annotation. 
 	 * */
 	
-	public static ArrayList<ArrayList<String[]>> relAnnotation(ArrayList<phrase> phraseList, questionAnnotation ques_annotation) throws Exception{
+	public static ArrayList<ArrayList<relationAnnotationToken>> relAnnotation(ArrayList<phrase> phraseList, questionAnnotation ques_annotation) throws Exception{
 		System.out.println("at relation annotation");
 		String[] stopWord = {"Who","What","Who"};
 		int counter = 5;
-		ArrayList<ArrayList<String[]>> finalRelList = new ArrayList<ArrayList<String[]>>(); 
+		ArrayList<ArrayList<relationAnnotationToken>> finalRelList = new ArrayList<ArrayList<relationAnnotationToken>>(); 
 		for (phrase ph : phraseList){
 			if (ph.getUri() != null){
 				//Retrives list of relation coming in and going out of the annotated entity 
@@ -56,7 +56,7 @@ public class relationAnnotation {
 				ph.setExpandIncomingProperty(expandIncomingProperty);
 				ph.setExpandOutgoingProperty(expandOutgoingProperty);
 				
-				ArrayList<String[]> listOfPairScore = new ArrayList<String[]>();
+				ArrayList<relationAnnotationToken> listOfPairScore = new ArrayList<relationAnnotationToken>();
 				
 //				for (String[] lp : listOfPair){
 //					for ( token tk : ques_annotation.gettokenlist())
@@ -65,25 +65,86 @@ public class relationAnnotation {
 				
 				
 //TODO: Simplify this for loop 				
-				for (String[] lp : listOfPair){
+//				for (String[] lp : listOfPair){
+//					for (phrase phr : phraseList){
+//						if (phr.getUri() == null ){
+//							for (token tk : phr.getPhraseToken()){
+//								if (!Arrays.asList(stopWord).contains(tk.getValue())) {
+//									String score = String.valueOf(word2vec.sendToVec(lp[1], tk.getValue()));
+//									if (Float.valueOf(score) > -1.0){		
+//									listOfPairScore.add(new String [] {lp[0],lp[1],tk.getValue(),score});}
+//								}
+//							}
+//						}
+//					}
+//				}
+//				
+				
+//				for (String[] lp : listOfPair){
+//					for (phrase phr : phraseList){
+//						if (phr.getUri() == null ){
+//							for (token tk : phr.getPhraseToken()){
+//								if (!Arrays.asList(stopWord).contains(tk.getValue())) {
+//									String score = String.valueOf(word2vec.sendToVec(lp[1], tk.getValue()));
+//									if (Float.valueOf(score) > -1.0){		
+//									listOfPairScore.add(new String [] {lp[0],lp[1],tk.getValue(),score});}
+//								}
+//							}
+//						}
+//					}
+//				}
+//				
+				for (String[] lp : expandIncomingProperty){
 					for (phrase phr : phraseList){
 						if (phr.getUri() == null ){
 							for (token tk : phr.getPhraseToken()){
 								if (!Arrays.asList(stopWord).contains(tk.getValue())) {
 									String score = String.valueOf(word2vec.sendToVec(lp[1], tk.getValue()));
-									if (Float.valueOf(score) > -1.0){		
-									listOfPairScore.add(new String [] {lp[0],lp[1],tk.getValue(),score});}
+									if (Float.valueOf(score) > -1.0){
+										relationAnnotationToken relToken = new relationAnnotationToken();
+										relToken.setScore(Float.valueOf(score));
+										relToken.setIncomingProperty(true);
+										relToken.setPropertyLabel(lp[1]);
+										relToken.setTok(tk);
+										relToken.setUri(lp[0]);
+										listOfPairScore.add(relToken);
+										}
 								}
 							}
 						}
 					}
 				}
 				
-						
+				for (String[] lp : expandOutgoingProperty){
+					for (phrase phr : phraseList){
+						if (phr.getUri() == null ){
+							for (token tk : phr.getPhraseToken()){
+								if (!Arrays.asList(stopWord).contains(tk.getValue())) {
+									String score = String.valueOf(word2vec.sendToVec(lp[1], tk.getValue()));
+									if (Float.valueOf(score) > -1.0){
+										relationAnnotationToken relToken = new relationAnnotationToken();
+										relToken.setScore(Float.valueOf(score));
+										relToken.setOutgoingProperty(true);;
+										relToken.setPropertyLabel(lp[1]);
+										relToken.setTok(tk);
+										relToken.setUri(lp[0]);
+										relToken.setPh(phr);
+										listOfPairScore.add(relToken);
+										}
+								}
+							}
+						}
+					}
+				}
+				
+				
+				
+				
+				
 				//This method sorts the ListOfPairScore arrayList by score value of the word2vec.
-				Collections.sort(listOfPairScore,new Comparator<String[]>() {
-		            public int compare(String[] strings, String[] otherStrings) {
-		                return Float.valueOf(strings[3]).compareTo(Float.valueOf(otherStrings[3]));
+				Collections.sort(listOfPairScore,new Comparator<relationAnnotationToken>() {
+		            public int compare(relationAnnotationToken strings, relationAnnotationToken otherStrings) {
+		                return Float.valueOf(strings.getScore()).compareTo(Float.valueOf(otherStrings.getScore()));
 		            }
 		        });
 				
@@ -92,7 +153,7 @@ public class relationAnnotation {
 //				}
 				Collections.reverse(listOfPairScore);
 				
-				ArrayList<String[]> sublistOfPairScore = new ArrayList<String[]>();
+				ArrayList<relationAnnotationToken> sublistOfPairScore = new ArrayList<relationAnnotationToken>();
 				
 				
 //				sublistOfPairScore = (ArrayList<String[]>) listOfPairScore.subList(0, Math.min(counter,listOfPairScore.size()));
