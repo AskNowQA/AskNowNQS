@@ -3,6 +3,7 @@ package orchestrator;
 import java.util.ArrayList;
 
 import annotation.AnnotationOrch;
+import annotation.relationAnnotationToken;
 import phrase.phrase;
 import phrase.phraseOrch;
 import phraseMerger.phraseMergerOrch;
@@ -34,16 +35,18 @@ public class orch {
 			phraseMergerOrch phraseMergerOrchestrator = new phraseMergerOrch();
 			AnnotationOrch annotation = new AnnotationOrch();
 			
-			ArrayList<ArrayList<String[]>> relAnnotation = annotation.startAnnotationOrch(phraseList,ques_annotation);
+			ArrayList<ArrayList<relationAnnotationToken>> relAnnotation = annotation.startAnnotationOrch(phraseList,ques_annotation);
 			
 			
 			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, phraseList);
 			
 //			phraseMergerOrchestrator.printConceptList(conceptList);
 			
-			for (ArrayList<String[]> relList : relAnnotation){
-				for (String[] rel : relList){
-					System.out.println(rel[0] + " :" + rel[1] + " :" + rel[2] + " :" + rel[3] + " :");
+			for (ArrayList<relationAnnotationToken> relList : relAnnotation){
+				for (relationAnnotationToken rel : relList){
+					System.out.println(rel.getTok().getValue() + rel.getPropertyLabel());
+					
+//					System.out.println(rel[0] + " :" + rel[1] + " :" + rel[2] + " :" + rel[3] + " :");
 				}
 			}
 			
