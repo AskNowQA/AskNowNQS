@@ -40,16 +40,20 @@ public class orch {
 			
 			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, phraseList);
 			
-//			phraseMergerOrchestrator.printConceptList(conceptList);
 			
-			for (ArrayList<relationAnnotationToken> relList : relAnnotation){
-				for (relationAnnotationToken rel : relList){
-					System.out.println(rel.getTok().getValue() + rel.getPropertyLabel());
-					
-//					System.out.println(rel[0] + " :" + rel[1] + " :" + rel[2] + " :" + rel[3] + " :");
+			System.out.println("phrases are");
+			for(phrase ph : phraseList){
+				for(token tk : ph.getPhraseToken()){
+					System.out.print(tk.getValue() + " ");
+					if(ph.getUri() != null){
+						System.out.println(" :the list of proabable relations are");
+					}
 				}
+				for (relationAnnotationToken relTk : ph.getListOfProbableRelation()){
+					System.out.println(relTk.getTok().getValue() + " : " + relTk.getPropertyLabel());
+				}
+				System.out.println("");
 			}
-			
 		}
 		
 		

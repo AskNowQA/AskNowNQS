@@ -57,43 +57,7 @@ public class relationAnnotation {
 				ph.setExpandOutgoingProperty(expandOutgoingProperty);
 				
 				ArrayList<relationAnnotationToken> listOfPairScore = new ArrayList<relationAnnotationToken>();
-				
-//				for (String[] lp : listOfPair){
-//					for ( token tk : ques_annotation.gettokenlist())
-//					listOfPairScore.add(new String [] {lp[0],lp[1],tk.getValue(),String.valueOf(word2vec.sendToVec(lp[1], tk.getValue()))});
-//				}
-				
-				
-//TODO: Simplify this for loop 				
-//				for (String[] lp : listOfPair){
-//					for (phrase phr : phraseList){
-//						if (phr.getUri() == null ){
-//							for (token tk : phr.getPhraseToken()){
-//								if (!Arrays.asList(stopWord).contains(tk.getValue())) {
-//									String score = String.valueOf(word2vec.sendToVec(lp[1], tk.getValue()));
-//									if (Float.valueOf(score) > -1.0){		
-//									listOfPairScore.add(new String [] {lp[0],lp[1],tk.getValue(),score});}
-//								}
-//							}
-//						}
-//					}
-//				}
-//				
-				
-//				for (String[] lp : listOfPair){
-//					for (phrase phr : phraseList){
-//						if (phr.getUri() == null ){
-//							for (token tk : phr.getPhraseToken()){
-//								if (!Arrays.asList(stopWord).contains(tk.getValue())) {
-//									String score = String.valueOf(word2vec.sendToVec(lp[1], tk.getValue()));
-//									if (Float.valueOf(score) > -1.0){		
-//									listOfPairScore.add(new String [] {lp[0],lp[1],tk.getValue(),score});}
-//								}
-//							}
-//						}
-//					}
-//				}
-//				
+								
 				for (String[] lp : expandIncomingProperty){
 					for (phrase phr : phraseList){
 						if (phr.getUri() == null ){
@@ -148,15 +112,11 @@ public class relationAnnotation {
 		            }
 		        });
 				
-//				for(String[] lp : listOfPairScore){
-//					System.out.println( lp[1]+ " :: " + lp[2] + " :: " + lp[3]);
-//				}
 				Collections.reverse(listOfPairScore);
 				
 				ArrayList<relationAnnotationToken> sublistOfPairScore = new ArrayList<relationAnnotationToken>();
 				
-				
-//				sublistOfPairScore = (ArrayList<String[]>) listOfPairScore.subList(0, Math.min(counter,listOfPairScore.size()));
+			
 				for(int i = 0 ; i<counter; i++){
 					if (i >= listOfPairScore.size()){
 						break;
@@ -165,6 +125,7 @@ public class relationAnnotation {
 					sublistOfPairScore.add(listOfPairScore.get(i));
 				}
 				finalRelList.add(sublistOfPairScore);
+				ph.setListOfProbableRelation(sublistOfPairScore);
 			}	
 		}
 		return finalRelList;

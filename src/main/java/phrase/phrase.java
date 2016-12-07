@@ -2,6 +2,7 @@ package phrase;
 
 import java.util.ArrayList;
 
+import annotation.relationAnnotationToken;
 import token.token;
 
 public class phrase {
@@ -19,9 +20,19 @@ public class phrase {
 	private ArrayList<String []> expandIncomingProperty = new ArrayList<String []>();
 	private ArrayList<String []> expandOutgoingProperty = new ArrayList<String []>();
 	private ArrayList<token> RelToken = new ArrayList<token>();
+	private ArrayList<relationAnnotationToken> listOfProbableRelation = new ArrayList<relationAnnotationToken>();
 	
 	
-	
+	public ArrayList<relationAnnotationToken> getListOfProbableRelation() {
+		return listOfProbableRelation;
+	}
+
+
+	public void setListOfProbableRelation(ArrayList<relationAnnotationToken> listOfProbableRelation) {
+		this.listOfProbableRelation = listOfProbableRelation;
+	}
+
+
 	public ArrayList<String[]> getIncomingProperty() {
 		return incomingProperty;
 	}
