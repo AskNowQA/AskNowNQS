@@ -18,7 +18,6 @@ public class relationAnnotation {
 	 * */
 	
 	public static ArrayList<ArrayList<relationAnnotationToken>> relAnnotation(ArrayList<phrase> phraseList, questionAnnotation ques_annotation) throws Exception{
-		System.out.println("at relation annotation");
 		String[] stopWord = {"Who","What","Who"};
 		int counter = 5;
 		ArrayList<ArrayList<relationAnnotationToken>> finalRelList = new ArrayList<ArrayList<relationAnnotationToken>>(); 

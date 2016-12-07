@@ -19,8 +19,8 @@ public class OneHopRelationQuery {
 				+ ". ?rel <http://www.w3.org/2000/01/rdf-schema#label> ?label."
 				+ "filter(langMatches(lang(?label),\"EN\")) }";
 		
-		System.out.println(sparql_incoming);
-		System.out.println(sparql_outgoing);
+//		System.out.println(sparql_incoming);
+//		System.out.println(sparql_outgoing);
 		ArrayList<String[]> incomingPropertyList = executeOneHop(sparql_incoming);
 		ArrayList<String[]> outgoingPropertyList = executeOneHop(sparql_incoming);
 		ArrayList<ArrayList<String[]>> allPropertyList = new ArrayList<ArrayList<String[]>>();

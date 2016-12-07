@@ -50,7 +50,7 @@ public class orch {
 					}
 				}
 				for (relationAnnotationToken relTk : ph.getListOfProbableRelation()){
-					System.out.println(relTk.getTok().getValue() + " : " + relTk.getPropertyLabel());
+					System.out.println(relTk.getTok().getValue() + " : " + relTk.getPropertyLabel() + " :" + relTk.getScore() );
 				}
 				System.out.println("");
 			}
