@@ -10,6 +10,10 @@ import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.stream.Stream;
+
+import annotation.AnnotationOrch;
+import annotation.relationAnnotationToken;
+
 import java.io.IOException;
 import java.nio.file.Files;
 
@@ -25,6 +29,7 @@ import phrase.phraseOrch;
 import phraseMerger.phraseMergerOrch;
 import question.quesOrch;
 import question.questionAnnotation;
+import token.token;
 
 public class conceptBenchmark {
 	/*
@@ -38,24 +43,42 @@ public class conceptBenchmark {
 		initializer init = new initializer();
 		//		String question = "Give me all cosmonauts.";
 		ArrayList<String> questionList = new ArrayList<String>();
-		questionList.add("Give me all cosmonauts.");
-		questionList.add("To which countries does the Himalayan mountain system extend?");
-		questionList.add("Who was the father of Queen Elizabeth II?");
+	
 
 		for(String question: readLinesUsingFileReader()){
-			System.out.println("");
-//			System.out.println(question);
+			
+
 			quesOrch question_orch = new quesOrch();
 			//Now pass it to phrase merger module
 			phraseOrch phrase = new phraseOrch();
 			questionAnnotation ques_annotation = question_orch.questionOrchestrator(question);
-			System.out.println(ques_annotation.getpreProcessingQuestion());
 			
 			
-			ArrayList<phrase> metaPhrase = phrase.startPhraseMerger(ques_annotation);
+			ArrayList<phrase> phraseList = phrase.startPhraseMerger(ques_annotation);
 			phraseMergerOrch phraseMergerOrchestrator = new phraseMergerOrch();
-			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, metaPhrase);
-//			phraseMergerOrchestrator.printConceptList(conceptList);
+			AnnotationOrch annotation = new AnnotationOrch();
+			
+			ArrayList<ArrayList<relationAnnotationToken>> relAnnotation = annotation.startAnnotationOrch(phraseList,ques_annotation);
+			
+			
+			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, phraseList);
+			
+			
+			System.out.println("phrases are");
+			for(phrase ph : phraseList){
+				for(token tk : ph.getPhraseToken()){
+					System.out.print(tk.getValue() + " ");
+					if(ph.getUri() != null){
+						System.out.println(" :the list of proabable relations are");
+					}
+				}
+				for (relationAnnotationToken relTk : ph.getListOfProbableRelation()){
+					System.out.println(relTk.getTok().getValue() + " : " + relTk.getPropertyLabel() + " :" + relTk.getScore() );
+				}
+				System.out.println("");
+			}
+		
+			
 		}
 			        
 	       
