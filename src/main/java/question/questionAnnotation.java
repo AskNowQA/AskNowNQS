@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import preProcessing.preProcessing;
 import nlp.nlp;
+import phrase.phrase;
 import token.token;
 
 public class questionAnnotation {
@@ -20,6 +21,38 @@ public class questionAnnotation {
 	private String annotatedOriginalQuestion = null;
 	private String preProcessingQuestion = null;
 	private ArrayList<token> tokenlist = null;
+	private ArrayList<phrase> phraseList = null;
+	
+	public String getPreProcessingQuestion() {
+		return preProcessingQuestion;
+	}
+
+
+	public void setPreProcessingQuestion(String preProcessingQuestion) {
+		this.preProcessingQuestion = preProcessingQuestion;
+	}
+
+
+	public ArrayList<token> getTokenlist() {
+		return tokenlist;
+	}
+
+
+	public void setTokenlist(ArrayList<token> tokenlist) {
+		this.tokenlist = tokenlist;
+	}
+
+
+	public ArrayList<phrase> getPhraseList() {
+		return phraseList;
+	}
+
+
+	public void setPhraseList(ArrayList<phrase> phraseList) {
+		this.phraseList = phraseList;
+	}
+
+
 	public questionAnnotation(String question){
 		originalQuestion = question;
 	}

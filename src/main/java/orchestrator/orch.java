@@ -42,6 +42,9 @@ public class orch {
 			
 			
 			System.out.println("phrases are");
+			
+			ques_annotation.setPhraseList(phraseList);
+			
 			for(phrase ph : phraseList){
 				for(token tk : ph.getPhraseToken()){
 					System.out.print(tk.getValue() + " ");
@@ -55,6 +58,7 @@ public class orch {
 				System.out.println("");
 			}
 		}
+		
 		
 		
 		
