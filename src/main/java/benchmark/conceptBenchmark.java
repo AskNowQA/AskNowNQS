@@ -43,7 +43,6 @@ public class conceptBenchmark {
 		initializer init = new initializer();
 		//		String question = "Give me all cosmonauts.";
 		ArrayList<String> questionList = new ArrayList<String>();
-	
 
 		for(String question: readLinesUsingFileReader()){
 			
