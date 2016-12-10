@@ -38,7 +38,8 @@ public class preProcessing {
 		//resolving nonWH queries to WH queries. 
 		question = question.replaceAll("(?)Give me a list of", "What is list of");
 		question = question.replaceAll("(?)Give me all", "What is list of");
-		question = question.replaceAll("(?)Give me", "What is list of");
+		question = question.replaceAll("(?)Give a list of", "What is list of");
+		question = question.replaceAll("(?)Give all", "What is list of");
 		question = question.replaceAll("(?)List all", "What is list of");
 		question = question.replaceAll("(?)List", "What is list of");
 		question = question.replaceAll("(?)Show me", "What is list of");
