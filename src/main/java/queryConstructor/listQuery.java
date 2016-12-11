@@ -17,7 +17,7 @@ public class listQuery {
 	public static String listQuerylogic(questionAnnotation ques_annotation){
 		
 		ArrayList<phrase> annotatedPhraseList  = listQuery.getAnnotatedPhraseList(ques_annotation);
-		
+		System.out.println(annotatedPhraseList.size());
 		String sparql = "";
 		if (annotatedPhraseList.size() == 1){
 			//Only two types of sparql can be present here
@@ -26,9 +26,9 @@ public class listQuery {
 			// checking if the token is a prt of incoming or outgoing property
 			if (tk.isIncomingProperty()){
 				//part of incoming property
-				System.out.println(sparql);
-				sparql = "SELECT DISTINCT ?var WHERE { ?var <"+ tk.getUri() + "> " + annotatedPhraseList.get(0).getUri()+" . }";
 				
+				sparql = "SELECT DISTINCT ?var WHERE { ?var <"+ tk.getUri() + "> " + annotatedPhraseList.get(0).getUri()+" . }";
+				System.out.println(sparql);
 				// ?x tk ph
 				// tk.getUri() --> for property uri
 				//	annotatedPhraseList.get(0).getUri() -- entity uri 
@@ -43,6 +43,7 @@ public class listQuery {
 				return sparql;
 			}
 		}
+		System.out.println(sparql);
 		return sparql;
 	}
 	
@@ -58,7 +59,6 @@ public class listQuery {
 				annotatedPhraseList.add(ph);
 			}
 		}
-		System.out.println(annotatedPhraseList.get(0).getListOfProbableRelation());
 		return annotatedPhraseList;
 	}
 }
