@@ -20,7 +20,6 @@ public class relationAnnotation {
 	public static ArrayList<ArrayList<relationAnnotationToken>> relAnnotation(ArrayList<phrase> phraseList, questionAnnotation ques_annotation) throws Exception{
 		String[] stopWord = {"Who","What","Who"};
 		int counter = 5;
-		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 		ArrayList<ArrayList<relationAnnotationToken>> finalRelList = new ArrayList<ArrayList<relationAnnotationToken>>(); 
 		for (phrase ph : phraseList){
 			if (ph.getUri() != null){
@@ -125,7 +124,6 @@ public class relationAnnotation {
 					sublistOfPairScore.add(listOfPairScore.get(i));
 				}
 				finalRelList.add(sublistOfPairScore);
-				System.out.println("***" + sublistOfPairScore);
 				ph.setListOfProbableRelation(sublistOfPairScore);
 			}	
 		}

@@ -837,7 +837,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Ganges> <http://dbpedia.org/property/sourceCountry> ?l . ?uri <http://www.w3.org/2000/01/rdf-schema#label> ?l . ?uri rdf:type <http://dbpedia.org/ontology/Country> . }"
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Ganges> <http://dbpedia.org/ontology/sourceCountry> ?l . ?uri <http://www.w3.org/2000/01/rdf-schema#label> ?l . ?uri rdf:type <http://dbpedia.org/ontology/Country> . }"
       },
       "answers": [
         {
@@ -1520,7 +1520,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?date WHERE {  <http://dbpedia.org/resource/Alberta> <http://dbpedia.org/property/admittancedate> ?date . } "
+        "sparql": "SELECT DISTINCT ?date WHERE {  <http://dbpedia.org/resource/Alberta> <http://dbpedia.org/ontology/admittancedate> ?date . } "
       },
       "answers": [
         {
@@ -1591,7 +1591,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Himalayas> <http://dbpedia.org/property/country> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Himalayas> <http://dbpedia.org/ontology/country> ?uri . } "
       },
       "answers": [
         {
@@ -2212,7 +2212,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?num WHERE {  <http://dbpedia.org/resource/New_York_City_Fire_Department> <http://dbpedia.org/property/employees> ?num . } "
+        "sparql": "SELECT DISTINCT ?num WHERE {  <http://dbpedia.org/resource/New_York_City_Fire_Department> <http://dbpedia.org/ontology/employees> ?num . } "
       },
       "answers": [
         {
@@ -2425,7 +2425,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . { ?uri <http://dbpedia.org/property/year> '2013'^^xsd:integer . } UNION { ?uri <http://dbpedia.org/property/year> '2014'^^xsd:integer . } } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/WorldHeritageSite> . { ?uri <http://dbpedia.org/ontology/year> '2013'^^xsd:integer . } UNION { ?uri <http://dbpedia.org/ontology/year> '2014'^^xsd:integer . } } "
       },
       "answers": [
         {
@@ -2842,7 +2842,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/River> . { ?uri <http://dbpedia.org/ontology/length> ?l . } UNION { ?uri <http://dbpedia.org/property/length> ?l . } } ORDER BY DESC(?l) OFFSET 0 LIMIT 1 "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/River> . { ?uri <http://dbpedia.org/ontology/length> ?l . } UNION { ?uri <http://dbpedia.org/ontology/length> ?l . } } ORDER BY DESC(?l) OFFSET 0 LIMIT 1 "
       },
       "answers": [
         {
@@ -2972,7 +2972,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Automobile> . { ?uri <http://dbpedia.org/ontology/assembly> <http://dbpedia.org/resource/Germany> . } UNION { ?uri <http://dbpedia.org/property/assembly> <http://dbpedia.org/resource/Germany> . } UNION { { ?uri <http://dbpedia.org/ontology/manufacturer> ?x . }  UNION  { ?uri <http://dbpedia.org/property/manufacturer> ?x . }  { ?x <http://dbpedia.org/ontology/locationCountry> <http://dbpedia.org/resource/Germany> . }  UNION  { ?x <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/Germany> . } } } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Automobile> . { ?uri <http://dbpedia.org/ontology/assembly> <http://dbpedia.org/resource/Germany> . } UNION { ?uri <http://dbpedia.org/ontology/assembly> <http://dbpedia.org/resource/Germany> . } UNION { { ?uri <http://dbpedia.org/ontology/manufacturer> ?x . }  UNION  { ?uri <http://dbpedia.org/ontology/manufacturer> ?x . }  { ?x <http://dbpedia.org/ontology/locationCountry> <http://dbpedia.org/resource/Germany> . }  UNION  { ?x <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/Germany> . } } } "
       },
       "answers": [
         {
@@ -6303,7 +6303,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Wyoming> <http://dbpedia.org/property/governor> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Wyoming> <http://dbpedia.org/ontology/governor> ?uri . } "
       },
       "answers": [
         {
@@ -6433,7 +6433,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Elizabeth_II> <http://dbpedia.org/property/father> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Elizabeth_II> <http://dbpedia.org/ontology/father> ?uri . } "
       },
       "answers": [
         {
@@ -6504,7 +6504,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/StatesOfTheUnitedStates> .  ?uri <http://dbpedia.org/property/admittancedate> ?x . } ORDER BY DESC(?x) OFFSET 0 LIMIT 1 "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/StatesOfTheUnitedStates> .  ?uri <http://dbpedia.org/ontology/admittancedate> ?x . } ORDER BY DESC(?x) OFFSET 0 LIMIT 1 "
       },
       "answers": [
         {
@@ -6646,7 +6646,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/StatesOfTheUnitedStates> .  ?uri <http://dbpedia.org/property/governor> <http://dbpedia.org/resource/Butch_Otter> . }"
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/StatesOfTheUnitedStates> .  ?uri <http://dbpedia.org/ontology/governor> <http://dbpedia.org/resource/Butch_Otter> . }"
       },
       "answers": [
         {
@@ -10525,7 +10525,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Amanda_Palmer> <http://dbpedia.org/property/spouse> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Amanda_Palmer> <http://dbpedia.org/ontology/spouse> ?uri . } "
       },
       "answers": [
         {
@@ -10596,7 +10596,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/property/breed> <http://dbpedia.org/resource/German_Shepherd> . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/ontology/breed> <http://dbpedia.org/resource/German_Shepherd> . } "
       },
       "answers": [
         {
@@ -10834,7 +10834,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Rhine> <http://dbpedia.org/property/country> ?string .  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .  ?uri <http://www.w3.org/2000/01/rdf-schema#label> ?string . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Rhine> <http://dbpedia.org/ontology/country> ?string .  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .  ?uri <http://www.w3.org/2000/01/rdf-schema#label> ?string . } "
       },
       "answers": [
         {
@@ -11143,7 +11143,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Weapon> . ?uri <http://dbpedia.org/property/designer> <http://dbpedia.org/resource/Heckler_&_Koch> .  }"
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Weapon> . ?uri <http://dbpedia.org/ontology/designer> <http://dbpedia.org/resource/Heckler_&_Koch> .  }"
       },
       "answers": [
         {
@@ -11679,7 +11679,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Lisbon> <http://dbpedia.org/property/leaderParty> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Lisbon> <http://dbpedia.org/ontology/leaderParty> ?uri . } "
       },
       "answers": [
         {
@@ -11750,7 +11750,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?string WHERE {  <http://dbpedia.org/resource/San_Francisco> <http://dbpedia.org/property/nickname> ?string . } "
+        "sparql": "SELECT DISTINCT ?string WHERE {  <http://dbpedia.org/resource/San_Francisco> <http://dbpedia.org/ontology/nickname> ?string . } "
       },
       "answers": [
         {
@@ -11821,7 +11821,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/GreekGoddesses> .  ?uri <http://dbpedia.org/property/abode> <http://dbpedia.org/resource/Mount_Olympus> . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/GreekGoddesses> .  ?uri <http://dbpedia.org/ontology/abode> <http://dbpedia.org/resource/Mount_Olympus> . } "
       },
       "answers": [
         {
@@ -11958,7 +11958,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?date WHERE {  <http://dbpedia.org/resource/Hells_Angels> <http://dbpedia.org/property/founded> ?date . } "
+        "sparql": "SELECT DISTINCT ?date WHERE {  <http://dbpedia.org/resource/Hells_Angels> <http://dbpedia.org/ontology/founded> ?date . } "
       },
       "answers": [
         {
@@ -12112,7 +12112,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Salt_Lake_City> <http://dbpedia.org/property/timezone> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Salt_Lake_City> <http://dbpedia.org/ontology/timezone> ?uri . } "
       },
       "answers": [
         {
@@ -12183,7 +12183,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Utah> <http://dbpedia.org/property/timezone> ?x .  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/StatesOfTheUnitedStates> .  ?uri <http://dbpedia.org/property/timezone> ?x .  FILTER (?uri != <http://dbpedia.org/resource/Utah>) } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Utah> <http://dbpedia.org/ontology/timezone> ?x .  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/StatesOfTheUnitedStates> .  ?uri <http://dbpedia.org/ontology/timezone> ?x .  FILTER (?uri != <http://dbpedia.org/resource/Utah>) } "
       },
       "answers": [
         {
@@ -12990,7 +12990,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT (COUNT(DISTINCT ?uri) as ?c) WHERE {  ?uri <http://dbpedia.org/property/programme> <http://dbpedia.org/resource/Soyuz_programme> . } "
+        "sparql": "SELECT (COUNT(DISTINCT ?uri) as ?c) WHERE {  ?uri <http://dbpedia.org/ontology/programme> <http://dbpedia.org/resource/Soyuz_programme> . } "
       },
       "answers": [
         {
@@ -13879,7 +13879,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/property/shipNamesake> <http://dbpedia.org/resource/Benjamin_Franklin> . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/ontology/shipNamesake> <http://dbpedia.org/resource/Benjamin_Franklin> . } "
       },
       "answers": [
         {
@@ -14323,7 +14323,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?date WHERE {  <http://dbpedia.org/resource/Statue_of_Liberty> <http://dbpedia.org/property/beginningDate> ?date . } "
+        "sparql": "SELECT DISTINCT ?date WHERE {  <http://dbpedia.org/resource/Statue_of_Liberty> <http://dbpedia.org/ontology/beginningDate> ?date . } "
       },
       "answers": [
         {
@@ -14394,7 +14394,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Fort_Knox> <http://dbpedia.org/property/location> ?uri . }"
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Fort_Knox> <http://dbpedia.org/ontology/location> ?uri . }"
       },
       "answers": [
         {
@@ -14797,7 +14797,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/property/nickname> 'Frank The Tank'@en . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/ontology/nickname> 'Frank The Tank'@en . } "
       },
       "answers": [
         {
@@ -14927,7 +14927,7 @@
         }
       ],
       "query": {
-        "sparql": "ASK WHERE { <http://dbpedia.org/resource/Marc_Chagall> <http://dbpedia.org/property/ethnicity> 'Jewish'@en . } "
+        "sparql": "ASK WHERE { <http://dbpedia.org/resource/Marc_Chagall> <http://dbpedia.org/ontology/ethnicity> 'Jewish'@en . } "
       },
       "answers": [
         {
@@ -16798,7 +16798,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Prime_Minister_of_Spain> <http://dbpedia.org/property/residence> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Prime_Minister_of_Spain> <http://dbpedia.org/ontology/residence> ?uri . } "
       },
       "answers": [
         {
@@ -16869,7 +16869,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/StatesOfTheUnitedStates> .  ?uri <http://dbpedia.org/property/postalabbreviation> 'MN'@en . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/StatesOfTheUnitedStates> .  ?uri <http://dbpedia.org/ontology/postalabbreviation> 'MN'@en . } "
       },
       "answers": [
         {
@@ -17298,7 +17298,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?num WHERE {  <http://dbpedia.org/resource/Pilsner_Urquell> <http://dbpedia.org/property/brewery> ?uri .  ?uri <http://dbpedia.org/property/foundation> ?num . } "
+        "sparql": "SELECT DISTINCT ?num WHERE {  <http://dbpedia.org/resource/Pilsner_Urquell> <http://dbpedia.org/ontology/brewery> ?uri .  ?uri <http://dbpedia.org/ontology/foundation> ?num . } "
       },
       "answers": [
         {
@@ -17369,7 +17369,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Poland> <http://dbpedia.org/ontology/anthem> ?x .  ?x <http://dbpedia.org/property/author> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Poland> <http://dbpedia.org/ontology/anthem> ?x .  ?x <http://dbpedia.org/ontology/author> ?uri . } "
       },
       "answers": [
         {
@@ -17565,7 +17565,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/The_Storm_on_the_Sea_of_Galilee> <http://dbpedia.org/property/artist> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/The_Storm_on_the_Sea_of_Galilee> <http://dbpedia.org/ontology/artist> ?uri . } "
       },
       "answers": [
         {
@@ -17986,7 +17986,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Illinois> <http://dbpedia.org/property/borderingstates> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Illinois> <http://dbpedia.org/ontology/borderingstates> ?uri . } "
       },
       "answers": [
         {
@@ -18395,7 +18395,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Bridge> .  ?uri <http://dbpedia.org/property/design> ?design .  <http://dbpedia.org/resource/Manhattan_Bridge> <http://dbpedia.org/property/design> ?mdesign .  FILTER (?design = ?mdesign && ?uri != <http://dbpedia.org/resource/Manhattan_Bridge>) .} "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Bridge> .  ?uri <http://dbpedia.org/ontology/design> ?design .  <http://dbpedia.org/resource/Manhattan_Bridge> <http://dbpedia.org/ontology/design> ?mdesign .  FILTER (?design = ?mdesign && ?uri != <http://dbpedia.org/resource/Manhattan_Bridge>) .} "
       },
       "answers": [
         {
@@ -19059,7 +19059,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> . ?uri <http://dbpedia.org/property/ideology> <http://dbpedia.org/resource/Communism> . }"
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> . ?uri <http://dbpedia.org/ontology/ideology> <http://dbpedia.org/resource/Communism> . }"
       },
       "answers": [
         {
@@ -19290,7 +19290,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/StatesOfTheUnitedStates> .  ?uri <http://dbpedia.org/property/densityrank> ?rank . } ORDER BY ASC(?rank) OFFSET 0 LIMIT 1 "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/StatesOfTheUnitedStates> .  ?uri <http://dbpedia.org/ontology/densityrank> ?rank . } ORDER BY ASC(?rank) OFFSET 0 LIMIT 1 "
       },
       "answers": [
         {
@@ -19432,7 +19432,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .  { ?uri <http://dbpedia.org/ontology/currency> <http://dbpedia.org/resource/Euro> . }  UNION  { ?uri <http://dbpedia.org/property/currencyCode> 'EUR'@en . } } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .  { ?uri <http://dbpedia.org/ontology/currency> <http://dbpedia.org/resource/Euro> . }  UNION  { ?uri <http://dbpedia.org/ontology/currencyCode> 'EUR'@en . } } "
       },
       "answers": [
         {
@@ -20123,7 +20123,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?date WHERE {  <http://dbpedia.org/resource/Latvia> <http://dbpedia.org/property/accessioneudate> ?date . } "
+        "sparql": "SELECT DISTINCT ?date WHERE {  <http://dbpedia.org/resource/Latvia> <http://dbpedia.org/ontology/accessioneudate> ?date . } "
       },
       "answers": [
         {
@@ -20502,7 +20502,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/SoccerClub> .  { ?uri <http://dbpedia.org/ontology/ground> <http://dbpedia.org/resource/Spain> . }  UNION  { ?uri <http://dbpedia.org/property/ground> ?ground .  FILTER (regex(?ground,'Spain')) } } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/SoccerClub> .  { ?uri <http://dbpedia.org/ontology/ground> <http://dbpedia.org/resource/Spain> . }  UNION  { ?uri <http://dbpedia.org/ontology/ground> ?ground .  FILTER (regex(?ground,'Spain')) } } "
       },
       "answers": [
         {
@@ -25724,7 +25724,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT (COUNT(DISTINCT ?uri) as ?c) WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Organisation> . { ?uri <http://dbpedia.org/ontology/industry> <http://dbpedia.org/resource/Telecommunication> . } UNION { ?uri <http://dbpedia.org/property/industry> ?industry .  FILTER (regex(?industry,'Telecommunications')) . } { ?uri <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/Belgium> . } UNION { ?uri <http://dbpedia.org/property/locationCountry> 'Belgium'@en . } } "
+        "sparql": "SELECT (COUNT(DISTINCT ?uri) as ?c) WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Organisation> . { ?uri <http://dbpedia.org/ontology/industry> <http://dbpedia.org/resource/Telecommunication> . } UNION { ?uri <http://dbpedia.org/ontology/industry> ?industry .  FILTER (regex(?industry,'Telecommunications')) . } { ?uri <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/Belgium> . } UNION { ?uri <http://dbpedia.org/ontology/locationCountry> 'Belgium'@en . } } "
       },
       "answers": [
         {
@@ -25854,7 +25854,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Ural_Mountains> <http://dbpedia.org/property/highest> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Ural_Mountains> <http://dbpedia.org/ontology/highest> ?uri . } "
       },
       "answers": [
         {
@@ -26209,7 +26209,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Library> .  ?uri <http://dbpedia.org/property/established> ?year .  FILTER (?year < 1400) } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Library> .  ?uri <http://dbpedia.org/ontology/established> ?year .  FILTER (?year < 1400) } "
       },
       "answers": [
         {
@@ -26531,7 +26531,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .  { ?uri <http://dbpedia.org/ontology/office> 'Chancellor of Germany' . }  UNION  { ?uri <http://dbpedia.org/property/office> <http://dbpedia.org/resource/Chancellor_of_Germany> . } } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .  { ?uri <http://dbpedia.org/ontology/office> 'Chancellor of Germany' . }  UNION  { ?uri <http://dbpedia.org/ontology/office> <http://dbpedia.org/resource/Chancellor_of_Germany> . } } "
       },
       "answers": [
         {
@@ -26792,7 +26792,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?string WHERE {  <http://dbpedia.org/resource/Tom_Cruise> <http://dbpedia.org/property/website> ?string . } "
+        "sparql": "SELECT DISTINCT ?string WHERE {  <http://dbpedia.org/resource/Tom_Cruise> <http://dbpedia.org/ontology/website> ?string . } "
       },
       "answers": [
         {
@@ -35624,7 +35624,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Nanga_Parbat> <http://dbpedia.org/ontology/elevation> ?elevation .  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Mountain> . { ?uri <http://dbpedia.org/ontology/elevation> ?otherelevation . } UNION { ?uri <http://dbpedia.org/property/elevationM> ?otherelevation . }  FILTER (?otherelevation > ?elevation) . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Nanga_Parbat> <http://dbpedia.org/ontology/elevation> ?elevation .  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Mountain> . { ?uri <http://dbpedia.org/ontology/elevation> ?otherelevation . } UNION { ?uri <http://dbpedia.org/ontology/elevationM> ?otherelevation . }  FILTER (?otherelevation > ?elevation) . } "
       },
       "answers": [
         {
@@ -37622,7 +37622,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?string WHERE {  ?c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Company> . { ?c <http://dbpedia.org/ontology/numberOfEmployees> ?employees . } UNION { ?c <http://dbpedia.org/property/numEmployees> ?employees . }  FILTER( xsd:integer(?employees) > 500000 ) .  ?c <http://dbpedia.org/property/homepage> ?string . } "
+        "sparql": "SELECT DISTINCT ?string WHERE {  ?c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Company> . { ?c <http://dbpedia.org/ontology/numberOfEmployees> ?employees . } UNION { ?c <http://dbpedia.org/ontology/numEmployees> ?employees . }  FILTER( xsd:integer(?employees) > 500000 ) .  ?c <http://dbpedia.org/ontology/homepage> ?string . } "
       },
       "answers": [
         {
@@ -38130,7 +38130,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Cave> .  ?uri <http://dbpedia.org/property/entranceCount> ?entrance .  FILTER (?entrance > 3) . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Cave> .  ?uri <http://dbpedia.org/ontology/entranceCount> ?entrance .  FILTER (?entrance > 3) . } "
       },
       "answers": [
         {
@@ -43050,7 +43050,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/StatesOfGermany> .  { ?uri <http://dbpedia.org/ontology/leaderParty> <http://dbpedia.org/resource/Social_Democratic_Party_of_Germany> . } UNION  { ?uri <http://dbpedia.org/property/rulingParty> 'SPD'@en . } } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/StatesOfGermany> .  { ?uri <http://dbpedia.org/ontology/leaderParty> <http://dbpedia.org/resource/Social_Democratic_Party_of_Germany> . } UNION  { ?uri <http://dbpedia.org/ontology/rulingParty> 'SPD'@en . } } "
       },
       "answers": [
         {
@@ -43270,7 +43270,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .  ?uri <http://dbpedia.org/property/officialLanguages> ?language . } ORDER BY DESC(COUNT(?language)) OFFSET 0 LIMIT 1 "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .  ?uri <http://dbpedia.org/ontology/officialLanguages> ?language . } ORDER BY DESC(COUNT(?language)) OFFSET 0 LIMIT 1 "
       },
       "answers": [
         {
@@ -52904,7 +52904,7 @@
         }
       ],
       "query": {
-        "sparql": "ASK WHERE {  <http://dbpedia.org/resource/Abraham_Lincoln> <http://dbpedia.org/ontology/deathPlace> ?p .  ?p <http://dbpedia.org/property/website> ?w . } "
+        "sparql": "ASK WHERE {  <http://dbpedia.org/resource/Abraham_Lincoln> <http://dbpedia.org/ontology/deathPlace> ?p .  ?p <http://dbpedia.org/ontology/website> ?w . } "
       },
       "answers": [
         {
@@ -53372,7 +53372,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Action_role-playing_video_games> .  ?uri <http://dbpedia.org/property/ign> ?score . } ORDER BY DESC(?score) LIMIT 10 "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Action_role-playing_video_games> .  ?uri <http://dbpedia.org/ontology/ign> ?score . } ORDER BY DESC(?score) LIMIT 10 "
       },
       "answers": [
         {
@@ -54679,7 +54679,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Pope_John_Paul_II> <http://dbpedia.org/property/successor> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Pope_John_Paul_II> <http://dbpedia.org/ontology/successor> ?uri . } "
       },
       "answers": [
         {
@@ -54887,7 +54887,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?date WHERE {  <http://dbpedia.org/resource/Halloween> <http://dbpedia.org/property/date> ?date . } "
+        "sparql": "SELECT DISTINCT ?date WHERE {  <http://dbpedia.org/resource/Halloween> <http://dbpedia.org/ontology/date> ?date . } "
       },
       "answers": [
         {
@@ -55402,7 +55402,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?n WHERE {  <http://dbpedia.org/resource/Brazil_national_football_team> <http://dbpedia.org/property/fifaMin> ?n . } "
+        "sparql": "SELECT DISTINCT ?n WHERE {  <http://dbpedia.org/resource/Brazil_national_football_team> <http://dbpedia.org/ontology/fifaMin> ?n . } "
       },
       "answers": [
         {
@@ -55473,7 +55473,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Himalayas> <http://dbpedia.org/property/country> ?country .  ?country <http://dbpedia.org/ontology/capital> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Himalayas> <http://dbpedia.org/ontology/country> ?country .  ?country <http://dbpedia.org/ontology/capital> ?uri . } "
       },
       "answers": [
         {
@@ -55574,7 +55574,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Chewbacca> <http://dbpedia.org/property/portrayer> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Chewbacca> <http://dbpedia.org/ontology/portrayer> ?uri . } "
       },
       "answers": [
         {
@@ -55947,7 +55947,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?n WHERE {  ?uri <http://dbpedia.org/property/satelliteOf> <http://dbpedia.org/resource/Jupiter> .  ?uri <http://dbpedia.org/ontology/mass> ?n . } ORDER BY ASC(?n) OFFSET 0 LIMIT 1 "
+        "sparql": "SELECT DISTINCT ?n WHERE {  ?uri <http://dbpedia.org/ontology/satelliteOf> <http://dbpedia.org/resource/Jupiter> .  ?uri <http://dbpedia.org/ontology/mass> ?n . } ORDER BY ASC(?n) OFFSET 0 LIMIT 1 "
       },
       "answers": [
         {
@@ -56637,7 +56637,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/BasketballPlayer> .  ?uri <http://dbpedia.org/ontology/birthDate> ?date.  ?uri <http://dbpedia.org/property/highlights> ?h .  FILTER regex(?h,'MVP') } ORDER BY DESC(?date) OFFSET 0 LIMIT 4 "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/BasketballPlayer> .  ?uri <http://dbpedia.org/ontology/birthDate> ?date.  ?uri <http://dbpedia.org/ontology/highlights> ?h .  FILTER regex(?h,'MVP') } ORDER BY DESC(?date) OFFSET 0 LIMIT 4 "
       },
       "answers": [
         {
@@ -56726,7 +56726,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Company> . { ?uri <http://dbpedia.org/ontology/numberOfEmployees> ?n . } UNION { ?uri <http://dbpedia.org/property/numEmployees> ?n . } FILTER ( ?n > 1000000 ) } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Company> . { ?uri <http://dbpedia.org/ontology/numberOfEmployees> ?n . } UNION { ?uri <http://dbpedia.org/ontology/numEmployees> ?n . } FILTER ( ?n > 1000000 ) } "
       },
       "answers": [
         {
@@ -57376,7 +57376,7 @@
               {
                 "uri": {
                   "type": "uri",
-                  "value": "http://dbpedia.org/resource/Halstead_Property"
+                  "value": "http://dbpedia.org/resource/Halstead_ontology"
                 }
               },
               {
@@ -67606,7 +67606,7 @@
               {
                 "uri": {
                   "type": "uri",
-                  "value": "http://dbpedia.org/resource/Brixmor_Property_Group"
+                  "value": "http://dbpedia.org/resource/Brixmor_ontology_Group"
                 }
               },
               {
@@ -68130,7 +68130,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/property/nickname> \"Rodzilla\"@en . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/ontology/nickname> \"Rodzilla\"@en . } "
       },
       "answers": [
         {
@@ -68580,7 +68580,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/The_Hunger_Games> <http://dbpedia.org/property/creator> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/The_Hunger_Games> <http://dbpedia.org/ontology/creator> ?uri . } "
       },
       "answers": [
         {
@@ -69504,7 +69504,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Agent_Smith> <http://dbpedia.org/property/portrayer> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Agent_Smith> <http://dbpedia.org/ontology/portrayer> ?uri . } "
       },
       "answers": [
         {
@@ -69581,7 +69581,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?carbs WHERE {  <http://dbpedia.org/resource/Peanut_butter> <http://dbpedia.org/property/carbs> ?carbs . } "
+        "sparql": "SELECT DISTINCT ?carbs WHERE {  <http://dbpedia.org/resource/Peanut_butter> <http://dbpedia.org/ontology/carbs> ?carbs . } "
       },
       "answers": [
         {
@@ -70413,7 +70413,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Airline> .  { ?uri <http://dbpedia.org/property/alliance> <http://dbpedia.org/resource/SkyTeam> . }  UNION  { ?uri <http://dbpedia.org/ontology/Alliance> <http://dbpedia.org/resource/SkyTeam> . } } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Airline> .  { ?uri <http://dbpedia.org/ontology/alliance> <http://dbpedia.org/resource/SkyTeam> . }  UNION  { ?uri <http://dbpedia.org/ontology/Alliance> <http://dbpedia.org/resource/SkyTeam> . } } "
       },
       "answers": [
         {
@@ -71095,7 +71095,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/property/type> <http://dbpedia.org/resource/Beer> .  ?uri <http://dbpedia.org/property/origin> \"Ireland\"@en . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/ontology/type> <http://dbpedia.org/resource/Beer> .  ?uri <http://dbpedia.org/ontology/origin> \"Ireland\"@en . } "
       },
       "answers": [
         {
@@ -71166,7 +71166,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/UNC_Health_Care> <http://dbpedia.org/property/speciality> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/UNC_Health_Care> <http://dbpedia.org/ontology/speciality> ?uri . } "
       },
       "answers": [
         {
@@ -71552,7 +71552,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/property/title> <http://dbpedia.org/resource/President_of_Pakistan> .  ?uri <http://dbpedia.org/property/years> 1978 . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/ontology/title> <http://dbpedia.org/resource/President_of_Pakistan> .  ?uri <http://dbpedia.org/ontology/years> 1978 . } "
       },
       "answers": [
         {
@@ -72160,7 +72160,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Washington_(state)> <http://dbpedia.org/property/largestmetro> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Washington_(state)> <http://dbpedia.org/ontology/largestmetro> ?uri . } "
       },
       "answers": [
         {
@@ -83505,7 +83505,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?n WHERE {  <http://dbpedia.org/resource/Eddie_Murphy> <http://dbpedia.org/property/children> ?n . } "
+        "sparql": "SELECT DISTINCT ?n WHERE {  <http://dbpedia.org/resource/Eddie_Murphy> <http://dbpedia.org/ontology/children> ?n . } "
       },
       "answers": [
         {
@@ -83647,7 +83647,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .  ?uri <http://dbpedia.org/property/conviction> <http://dbpedia.org/resource/Death_of_John_Lennon> . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .  ?uri <http://dbpedia.org/ontology/conviction> <http://dbpedia.org/resource/Death_of_John_Lennon> . } "
       },
       "answers": [
         {
@@ -83718,7 +83718,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT ?uri WHERE {  ?airline <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Airline> .  ?airline <http://dbpedia.org/property/frequentFlyer> ?uri.  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/FrequentFlyerPrograms> . } ORDER BY DESC(COUNT(DISTINCT ?airline)) OFFSET 0 LIMIT 1 "
+        "sparql": "SELECT ?uri WHERE {  ?airline <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Airline> .  ?airline <http://dbpedia.org/ontology/frequentFlyer> ?uri.  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/class/yago/FrequentFlyerPrograms> . } ORDER BY DESC(COUNT(DISTINCT ?airline)) OFFSET 0 LIMIT 1 "
       },
       "answers": [
         {
@@ -83855,7 +83855,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE { ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Artist> . <http://dbpedia.org/resource/Rachel_Stevens> <http://dbpedia.org/property/dateOfBirth> ?date . ?uri <http://dbpedia.org/property/dateOfBirth> ?date . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE { ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Artist> . <http://dbpedia.org/resource/Rachel_Stevens> <http://dbpedia.org/ontology/dateOfBirth> ?date . ?uri <http://dbpedia.org/ontology/dateOfBirth> ?date . } "
       },
       "answers": [
         {
@@ -84556,7 +84556,7 @@
         }
       ],
       "query": {
-        "sparql": "ASK WHERE { <http://dbpedia.org/resource/Darth_Vader> <http://dbpedia.org/property/children> \"Luke Skywalker\"@en . }"
+        "sparql": "ASK WHERE { <http://dbpedia.org/resource/Darth_Vader> <http://dbpedia.org/ontology/children> \"Luke Skywalker\"@en . }"
       },
       "answers": [
         {
@@ -84828,7 +84828,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT (COUNT(DISTINCT ?uri) as ?c) WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Airline> .  ?uri <http://dbpedia.org/property/alliance> <http://dbpedia.org/resource/Star_Alliance> . } "
+        "sparql": "SELECT (COUNT(DISTINCT ?uri) as ?c) WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Airline> .  ?uri <http://dbpedia.org/ontology/alliance> <http://dbpedia.org/resource/Star_Alliance> . } "
       },
       "answers": [
         {
@@ -84899,7 +84899,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Spacecraft> .  ?uri <http://dbpedia.org/property/planet> <http://dbpedia.org/resource/Mars> . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Spacecraft> .  ?uri <http://dbpedia.org/ontology/planet> <http://dbpedia.org/resource/Mars> . } "
       },
       "answers": [
         {
@@ -85059,7 +85059,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> . { ?uri <http://dbpedia.org/ontology/birthDate> ?date . } UNION { ?uri <http://dbpedia.org/property/birthDate> ?date . }  <http://dbpedia.org/resource/Halloween> <http://dbpedia.org/property/date> ?date . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> . { ?uri <http://dbpedia.org/ontology/birthDate> ?date . } UNION { ?uri <http://dbpedia.org/ontology/birthDate> ?date . }  <http://dbpedia.org/resource/Halloween> <http://dbpedia.org/ontology/date> ?date . } "
       },
       "answers": [
         {
@@ -85415,7 +85415,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?name WHERE {  <http://dbpedia.org/resource/FIFA> <http://dbpedia.org/property/name> ?name . } "
+        "sparql": "SELECT DISTINCT ?name WHERE {  <http://dbpedia.org/resource/FIFA> <http://dbpedia.org/ontology/name> ?name . } "
       },
       "answers": [
         {
@@ -85486,7 +85486,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?date WHERE {  <http://dbpedia.org/resource/Ming_dynasty> <http://dbpedia.org/property/dateEnd> ?date . } "
+        "sparql": "SELECT DISTINCT ?date WHERE {  <http://dbpedia.org/resource/Ming_dynasty> <http://dbpedia.org/ontology/dateEnd> ?date . } "
       },
       "answers": [
         {
@@ -85829,7 +85829,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/architect> ?x .  ?x <http://dbpedia.org/property/almaMater> ?uri . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  <http://dbpedia.org/resource/Eiffel_Tower> <http://dbpedia.org/ontology/architect> ?x .  ?x <http://dbpedia.org/ontology/almaMater> ?uri . } "
       },
       "answers": [
         {
@@ -86386,7 +86386,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/property/title> <http://dbpedia.org/resource/King_of_Rome> . } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://dbpedia.org/ontology/title> <http://dbpedia.org/resource/King_of_Rome> . } "
       },
       "answers": [
         {
@@ -86570,7 +86570,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .  ?uri <http://dbpedia.org/ontology/weight> ?num . { ?uri <http://dbpedia.org/property/team> <http://dbpedia.org/resource/Chicago_Bulls> . } UNION { ?uri <http://dbpedia.org/property/draftTeam> <http://dbpedia.org/resource/Chicago_Bulls> . } UNION { ?uri <http://dbpedia.org/ontology/draftTeam> <http://dbpedia.org/resource/Chicago_Bulls> . } } ORDER BY DESC(?num) OFFSET 0 LIMIT 1 "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Person> .  ?uri <http://dbpedia.org/ontology/weight> ?num . { ?uri <http://dbpedia.org/ontology/team> <http://dbpedia.org/resource/Chicago_Bulls> . } UNION { ?uri <http://dbpedia.org/ontology/draftTeam> <http://dbpedia.org/resource/Chicago_Bulls> . } UNION { ?uri <http://dbpedia.org/ontology/draftTeam> <http://dbpedia.org/resource/Chicago_Bulls> . } } ORDER BY DESC(?num) OFFSET 0 LIMIT 1 "
       },
       "answers": [
         {

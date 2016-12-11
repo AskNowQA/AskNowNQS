@@ -12,8 +12,8 @@ public class SparqlSelector {
 		//Based on certain patterns this function returns the type of sparql query the natural language query corresponds to
 		//If token == list then we assume it to be a list query
 		
-		Pattern list = Pattern.compile("list|List|lists|Lists"); //add a proper regular expresion which is case insensitive
-		Pattern howmany = Pattern.compile("how many|count|enumerate");
+		Pattern list = Pattern.compile("list |List |lists |Lists "); //add a proper regular expresion which is case insensitive
+		Pattern howmany = Pattern.compile("how many |count |enumerate ");
 		Pattern superlativeWordList = Pattern.compile("highest|lowest|deepest|fastest|longest|largest|youngest|oldest|heaviest|lightest|tallest|shortest");
 		
 		String sparql = "";
@@ -26,10 +26,10 @@ public class SparqlSelector {
 			}
 		}
 		
-		//Count query
-		
+
 		if(howmany.matcher(ques_annotation.getPreProcessingQuestion().toLowerCase()).find()){
-			System.out.println("Its a count query");
+			sparql = listQuery.listQuerylogic(ques_annotation);
+			return sparql;
 		}
 		
 		else if(superlativeWordList.matcher(ques_annotation.getPreProcessingQuestion().toLowerCase()).find()){
@@ -37,7 +37,10 @@ public class SparqlSelector {
 		}
 		
 		else {
+			
 			System.out.println("remaining query");
+			sparql = listQuery.listQuerylogic(ques_annotation);
+			return sparql;
 		}
 		
 		return sparql;
