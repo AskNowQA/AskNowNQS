@@ -7,7 +7,7 @@ import token.token;
 
 public class SparqlSelector {
 
-	public static void sparqlSelector(questionAnnotation ques_annotation){
+	public static String sparqlSelector(questionAnnotation ques_annotation){
 		
 		//Based on certain patterns this function returns the type of sparql query the natural language query corresponds to
 		//If token == list then we assume it to be a list query
@@ -16,12 +16,13 @@ public class SparqlSelector {
 		Pattern howmany = Pattern.compile("how many|count|enumerate");
 		Pattern superlativeWordList = Pattern.compile("highest|lowest|deepest|fastest|longest|largest|youngest|oldest|heaviest|lightest|tallest|shortest");
 		
-		
+		String sparql = "";
 		for (token tk: ques_annotation.getTokenlist()){
 			if (list.matcher(tk.getValue()).find()){
 				System.out.println("Its a list query");
 				//Add code logics here
-				return;
+				sparql = listQuery.listQuerylogic(ques_annotation);
+				return sparql;
 			}
 		}
 		
@@ -39,14 +40,6 @@ public class SparqlSelector {
 			System.out.println("remaining query");
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		//
+		return sparql;
 	}
 }

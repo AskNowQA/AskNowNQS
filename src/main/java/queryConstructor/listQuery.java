@@ -14,28 +14,36 @@ public class listQuery {
 	 * */
 	
 	
-	public static void listQuerylogic(questionAnnotation ques_annotation){
+	public static String listQuerylogic(questionAnnotation ques_annotation){
 		
 		ArrayList<phrase> annotatedPhraseList  = listQuery.getAnnotatedPhraseList(ques_annotation);
 		
-		
+		String sparql = "";
 		if (annotatedPhraseList.size() == 1){
 			//Only two types of sparql can be present here
 			//extracting the first candidate 
 			relationAnnotationToken tk = annotatedPhraseList.get(0).getListOfProbableRelation().get(0);
 			// checking if the token is a prt of incoming or outgoing property
 			if (tk.isIncomingProperty()){
-				//part of incoming property 
+				//part of incoming property
+				System.out.println(sparql);
+				sparql = "SELECT DISTINCT ?var WHERE { ?var <"+ tk.getUri() + "> " + annotatedPhraseList.get(0).getUri()+" . }";
+				
 				// ?x tk ph
 				// tk.getUri() --> for property uri
 				//	annotatedPhraseList.get(0).getUri() -- entity uri 
+				return sparql;
 				
 			}
 			else{
 				//part of outgoing property 
 				// ?x tk ph
+				sparql = "SELECT DISTINCT ?var WHERE { " + annotatedPhraseList.get(0).getUri()+" <" + tk.getUri() + "> ?var . }";
+				System.out.println(sparql);
+				return sparql;
 			}
 		}
+		return sparql;
 	}
 	
 	public static ArrayList<phrase> getAnnotatedPhraseList(questionAnnotation ques_annotation){
@@ -47,10 +55,10 @@ public class listQuery {
 		ArrayList<phrase> annotatedPhraseList = new ArrayList<phrase>();
 		for(phrase ph : ques_annotation.getPhraseList()){
 			if(ph.getUri() != null && ph.getRelToken() != null){
-				annotatedPhraseList.add(ph)
+				annotatedPhraseList.add(ph);
 			}
 		}
-		
+		System.out.println(annotatedPhraseList.get(0).getListOfProbableRelation());
 		return annotatedPhraseList;
 	}
 }
