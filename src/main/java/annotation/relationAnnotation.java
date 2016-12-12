@@ -18,7 +18,7 @@ public class relationAnnotation {
 	 * */
 	
 	public static ArrayList<ArrayList<relationAnnotationToken>> relAnnotation(ArrayList<phrase> phraseList, questionAnnotation ques_annotation) throws Exception{
-		String[] stopWord = {"Who","What","Who"};
+		String[] stopWord = {"Who","What","Who","the","an","a","that","them","they","their","those"};
 		int counter = 5;
 		ArrayList<ArrayList<relationAnnotationToken>> finalRelList = new ArrayList<ArrayList<relationAnnotationToken>>(); 
 		for (phrase ph : phraseList){

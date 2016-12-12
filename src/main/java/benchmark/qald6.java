@@ -68,10 +68,23 @@ public class qald6 {
 				//send this to the sparql formation module for forming sparql. 
 				System.out.println("in the process of sparql selection");
 				String askNow_sparql = SparqlSelector.sparqlSelector(ques_annotation);
-				
+				System.out.println("phrases are");
+				for(phrase ph : phraseList){
+					for(token tk : ph.getPhraseToken()){
+						System.out.print(tk.getValue() + " ");
+						if(ph.getUri() != null){
+							System.out.println(" :the list of proabable relations are");
+						}
+					}
+					for (relationAnnotationToken relTk : ph.getListOfProbableRelation()){
+						System.out.println(relTk.getTok().getValue() + " : " + relTk.getPropertyLabel() + " :" + relTk.getScore() );
+					}
+					System.out.println("");
+				}
 				if (!askNow_sparql.equals("")){
+					System.out.println("the resultant sparql is : " + askNow_sparql);
 					ArrayList<String> askNow_answer = returnResults(askNow_sparql);
-				
+					
 					if(askNow_answer.containsAll(qald_result) && qald_result.containsAll(askNow_answer)){
 						System.out.println("Atleast one right answer");
 						

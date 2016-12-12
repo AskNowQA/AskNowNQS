@@ -7,6 +7,7 @@ import org.json.simple.JSONObject;
 
 import phrase.phrase;
 import token.token;
+import utils.forcedSpotlight;
 import utils.spotlight;
 
  public  class entityAnnotation {
@@ -22,12 +23,17 @@ import utils.spotlight;
 			}
 			JSONArray DBpEquivalent = spot.getDBLookup(tempString, "0.0");			
 			try{
-
+				
 				JSONObject obj2 = (JSONObject) DBpEquivalent.get(0);
 				ph.setUri(obj2.get("uri").toString());
 			}
 
 			catch (Exception e){
+				//sometimes spotlight does not catch simple URI. 		
+				String uri = forcedSpotlight.getDbpEntity(tempString);
+				if(!uri.equals("notFound")){
+					ph.setUri(uri);
+				}
 				continue;
 			}
 		}

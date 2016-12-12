@@ -90,6 +90,7 @@ public class spotlight
 //				json_array.put(jo);
 				json_array.add(jo);
 			}
+			
 			DBpEquivalent = json_array;
 		}
 		catch(Exception e){
@@ -97,5 +98,7 @@ public class spotlight
 		}
 		return DBpEquivalent;
 	}
+	
+	
 	
 }
