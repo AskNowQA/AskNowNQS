@@ -24,7 +24,7 @@ public class phraseOrch {
 	
 	public ArrayList<phrase> startPhraseMerger(questionAnnotation questionAnnotation){
 		
-		spotLightMerger(questionAnnotation);
+//		spotLightMerger(questionAnnotation);
 		nerMerger(questionAnnotation);
 		NNMerger(questionAnnotation);
 		addRemainingPhrase(questionAnnotation);

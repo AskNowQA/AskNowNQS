@@ -18,7 +18,8 @@ public class relationAnnotation {
 	 * */
 	
 	public static ArrayList<ArrayList<relationAnnotationToken>> relAnnotation(ArrayList<phrase> phraseList, questionAnnotation ques_annotation) throws Exception{
-		String[] stopWord = {"Who","What","Who","the","an","a","that","them","they","their","those"};
+		String[] stopWord = {"Who","What","Who","the","an","a","that","them","they","their","those","list","as","when","is"};
+		String[] propertyStopWord = {"thumbnail"};
 		int counter = 5;
 		ArrayList<ArrayList<relationAnnotationToken>> finalRelList = new ArrayList<ArrayList<relationAnnotationToken>>(); 
 		for (phrase ph : phraseList){
@@ -28,7 +29,7 @@ public class relationAnnotation {
 				ph.setIncomingProperty(listOfPair.get(0));
 				ph.setOutgoingProperty(listOfPair.get(1));
 				
-
+				
 				//Expand this list using wordnet 
 				
 				
@@ -37,19 +38,24 @@ public class relationAnnotation {
 				
 				for (String[] lp : ph.getIncomingProperty()){
 					//send each of the property label to WordNet.
-					for(String word : wordNet.getSynonyms(lp[1])){
-						expandIncomingProperty.add(new String[] {lp[0],word});
+					if(!Arrays.asList(propertyStopWord).contains(lp[0])) {
+						for(String word : wordNet.getSynonyms(lp[1])){
+							expandIncomingProperty.add(new String[] {lp[0],word});
+						}
+						expandIncomingProperty.add(lp);
 					}
-					expandIncomingProperty.add(lp);
 				}
 				
 				
 				for (String[] lp : ph.getOutgoingProperty()){
 					//send each of the property label to WordNet.
-					for(String word : wordNet.getSynonyms(lp[1])){
-						expandOutgoingProperty.add(new String[] {lp[0],word});
+					
+					if(!Arrays.asList(propertyStopWord).contains(lp[0])){
+						for(String word : wordNet.getSynonyms(lp[1])){
+							expandOutgoingProperty.add(new String[] {lp[0],word});
+						}
+						expandOutgoingProperty.add(lp);
 					}
-					expandOutgoingProperty.add(lp);
 				}
 				
 				ph.setExpandIncomingProperty(expandIncomingProperty);

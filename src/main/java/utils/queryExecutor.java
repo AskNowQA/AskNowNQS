@@ -12,7 +12,6 @@ public class queryExecutor {
 	 * 
 	 * */
 	public static ResultSet query(String sparql){
-		System.out.println(sparql);
 		Query query = QueryFactory.create(sparql);
 		QueryExecution qExe = QueryExecutionFactory.sparqlService( "http://dbpedia.org/sparql", query );
 		ResultSet results = qExe.execSelect();

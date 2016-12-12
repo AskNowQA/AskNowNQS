@@ -42,7 +42,7 @@ public class phraseMergerOrch {
 	
 	public void printConceptList(ArrayList<ArrayList<phrase>> conceptList){
 		for(int i=0; i<conceptList.size(); i++){
-			System.out.print("**");
+			System.out.print("\t");
 			for(phrase ph: conceptList.get(i)){
 				
 				for (token tk: ph.getPhraseToken()){
