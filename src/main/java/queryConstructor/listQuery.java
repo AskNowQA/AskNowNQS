@@ -43,7 +43,6 @@ public class listQuery {
 				return sparql;
 			}
 		}
-		System.out.println(sparql);
 		return sparql;
 	}
 	
@@ -55,7 +54,7 @@ public class listQuery {
 		
 		ArrayList<phrase> annotatedPhraseList = new ArrayList<phrase>();
 		for(phrase ph : ques_annotation.getPhraseList()){
-			if(ph.getUri() != null && ph.getRelToken() != null){
+			if(ph.getUri() != null && ph.getListOfProbableRelation().size() > 0 ){
 				annotatedPhraseList.add(ph);
 			}
 		}

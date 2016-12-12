@@ -7,8 +7,11 @@ import annotation.relationAnnotationToken;
 import phrase.phrase;
 import phrase.phraseOrch;
 import phraseMerger.phraseMergerOrch;
+import queryConstructor.SparqlSelector;
 import question.quesOrch;
 import question.questionAnnotation;
+import token.token;
+import utils.qaldQuery;
 
 public class executeQuestion {
 
@@ -19,11 +22,11 @@ public class executeQuestion {
 	 * 
 	 * */
 	
-	public static void execute(String question, Boolean verbose){
+	public static ArrayList<String> execute(String question, Boolean verbose){
 		if(verbose){
-			System.out.println("The question is " + question );
+			System.out.println("The question is : " + question );
 		}
-		
+		ArrayList<String> askNow_answer = null;
 		quesOrch question_orch = new quesOrch();
 		questionAnnotation ques_annotation = question_orch.questionOrchestrator(question);
 		phraseOrch phrase = new phraseOrch();
@@ -34,9 +37,32 @@ public class executeQuestion {
 		ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, phraseList);
 		ques_annotation.setPhraseList(phraseList);
 		if(verbose){
-			
+			System.out.println("the list of phrases are ");
+			for(phrase ph: phraseList){
+				for(token tk: ph.getPhraseToken()){
+					System.out.print(tk.getValue() + " ");
+				}
+				if(ph.getUri() != null){
+					System.out.println("");
+					System.out.println(" The list of proabable relations are");
+					for (relationAnnotationToken relTk : ph.getListOfProbableRelation()){
+						System.out.println("\t" + relTk.getTok().getValue() + " : " + relTk.getPropertyLabel() + " :" + relTk.getScore() );
+					}
+				}
+				else{
+					System.out.println("");
+				}
+			}
 		}
 		
+		String askNow_sparql = SparqlSelector.sparqlSelector(ques_annotation);
+		if(verbose){
+			System.out.println("The generated sparql is :" + askNow_sparql);
+		}
 		
+		if (!askNow_sparql.equals("")){
+			 askNow_answer = qaldQuery.returnResults(askNow_sparql);
+		}
+		return askNow_answer;
 	}
 }

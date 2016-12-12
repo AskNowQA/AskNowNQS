@@ -1,6 +1,8 @@
+
 package annotation;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -14,7 +16,7 @@ import utils.spotlight;
 
 	public static void Annotation(ArrayList<phrase> phraseList){
 		spotlight spot = new spotlight();
-
+		Pattern posTags = Pattern.compile("NER");
 		for(phrase ph : phraseList){
 			String tempString = new String();
 
@@ -29,10 +31,12 @@ import utils.spotlight;
 			}
 
 			catch (Exception e){
-				//sometimes spotlight does not catch simple URI. 		
-				String uri = forcedSpotlight.getDbpEntity(tempString);
-				if(!uri.equals("notFound")){
-					ph.setUri(uri);
+				//sometimes spotlight does not catch simple URI. 	
+				if(posTags.matcher(ph.getPosTag()).find()){
+					String uri = forcedSpotlight.getDbpEntity(tempString);
+					if(!uri.equals("notFound")){
+						ph.setUri(uri);
+					}
 				}
 				continue;
 			}
