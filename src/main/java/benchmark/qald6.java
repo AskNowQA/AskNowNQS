@@ -23,6 +23,7 @@ import question.quesOrch;
 import question.questionAnnotation;
 import token.token;
 import utils.parseQald;
+import utils.qaldQuery;
 import utils.queryExecutor;
 
 public class qald6 {
@@ -36,13 +37,29 @@ public class qald6 {
 		//parsing the qaldjson file for answers.
 		ArrayList<String[]> qaldTuple = parseQald.parseQald6("src/main/resources/qald-6-train-multilingual.json");
 		Integer counter = 0;
+		Integer query_number = 0;
+		Integer temp_counter = 0;
 		for(String[] temp: qaldTuple){
+			System.out.println(query_number);
+			query_number = query_number + 1;
+			if(temp_counter < 19){
+				temp_counter = temp_counter + 1;
+				continue;
+			}
 			String question = temp[0];
 			String sparql = temp[1];
+			
+			//Group by query apprently does not workso skipping it 
+			
+			if (sparql.contains("GROUP BY") || sparql.contains("Breaking_Bad")){
+				//Breaking_Bad query is no. 20
+				continue;
+			}
 			if(!sparql.equals("")){
 				//TODO: replaceAll should have more factors. 
-				sparql = sparql.replaceAll("rdf:type", "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>");
-				ArrayList<String> qald_result = returnResultsQald(sparql);
+				sparql = sparql.replaceAll("rdf:type", "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>").replaceAll("xsd:integer", "<http://www.w3.org/2001/XMLSchema#>");
+				System.out.println("the qald query is " + sparql);
+				ArrayList<String> qald_result = qaldQuery.returnResultsQald(sparql);
 				ArrayList<String> askNow_answer = executeQuestion.execute(question,true);
 				if (askNow_answer != null){
 					if(askNow_answer.containsAll(qald_result) && qald_result.containsAll(askNow_answer)){
@@ -58,73 +75,5 @@ public class qald6 {
 	}
 	
 	//TODO: Add this to utils pacakage.
-	public static ArrayList<String> returnResultsQald(String sparql){
-		
-		/*
-		 * Returns a parsed results from a given sparql query.
-		 * */
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		ResultSetFormatter.outputAsJSON(outputStream, queryExecutor.query(sparql));
-		String json = new String(outputStream.toByteArray());
-		JSONParser parser = new JSONParser();
-		ArrayList<String> result_temp = new ArrayList<String>();
-		try {
-			JSONObject json_obj = (JSONObject) parser.parse(json);
-			JSONObject json_results = (JSONObject) json_obj.get("results");
-			JSONArray json_result_array =  (JSONArray) json_results.get("bindings");
-			for(int i=0;i<json_result_array.size();i++){
-				JSONObject binding_object = (JSONObject) json_result_array.get(i);
-//				System.out.println(binding_object);
-				JSONObject binding_object_uri = (JSONObject) binding_object.get("uri");
-//				System.out.println(binding_object_uri);
-				result_temp.add(binding_object_uri.get("value").toString());
-			}
-			
-			
-			
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			return result_temp;
-		}
-		
-		return result_temp;
-		
-	}
-	
-	
-public static ArrayList<String> returnResults(String sparql){
-		
-		/*
-		 * Returns a parsed results from a given sparql query.
-		 * */
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		ResultSetFormatter.outputAsJSON(outputStream, queryExecutor.query(sparql));
-		String json = new String(outputStream.toByteArray());
-		JSONParser parser = new JSONParser();
-		ArrayList<String> result_temp = new ArrayList<String>();
-		try {
-			JSONObject json_obj = (JSONObject) parser.parse(json);
-			JSONObject json_results = (JSONObject) json_obj.get("results");
-			JSONArray json_result_array =  (JSONArray) json_results.get("bindings");
-			for(int i=0;i<json_result_array.size();i++){
-				JSONObject binding_object = (JSONObject) json_result_array.get(i);
-//				System.out.println(binding_object);
-				JSONObject binding_object_uri = (JSONObject) binding_object.get("var");
-//				System.out.println(binding_object_uri);
-				result_temp.add(binding_object_uri.get("value").toString());
-			}
-			
-			
-			
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			return result_temp;
-		}
-		
-		return result_temp;
-		
-	}
-	
+
 }

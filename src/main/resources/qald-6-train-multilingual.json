@@ -2093,7 +2093,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .  ?cave <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Cave> . { ?cave <http://dbpedia.org/ontology/location> ?uri . } UNION { ?cave <http://dbpedia.org/ontology/location> ?loc .  ?loc <http://dbpedia.org/ontology/country> ?uri . } } GROUP BY ?uri HAVING(COUNT(?cave) > 10) "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Country> .  ?cave <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Cave> . { ?cave <http://dbpedia.org/ontology/location> ?uri . } UNION { ?cave <http://dbpedia.org/ontology/location> ?loc .  ?loc <http://dbpedia.org/ontology/country> ?uri . } }. GROUP BY ?uri HAVING(COUNT(?cave) > 10) "
       },
       "answers": [
         {
