@@ -18,6 +18,7 @@ public static ArrayList<String> returnResultsQald(String sparql){
 		 * Returns a parsed results from a given sparql query.
 		 * */
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		
 		ResultSetFormatter.outputAsJSON(outputStream, queryExecutor.query(sparql));
 		String json = new String(outputStream.toByteArray());
 		JSONParser parser = new JSONParser();
