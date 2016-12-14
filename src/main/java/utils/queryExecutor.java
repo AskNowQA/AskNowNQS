@@ -5,6 +5,7 @@ import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.Syntax;
 
 public class queryExecutor {
 	/*
@@ -14,15 +15,15 @@ public class queryExecutor {
 	 * 
 	 * */
 	public static ResultSet query(String sparql){
-		Query query = QueryFactory.create(sparql);
-		QueryExecution qExe = QueryExecutionFactory.sparqlService( "http://dbpedia.org/sparql", query );
+		Query query = QueryFactory.create(sparql,Syntax.syntaxARQ);
+		QueryExecution qExe = QueryExecutionFactory.sparqlService( "http://131.220.153.66:8900/sparql", query );
 		ResultSet results = qExe.execSelect();
 		return results;
 	}
 	
 	public static boolean queryAsk(String sparql) {
-		Query query = QueryFactory.create(sparql) ;
-		QueryExecution qexec = QueryExecutionFactory.create(query) ;
+		Query query = QueryFactory.create(sparql,Syntax.syntaxARQ) ;
+		QueryExecution qexec = QueryExecutionFactory.sparqlService("http://131.220.153.66:8900/sparql",query) ;
 		boolean result = qexec.execAsk() ;
 		qexec.close();
 		return result;

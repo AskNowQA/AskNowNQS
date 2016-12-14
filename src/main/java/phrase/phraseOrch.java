@@ -26,11 +26,15 @@ public class phraseOrch {
 		
 //		spotLightMerger(questionAnnotation);
 		nerMerger(questionAnnotation);
+		
 		NNMerger(questionAnnotation);
+		
 		addRemainingPhrase(questionAnnotation);
+
 		phraseList = AllignMetaPhrase(questionAnnotation, phraseList);
 //		printMetaPhrase();
 //		conceptFormer(questionAnnotation);
+
 		return phraseList;
 	}
 	
@@ -45,7 +49,7 @@ public class phraseOrch {
 				ArrayList<token> phrase_token = new ArrayList<token>();
 				phrase_token.add(questionAnnotation.gettokenlist().get(i));
 				questionAnnotation.gettokenlist().get(i).setIsPartOfPhrase(true);
-				while(questionAnnotation.gettokenlist().get(i+1).getNerTag() == questionAnnotation.gettokenlist().get(i).getNerTag()){
+				while(questionAnnotation.gettokenlist().get(i+1).getNerTag() == questionAnnotation.gettokenlist().get(i).getNerTag() && (i+1)<questionAnnotation.getTokenlist().size()){
 					if (questionAnnotation.gettokenlist().get(i+1).isPartOfPhrase() == false){
 						phrase_token.add(questionAnnotation.gettokenlist().get(i+1));
 						questionAnnotation.gettokenlist().get(i+1).setIsPartOfPhrase(true);
@@ -110,11 +114,14 @@ public class phraseOrch {
 				ArrayList<token> phrase_token = new ArrayList<token>();
 				phrase_token.add(questionAnnotation.gettokenlist().get(i));
 				questionAnnotation.gettokenlist().get(i).setIsPartOfPhrase(true);
-				while(nounTags.matcher(questionAnnotation.gettokenlist().get(i+1).getPosTag()).find()){
+				while(nounTags.matcher(questionAnnotation.gettokenlist().get(i+1).getPosTag()).find() && (i+1)<questionAnnotation.getTokenlist().size()){
 					if (questionAnnotation.gettokenlist().get(i+1).isPartOfPhrase() == false){
 						phrase_token.add(questionAnnotation.gettokenlist().get(i+1));
 						questionAnnotation.gettokenlist().get(i+1).setIsPartOfPhrase(true);
 						i = i + 1;
+					}
+					else{
+						break;
 					}
 				}
 				phrase ph = new phrase();
@@ -168,7 +175,7 @@ public class phraseOrch {
 				phList.add(phraseList.get(i));
 				phraseList.get(i).setIsPartOf(true);
 				
-				while(AdjList.matcher(phraseList.get(i+1).getPosTag()).find() || NounPhrase.matcher(phraseList.get(i+1).getPosTag()).find() ){
+				while((AdjList.matcher(phraseList.get(i+1).getPosTag()).find() || NounPhrase.matcher(phraseList.get(i+1).getPosTag()).find() ) && (i+1)<questionAnnotation.getTokenlist().size()){
 					
 					if (!phraseList.get(i+1).getIsPartOf()) {
 						phList.add(phraseList.get(i+1));
