@@ -26,6 +26,7 @@ public class executeQuestion {
 		if(verbose){
 			System.out.println("The question is : " + question );
 		}
+		
 		ArrayList<String> askNow_answer = null;
 		quesOrch question_orch = new quesOrch();
 		questionAnnotation ques_annotation = question_orch.questionOrchestrator(question);

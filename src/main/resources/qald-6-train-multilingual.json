@@ -56315,7 +56315,7 @@
         }
       ],
       "query": {
-        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Actor> .  ?uri <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Paris> .  ?uri <http://dbpedia.org/ontology/birthDate> ?date .  FILTER ( ?date >= xsd:dateTime('1950-12-31T00:00:00Z')) } "
+        "sparql": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Actor> .  ?uri <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Paris> .  ?uri <http://dbpedia.org/ontology/birthDate> ?date .  FILTER ( ?date >= '1950-12-31T00:00:00Z'^^<http://www.w3.org/2001/XMLSchema#dateTime>) } "
       },
       "answers": [
         {
