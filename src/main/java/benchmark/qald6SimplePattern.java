@@ -27,7 +27,7 @@ import utils.qaldQuery;
 import utils.queryExecutor;
 import org.apache.log4j.Logger;
 
-public class qald6 {
+public class qald6SimplePattern {
 /*
  * Class executes the QALD6 train dataset. And comapres the results with the sparql-answers provided by the qald
  * 
@@ -39,14 +39,14 @@ public class qald6 {
 		//initializing the pipeline
 		initializer init = new initializer();
 		//parsing the qaldjson file for answers.
-		ArrayList<String[]> qaldTuple = parseQald.parseQald6("src/main/resources/qald-6-train-multilingual.json");
+		ArrayList<String[]> qaldTuple = parseQald.parseQald6("src/main/resources/qald-6-single-triple-multilingual.json");
 		Integer counter = 0;
 		Integer query_number = 0;
 		Integer skip_questions = 0;
 		for(String[] temp: qaldTuple){
 			System.out.println(query_number);
 			query_number = query_number + 1;
-			if(skip_questions < 347){
+			if(skip_questions < 9){
 				skip_questions = skip_questions + 1;
 				continue;
 			}

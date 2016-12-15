@@ -2,9 +2,11 @@ package annotation;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import org.apache.log4j.Logger;
 import phrase.phrase;
 import question.questionAnnotation;
 import token.token;
@@ -18,6 +20,8 @@ public class AnnotationOrch {
 	 * 
 	 * 
 	 * */
+	
+	final static Logger logger = Logger.getLogger(AnnotationOrch.class);
 	
 	public ArrayList<ArrayList<relationAnnotationToken>> startAnnotationOrch(ArrayList<phrase> phraseList, questionAnnotation ques_annotation){
 			//call spotlight annotation. 

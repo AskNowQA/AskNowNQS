@@ -21,6 +21,8 @@ public class relationAnnotation {
 		String[] stopWord = {"Who","What","Who","the","an","a","that","them","they","their","those","list","as","when","is"};
 		String[] propertyStopWord = {"thumbnail"};
 		ArrayList<ArrayList<relationAnnotationToken>> finalRelList = new ArrayList<ArrayList<relationAnnotationToken>>(); 
+		
+		Integer printRelationNumber = 20;
 		for (phrase ph : phraseList){
 			if (ph.getUri() != null){
 				//Retrives list of relation coming in and going out of the annotated entity 
@@ -30,7 +32,6 @@ public class relationAnnotation {
 				
 				
 				//Expand this list using wordnet 
-				
 				
 				ArrayList<String[]> expandIncomingProperty = new ArrayList<String[]>();
 				ArrayList<String[]> expandOutgoingProperty = new ArrayList<String[]>();
@@ -67,7 +68,8 @@ public class relationAnnotation {
 						if (phr.getUri() == null ){
 							for (token tk : phr.getPhraseToken()){
 								if (!Arrays.asList(stopWord).contains(tk.getValue())) {
-									String score = String.valueOf(word2vec.sendToVec(lp[1], tk.getValue()));
+//									System.out.println(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", "").replaceAll(" ", "_") + " " + tk.getValue().replaceAll("[^a-zA-Z0-9\\ ]", "").replaceAll(" ", "_"));
+									String score = String.valueOf(word2vec.sendToVec(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", ""), tk.getValue().replaceAll("[^a-zA-Z0-9\\ ]", "")));
 									if (Float.valueOf(score) > -1.0){
 										relationAnnotationToken relToken = new relationAnnotationToken();
 										relToken.setScore(Float.valueOf(score));
@@ -86,9 +88,10 @@ public class relationAnnotation {
 				for (String[] lp : expandOutgoingProperty){
 					for (phrase phr : phraseList){
 						if (phr.getUri() == null ){
-							for (token tk : phr.getPhraseToken()){
+							for (token tk : phr.getPhraseToken()){							
 								if (!Arrays.asList(stopWord).contains(tk.getValue())) {
-									String score = String.valueOf(word2vec.sendToVec(lp[1], tk.getValue()));
+//									System.out.println(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", "") + " " + tk.getValue().replaceAll("[^a-zA-Z0-9\\ ]", ""));
+									String score = String.valueOf(word2vec.sendToVec(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", ""), tk.getValue().replaceAll("[^a-zA-Z0-9\\ ]", "")));
 									if (Float.valueOf(score) > -1.0){
 										relationAnnotationToken relToken = new relationAnnotationToken();
 										relToken.setScore(Float.valueOf(score));
