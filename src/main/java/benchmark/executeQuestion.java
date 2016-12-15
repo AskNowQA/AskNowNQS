@@ -23,6 +23,7 @@ public class executeQuestion {
 	 * */
 	
 	public static ArrayList<String> execute(String question, Boolean verbose){
+		Integer counter = 10;
 		if(verbose){
 			System.out.println("The question is : " + question );
 		}
@@ -46,8 +47,13 @@ public class executeQuestion {
 				if(ph.getUri() != null){
 					System.out.println("");
 					System.out.println(" The list of proabable relations are");
+					Integer temp_counter = 0;
 					for (relationAnnotationToken relTk : ph.getListOfProbableRelation()){
+						if(temp_counter == counter){
+							break;
+						}
 						System.out.println("\t" + relTk.getTok().getValue() + " : " + relTk.getPropertyLabel() + " :" + relTk.getScore() );
+						temp_counter = temp_counter+1;
 					}
 				}
 				else{
