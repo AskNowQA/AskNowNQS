@@ -39,7 +39,7 @@ public class qald6SimplePattern {
 		//initializing the pipeline
 		initializer init = new initializer();
 		//parsing the qaldjson file for answers.
-		ArrayList<String[]> qaldTuple = parseQald.parseQald6("src/main/resources/qald-6-single-triple-multilingual.json");
+		ArrayList<String[]> qaldTuple = parseQald.parseQald6("src/main/resources/qald-6-single-triple-boolean-multilingual.json");
 		Integer counter = 0;
 		Integer query_number = 0;
 		Integer skip_questions = 0;
