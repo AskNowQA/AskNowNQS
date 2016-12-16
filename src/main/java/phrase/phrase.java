@@ -2,6 +2,8 @@ package phrase;
 
 import java.util.ArrayList;
 
+import org.apache.commons.lang3.StringUtils;
+
 import annotation.relationAnnotationToken;
 import token.token;
 
@@ -14,6 +16,7 @@ public class phrase {
 	private ArrayList<token> phraseToken = new ArrayList<token>();
 	private String posTag = null;
 	private String uri = null;
+	private String phraseString = null;
 	private Boolean isPartOf = false;
 	private ArrayList<String []> incomingProperty = new ArrayList<String []>();
 	private ArrayList<String []> outgoingProperty = new ArrayList<String []>();
@@ -88,6 +91,7 @@ public class phrase {
 	
 	public void setPhraseToken(ArrayList<token> phraseToken) {
 		this.phraseToken = phraseToken;
+		setPhraseString();
 	}
 	
 	public String getPosTag() {
@@ -106,6 +110,19 @@ public class phrase {
 		return isPartOf;
 	}
 	
+	public void setPhraseString(){
+		ArrayList<String> tokenLists = new ArrayList<String>();
+		for(token tk: getPhraseToken()){
+			tokenLists.add(tk.getValue());
+//			System.out.println("*"+tk.getValue());
+		}
+		
+		phraseString = StringUtils.join(tokenLists, " ");
+	}
+	
+	public String getphraseString(){
+		return phraseString;
+	}
 	
 	
 }

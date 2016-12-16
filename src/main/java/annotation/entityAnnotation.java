@@ -16,7 +16,7 @@ import utils.spotlight;
 
 	public static void Annotation(ArrayList<phrase> phraseList){
 		spotlight spot = new spotlight();
-		Pattern posTags = Pattern.compile("NER");
+		Pattern posTags = Pattern.compile("NER|NNP");
 		for(phrase ph : phraseList){
 			String tempString = new String();
 

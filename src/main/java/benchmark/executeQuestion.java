@@ -81,7 +81,7 @@ public class executeQuestion {
 		}
 		
 		if (!askNow_sparql.equals("")){
-			 askNow_answer = qaldQuery.returnResults(askNow_sparql);
+			 askNow_answer = qaldQuery.returnResultsQald(askNow_sparql);
 		}
 		return askNow_answer;
 	}
