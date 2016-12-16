@@ -6,13 +6,13 @@ import token.token;
 public class relationAnnotationToken {
 
 	
-	private token tok;
+	private token tok = null;
 	private String uri;
 	private float score ;
 	private boolean isIncomingProperty = false;
 	private boolean isOutgoingProperty = false;
 	private String propertyLabel;
-	private phrase ph;
+	private phrase ph = null;
 	
 	
 	public boolean isIncomingProperty() {

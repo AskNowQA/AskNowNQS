@@ -46,7 +46,7 @@ public class qald6SimplePattern {
 		for(String[] temp: qaldTuple){
 			System.out.println(query_number);
 			query_number = query_number + 1;
-			if(skip_questions < 9){
+			if(skip_questions < 0){
 				skip_questions = skip_questions + 1;
 				continue;
 			}
