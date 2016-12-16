@@ -49,10 +49,23 @@ public class executeQuestion {
 					System.out.println(" The list of proabable relations are");
 					Integer temp_counter = 0;
 					for (relationAnnotationToken relTk : ph.getListOfProbableRelation()){
+						
+						
+//						if(relTk.getPh() == null){
+//							System.out.println("**");
+//							System.out.println("\t" + relTk.getTok().getValue() + " : " + relTk.getPropertyLabel() + " :" + relTk.getScore() );
+//						}
+//						else{
+//							System.out.println("yo");
+//							for(token tk:relTk.getPh().getPhraseToken()){
+//								System.out.print(tk.getValue() + " ");
+//							}
+//							System.out.println(" ");
+//						}
+						
 						if(temp_counter == counter){
 							break;
 						}
-						System.out.println("\t" + relTk.getTok().getValue() + " : " + relTk.getPropertyLabel() + " :" + relTk.getScore() );
 						temp_counter = temp_counter+1;
 					}
 				}

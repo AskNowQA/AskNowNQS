@@ -1,201 +1,227 @@
-2016-12-15 14:23:52,398 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 14:23:52,429 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 14:23:52,440 INFO  [main  ] | Adding annotator pos 
-2016-12-15 14:23:54,968 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 14:23:54,974 INFO  [main  ] | Adding annotator parse 
-2016-12-15 14:23:54,992 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 14:23:55,866 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 14:23:56,072 INFO  [main  ] | Adding annotator ner 
-2016-12-15 14:24:07,722 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 14:24:36,424 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 14:24:36,453 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 14:24:36,457 INFO  [main  ] | Adding annotator pos 
-2016-12-15 14:24:37,972 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 14:24:37,973 INFO  [main  ] | Adding annotator parse 
-2016-12-15 14:24:37,987 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 14:24:38,871 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 14:24:38,994 INFO  [main  ] | Adding annotator ner 
-2016-12-15 14:24:47,462 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 14:25:01,710 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 14:25:01,711 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 14:25:01,712 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 14:26:10,592 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 14:26:10,610 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 14:26:10,614 INFO  [main  ] | Adding annotator pos 
-2016-12-15 14:26:12,323 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 14:26:12,325 INFO  [main  ] | Adding annotator parse 
-2016-12-15 14:26:12,338 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 14:26:13,080 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 14:26:13,180 INFO  [main  ] | Adding annotator ner 
-2016-12-15 14:26:28,102 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 14:26:38,196 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 14:26:38,197 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 14:26:38,197 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 14:33:29,484 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 14:33:29,500 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 14:33:29,504 INFO  [main  ] | Adding annotator pos 
-2016-12-15 14:33:31,202 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 14:33:31,204 INFO  [main  ] | Adding annotator parse 
-2016-12-15 14:33:31,216 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 14:33:32,003 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 14:33:32,096 INFO  [main  ] | Adding annotator ner 
-2016-12-15 14:33:42,289 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 14:33:59,316 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 14:33:59,317 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 14:33:59,317 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 14:45:37,626 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 14:45:37,642 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 14:45:37,645 INFO  [main  ] | Adding annotator pos 
-2016-12-15 14:45:38,742 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 14:45:38,743 INFO  [main  ] | Adding annotator parse 
-2016-12-15 14:45:38,756 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 14:45:39,393 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 14:45:39,481 INFO  [main  ] | Adding annotator ner 
-2016-12-15 14:45:45,413 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 14:45:56,833 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 14:45:56,834 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 14:45:56,835 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 15:01:32,103 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 15:01:32,159 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 15:01:32,171 INFO  [main  ] | Adding annotator pos 
-2016-12-15 15:01:34,777 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 15:01:34,779 INFO  [main  ] | Adding annotator parse 
-2016-12-15 15:01:34,791 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 15:01:35,818 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 15:01:36,123 INFO  [main  ] | Adding annotator ner 
-2016-12-15 15:01:50,154 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 15:02:04,732 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 15:02:04,733 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 15:02:04,734 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 16:55:36,437 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 16:55:36,499 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 16:55:36,511 INFO  [main  ] | Adding annotator pos 
-2016-12-15 16:55:39,486 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 16:55:39,488 INFO  [main  ] | Adding annotator parse 
-2016-12-15 16:55:39,496 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 16:55:40,065 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 16:55:40,209 INFO  [main  ] | Adding annotator ner 
-2016-12-15 16:55:54,781 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 16:56:07,714 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 16:56:07,715 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 16:56:07,715 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 17:02:22,488 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 17:02:22,506 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 17:02:22,509 INFO  [main  ] | Adding annotator pos 
-2016-12-15 17:02:23,460 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 17:02:23,462 INFO  [main  ] | Adding annotator parse 
-2016-12-15 17:02:23,472 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 17:02:24,007 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 17:02:24,095 INFO  [main  ] | Adding annotator ner 
-2016-12-15 17:02:29,097 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 17:02:39,056 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 17:02:39,057 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 17:02:39,057 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 17:06:48,014 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 17:06:48,039 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 17:06:48,047 INFO  [main  ] | Adding annotator pos 
-2016-12-15 17:06:50,487 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 17:06:50,488 INFO  [main  ] | Adding annotator parse 
-2016-12-15 17:06:50,496 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 17:06:51,448 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 17:06:51,738 INFO  [main  ] | Adding annotator ner 
-2016-12-15 17:07:05,977 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 17:07:20,561 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 17:07:20,562 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 17:07:20,563 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 17:13:45,676 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 17:13:45,708 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 17:13:45,713 INFO  [main  ] | Adding annotator pos 
-2016-12-15 17:13:49,006 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 17:13:49,008 INFO  [main  ] | Adding annotator parse 
-2016-12-15 17:13:49,034 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 17:13:50,059 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 17:13:50,162 INFO  [main  ] | Adding annotator ner 
-2016-12-15 17:14:01,640 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 17:14:13,966 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 17:14:13,967 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 17:14:13,967 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 17:16:05,893 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 17:16:05,927 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 17:16:05,936 INFO  [main  ] | Adding annotator pos 
-2016-12-15 17:16:09,453 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 17:16:09,456 INFO  [main  ] | Adding annotator parse 
-2016-12-15 17:16:09,482 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 17:16:10,341 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 17:16:10,605 INFO  [main  ] | Adding annotator ner 
-2016-12-15 17:16:23,851 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 17:16:37,766 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 17:16:37,768 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 17:16:37,768 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 17:27:14,583 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 17:27:14,633 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 17:27:14,646 INFO  [main  ] | Adding annotator pos 
-2016-12-15 17:27:17,471 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 17:27:17,472 INFO  [main  ] | Adding annotator parse 
-2016-12-15 17:27:17,480 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 17:27:18,478 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 17:27:18,837 INFO  [main  ] | Adding annotator ner 
-2016-12-15 17:27:28,838 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 17:27:42,277 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 17:27:42,278 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 17:27:42,278 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 17:49:22,988 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 17:49:23,004 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 17:49:23,006 INFO  [main  ] | Adding annotator pos 
-2016-12-15 17:49:24,598 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 17:49:24,599 INFO  [main  ] | Adding annotator parse 
-2016-12-15 17:49:24,609 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 17:49:25,121 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 17:49:25,200 INFO  [main  ] | Adding annotator ner 
-2016-12-15 17:49:29,249 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 17:49:37,803 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 17:49:37,804 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 17:49:37,804 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 17:49:42,527 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 17:49:42,539 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 17:49:42,542 INFO  [main  ] | Adding annotator pos 
-2016-12-15 17:49:44,281 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 17:49:44,282 INFO  [main  ] | Adding annotator parse 
-2016-12-15 17:49:44,290 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 17:49:44,869 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 17:49:44,940 INFO  [main  ] | Adding annotator ner 
-2016-12-15 17:49:49,298 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 17:49:57,706 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 17:49:57,707 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 17:49:57,708 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 17:56:48,744 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 17:56:48,765 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 17:56:48,768 INFO  [main  ] | Adding annotator pos 
-2016-12-15 17:56:50,710 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 17:56:50,711 INFO  [main  ] | Adding annotator parse 
-2016-12-15 17:56:50,721 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 17:56:51,282 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 17:56:51,373 INFO  [main  ] | Adding annotator ner 
-2016-12-15 17:56:56,447 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 17:57:04,928 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 17:57:04,930 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 17:57:04,931 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 18:09:55,956 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 18:09:55,974 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 18:09:55,976 INFO  [main  ] | Adding annotator pos 
-2016-12-15 18:09:56,996 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 18:09:56,998 INFO  [main  ] | Adding annotator parse 
-2016-12-15 18:09:57,012 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 18:09:57,662 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 18:09:57,741 INFO  [main  ] | Adding annotator ner 
-2016-12-15 18:10:03,491 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 18:10:12,500 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 18:10:12,505 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 18:10:12,505 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
-2016-12-15 18:13:54,038 INFO  [main  ] | Adding annotator tokenize 
-2016-12-15 18:13:54,056 INFO  [main  ] | Adding annotator ssplit 
-2016-12-15 18:13:54,059 INFO  [main  ] | Adding annotator pos 
-2016-12-15 18:13:56,038 INFO  [main  ] | Adding annotator lemma 
-2016-12-15 18:13:56,039 INFO  [main  ] | Adding annotator parse 
-2016-12-15 18:13:56,050 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
-2016-12-15 18:13:56,678 INFO  [main  ] | Adding annotator natlog 
-2016-12-15 18:13:56,757 INFO  [main  ] | Adding annotator ner 
-2016-12-15 18:14:01,509 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
-2016-12-15 18:14:11,085 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
-2016-12-15 18:14:11,086 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
-2016-12-15 18:14:11,086 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 00:31:56,320 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 00:31:56,339 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 00:31:56,346 INFO  [main  ] | Adding annotator pos 
+2016-12-16 00:31:58,193 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 00:31:58,197 INFO  [main  ] | Adding annotator parse 
+2016-12-16 00:31:58,205 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 00:31:58,690 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 00:31:58,757 INFO  [main  ] | Adding annotator ner 
+2016-12-16 00:32:02,654 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 00:32:10,994 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 00:32:10,995 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 00:32:10,995 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 00:34:51,206 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 00:34:51,219 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 00:34:51,221 INFO  [main  ] | Adding annotator pos 
+2016-12-16 00:34:52,272 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 00:34:52,273 INFO  [main  ] | Adding annotator parse 
+2016-12-16 00:34:52,286 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 00:34:52,957 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 00:34:53,051 INFO  [main  ] | Adding annotator ner 
+2016-12-16 00:34:58,988 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 00:35:10,508 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 00:35:10,509 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 00:35:10,510 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 00:40:13,858 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 00:40:13,871 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 00:40:13,874 INFO  [main  ] | Adding annotator pos 
+2016-12-16 00:40:14,807 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 00:40:14,808 INFO  [main  ] | Adding annotator parse 
+2016-12-16 00:40:14,818 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 00:40:15,384 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 00:40:15,469 INFO  [main  ] | Adding annotator ner 
+2016-12-16 00:40:20,362 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 00:40:27,321 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 00:40:27,322 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 00:40:27,323 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 00:41:55,795 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 00:41:55,810 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 00:41:55,813 INFO  [main  ] | Adding annotator pos 
+2016-12-16 00:41:56,753 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 00:41:56,754 INFO  [main  ] | Adding annotator parse 
+2016-12-16 00:41:56,764 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 00:41:57,318 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 00:41:57,389 INFO  [main  ] | Adding annotator ner 
+2016-12-16 00:42:02,339 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 00:42:09,911 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 00:42:09,912 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 00:42:09,913 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 00:45:49,916 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 00:45:49,931 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 00:45:49,934 INFO  [main  ] | Adding annotator pos 
+2016-12-16 00:45:51,834 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 00:45:51,836 INFO  [main  ] | Adding annotator parse 
+2016-12-16 00:45:51,844 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 00:45:52,465 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 00:45:52,559 INFO  [main  ] | Adding annotator ner 
+2016-12-16 00:45:57,421 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 00:46:06,997 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 00:46:06,998 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 00:46:06,998 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 00:47:36,952 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 00:47:36,963 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 00:47:36,968 INFO  [main  ] | Adding annotator pos 
+2016-12-16 00:47:38,324 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 00:47:38,325 INFO  [main  ] | Adding annotator parse 
+2016-12-16 00:47:38,333 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 00:47:38,991 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 00:47:39,084 INFO  [main  ] | Adding annotator ner 
+2016-12-16 00:47:44,950 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 00:47:54,492 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 00:47:54,493 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 00:47:54,494 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 00:50:05,739 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 00:50:05,749 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 00:50:05,752 INFO  [main  ] | Adding annotator pos 
+2016-12-16 00:50:06,655 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 00:50:06,656 INFO  [main  ] | Adding annotator parse 
+2016-12-16 00:50:06,668 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 00:50:07,178 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 00:50:07,247 INFO  [main  ] | Adding annotator ner 
+2016-12-16 00:50:13,076 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 00:50:23,987 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 00:50:23,987 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 00:50:23,988 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 00:53:28,284 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 00:53:28,297 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 00:53:28,299 INFO  [main  ] | Adding annotator pos 
+2016-12-16 00:53:29,182 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 00:53:29,183 INFO  [main  ] | Adding annotator parse 
+2016-12-16 00:53:29,191 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 00:53:29,680 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 00:53:29,750 INFO  [main  ] | Adding annotator ner 
+2016-12-16 00:53:34,854 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 00:53:41,047 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 00:53:41,047 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 00:53:41,048 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 00:58:21,526 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 00:58:21,543 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 00:58:21,547 INFO  [main  ] | Adding annotator pos 
+2016-12-16 00:58:23,319 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 00:58:23,321 INFO  [main  ] | Adding annotator parse 
+2016-12-16 00:58:23,329 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 00:58:23,866 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 00:58:23,950 INFO  [main  ] | Adding annotator ner 
+2016-12-16 00:58:33,949 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 00:58:33,960 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 00:58:33,963 INFO  [main  ] | Adding annotator pos 
+2016-12-16 00:58:34,903 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 00:58:34,904 INFO  [main  ] | Adding annotator parse 
+2016-12-16 00:58:34,915 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 00:58:35,388 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 00:58:35,459 INFO  [main  ] | Adding annotator ner 
+2016-12-16 00:58:40,577 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 00:58:50,566 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 00:58:50,567 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 00:58:50,567 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 01:01:28,598 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 01:01:28,609 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 01:01:28,611 INFO  [main  ] | Adding annotator pos 
+2016-12-16 01:01:29,467 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 01:01:29,468 INFO  [main  ] | Adding annotator parse 
+2016-12-16 01:01:29,478 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 01:01:29,993 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 01:01:30,067 INFO  [main  ] | Adding annotator ner 
+2016-12-16 01:01:34,405 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 01:01:43,843 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 01:01:43,844 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 01:01:43,845 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 01:01:44,742 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 01:01:44,760 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 01:01:44,764 INFO  [main  ] | Adding annotator pos 
+2016-12-16 01:01:47,170 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 01:01:47,171 INFO  [main  ] | Adding annotator parse 
+2016-12-16 01:01:47,186 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 01:01:47,774 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 01:01:47,853 INFO  [main  ] | Adding annotator ner 
+2016-12-16 01:01:52,896 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 01:02:02,142 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 01:02:02,143 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 01:02:02,143 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 01:04:51,084 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 01:04:51,095 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 01:04:51,098 INFO  [main  ] | Adding annotator pos 
+2016-12-16 01:04:51,968 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 01:04:51,969 INFO  [main  ] | Adding annotator parse 
+2016-12-16 01:04:51,979 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 01:04:52,522 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 01:04:52,594 INFO  [main  ] | Adding annotator ner 
+2016-12-16 01:04:57,156 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 01:05:05,970 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 01:05:05,971 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 01:05:05,971 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 01:07:07,437 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 01:07:07,459 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 01:07:07,461 INFO  [main  ] | Adding annotator pos 
+2016-12-16 01:07:09,199 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 01:07:09,200 INFO  [main  ] | Adding annotator parse 
+2016-12-16 01:07:09,207 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 01:07:09,719 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 01:07:09,790 INFO  [main  ] | Adding annotator ner 
+2016-12-16 01:07:13,807 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 01:07:22,833 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 01:07:22,833 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 01:07:22,834 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 01:08:18,699 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 01:08:18,709 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 01:08:18,712 INFO  [main  ] | Adding annotator pos 
+2016-12-16 01:08:19,562 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 01:08:19,563 INFO  [main  ] | Adding annotator parse 
+2016-12-16 01:08:19,570 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 01:08:20,075 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 01:08:20,143 INFO  [main  ] | Adding annotator ner 
+2016-12-16 01:08:24,698 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 01:08:33,340 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 01:08:33,340 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 01:08:33,340 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 01:10:07,451 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 01:10:07,462 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 01:10:07,464 INFO  [main  ] | Adding annotator pos 
+2016-12-16 01:10:08,381 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 01:10:08,382 INFO  [main  ] | Adding annotator parse 
+2016-12-16 01:10:08,390 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 01:10:09,008 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 01:10:09,079 INFO  [main  ] | Adding annotator ner 
+2016-12-16 01:10:13,727 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 01:10:22,679 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 01:10:22,680 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 01:10:22,680 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 01:14:35,480 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 01:14:35,494 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 01:14:35,496 INFO  [main  ] | Adding annotator pos 
+2016-12-16 01:14:37,233 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 01:14:37,233 INFO  [main  ] | Adding annotator parse 
+2016-12-16 01:14:37,241 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 01:14:37,774 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 01:14:37,853 INFO  [main  ] | Adding annotator ner 
+2016-12-16 01:14:43,002 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 01:14:53,912 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 01:14:53,913 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 01:14:53,913 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 01:25:24,892 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 01:25:24,908 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 01:25:24,912 INFO  [main  ] | Adding annotator pos 
+2016-12-16 01:25:25,821 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 01:25:25,822 INFO  [main  ] | Adding annotator parse 
+2016-12-16 01:25:25,831 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 01:25:26,383 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 01:25:26,457 INFO  [main  ] | Adding annotator ner 
+2016-12-16 01:25:32,623 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 01:25:44,386 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 01:25:44,387 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 01:25:44,387 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 
+2016-12-16 01:30:23,304 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 01:30:23,319 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 01:30:23,321 INFO  [main  ] | Adding annotator pos 
+2016-12-16 01:31:04,528 INFO  [main  ] | Adding annotator tokenize 
+2016-12-16 01:31:04,541 INFO  [main  ] | Adding annotator ssplit 
+2016-12-16 01:31:04,543 INFO  [main  ] | Adding annotator pos 
+2016-12-16 01:31:06,374 INFO  [main  ] | Adding annotator lemma 
+2016-12-16 01:31:06,375 INFO  [main  ] | Adding annotator parse 
+2016-12-16 01:31:06,382 INFO  [main  ] | Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...  
+2016-12-16 01:31:06,918 INFO  [main  ] | Adding annotator natlog 
+2016-12-16 01:31:07,003 INFO  [main  ] | Adding annotator ner 
+2016-12-16 01:31:12,280 INFO  [main  ] | Initializing JollyDayHoliday for SUTime from classpath edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml as sutime.binder.1. 
+2016-12-16 01:31:24,093 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=SystemInfo 
+2016-12-16 01:31:24,094 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Context 
+2016-12-16 01:31:24,094 DEBUG [main  ] | Register MBean: com.hp.hpl.jena.sparql.system:type=Engine 

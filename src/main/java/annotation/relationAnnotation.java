@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
+import org.apache.commons.lang3.StringUtils;
+
 import phrase.phrase;
 import question.questionAnnotation;
 import token.token;
@@ -62,52 +64,110 @@ public class relationAnnotation {
 				ph.setExpandOutgoingProperty(expandOutgoingProperty);
 				
 				ArrayList<relationAnnotationToken> listOfPairScore = new ArrayList<relationAnnotationToken>();
-								
-				for (String[] lp : expandIncomingProperty){
-					for (phrase phr : phraseList){
-						if (phr.getUri() == null ){
-							for (token tk : phr.getPhraseToken()){
-								if (!Arrays.asList(stopWord).contains(tk.getValue())) {
-//									System.out.println(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", "").replaceAll(" ", "_") + " " + tk.getValue().replaceAll("[^a-zA-Z0-9\\ ]", "").replaceAll(" ", "_"));
-									String score = String.valueOf(word2vec.sendToVec(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", ""), tk.getValue().replaceAll("[^a-zA-Z0-9\\ ]", "")));
-									if (Float.valueOf(score) > -1.0){
-										relationAnnotationToken relToken = new relationAnnotationToken();
-										relToken.setScore(Float.valueOf(score));
-										relToken.setIncomingProperty(true);
-										relToken.setPropertyLabel(lp[1]);
-										relToken.setTok(tk);
-										relToken.setUri(lp[0]);
-										listOfPairScore.add(relToken);
-										}
-								}
+								//First compare everything with phrases 
+								//Then compare everything with token
+				
+				
+				for (String[] lp:expandIncomingProperty){
+					for(phrase phr : phraseList){
+						if(phr.getUri() == null){
+							
+							ArrayList<String> tokenList = new ArrayList<String>();
+							for(token tk: phr.getPhraseToken()){
+								tokenList.add(tk.getValue());
+//								System.out.println("*"+tk.getValue());
 							}
+							
+							String joinedString = StringUtils.join(tokenList, " ");
+							
+							String score = String.valueOf(word2vec.sendToVec(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", ""), joinedString.replaceAll("[^a-zA-Z0-9\\ ]", "")));
+//							System.out.println(joinedString+  " " + lp[1] + " " + score);
+							if (Float.valueOf(score) > -1.0){
+								relationAnnotationToken relToken = new relationAnnotationToken();
+								relToken.setScore(Float.valueOf(score));
+								relToken.setIncomingProperty(true);
+								relToken.setPropertyLabel(lp[1]);
+								relToken.setPh(phr);
+								relToken.setUri(lp[0]);
+								listOfPairScore.add(relToken);
+								relToken.setTok(null);
+								}
 						}
 					}
 				}
 				
-				for (String[] lp : expandOutgoingProperty){
-					for (phrase phr : phraseList){
-						if (phr.getUri() == null ){
-							for (token tk : phr.getPhraseToken()){							
-								if (!Arrays.asList(stopWord).contains(tk.getValue())) {
-//									System.out.println(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", "") + " " + tk.getValue().replaceAll("[^a-zA-Z0-9\\ ]", ""));
-									String score = String.valueOf(word2vec.sendToVec(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", ""), tk.getValue().replaceAll("[^a-zA-Z0-9\\ ]", "")));
-									if (Float.valueOf(score) > -1.0){
-										relationAnnotationToken relToken = new relationAnnotationToken();
-										relToken.setScore(Float.valueOf(score));
-										relToken.setOutgoingProperty(true);;
-										relToken.setPropertyLabel(lp[1]);
-										relToken.setTok(tk);
-										relToken.setUri(lp[0]);
-										relToken.setPh(phr);
-										listOfPairScore.add(relToken);
-										}
-								}
+				
+//				for (String[] lp : expandIncomingProperty){
+//					for (phrase phr : phraseList){
+//						if (phr.getUri() == null ){
+//							for (token tk : phr.getPhraseToken()){
+//								if (!Arrays.asList(stopWord).contains(tk.getValue())) {
+////									System.out.println(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", "").replaceAll(" ", "_") + " " + tk.getValue().replaceAll("[^a-zA-Z0-9\\ ]", "").replaceAll(" ", "_"));
+//									String score = String.valueOf(word2vec.sendToVec(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", ""), tk.getValue().replaceAll("[^a-zA-Z0-9\\ ]", "")));
+//									if (Float.valueOf(score) > -1.0){
+//										relationAnnotationToken relToken = new relationAnnotationToken();
+//										relToken.setScore(Float.valueOf(score));
+//										relToken.setIncomingProperty(true);
+//										relToken.setPropertyLabel(lp[1]);
+//										relToken.setTok(tk);
+//										relToken.setUri(lp[0]);
+//										listOfPairScore.add(relToken);
+//										}
+//								}
+//							}
+//						}
+//					}
+//				}
+				
+//				for (String[] lp : expandOutgoingProperty){
+//					for (phrase phr : phraseList){
+//						if (phr.getUri() == null ){
+//							for (token tk : phr.getPhraseToken()){							
+//								if (!Arrays.asList(stopWord).contains(tk.getValue())) {
+////									System.out.println(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", "") + " " + tk.getValue().replaceAll("[^a-zA-Z0-9\\ ]", ""));
+//									String score = String.valueOf(word2vec.sendToVec(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", ""), tk.getValue().replaceAll("[^a-zA-Z0-9\\ ]", "")));
+//									if (Float.valueOf(score) > -1.0){
+//										relationAnnotationToken relToken = new relationAnnotationToken();
+//										relToken.setScore(Float.valueOf(score));
+//										relToken.setOutgoingProperty(true);;
+//										relToken.setPropertyLabel(lp[1]);
+//										relToken.setTok(tk);
+//										relToken.setUri(lp[0]);
+//										relToken.setPh(phr);
+//										listOfPairScore.add(relToken);
+//										}
+//								}
+//							}
+//						}
+//					}
+//				}
+				
+				for (String[] lp:expandOutgoingProperty){
+					for(phrase phr : phraseList){
+						
+						if(phr.getUri() == null){
+							ArrayList<String> tokenList = new ArrayList<String>();
+							for(token tk: phr.getPhraseToken()){
+//								System.out.println("*"+tk.getValue());
+								tokenList.add(tk.getValue());
 							}
+							
+							String joinedString = StringUtils.join(tokenList, " ");
+//							System.out.println(joinedString);
+							String score = String.valueOf(word2vec.sendToVec(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", ""), joinedString.replaceAll("[^a-zA-Z0-9\\ ]", "")));
+//							System.out.println(joinedString+  " " + lp[1] + " " + score);
+							if (Float.valueOf(score) > -1.0){
+								relationAnnotationToken relToken = new relationAnnotationToken();
+								relToken.setScore(Float.valueOf(score));
+								relToken.setOutgoingProperty(true);
+								relToken.setPropertyLabel(lp[1]);
+								relToken.setPh(phr);
+								relToken.setUri(lp[0]);
+								listOfPairScore.add(relToken);
+								}
 						}
 					}
 				}
-				
 				
 				
 				
