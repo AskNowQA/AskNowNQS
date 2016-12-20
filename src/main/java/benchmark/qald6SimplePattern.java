@@ -39,14 +39,14 @@ public class qald6SimplePattern {
 		//initializing the pipeline
 		initializer init = new initializer();
 		//parsing the qaldjson file for answers.
-		ArrayList<String[]> qaldTuple = parseQald.parseQald6("src/main/resources/qald-6-single-triple-boolean-multilingual.json");
+		ArrayList<String[]> qaldTuple = parseQald.parseQald6("src/main/resources/qald-6-single-triple-ontology-multilingual.json");
 		Integer counter = 0;
 		Integer query_number = 0;
 		Integer skip_questions = 0;
 		for(String[] temp: qaldTuple){
 			System.out.println(query_number);
 			query_number = query_number + 1;
-			if(skip_questions < 0){
+			if(skip_questions < 5){
 				skip_questions = skip_questions + 1;
 				continue;
 			}
@@ -54,7 +54,7 @@ public class qald6SimplePattern {
 			String sparql = temp[1];
 			//Group by query apprently does not workso skipping it 
 			
-			if (sparql.contains("GROUP BY") || sparql.contains("Breaking_Bad") || query_number == 155 || query_number == 181 || query_number == 216 || query_number == 234 || query_number == 245 || query_number == 312 || query_number == 327 || query_number == 349){
+			if (sparql.contains("GROUP BY") || sparql.contains("Breaking_Bad") ){
 				//Breaking_Bad query is no. 20
 				//Film producer
 				continue;

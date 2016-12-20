@@ -44,13 +44,14 @@ public class executeQuestion {
 				for(token tk: ph.getPhraseToken()){
 					System.out.print(tk.getValue() + " ");
 				}
-				if(ph.getUri() != null){
-					System.out.println("");
-					System.out.println(" The list of proabable relations are");
-					Integer temp_counter = 0;
-					for (relationAnnotationToken relTk : ph.getListOfProbableRelation()){
-						
-						
+//				if(ph.getUri() != null){
+//					System.out.println("");
+//					System.out.println(" The list of proabable relations are");
+//					Integer temp_counter = 0;
+//					for (relationAnnotationToken relTk : ph.getListOfProbableRelation()){
+//						
+//						System.out.println(relTk.getPropertyLabel());
+//						
 //						if(relTk.getPh() == null){
 //							System.out.println("**");
 //							System.out.println("\t" + relTk.getTok().getValue() + " : " + relTk.getPropertyLabel() + " :" + relTk.getScore() );
@@ -62,16 +63,16 @@ public class executeQuestion {
 //							}
 //							System.out.println(" ");
 //						}
-						
-						if(temp_counter == counter){
-							break;
-						}
-						temp_counter = temp_counter+1;
-					}
-				}
-				else{
-					System.out.println("");
-				}
+//						
+//						if(temp_counter == counter){
+//							break;
+//						}
+//						temp_counter = temp_counter+1;
+//					}
+//				}
+//				else{
+//					System.out.println("");
+//				}
 			}
 		}
 		

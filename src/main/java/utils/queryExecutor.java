@@ -16,16 +16,16 @@ public class queryExecutor {
 	 * */
 	public static ResultSet query(String sparql){
 		Query query = QueryFactory.create(sparql,Syntax.syntaxARQ);
-//		QueryExecution qExe = QueryExecutionFactory.sparqlService( "http://131.220.153.66:8900/sparql", query );
-		QueryExecution qExe = QueryExecutionFactory.sparqlService( "http://live.dbpedia.org/sparql", query );
+		QueryExecution qExe = QueryExecutionFactory.sparqlService( "http://131.220.153.66:8900/sparql", query );
+//		QueryExecution qExe = QueryExecutionFactory.sparqlService( "http://live.dbpedia.org/sparql", query );
 		ResultSet results = qExe.execSelect();
 		return results;
 	}
 	
 	public static boolean queryAsk(String sparql) {
 		Query query = QueryFactory.create(sparql,Syntax.syntaxARQ) ;
-//		QueryExecution qexec = QueryExecutionFactory.sparqlService("http://131.220.153.66:8900/sparql",query) ;
-		QueryExecution qexec = QueryExecutionFactory.sparqlService( "http://live.dbpedia.org/sparql", query );
+		QueryExecution qexec = QueryExecutionFactory.sparqlService("http://131.220.153.66:8900/sparql",query) ;
+//		QueryExecution qexec = QueryExecutionFactory.sparqlService( "http://live.dbpedia.org/sparql", query );
 		boolean result = qexec.execAsk() ;
 		qexec.close();
 		return result;

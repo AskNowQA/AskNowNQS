@@ -13,7 +13,7 @@ public class SparqlSelector {
 		//If token == list then we assume it to be a list query
 		
 		Pattern list = Pattern.compile("list |List |lists |Lists "); //add a proper regular expresion which is case insensitive
-		Pattern howmany = Pattern.compile("how many |count |enumerate ");
+		Pattern howmany = Pattern.compile("how many |count |enumerate|how often ");
 		Pattern superlativeWordList = Pattern.compile("highest|lowest|deepest|fastest|longest|largest|youngest|oldest|heaviest|lightest|tallest|shortest");
 		Pattern booleanQuery = Pattern.compile("is|does|was|were|are|do|did|does|whether");
 		String sparql = "";
@@ -34,7 +34,7 @@ public class SparqlSelector {
 		
 
 		if(howmany.matcher(ques_annotation.getPreProcessingQuestion().toLowerCase()).find()){
-			sparql = listQuery.listQuerylogic(ques_annotation);
+			sparql = countQuery.countQuerylogic(ques_annotation);
 			return sparql;
 		}
 		
