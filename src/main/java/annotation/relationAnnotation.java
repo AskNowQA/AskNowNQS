@@ -20,7 +20,7 @@ public class relationAnnotation {
 	 * */
 	
 	public static ArrayList<ArrayList<relationAnnotationToken>> relAnnotation(ArrayList<phrase> phraseList, questionAnnotation ques_annotation) throws Exception{
-		String[] stopWord = {"Who","What","Who","the","an","a","that","them","they","their","those","list","as","when","is"};
+		String[] stopWord = {"Who","What","Who","the","an","a","that","them","they","their","those","list","as","when","is", "how", "many", "often", "are", "is", "there", "in", "were","?"};
 		String[] propertyStopWord = {"thumbnail"};
 		ArrayList<ArrayList<relationAnnotationToken>> finalRelList = new ArrayList<ArrayList<relationAnnotationToken>>(); 
 		
@@ -40,7 +40,7 @@ public class relationAnnotation {
 				
 				for (String[] lp : ph.getIncomingProperty()){
 					//send each of the property label to WordNet.
-					if(!Arrays.asList(propertyStopWord).contains(lp[1])) {
+					if(!Arrays.asList(propertyStopWord).contains(lp[1]) && !lp[0].contains("property")) {
 						for(String word : wordNet.getSynonyms(lp[1])){
 							expandIncomingProperty.add(new String[] {lp[0],word});
 						}
@@ -52,7 +52,7 @@ public class relationAnnotation {
 				for (String[] lp : ph.getOutgoingProperty()){
 					//send each of the property label to WordNet.
 					
-					if(!Arrays.asList(propertyStopWord).contains(lp[1])){
+					if(!Arrays.asList(propertyStopWord).contains(lp[1]) && !lp[0].contains("property")){
 						for(String word : wordNet.getSynonyms(lp[1])){
 							expandOutgoingProperty.add(new String[] {lp[0],word});
 						}
@@ -79,6 +79,11 @@ public class relationAnnotation {
 							}
 							
 							String joinedString = StringUtils.join(tokenList, " ");
+							if(Arrays.asList(stopWord).contains(joinedString.toLowerCase().trim())){
+								continue;
+								
+							}
+//							System.out.println(joinedString);
 							
 							String score = String.valueOf(word2vec.sendToVec(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", ""), joinedString.replaceAll("[^a-zA-Z0-9\\ ]", "")));
 //							System.out.println(joinedString+  " " + lp[1] + " " + score);
@@ -154,6 +159,10 @@ public class relationAnnotation {
 							
 							String joinedString = StringUtils.join(tokenList, " ");
 //							System.out.println(joinedString);
+							if(Arrays.asList(stopWord).contains(joinedString.toLowerCase().trim())){
+								continue;
+								
+							}
 							String score = String.valueOf(word2vec.sendToVec(lp[1].replaceAll("[^a-zA-Z0-9\\ ]", ""), joinedString.replaceAll("[^a-zA-Z0-9\\ ]", "")));
 //							System.out.println(joinedString+  " " + lp[1] + " " + score);
 							if (Float.valueOf(score) > -1.0){
