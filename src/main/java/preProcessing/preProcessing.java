@@ -6,6 +6,7 @@ import utils.sendRequest;
 public class preProcessing {
 /*
  * Controls all pre-processing.
+ * The code does not hit the resolve apostrophy server. 
  * 
  * */
 	
