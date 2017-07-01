@@ -1,0 +1,6 @@
+The system architecture is composed of multiple orchestrator which are controlled by a central orchestrator.
+
+the central orchestrator which is a class calls up multiple orchestrators which provides a set of specific services. Each orchestrator is accompnied by a class which provides a mechanism to store metadata needed for executing the quesstion. 
+
+
+The executeQuesstion (the main orchestrator) calls the question orchestrator class. The class expects a string question as the input to the same. 

@@ -10,7 +10,8 @@ public class quesOrch {
 	
 	/*
 	 * This class orchestrates the question annotation part. It takes care of pre-processing,
-	 * word annotation and other such aspects
+	 * word annotation and other such aspects. These annotation are then stored in the class questionAnnotation which 
+	 * is returned finally.
 	 * */
 	
 	public questionAnnotation questionOrchestrator(String question)
@@ -27,7 +28,7 @@ public class quesOrch {
 		
 		
 		//word based annotation
-		tokenAnnotationOrch tokenAnnotation = new tokenAnnotationOrch();
+		tokenAnnotationOrch tokenAnnotation = new tokenAnnotationOrch(); //Performs annotation, tokenization.
 		ArrayList<token> tokenList = tokenAnnotation.getWordTokenArrayList(processedQuestion);
 		
 		

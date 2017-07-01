@@ -17,7 +17,8 @@ public class executeQuestion {
 
 	
 	/*
-	 * This starts the processing pipelines. Also has a verbose variable which prints accordingly.
+	 * This starts the processing pipelines. Also has a verbose variable which prints accordingly. This feature has not been implemnted
+	 * properly.
 	 * 
 	 * 
 	 * */
@@ -28,8 +29,15 @@ public class executeQuestion {
 			System.out.println("The question is : " + question );
 		}
 		
-		ArrayList<String> askNow_answer = null;
-		quesOrch question_orch = new quesOrch();
+		
+		ArrayList<String> askNow_answer = null;	//This will store the answer generated after the question is executed.
+		
+		/*
+		 * Question orchestrator: Takes input as straing (question) and returns annotated question.
+		 * 
+		 * General Note: FOr more information about any class check the class specific documentation.
+		 * */
+		quesOrch question_orch = new quesOrch(); 
 		questionAnnotation ques_annotation = question_orch.questionOrchestrator(question);
 		phraseOrch phrase = new phraseOrch();
 		ArrayList<phrase> phraseList = phrase.startPhraseMerger(ques_annotation);

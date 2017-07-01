@@ -36,13 +36,25 @@ public class qald6 {
 
 	
 	public static void main(String args[]){
-		//initializing the pipeline
+		/*
+		 This class executes the qald6 train file. It parses the question and passes it to the execute question class.
+		 It also parses the answer and compares the answer with the generated answer. The answer is returned by the execute question.
+		 The class acts like a wrapper for input question and answer, compares the generated answer and gives a score.
+		 */
+		
+		
+		//Initializing the pipeline
 		initializer init = new initializer();
-		//parsing the qaldjson file for answers.
+		//parsing the QALD json file for answers.
 		ArrayList<String[]> qaldTuple = parseQald.parseQald6("src/main/resources/qald-6-train-multilingual.json");
+		
+		
+		//Statistics varaibles
 		Integer counter = 0;
 		Integer query_number = 0;
 		Integer skip_questions = 0;
+		
+		//basic parsing
 		for(String[] temp: qaldTuple){
 			System.out.println(query_number);
 			query_number = query_number + 1;
@@ -57,6 +69,7 @@ public class qald6 {
 			if (sparql.contains("GROUP BY") || sparql.contains("Breaking_Bad") || query_number == 155 || query_number == 181 || query_number == 216 || query_number == 234 || query_number == 245 || query_number == 312 || query_number == 327 || query_number == 349){
 				//Breaking_Bad query is no. 20
 				//Film producer
+				//TODO: Due to some implementation bug, these aove query are not supported. 
 				continue;
 			}
 			if(!sparql.equals("")){
@@ -66,6 +79,8 @@ public class qald6 {
 				System.out.println("the qald query is " + sparql);
 				try{
 						ArrayList<String> qald_result = qaldQuery.returnResultsQald(sparql);
+						
+						//This is the meat of the code. This is where the question is executed. 
 						ArrayList<String> askNow_answer = executeQuestion.execute(question,true);
 						if (askNow_answer != null){
 							if(askNow_answer.containsAll(qald_result) && qald_result.containsAll(askNow_answer)){

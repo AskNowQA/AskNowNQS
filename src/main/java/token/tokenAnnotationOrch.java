@@ -7,7 +7,9 @@ import nlp.nlp;
 public class tokenAnnotationOrch {
 
 	/*
-	 * Class which actually does the annotation and also all other services 
+	 * Perfomrss NER, pos, tokenizing and lemmatizing of the word. Each individual word of the question 
+	 * is stored in token and also stores other meta data in the token class. All tokens are stored in the arraylist
+	 * and is returend. This arraylist is then storedd in questionAnnotation class. 
 	 * 
 	 * */
 	public ArrayList<token> getWordTokenArrayList(String question){
