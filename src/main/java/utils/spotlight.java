@@ -57,8 +57,8 @@ public class spotlight
 		catch(Exception e){
 
 		}
-		System.out.println(DBpEquivalent);
-		System.out.println("****************");
+//		System.out.println(DBpEquivalent);
+//		System.out.println("****************");
 		return DBpEquivalent;	
 	}
 
@@ -77,7 +77,7 @@ public class spotlight
 			JSONArray json_array = new JSONArray();
 			
 			Element links = doc.select("body").first();
-			System.out.println(links.text());			
+//			System.out.println(links.text());			
 			
 			
 			
@@ -90,7 +90,7 @@ public class spotlight
 			JSONObject json_content = (JSONObject) parser.parse(links.text());
 			
 			String name = (String) json_content.get("@text");
-			System.out.println(name);
+//			System.out.println(name);
 			JSONArray resource = (JSONArray) json_content.get("Resources");
 			Iterator<JSONObject> iterator = resource.iterator();
 			
@@ -102,12 +102,11 @@ public class spotlight
 				JSONObject temp_json_content = iterator.next();
 				jo.put("offset",(String) temp_json_content.get("@offset"));
 				jo.put("name",(String) temp_json_content.get("@surfaceForm"));
-				jo.put("uri",(String) temp_json_content.get("@URI"));
+				jo.put("uri","<"+(String) temp_json_content.get("@URI")+">");
 				jo.put("label",(String) temp_json_content.get("@surfaceForm"));
 				jo.put("finalScore",(String) temp_json_content.get("@similarityScore"));
 				jo.put("contextualScore",(String) temp_json_content.get("@percentageOfSecondRank"));
 				json_array.add(jo);
-
             }
 			
 			
@@ -144,7 +143,8 @@ public class spotlight
 			DBpEquivalent = json_array;
 		}
 		catch(Exception e){
-			System.out.println(e.getMessage());
+//			System.out.println(e.getMessage());
+			
 		}
 		return DBpEquivalent;
 	}

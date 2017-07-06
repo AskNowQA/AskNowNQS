@@ -31,6 +31,8 @@ public class OneHopRelationQuery {
 	
 	
 	public static ArrayList<String[]> executeOneHop(String sparql){
+		System.out.println("THE CONSTRUCTED SPARQL FOR ONE HOP STRATEGY IS ");
+		System.out.println(sparql);
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		
 		ResultSetFormatter.outputAsJSON(outputStream, queryExecutor.query(sparql));

@@ -79,7 +79,8 @@ public class qald6 {
 				System.out.println("the qald query is " + sparql);
 				try{
 						ArrayList<String> qald_result = qaldQuery.returnResultsQald(sparql);
-						
+						System.out.println("the quald returned results are :");
+						System.out.println(qald_result);
 						//This is the meat of the code. This is where the question is executed. 
 						ArrayList<String> askNow_answer = executeQuestion.execute(question,true);
 						if (askNow_answer != null){
@@ -91,6 +92,7 @@ public class qald6 {
 					}
 				}
 					catch (Exception e){
+						System.out.println(e.getMessage());
 						continue ;
 					}
 				}

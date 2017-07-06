@@ -23,10 +23,12 @@ import utils.spotlight;
 			for (token tk: ph.getPhraseToken()){
 				tempString = tempString + tk.getValue() + " ";
 			}
+			System.out.println("check for the phrase " +  tempString);
 			JSONArray DBpEquivalent = spot.getDBLookup(tempString, "0.0");			
 			try{
 				
 				JSONObject obj2 = (JSONObject) DBpEquivalent.get(0);
+				System.out.println(obj2.get("uri") );
 				ph.setUri(obj2.get("uri").toString());
 			}
 

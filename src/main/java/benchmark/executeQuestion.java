@@ -50,7 +50,7 @@ public class executeQuestion {
 			System.out.println("the list of phrases are ");
 			for(phrase ph: phraseList){
 				for(token tk: ph.getPhraseToken()){
-					System.out.print(tk.getValue() + " ");
+					System.out.print(tk.getValue() + "sasas ");
 				}
 //				if(ph.getUri() != null){
 //					System.out.println("");
@@ -86,6 +86,7 @@ public class executeQuestion {
 		
 		String askNow_sparql = SparqlSelector.sparqlSelector(ques_annotation);
 		if(verbose){
+			System.out.println("@CHECK!!");
 			System.out.println("The generated sparql is :" + askNow_sparql);
 		}
 		

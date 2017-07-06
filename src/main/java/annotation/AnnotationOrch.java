@@ -29,7 +29,9 @@ public class AnnotationOrch {
 		
 		ArrayList<ArrayList<relationAnnotationToken>> finalRelList = new ArrayList<ArrayList<relationAnnotationToken>>();
 		entityAnnotation.Annotation(phraseList);
+		
 		try {
+			
 			finalRelList = relationAnnotation.relAnnotation(phraseList, ques_annotation);
 			
 		} catch (Exception e) {

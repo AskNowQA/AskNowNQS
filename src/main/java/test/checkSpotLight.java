@@ -11,10 +11,15 @@ public class checkSpotLight {
 		// TODO Auto-generated method stub
 		
 		spotlight spot = new spotlight();
-		JSONArray DBpEquivalent = spot.getDBLookup("United States Of America and Berlin and Barack Obama adn Pluto", "0.0");
+		JSONArray DBpEquivalent = spot.getDBLookup("cosmonaut", "0.0");
 		System.out.println(DBpEquivalent.get(0));	
 		 JSONObject obj2 = (JSONObject) DBpEquivalent.get(0);
-		 System.out.println(obj2.get("name"));
+//		 JSONObject obj3 = (JSONObject) DBpEquivalent.get(1);
+//		 JSONObject obj4 = (JSONObject) DBpEquivalent.get(4);
+//
+		 System.out.println(obj2.get("uri"));
+//		 System.out.println(obj3.get("name"));
+//		 System.out.println(obj4.get("name"));
 	}
 
 }
