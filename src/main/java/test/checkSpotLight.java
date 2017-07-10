@@ -11,7 +11,7 @@ public class checkSpotLight {
 		// TODO Auto-generated method stub
 		
 		spotlight spot = new spotlight();
-		JSONArray DBpEquivalent = spot.getDBLookup("cosmonaut", "0.0");
+		JSONArray DBpEquivalent = spot.getDBLookup("Pluto is a good boy", "0.0");
 		System.out.println(DBpEquivalent.get(0));	
 		 JSONObject obj2 = (JSONObject) DBpEquivalent.get(0);
 //		 JSONObject obj3 = (JSONObject) DBpEquivalent.get(1);

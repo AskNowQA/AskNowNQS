@@ -24,6 +24,8 @@ public class spotlight
 	 ** @return */
 	public static JSONArray getDBpLookup(String phrase)
 	{
+		
+		//Does not work. To emulate this just pass the confidence as 0
 		JSONArray DBpEquivalent= new JSONArray(); 
 		String argument = phrase.replaceAll(" ","%20");
 		try
