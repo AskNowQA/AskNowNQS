@@ -21,7 +21,8 @@ public class relationAnnotation {
 	
 	public static ArrayList<ArrayList<relationAnnotationToken>> relAnnotation(ArrayList<phrase> phraseList, questionAnnotation ques_annotation) throws Exception{
 		String[] stopWord = {"Who","What","Who","the","an","a","that","them","they","their","those","list","as","when","is", "how", "many", "often", "are", "is", "there", "in", "were","?"};
-		String[] propertyStopWord = {"thumbnail"};
+		//TODO: Add property stopword here.
+		String[] propertyStopWord = {"thumbnail","abstract"};
 		ArrayList<ArrayList<relationAnnotationToken>> finalRelList = new ArrayList<ArrayList<relationAnnotationToken>>(); 
 		
 		Integer printRelationNumber = 20;
